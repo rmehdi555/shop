@@ -23,6 +23,15 @@
                         <div class="col-sm-6">
                             <h2 class="subtitle">{{__('web/public.old_user')}}</h2>
                             <p><strong>{{__('web/messages.old_user')}}</strong></p>
+                            @if(count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group row">

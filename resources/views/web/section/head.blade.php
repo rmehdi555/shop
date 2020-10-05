@@ -23,6 +23,8 @@ $locale = App::getLocale();
     <link rel="stylesheet" type="text/css" href="{{asset('web/2020/css/responsive.css')}}" />
 
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
+    {{--<link rel="stylesheet" type="text/css" href="{{asset('web/2020/css/sweetalert.css')}}" />--}}
+    <script src="{{asset('web/2020/js/sweetalert.min.js')}}"></script>
     <!-- CSS Part End-->
     @if($locale=="fa")
         <link rel="stylesheet" type="text/css" href="{{asset('web/2020/js/bootstrap/css/bootstrap-rtl.min.css')}}" />

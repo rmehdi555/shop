@@ -75,5 +75,8 @@ return [
     'forgot_yor_password'=>'رمز عبور را فراموش کرده اید ؟',
     'btn_register'=>'ثبت نام',
     'btn_logout'=>'خروج',
+    'activation_link'=>'لینک فعال سازی',
+    'activation_email_title'=>'جهت فعال سازی حساب روی دکمه زیر کلیک کنید',
+    'activation_email_button'=>'فعالسازی حساب',
 
 ];

@@ -1,5 +1,6 @@
 
 <body>
+@include('sweet::alert')
 <div class="wrapper-wide">
     <div id="header">
         <!-- Top Bar Start-->

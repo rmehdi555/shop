@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/test',function (){
+    event(new \App\Events\UserActivation(\App\User::find(5)));
+})->name('web.home');
 
 Route::get('index','HomeController@index')->name('web.index');
 Route::get('/','HomeController@index')->name('web.home');
@@ -65,3 +68,4 @@ Route::namespace('Auth')->group(function (){
 //
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user/active/email/{token}', 'UserController@activationAccountByEmail')->name('activation.account.by.email');
