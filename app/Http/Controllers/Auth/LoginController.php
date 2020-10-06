@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\App;
 
 class LoginController extends Controller
 {
@@ -24,6 +25,12 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+
+    public function showLoginForm()
+    {
+        //
+        return view('auth.login');
+    }
 
     /**
      * Where to redirect users after login.
@@ -53,6 +60,7 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
+
         $this->validateLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle

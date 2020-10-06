@@ -14,8 +14,6 @@ class HomeController extends Controller
     public function index()
     {
         $slider=Slider::where('status','=','1')->orderBy('priority','desc')->get();
-        if(session('locale')!=null)
-            App::setLocale(session('locale'));
 
        // محصولات ویژه
         $specialProducts=Products::where('type','=','special')->limit(10)->get();
@@ -26,9 +24,6 @@ class HomeController extends Controller
     public function showCategory($id)
     {
         $category=ProductCategories::find($id);
-        if(session('locale')!=null)
-            App::setLocale(session('locale'));
-
         // محصولات ویژه
         $specialProducts=Products::where('type','=','special')->limit(10)->get();
         //جدید ترین محصولات
@@ -38,9 +33,6 @@ class HomeController extends Controller
     public function showProduct($id)
     {
         $product=Products::find($id);
-        if(session('locale')!=null)
-            App::setLocale(session('locale'));
-
         // محصولات ویژه
         $specialProducts=Products::where('type','=','special')->limit(10)->get();
         //جدید ترین محصولات
@@ -65,5 +57,14 @@ class HomeController extends Controller
         }
         session()->put('Local_Currency', $currency);
         return redirect()->back();
+    }
+
+    public function web404()
+    {
+        return view('web.pages.404');
+    }
+    public function web500()
+    {
+        return view('web.pages.500');
     }
 }

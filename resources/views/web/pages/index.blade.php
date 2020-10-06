@@ -1,4 +1,5 @@
-@extends('web.master')
+
+@extends('web.master-product')
 @section('content')
 
 

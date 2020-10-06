@@ -1,4 +1,4 @@
-@extends('web.master')
+@extends('web.master-product')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

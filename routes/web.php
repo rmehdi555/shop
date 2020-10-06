@@ -15,16 +15,39 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/test',function (){
-    event(new \App\Events\UserActivation(\App\User::find(5)));
-})->name('web.home');
 
-Route::get('index','HomeController@index')->name('web.index');
-Route::get('/','HomeController@index')->name('web.home');
-Route::get('/category/{id}','HomeController@showCategory')->name('web.show.category');
-Route::get('/product/{id}','HomeController@showProduct')->name('web.show.product');
 
-Route::get('/lang/{locale}','HomeController@changeLang')->name('web.change.lang');
+Route::middleware('language')->group(function (){
+    //Auth::routes();
+
+    Route::get('/test',function (){
+        event(new \App\Events\UserActivation(\App\User::find(5)));
+    })->name('web.home');
+
+    Route::get('index','HomeController@index')->name('web.index');
+    Route::get('/','HomeController@index')->name('web.home');
+    Route::get('/category/{id}','HomeController@showCategory')->name('web.show.category');
+    Route::get('/product/{id}','HomeController@showProduct')->name('web.show.product');
+
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/user/active/email/{token}', 'UserController@activationAccountByEmail')->name('activation.account.by.email');
+
+
+    // error page
+
+    Route::get('/404', 'HomeController@web404')->name('web.404');
+    Route::get('/500', 'HomeController@web500')->name('web.500');
+
+});
+
+
+//Route::get('/lang/{locale}','HomeController@changeLang')->name('web.change.lang');
+Route::get('/lang/{locale}',function($lang){
+    \Session::put('locale',$lang);
+    //dd(session('locale'));
+    return redirect()->back();
+})->name('web.change.lang');
+
 Route::get('/currency/{currency}','HomeController@changeCurrency')->name('web.change.currency');
 
 
@@ -43,7 +66,7 @@ Route::middleware('auth','checkAdmin')->namespace('Admin')->prefix('admin')->gro
 // end admin  route
 
 
-Route::namespace('Auth')->group(function (){
+Route::middleware('language')->namespace('Auth')->group(function (){
     // Authentication Routes...
     Route::get('login', 'LoginController@showLoginForm')->name('login');
     Route::post('login', 'LoginController@login');
@@ -64,8 +87,3 @@ Route::namespace('Auth')->group(function (){
 });
 
 
-//Auth::routes();
-//
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/user/active/email/{token}', 'UserController@activationAccountByEmail')->name('activation.account.by.email');
