@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2020 at 08:49 PM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Generation Time: Oct 07, 2020 at 02:52 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,6 +24,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `activation_codes`
+--
+
+CREATE TABLE `activation_codes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `used` tinyint(1) NOT NULL DEFAULT 0,
+  `expire` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `activation_codes`
+--
+
+INSERT INTO `activation_codes` (`id`, `user_id`, `code`, `used`, `expire`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(33, 5, '2aVrFSppqH9UAQpA9zHn7kB5gyamvjTSkLA1wYI1Mkx0o7oQK2U3ZgugVyQ4', 0, '2020-10-05 09:11:56', '2020-10-05 08:56:56', '2020-10-05 08:56:56', NULL),
+(34, 5, 'p8d4HAmM67ay5aoTtzUUGdBHZecwNj5G4tAcUei0vYKZOo7m7Wlw6mVOjlJe', 0, '2020-10-06 09:50:26', '2020-10-06 09:35:26', '2020-10-06 09:35:26', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `currency_converts`
 --
 
@@ -34,7 +58,7 @@ CREATE TABLE `currency_converts` (
   `exFrom` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT 'IRR',
   `exTo` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'EUR',
   `rate` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
-  `status` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -63,7 +87,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -76,16 +100,16 @@ CREATE TABLE `failed_jobs` (
 CREATE TABLE `menus` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` text COLLATE utf8mb4_unicode_ci,
+  `slug` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
-  `body` text COLLATE utf8mb4_unicode_ci,
-  `parent_id` int(11) NOT NULL DEFAULT '0',
-  `images` text COLLATE utf8mb4_unicode_ci,
-  `tags` text COLLATE utf8mb4_unicode_ci,
-  `icon` text COLLATE utf8mb4_unicode_ci,
-  `priority` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `body` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parent_id` int(11) NOT NULL DEFAULT 0,
+  `images` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tags` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `priority` int(11) NOT NULL DEFAULT 0,
+  `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -116,7 +140,29 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2020_04_09_134439_create_site_details_table', 1),
 (7, '2020_04_09_141147_create_menus_table', 1),
 (8, '2020_04_09_163121_create_sliders_table', 1),
-(9, '2020_04_22_095407_create_currency_converts_table', 2);
+(9, '2020_04_22_095407_create_currency_converts_table', 2),
+(10, '2014_10_12_100000_create_password_resets_table', 3),
+(11, '2020_10_04_082501_create_activation_codes_table', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('eli5555555eli@gmail.com', '$2y$10$O3xyJAEojzHxpz9AJi/GLuHIGIYUfh.JeNBUdbT7pwczy.q.wDfea', '2020-09-27 09:43:14'),
+('rezaie.mehdi555@gmail.com', '$2y$10$nSh7B41LXgGhae1UpYj5xuLYsscTyIN4OQqh0Zhl3BqLQnsRIrZXO', '2020-10-05 09:27:12');
 
 -- --------------------------------------------------------
 
@@ -130,15 +176,15 @@ CREATE TABLE `products` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `product_categories_id` int(11) NOT NULL,
   `slug` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `discount` double NOT NULL DEFAULT '0',
+  `discount` double NOT NULL DEFAULT 0,
   `type` varchar(50) NOT NULL DEFAULT 'normal',
   `images` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tags` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `priority` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
+  `priority` int(11) NOT NULL DEFAULT 0,
+  `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -165,14 +211,14 @@ CREATE TABLE `product_categories` (
   `title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `parent_id` int(11) NOT NULL DEFAULT '0',
-  `images` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `tags` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `icon` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `priority` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parent_id` int(11) NOT NULL DEFAULT 0,
+  `images` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tags` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `priority` int(11) NOT NULL DEFAULT 0,
+  `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -210,9 +256,9 @@ INSERT INTO `product_categories` (`id`, `title`, `slug`, `user_id`, `description
 CREATE TABLE `product_images` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
-  `images` text CHARACTER SET utf8,
-  `priority` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
+  `images` text CHARACTER SET utf8 DEFAULT NULL,
+  `priority` int(11) NOT NULL DEFAULT 0,
+  `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -229,10 +275,10 @@ CREATE TABLE `site_details` (
   `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `key` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `value` text COLLATE utf8mb4_unicode_ci,
-  `images` text COLLATE utf8mb4_unicode_ci,
+  `value` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `images` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -261,11 +307,11 @@ CREATE TABLE `sliders` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `images` text COLLATE utf8mb4_unicode_ci,
-  `link` text COLLATE utf8mb4_unicode_ci,
+  `images` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT 'index',
-  `priority` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
+  `priority` int(11) NOT NULL DEFAULT 0,
+  `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -290,15 +336,15 @@ CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `family` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `active` tinyint(4) NOT NULL DEFAULT 0,
   `level` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'user',
   `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `phone_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `priority` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
+  `priority` int(11) NOT NULL DEFAULT 0,
+  `status` int(11) NOT NULL DEFAULT 0,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -310,11 +356,20 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `family`, `active`, `level`, `email`, `phone`, `email_verified_at`, `phone_verified_at`, `password`, `priority`, `status`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'admin', 'admin', 1, 'user', 'admin@gmail.com', '1', NULL, NULL, '1', 0, 0, NULL, NULL, NULL, NULL);
+(1, 'admin', 'admin', 0, 'user', 'admin@gmail.com', '1', NULL, NULL, '1', 0, 0, NULL, NULL, NULL, NULL),
+(5, 'مهدی', 'رضایی', 1, 'admin', 'rezaie.mehdi555@gmail.com', '09185507245', NULL, NULL, '$2y$10$5u5XCJPaeobybQPRvrvM4u3YZ493F1pYpx3KhtGLEdNgbC06siApe', 0, 0, '5q3hmh2TN4eP2gSvFt86LvZLjZGKcY3tk2zd7PV9poQ5GdAtuMFRw1YbUNwH', '2020-09-27 04:44:36', '2020-09-27 04:44:36', NULL),
+(9, 'sss', 'm', 0, 'user', 's@m.com', '09185554545', NULL, NULL, '$2y$10$r8MEhEz9HpvmzGiLt.4u9eTW16eqiTuZ0Ik5spJCNPjBT2//EAsW.', 0, 0, NULL, '2020-10-04 08:31:28', '2020-10-04 08:41:29', NULL);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `activation_codes`
+--
+ALTER TABLE `activation_codes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `activation_codes_user_id_foreign` (`user_id`);
 
 --
 -- Indexes for table `currency_converts`
@@ -341,6 +396,12 @@ ALTER TABLE `menus`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
 
 --
 -- Indexes for table `products`
@@ -390,6 +451,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `activation_codes`
+--
+ALTER TABLE `activation_codes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
 -- AUTO_INCREMENT for table `currency_converts`
 --
 ALTER TABLE `currency_converts`
@@ -411,7 +478,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -447,11 +514,17 @@ ALTER TABLE `sliders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `activation_codes`
+--
+ALTER TABLE `activation_codes`
+  ADD CONSTRAINT `activation_codes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `currency_converts`

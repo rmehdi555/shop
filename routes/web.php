@@ -41,6 +41,7 @@ Route::middleware('language')->group(function (){
 });
 
 
+// start lang route
 //Route::get('/lang/{locale}','HomeController@changeLang')->name('web.change.lang');
 Route::get('/lang/{locale}',function($lang){
     \Session::put('locale',$lang);
@@ -48,8 +49,11 @@ Route::get('/lang/{locale}',function($lang){
     return redirect()->back();
 })->name('web.change.lang');
 
-Route::get('/currency/{currency}','HomeController@changeCurrency')->name('web.change.currency');
+//end lang route
 
+// start currency route
+Route::get('/currency/{currency}','HomeController@changeCurrency')->name('web.change.currency');
+// end currency route
 
 
 
@@ -66,6 +70,7 @@ Route::middleware('auth','checkAdmin')->namespace('Admin')->prefix('admin')->gro
 // end admin  route
 
 
+// start auth route
 Route::middleware('language')->namespace('Auth')->group(function (){
     // Authentication Routes...
     Route::get('login', 'LoginController@showLoginForm')->name('login');
@@ -85,5 +90,15 @@ Route::middleware('language')->namespace('Auth')->group(function (){
     Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/reset', 'ResetPasswordController@reset');
 });
+
+// end auth route
+
+// start user  route
+
+Route::middleware('auth','language')->namespace('User')->prefix('user')->group(function (){
+    Route::get('panel','PanelController@index')->name('user.panel');
+});
+
+// end user  route
 
 
