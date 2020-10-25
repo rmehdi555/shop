@@ -56,7 +56,7 @@
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.body')}} ({{$kay}}):</label>
-                                    <textarea name="body_{{$kay}}" class="form-control" rows="5" cols="30" required>{{old('body_'.$kay)}}</textarea>
+                                    <textarea name="body_{{$kay}}" class="form-control ckeditor" rows="5" cols="30" required>{{old('body_'.$kay)}}</textarea>
 
                                 </div>
                                 <?php

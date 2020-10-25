@@ -44,5 +44,15 @@
         $('#basic-form').parsley();
     });
 </script>
+<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+
+<script type="text/javascript">
+    $(function(){
+        $('.ckeditor').each(function(e){
+            CKEDITOR.replace( this.id, { customConfig: '/jblog/ckeditor/config_Large.js'});
+        });
+    });
+</script>
+@yield('script')
 </body>
 </html>

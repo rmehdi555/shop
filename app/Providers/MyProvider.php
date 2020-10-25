@@ -46,13 +46,13 @@ class MyProvider extends ServiceProvider
                 'theme_postfix' => '' ,
                 'flag' => 'iran-flag.png' ,
             ) ,
-           // 'en' => array(
-           //     'title' => 'English' ,
-           //     'dir' => 'ltr' ,
-           //     'active' => TRUE ,
-           //     'theme_postfix' => '' ,
-           //     'flag' => 'english--flag.png' ,
-           // ),
+            'en' => array(
+                'title' => 'English' ,
+                'dir' => 'ltr' ,
+                'active' => TRUE ,
+                'theme_postfix' => '' ,
+                'flag' => 'english--flag.png' ,
+            ),
             // 'af' => array(
             //     'title' => 'پارسی دری' ,
             //     'dir' => 'rtl' ,

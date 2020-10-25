@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
             {
                 $siteDetails[$details->key]=$details;
             }
-            $categoriesProvider=ProductCategories::with('parent')->get();
+            $categoriesProvider=ProductCategories::where('status','=','1')->with('parent')->get();
             $view->with([
                 'siteDetailsProvider' => $siteDetails,
                 'categoriesProvider'=>$categoriesProvider,

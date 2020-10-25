@@ -16,27 +16,27 @@ class HomeController extends Controller
         $slider=Slider::where('status','=','1')->orderBy('priority','desc')->get();
 
        // محصولات ویژه
-        $specialProducts=Products::where('type','=','special')->limit(10)->get();
+        $specialProducts=Products::where([['type','=','special'],['status','=','1'] ])->limit(10)->get();
         //جدید ترین محصولات
-        $newProducts=Products::orderBy('created_at','desc')->limit(10)->get();
+        $newProducts=Products::where('status','=','1')->orderBy('created_at','desc')->limit(10)->get();
         return view('web.pages.index',compact('slider','specialProducts','newProducts'));
     }
     public function showCategory($id)
     {
         $category=ProductCategories::find($id);
         // محصولات ویژه
-        $specialProducts=Products::where('type','=','special')->limit(10)->get();
+        $specialProducts=Products::where([['type','=','special'],['status','=','1'] ])->limit(10)->get();
         //جدید ترین محصولات
-        $newProducts=Products::orderBy('created_at','desc')->limit(10)->get();
+        $newProducts=Products::where('status','=','1')->orderBy('created_at','desc')->limit(10)->get();
         return view('web.pages.category',compact('category','specialProducts','newProducts'));
     }
     public function showProduct($id)
     {
         $product=Products::find($id);
         // محصولات ویژه
-        $specialProducts=Products::where('type','=','special')->limit(10)->get();
+        $specialProducts=Products::where([['type','=','special'],['status','=','1'] ])->limit(10)->get();
         //جدید ترین محصولات
-        $newProducts=Products::orderBy('created_at','desc')->limit(10)->get();
+        $newProducts=Products::where('status','=','1')->orderBy('created_at','desc')->limit(10)->get();
         return view('web.pages.product',compact('product','specialProducts','newProducts'));
     }
 

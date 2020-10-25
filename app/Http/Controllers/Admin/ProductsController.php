@@ -44,7 +44,6 @@ class ProductsController extends AdminController
      */
     public function store(ProductRequest $request)
     {
-        auth()->loginUsingId(1);
         $inputs=$request->all();
         $file = $request->file('images');
         if($file) {

@@ -27,8 +27,8 @@
                                 <ul class="list-unstyled description">
                                     <li><b>{{__('web/public.title')}} :</b> <a href="{{ route('web.show.product',$product->id) }}"><span itemprop="brand">{{\App\Providers\MyProvider::_text($product->title)}}</span></a></li>
                                     <li><b>{{__('web/public.id')}} :</b> <span itemprop="mpn">{{\App\Providers\MyProvider::_text($product->id)}}</span></li>
-                                    <li><b>{{__('web/public.description')}} :</b> {{\App\Providers\MyProvider::_text($product->description)}}</li>
-                                    <li><b>{{__('web/public.body')}} :</b> <span class="">{{\App\Providers\MyProvider::_text($product->body)}}</span></li>
+                                    <li><b>{{__('web/public.description')}} :</b> {!! \App\Providers\MyProvider::_text($product->description) !!}</li>
+                                    <li><b>{{__('web/public.body')}} :</b> <span class="">{!! \App\Providers\MyProvider::_text($product->body)!!}</span></li>
                                 </ul>
                                 <ul class="price-box">
                                     <li class="price" itemprop="offers" itemscope itemtype="#">@if($product->discount>0)<span class="price-old">{{\App\Providers\MyProvider::exToLocal($product->price)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</span>  @endif <span itemprop="price">{{\App\Providers\MyProvider::exToLocalDiscount($product->price,$product->discount)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}<span itemprop="availability" content="موجود"></span></span></li>
@@ -85,7 +85,7 @@
                         <div class="tab-content">
                             <div itemprop="description" id="tab-description" class="tab-pane active">
                                 <div>
-                                    {{\App\Providers\MyProvider::_text($product->body)}}
+                                    {!! \App\Providers\MyProvider::_text($product->body)!!}
                                 </div>
                             </div>
                             <div id="tab-specification" class="tab-pane">

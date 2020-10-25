@@ -46,7 +46,7 @@
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.description')}} ({{$kay}}):</label>
-                                    <textarea name="description_{{$kay}}" id="ckeditor" class="form-control" rows="5" cols="30" required>{{\App\Providers\MyProvider::_text($products->description,$kay)}}</textarea>
+                                    <textarea name="description_{{$kay}}" id="description_{{$kay}}" class="form-control" rows="5" cols="30" required>{{\App\Providers\MyProvider::_text($products->description,$kay)}}</textarea>
 
                                 </div>
                                 <?php
@@ -57,7 +57,7 @@
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.body')}} ({{$kay}}):</label>
-                                    <textarea name="body_{{$kay}}" class="form-control" rows="5" cols="30" required>{{\App\Providers\MyProvider::_text($products->body,$kay)}}</textarea>
+                                    <textarea name="body_{{$kay}}" class="form-control ckeditor" rows="5" cols="30" required>{{\App\Providers\MyProvider::_text($products->body,$kay)}}</textarea>
 
                                 </div>
                                 <?php
