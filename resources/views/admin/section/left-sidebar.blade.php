@@ -37,6 +37,14 @@
                     </li>
 
 
+                    <li class="@if($SID>=400 and $SID<500) active @endif">
+                        <a href="#products" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.web_pages')}}</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="@if($SID==400 ) active @endif"><a href="{{ route('webPages.index',['SID' => '400']) }}">{{__('admin/public.web_pages_list')}}</a></li>
+                            <li class="@if($SID==401 ) active @endif"><a href="{{ route('webPages.create',['SID' => '401']) }}">{{__('admin/public.web_pages_add')}}</a></li>
+                        </ul>
+                    </li>
+
                     <li class="@if($SID>=900 and $SID<1000) active @endif">
                         <a href="#site-setting" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.site_settings')}}</span></a>
                         <ul aria-expanded="false" class="collapse">

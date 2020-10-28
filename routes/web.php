@@ -65,6 +65,7 @@ Route::middleware('auth','checkAdmin')->namespace('Admin')->prefix('admin')->gro
     Route::resource('siteDetails','SiteDetailsController');
     Route::resource('productCategories','ProductCategoriesController');
     Route::resource('slider','SliderController');
+    Route::resource('webPages','WebPagesController');
 });
 
 // end admin  route

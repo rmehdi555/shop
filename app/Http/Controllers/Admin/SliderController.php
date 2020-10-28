@@ -45,7 +45,7 @@ class SliderController extends AdminController
         $inputs=$request->all();
         $inputs['images'] = $this->uploadImages($request->file('images'),'slider',["920-380" , "600" , "920"]);
 
-        $inputs["title"]=MyProvider::_insert_text($inputs,'title');;
+        $inputs["title"]=MyProvider::_insert_text($inputs,'title');
 
         auth()->user()->slider()->create($inputs);
 

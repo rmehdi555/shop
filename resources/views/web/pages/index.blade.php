@@ -73,14 +73,13 @@
                     <!-- Brand محصولات Slider End -->
                     <!-- Brand Logo Carousel Start-->
                     <div id="carousel" class="owl-carousel nxt">
-                        <div class="item text-center"> <a href="#"><img src="image/product/apple_logo-100x100.jpg" alt="پالم" class="img-responsive" /></a> </div>
-                        <div class="item text-center"> <a href="#"><img src="image/product/canon_logo-100x100.jpg" alt="سونی" class="img-responsive" /></a> </div>
-                        <div class="item text-center"> <a href="#"><img src="image/product/apple_logo-100x100.jpg" alt="کنون" class="img-responsive" /></a> </div>
-                        <div class="item text-center"> <a href="#"><img src="image/product/canon_logo-100x100.jpg" alt="اپل" class="img-responsive" /></a> </div>
-                        <div class="item text-center"> <a href="#"><img src="image/product/apple_logo-100x100.jpg" alt="اچ تی سی" class="img-responsive" /></a> </div>
-                        <div class="item text-center"> <a href="#"><img src="image/product/canon_logo-100x100.jpg" alt="اچ پی" class="img-responsive" /></a> </div>
-                        <div class="item text-center"> <a href="#"><img src="image/product/apple_logo-100x100.jpg" alt="brand" class="img-responsive" /></a> </div>
-                        <div class="item text-center"> <a href="#"><img src="image/product/canon_logo-100x100.jpg" alt="brand1" class="img-responsive" /></a> </div>
+                        <div class="item text-center"> <a href="#"><img src="image/product/apple_logo-100x100.jpg" alt=" میلگرد نیشابور" class="img-responsive" /></a> </div>
+                        <div class="item text-center"> <a href="#"><img src="image/product/canon_logo-100x100.jpg" alt="میلگرد ظفر بناب" class="img-responsive" /></a> </div>
+                        <div class="item text-center"> <a href="#"><img src="image/product/apple_logo-100x100.jpg" alt="میلگرد ذوب آهن اصفهان" class="img-responsive" /></a> </div>
+                        <div class="item text-center"> <a href="#"><img src="image/product/canon_logo-100x100.jpg" alt="میلگرد میانه" class="img-responsive" /></a> </div>
+                        <div class="item text-center"> <a href="#"><img src="image/product/apple_logo-100x100.jpg" alt="میلگرد ابهر" class="img-responsive" /></a> </div>
+                        <div class="item text-center"> <a href="#"><img src="image/product/canon_logo-100x100.jpg" alt="میلگرد امیرکبیر" class="img-responsive" /></a> </div>
+
                     </div>
                     <!-- Brand Logo Carousel End -->
                 </div>

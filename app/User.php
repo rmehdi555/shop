@@ -67,4 +67,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(ActivationCode::class);
     }
+    public function webPages()
+    {
+        return $this->hasMany(WebPages::class);
+    }
 }

@@ -51,5 +51,8 @@ return [
     'normal'=>'معمولی',
     'special'=>'ویژه',
     'offer'=>'پیشنهادی سایت',
+    'web_pages' =>'صفحات سایت',
+    'web_pages_list' =>'لیست صفحات',
+    'web_pages_add' =>'اضافه کردن صفحه جدید',
 
 ];

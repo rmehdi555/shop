@@ -16,7 +16,6 @@
 <script src="{{asset('admin/2020/rtl/assets/js/pages/tables/jquery-datatable.js')}}"></script>
 
 
-<script src="{{asset('admin/2020/assets/vendor/ckeditor/ckeditor.js')}}"></script><!-- Ckeditor -->
 
 
 
