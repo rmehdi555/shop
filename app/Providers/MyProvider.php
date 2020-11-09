@@ -116,7 +116,6 @@ class MyProvider extends ServiceProvider
     }
     static function _insert_text($env,$str = '')
     {
-
         $lang_props = self::get_languages();
         $return_str = '@@';
         foreach ((array) $env as $key => $value)
@@ -130,6 +129,8 @@ class MyProvider extends ServiceProvider
                     {
                         $vars = $value;
                         $return_str .= "$k==$vars@@";
+                        if(count($lang_props)==1)
+                            return $vars;
                     }
                 }
             }
