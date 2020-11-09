@@ -23,7 +23,8 @@ class ProductCategoriesRequest extends FormRequest
      */
     public function rules()
     {
-        $allLang=['fa'=>'fa','en'=>'en'];
+        $allLang=\App\Providers\MyProvider::get_languages_array();
+       //$allLang=['fa'=>'fa','en'=>'en'];
         $result=[];
         foreach ($allLang as $kay => $value)
         {

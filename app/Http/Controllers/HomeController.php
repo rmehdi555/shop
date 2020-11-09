@@ -6,6 +6,7 @@ use App\ProductCategories;
 use App\Products;
 use App\Providers\MyProvider;
 use App\Slider;
+use App\WebPages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -14,7 +15,6 @@ class HomeController extends Controller
     public function index()
     {
         $slider=Slider::where('status','=','1')->orderBy('priority','desc')->get();
-
        // محصولات ویژه
         $specialProducts=Products::where([['type','=','special'],['status','=','1'] ])->limit(10)->get();
         //جدید ترین محصولات
@@ -24,6 +24,8 @@ class HomeController extends Controller
     public function showCategory($id)
     {
         $category=ProductCategories::find($id);
+        if(!isset($category))
+            return redirect()->route('web.404');
         // محصولات ویژه
         $specialProducts=Products::where([['type','=','special'],['status','=','1'] ])->limit(10)->get();
         //جدید ترین محصولات
@@ -33,11 +35,20 @@ class HomeController extends Controller
     public function showProduct($id)
     {
         $product=Products::find($id);
+        if(!isset($product) OR empty($product))
+            return redirect()->route('web.404');
         // محصولات ویژه
         $specialProducts=Products::where([['type','=','special'],['status','=','1'] ])->limit(10)->get();
         //جدید ترین محصولات
         $newProducts=Products::where('status','=','1')->orderBy('created_at','desc')->limit(10)->get();
         return view('web.pages.product',compact('product','specialProducts','newProducts'));
+    }
+    public function showPage($id)
+    {
+        $page=WebPages::find($id);
+        if(!isset($page) OR empty($page))
+            return redirect()->route('web.404');
+        return view('web.pages.page',compact('page'));
     }
 
     public function changeLang($locale)

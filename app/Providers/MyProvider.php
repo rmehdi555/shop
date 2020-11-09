@@ -46,13 +46,13 @@ class MyProvider extends ServiceProvider
                 'theme_postfix' => '' ,
                 'flag' => 'iran-flag.png' ,
             ) ,
-            'en' => array(
-                'title' => 'English' ,
-                'dir' => 'ltr' ,
-                'active' => TRUE ,
-                'theme_postfix' => '' ,
-                'flag' => 'english--flag.png' ,
-            ),
+//            'en' => array(
+//                'title' => 'English' ,
+//                'dir' => 'ltr' ,
+//                'active' => TRUE ,
+//                'theme_postfix' => '' ,
+//                'flag' => 'english--flag.png' ,
+//            ),
             // 'af' => array(
             //     'title' => 'پارسی دری' ,
             //     'dir' => 'rtl' ,
@@ -79,6 +79,16 @@ class MyProvider extends ServiceProvider
             // ) ,
         );
         return $lang_props;
+    }
+    static function get_languages_array()
+    {
+        $result=array();
+        $lang_props = self::get_languages();
+        foreach ($lang_props as $key=>$item)
+        {
+            $result[$key]=$key;
+        }
+        return $result;
     }
 
     static function _text($str = '' , $setLang = '')

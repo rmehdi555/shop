@@ -54,5 +54,14 @@ return [
     'web_pages' =>'صفحات سایت',
     'web_pages_list' =>'لیست صفحات',
     'web_pages_add' =>'اضافه کردن صفحه جدید',
+    'menu_categories'=>'دسته بندی منوها',
+    'menu_categories_list'=>'لیست دسته منو ها',
+    'menu_categories_add'=>'اضافه کردن دسته منو',
+    'menus'=>'منو ها',
+    'menus_list'=>'لیست منو ها',
+    'menus_add'=>'اضافه کردن منو',
+    'menu_categories_id'=>'زیردته منو',
+    'create_menu'=>'ایجاد منو',
+
 
 ];

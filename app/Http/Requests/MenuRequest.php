@@ -23,28 +23,34 @@ class MenuRequest extends FormRequest
      */
     public function rules()
     {
-        if($this->method() == 'POST') {
-            return [
-                'title' => 'required|max:250',
-                'description' => 'required',
-                'body' => 'required',
-                'images' => 'required|mimes:jpeg,png,bmp',
-                'tags' => 'required',
-                'parent_id'=>'required|integer',
-                'status'=>'required|integer',
-                'priority'=>'required|integer',
-            ];
+        $allLang=\App\Providers\MyProvider::get_languages_array();
+        //$allLang=['fa'=>'fa','en'=>'en'];
+        $result=[];
+        foreach ($allLang as $kay => $value)
+        {
+            $result=array_merge($result , [ 'title_'.$kay => 'required|max:250']);
+            $result=array_merge($result , [ 'description_'.$kay => 'required']);
+            $result=array_merge($result , [ 'body_'.$kay => 'required']);
         }
 
-        return [
-            'title' => 'required|max:250',
-            'description' => 'required',
-            'body' => 'required',
+        if($this->method() == 'POST') {
+
+            $result=array_merge($result , [
+                'tags' => 'required',
+                'menu_categories_id'=>'required|integer',
+                'status'=>'required|integer',
+                'priority'=>'required|integer',
+            ]);
+            return $result;
+        }
+
+        $result=array_merge($result , [
             'tags' => 'required',
-            'parent_id'=>'required|integer',
+            'menu_categories_id'=>'required|integer',
             'status'=>'required|integer',
             'priority'=>'required|integer',
-        ];
+        ]);
+        return $result;
 
     }
 }

@@ -14,7 +14,7 @@
                     {{--<li><a href="app-taskboard.html"><i class="icon-notebook"></i><span>Taskboard</span></a></li>--}}
                     {{--<li class="heading">UI Elements</li>--}}
                     <li class="@if($SID>=100 and $SID<200) active @endif">
-                        <a href="#products" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.slider')}}</span></a>
+                        <a href="#slider" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.slider')}}</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li class="@if($SID==100 ) active @endif"><a href="{{ route('slider.index',['SID' => '100']) }}">{{__('admin/public.slider_list')}}</a></li>
                             <li class="@if($SID==101 ) active @endif"><a href="{{ route('slider.create',['SID' => '101']) }}">{{__('admin/public.slider_add')}}</a></li>
@@ -29,7 +29,7 @@
                     </li>
 
                     <li class="@if($SID>=300 and $SID<400) active @endif">
-                        <a href="#site-setting" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.product_categories')}}</span></a>
+                        <a href="#product_categories" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.product_categories')}}</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li class="@if($SID==300 ) active @endif"><a href="{{ route('productCategories.index',['SID' => '300']) }}">{{__('admin/public.product_categories_list')}}</a></li>
                             <li class="@if($SID==301 ) active @endif"><a href="{{ route('productCategories.create',['SID' => '301']) }}">{{__('admin/public.product_categories_add')}}</a></li>
@@ -38,10 +38,26 @@
 
 
                     <li class="@if($SID>=400 and $SID<500) active @endif">
-                        <a href="#products" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.web_pages')}}</span></a>
+                        <a href="#page" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.web_pages')}}</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li class="@if($SID==400 ) active @endif"><a href="{{ route('webPages.index',['SID' => '400']) }}">{{__('admin/public.web_pages_list')}}</a></li>
                             <li class="@if($SID==401 ) active @endif"><a href="{{ route('webPages.create',['SID' => '401']) }}">{{__('admin/public.web_pages_add')}}</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="@if($SID>=500 and $SID<600) active @endif">
+                        <a href="#menus" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.menus')}}</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="@if($SID==500 ) active @endif"><a href="{{ route('menus.index',['SID' => '500']) }}">{{__('admin/public.menus_list')}}</a></li>
+                            <li class="@if($SID==501 ) active @endif"><a href="{{ route('menus.create',['SID' => '501']) }}">{{__('admin/public.menus_add')}}</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="@if($SID>=700 and $SID<800) active @endif">
+                        <a href="#menu_categories" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.menu_categories')}}</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="@if($SID==700 ) active @endif"><a href="{{ route('menuCategories.index',['SID' => '700']) }}">{{__('admin/public.menu_categories_list')}}</a></li>
+                            <li class="@if($SID==701 ) active @endif"><a href="{{ route('menuCategories.create',['SID' => '701']) }}">{{__('admin/public.menu_categories_add')}}</a></li>
                         </ul>
                     </li>
 

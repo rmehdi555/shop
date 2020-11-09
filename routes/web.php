@@ -32,6 +32,8 @@ Route::middleware('language')->group(function (){
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/user/active/email/{token}', 'UserController@activationAccountByEmail')->name('activation.account.by.email');
 
+    Route::get('/show/page/{id}','HomeController@showPage')->name('web.show.page');
+
 
     // error page
 
@@ -66,6 +68,8 @@ Route::middleware('auth','checkAdmin')->namespace('Admin')->prefix('admin')->gro
     Route::resource('productCategories','ProductCategoriesController');
     Route::resource('slider','SliderController');
     Route::resource('webPages','WebPagesController');
+    Route::resource('menus','MenuController');
+    Route::resource('menuCategories','MenuCategoriesController');
 });
 
 // end admin  route

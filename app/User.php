@@ -71,4 +71,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(WebPages::class);
     }
+    public function menuCategories()
+    {
+        return $this->hasMany(MenuCategories::class);
+    }
 }

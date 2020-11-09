@@ -19,6 +19,8 @@ class CreateMenusTable extends Migration
             $table->text('slug')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('menu_categories_id')->unsigned();
+            $table->foreign('menu_categories_id')->references('id')->on('menu_categories')->onDelete('cascade');
             $table->text('description')->nullable();
             $table->text('body')->nullable();
             $table->integer('parent_id')->default(0);

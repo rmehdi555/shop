@@ -68,9 +68,10 @@ class ProductsController extends AdminController
      */
     public function show($products)
     {
+        $SID=200;
         $products=Products::find($products);
         $categories=ProductCategories::with('children')->get();
-        return view('admin.products.show',compact('products','categories'));
+        return view('admin.products.show',compact('products','categories','SID'));
     }
 
     /**
@@ -81,10 +82,11 @@ class ProductsController extends AdminController
      */
     public function edit($products)
     {
+        $SID=200;
         $products=Products::find($products);
         $categories=ProductCategories::with('children')->get();
 
-        return view('admin.products.edit',compact('products','categories'));
+        return view('admin.products.edit',compact('products','categories','SID'));
     }
 
     /**
