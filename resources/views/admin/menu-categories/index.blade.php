@@ -81,7 +81,6 @@
                                     <tr>
                                         <th>{{__('admin/public.id')}}</th>
                                         <th>{{__('admin/public.title')}}</th>
-                                        <th>{{__('admin/public.parent_id')}}</th>
                                         <th>{{__('admin/public.status')}}</th>
                                         <th>{{__('admin/public.actions')}}</th>
                                     </tr>
@@ -91,7 +90,6 @@
                                         <tr class="gradeA">
                                             <td>{{$menuCategories->id}}</td>
                                             <td>{{\App\Providers\MyProvider::_text($menuCategories->title)}}</td>
-                                            <td>{{$menuCategories->parent_id}}</td>
                                             <td>{{$menuCategories->status?__('admin/public.active'):__('admin/public.inactive')}}</td>
                                             <td class="actions">
 
@@ -117,7 +115,6 @@
                                     <tr>
                                         <th>{{__('admin/public.id')}}</th>
                                         <th>{{__('admin/public.title')}}</th>
-                                        <th>{{__('admin/public.parent_id')}}</th>
                                         <th>{{__('admin/public.status')}}</th>
                                         <th>{{__('admin/public.actions')}}</th>
                                     </tr>

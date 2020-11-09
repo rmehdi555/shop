@@ -49,36 +49,9 @@
                                 </div>
                                 <?php
                                 }
-                                $allLang=\App\Providers\MyProvider::get_languages();
-                                foreach ($allLang as $kay => $value)
-                                {
-                                ?>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.body')}} ({{$kay}}):</label>
-                                    <textarea name="body_{{$kay}}" class="form-control" rows="5" cols="30" required>{{\App\Providers\MyProvider::_text($menuCategories->body,$kay)}}</textarea>
 
-                                </div>
-                                <?php
-                                }
                                 ?>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.images')}} :</label>
-                                    <input type="file" name="images" class="form-control" value="{{old('images')}}" >
-                                </div>
-                                @if($menuCategories->images!=[])
-                                    <div class="media">
-                                        <img class="media-object " src="{{$menuCategories->images["thumb"]}}" alt="">
-                                        {{--<div class="media-body">--}}
-                                        {{--<span class="name">Joge Lucky</span>--}}
-                                        {{--<span class="message">Sales Lead</span>--}}
-                                        {{--<span class="badge badge-outline status"></span>--}}
-                                        {{--</div>--}}
-                                    </div>
-                                @endif
-                                <div class="form-group">
-                                    <label>{{__('admin/public.tags')}} :</label>
-                                    <input type="text" name="tags" class="form-control" value="{{$menuCategories->tags}}" required>
-                                </div>
+
                                 <div class="form-group">
                                     <label>{{__('admin/public.priority')}} :</label>
                                     <input type="number" name="priority" class="form-control" value="{{$menuCategories->priority}}" required>
@@ -88,18 +61,6 @@
                                     <input type="text" name="icon" class="form-control" value="{{$menuCategories->icon}}" required>
                                 </div>
 
-
-                                <div class="form-group col-lg-4 col-md-12">
-                                    <label>{{__('admin/public.parent_id')}} :</label>
-                                    <div class="multiselect_div">
-                                        <select id="single-selection" name="parent_id" class="multiselect multiselect-custom" >
-                                            <option value="0">{{__('admin/public.base_parent_id')}}</option>
-                                            @foreach($categories as $category)
-                                                <option value="{{$category->id}}">{{\App\Providers\MyProvider::_text($category->title)}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
 
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.status')}} :</label>

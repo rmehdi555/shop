@@ -15,11 +15,9 @@ class Menu extends Model
      */
     use SoftDeletes;
     protected $fillable = [
-        'title', 'slug', 'description','body','menu_categories_id','images','tags','icon','priority','status',
+        'title', 'slug', 'link','menu_categories_id','parent_id','icon','priority','status',
     ];
-    protected $casts = [
-        'images' => 'array'
-    ];
+
     /**
 
      * The attributes that should be mutated to dates.
@@ -43,5 +41,19 @@ class Menu extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo('App\Menu','parent_id')->where('parent_id',0);
+    }
+
+    public function children()
+    {
+        return $this->hasMany('App\Menu','parent_id');
+    }
+    public function menus()
+    {
+        return $this->hasMany('App\Menu'); // This only gets the menus of the CURRENT category
     }
 }

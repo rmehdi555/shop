@@ -15,10 +15,7 @@ class MenuCategories extends Model
      */
     use SoftDeletes;
     protected $fillable = [
-        'title', 'slug', 'description','body','parent_id','images','tags','icon','priority','status',
-    ];
-    protected $casts = [
-        'images' => 'array'
+        'title', 'slug', 'description','icon','priority','status',
     ];
     /**
 
@@ -45,18 +42,5 @@ class MenuCategories extends Model
         ];
     }
 
-    public function parent()
-    {
-        return $this->belongsTo('App\MenuCategories','parent_id')->where('parent_id',0);
-    }
 
-    public function children()
-    {
-        return $this->hasMany('App\MenuCategories','parent_id');
-    }
-
-    public function products()
-    {
-        return $this->hasMany('App\Menus'); // This only gets the products of the CURRENT category
-    }
 }

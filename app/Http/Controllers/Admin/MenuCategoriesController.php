@@ -30,8 +30,7 @@ class MenuCategoriesController extends AdminController
     public function create(Request $request)
     {
         $SID=$request->SID;
-        $categories=MenuCategories::with('children')->get();
-        return view('admin.menu-categories.create',compact('SID','categories'));
+        return view('admin.menu-categories.create',compact('SID'));
     }
 
     /**
@@ -43,16 +42,8 @@ class MenuCategoriesController extends AdminController
     public function store(MenuCategoriesRequest $request)
     {
         $inputs=$request->all();
-        $file = $request->file('images');
-        if($file) {
-            $inputs['images'] = $this->uploadImages($request->file('images'),'menuCategories',["300" , "600" , "900"]);
-        } else {
-            $inputs['images'] = [];
-        }
         $inputs["title"]=MyProvider::_insert_text($inputs,'title');
         $inputs["description"]=MyProvider::_insert_text($inputs,'description');
-        $inputs["body"]=MyProvider::_insert_text($inputs,'body');
-
         auth()->user()->menuCategories()->create($inputs);
 
         return redirect(route('menuCategories.index',['SID' => '700']));
@@ -67,9 +58,8 @@ class MenuCategoriesController extends AdminController
     public function show($menuCategories)
     {
         $SID=700;
-        $categories=MenuCategories::with('children')->get();
         $menuCategories=MenuCategories::find($menuCategories);
-        return view('admin.menu-categories.show',compact('menuCategories','categories','SID'));
+        return view('admin.menu-categories.show',compact('menuCategories','SID'));
     }
 
     /**
@@ -81,9 +71,9 @@ class MenuCategoriesController extends AdminController
     public function edit($menuCategories)
     {
         $SID=700;
-        $categories=MenuCategories::with('children')->get();
         $menuCategories=MenuCategories::find($menuCategories);
-        return view('admin.menu-categories.edit',compact('menuCategories','categories','SID'));
+
+        return view('admin.menu-categories.edit',compact('menuCategories','SID'));
     }
 
     /**
@@ -95,18 +85,12 @@ class MenuCategoriesController extends AdminController
      */
     public function update(MenuCategoriesRequest $request, $menuCategories)
     {
-        $file = $request->file('images');
+
         $inputs = $request->all();
         $menuCategories=MenuCategories::find($menuCategories);
 
-        if($file) {
-            $inputs['images'] = $this->uploadImages($request->file('images'),'menuCategories',["300" , "600" , "900"]);
-        } else {
-            $inputs['images'] = $menuCategories->images;
-        }
         $inputs["title"]=MyProvider::_insert_text($inputs,'title');
         $inputs["description"]=MyProvider::_insert_text($inputs,'description');
-        $inputs["body"]=MyProvider::_insert_text($inputs,'body');
 
         $menuCategories->update($inputs);
 

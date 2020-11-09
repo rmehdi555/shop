@@ -29,15 +29,13 @@ class MenuRequest extends FormRequest
         foreach ($allLang as $kay => $value)
         {
             $result=array_merge($result , [ 'title_'.$kay => 'required|max:250']);
-            $result=array_merge($result , [ 'description_'.$kay => 'required']);
-            $result=array_merge($result , [ 'body_'.$kay => 'required']);
         }
 
         if($this->method() == 'POST') {
 
             $result=array_merge($result , [
-                'tags' => 'required',
                 'menu_categories_id'=>'required|integer',
+                'parent_id'=>'required|integer',
                 'status'=>'required|integer',
                 'priority'=>'required|integer',
             ]);
@@ -45,8 +43,8 @@ class MenuRequest extends FormRequest
         }
 
         $result=array_merge($result , [
-            'tags' => 'required',
             'menu_categories_id'=>'required|integer',
+            'parent_id'=>'required|integer',
             'status'=>'required|integer',
             'priority'=>'required|integer',
         ]);
