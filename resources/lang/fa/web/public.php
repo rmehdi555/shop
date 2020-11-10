@@ -68,7 +68,6 @@ return [
     'register_user_password'=>'رمز عبور شما',
     'login'=>'حساب کاربری ورود',
     'new_user'=>'مشتری جدید',
-    'login'=>'حساب کاربری ورود',
     'old_user'=>'مشتری قبلی',
     'btn_login'=>'ورود',
     'remember_me'=>'مرا به خاطر بسپار',
@@ -79,5 +78,11 @@ return [
     'activation_email_title'=>'جهت فعال سازی حساب روی دکمه زیر کلیک کنید',
     'activation_email_button'=>'فعالسازی حساب',
     'continuation'=>'ادامه',
+    'contact_us'=>'تماس با ما',
+    'about_us'=>'درباره ما',
+    'links'=>'پیوند ها',
+    'user_service'=>'خدمات مشتریان',
+
+
 
 ];

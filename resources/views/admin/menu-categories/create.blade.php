@@ -50,27 +50,8 @@
                                 </div>
                                 <?php
                                 }
-                                $allLang=\App\Providers\MyProvider::get_languages();
-                                foreach ($allLang as $kay => $value)
-                                {
-                                ?>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.body')}} ({{$kay}}):</label>
-                                    <textarea name="body_{{$kay}}" class="form-control ckeditor" rows="5" cols="30" required>{{old('body_'.$kay)}}</textarea>
-
-                                </div>
-                                <?php
-                                }
                                 ?>
 
-                                <div class="form-group">
-                                    <label>{{__('admin/public.images')}} :</label>
-                                    <input type="file" name="images" class="form-control" value="{{old('images')}}">
-                                </div>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.tags')}} :</label>
-                                    <input type="text" name="tags" class="form-control" value="{{old('tags')}}" required>
-                                </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.icon')}} :</label>
                                     <input type="text" name="icon" class="form-control" value="i" required>
@@ -80,17 +61,7 @@
                                     <input type="number" name="priority" class="form-control" value="1" required>
                                 </div>
 
-                                <div class="form-group col-lg-4 col-md-12">
-                                    <label>{{__('admin/public.parent_id')}} :</label>
-                                    <div class="multiselect_div">
-                                        <select id="single-selection" name="parent_id" class="multiselect multiselect-custom" >
-                                            <option value="0">{{__('admin/public.base_parent_id')}}</option>
-                                            @foreach($categories as $category)
-                                                <option value="{{$category->id}}">{{\App\Providers\MyProvider::_text($category->title)}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+
 
 
                                 <div class="form-group col-lg-4 col-md-12">

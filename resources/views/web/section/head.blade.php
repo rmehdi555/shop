@@ -11,7 +11,7 @@ $locale = App::getLocale();
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="{{asset('web/2020/image/favicon.png" rel="icon')}}" />
-    <title>{{$siteDetailsProvider["site_name"]->value}}</title>
+    <title>{{\App\Providers\MyProvider::_text($siteDetailsProvider["site_name"]->value)}}</title>
     <meta name="description" content="Responsive and clean html template design for any kind of ecommerce webshop">
     <!-- CSS Part Start-->
     <link rel="stylesheet" type="text/css" href="{{asset('web/2020/js/bootstrap/css/bootstrap.min.css')}}" />

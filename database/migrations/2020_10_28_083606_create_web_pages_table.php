@@ -16,6 +16,7 @@ class CreateWebPagesTable extends Migration
         Schema::create('web_pages', function (Blueprint $table) {
             $table->id();
             $table->text('title');
+            $table->text('slug')->nullable();
             $table->text('body')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

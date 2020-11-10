@@ -116,9 +116,8 @@ class MyProvider extends ServiceProvider
     }
     static function _insert_text($env,$str = '')
     {
-
         $lang_props = self::get_languages();
-        $return_str = '';
+        $return_str = '@@';
         foreach ((array) $env as $key => $value)
         {
             $var = explode('_', $key);
@@ -130,12 +129,14 @@ class MyProvider extends ServiceProvider
                     {
                         $vars = $value;
                         $return_str .= "$k==$vars@@";
+                        if(count($lang_props)==1)
+                            return $vars;
                     }
                 }
             }
         }
 
-        $return_str = trim($return_str , '@@');
+        //$return_str = trim($return_str , '@@');
         return $return_str;
     }
     static function _insert_text_lang($str,$lang='en')

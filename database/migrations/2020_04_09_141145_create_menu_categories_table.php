@@ -20,10 +20,6 @@ class CreateMenuCategoriesTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->text('description')->nullable();
-            $table->text('body')->nullable();
-            $table->integer('parent_id')->default(0);
-            $table->text('images')->nullable();
-            $table->text('tags')->nullable();
             $table->text('icon')->nullable();
             $table->integer('priority')->default(0);
             $table->integer('status')->default(0);

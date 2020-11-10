@@ -30,14 +30,11 @@ class MenuCategoriesRequest extends FormRequest
         {
             $result=array_merge($result , [ 'title_'.$kay => 'required|max:250']);
             $result=array_merge($result , [ 'description_'.$kay => 'required']);
-            $result=array_merge($result , [ 'body_'.$kay => 'required']);
         }
 
         if($this->method() == 'POST') {
 
             $result=array_merge($result , [
-                'tags' => 'required',
-                'parent_id'=>'required|integer',
                 'status'=>'required|integer',
                 'priority'=>'required|integer',
             ]);
@@ -45,8 +42,6 @@ class MenuCategoriesRequest extends FormRequest
         }
 
         $result=array_merge($result , [
-            'tags' => 'required',
-            'parent_id'=>'required|integer',
             'status'=>'required|integer',
             'priority'=>'required|integer',
         ]);

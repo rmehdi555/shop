@@ -16,8 +16,6 @@
             {{--</div>--}}
 
 
-
-
             <div class="row clearfix">
                 <div class="col-md-12">
                     <div class="card">
@@ -28,35 +26,14 @@
 
                                 @include('admin.section.errors')
                                 <?php
-                                $allLang=\App\Providers\MyProvider::get_languages();
+                                $allLang = \App\Providers\MyProvider::get_languages();
                                 foreach ($allLang as $kay => $value)
                                 {
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.title')}} ({{$kay}}):</label>
-                                    <input type="text" name="title_{{$kay}}" class="form-control" value="{{\App\Providers\MyProvider::_text($menus->title,$kay)}}" required>
-                                </div>
-                                <?php
-                                }
-                                $allLang=\App\Providers\MyProvider::get_languages();
-                                foreach ($allLang as $kay => $value)
-                                {
-                                ?>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.description')}} ({{$kay}}):</label>
-                                    <textarea name="description_{{$kay}}" id="ckeditor" class="form-control" rows="5" cols="30" required>{{\App\Providers\MyProvider::_text($menus->description,$kay)}}</textarea>
-
-                                </div>
-                                <?php
-                                }
-                                $allLang=\App\Providers\MyProvider::get_languages();
-                                foreach ($allLang as $kay => $value)
-                                {
-                                ?>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.body')}} ({{$kay}}):</label>
-                                    <textarea name="body_{{$kay}}" class="form-control" rows="5" cols="30" required>{{\App\Providers\MyProvider::_text($menus->body,$kay)}}</textarea>
-
+                                    <input type="text" name="title_{{$kay}}" class="form-control"
+                                           value="{{\App\Providers\MyProvider::_text($menu->title,$kay)}}" required>
                                 </div>
                                 <?php
                                 }
@@ -64,62 +41,51 @@
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.menu_categories_id')}} :</label>
                                     <div class="multiselect_div">
-                                        <select id="single-selection" name="menu_categories_id" class="multiselect multiselect-custom" >
+                                        <select id="single-selection" name="menu_categories_id"
+                                                class="multiselect multiselect-custom">
                                             @foreach($categories as $category)
-                                                <option value="{{$category->id}}" {{($menus->menu_categories_id==$category->id)?"selected":""}}>{{\App\Providers\MyProvider::_text($category->title)}}</option>
+                                                <option value="{{$category->id}}" {{($menu->menu_categories_id==$category->id)?"selected":""}}>{{\App\Providers\MyProvider::_text($category->title)}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-lg-4 col-md-12">
+                                    <label>{{__('admin/public.parent_id')}} :</label>
+                                    <div class="multiselect_div">
+                                        <select id="single-selection" name="parent_id"
+                                                class="multiselect multiselect-custom">
+                                            <option value="0">{{__('admin/public.base_parent_id')}}</option>
+                                            @foreach($menus as $value)
+                                                <option value="{{$value->id}}" {{($menu->parent_id==$value->id)?"selected":""}}>{{\App\Providers\MyProvider::_text($value->title)}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>{{__('admin/public.price')}} ({{__('admin/public.IRR')}}) :</label>
-                                    <input type="number" name="price" class="form-control" value="{{$menus->price}}" required>
+                                    <label>{{__('admin/public.link')}} :</label>
+                                    <input type="text" name="link" class="form-control" value="{{$menu->link}}" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.discount')}} (0-100 %):</label>
-                                    <input type="number" min="0" max="100" name="discount" class="form-control" value="{{$menus->discount}}" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.images')}} :</label>
-                                    <input type="file" name="images" class="form-control" value="{{old('images')}}" >
-                                </div>
-                                <div class="media">
-                                    <img class="media-object " src="{{$menus->images["thumb"]}}" alt="">
-                                    {{--<div class="media-body">--}}
-                                    {{--<span class="name">Joge Lucky</span>--}}
-                                    {{--<span class="message">Sales Lead</span>--}}
-                                    {{--<span class="badge badge-outline status"></span>--}}
-                                    {{--</div>--}}
-                                </div>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.tags')}} :</label>
-                                    <input type="text" name="tags" class="form-control" value="{{$menus->tags}}" required>
-                                </div>
+
                                 <div class="form-group">
                                     <label>{{__('admin/public.priority')}} :</label>
-                                    <input type="number" name="priority" class="form-control" value="{{$menus->priority}}" required>
+                                    <input type="number" name="priority" class="form-control"
+                                           value="{{$menu->priority}}" required>
                                 </div>
 
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.status')}} :</label>
                                     <div class="multiselect_div">
-                                        <select id="single-selection" name="status" class="multiselect multiselect-custom" >
+                                        <select id="single-selection" name="status"
+                                                class="multiselect multiselect-custom">
                                             <option value="0">{{__('admin/public.inactive')}}</option>
-                                            <option value="1" {{$menus->status?"selected":""}}>{{__('admin/public.active')}}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group col-lg-4 col-md-12">
-                                    <label>{{__('admin/public.type')}} :</label>
-                                    <div class="multiselect_div">
-                                        <select id="single-selection" name="type" class="multiselect multiselect-custom" >
-                                            <option value="normal" {{($menus->type=='normal')?"selected":""}}>{{__('admin/public.normal')}}</option>
-                                            <option value="special" {{($menus->type=='special')?"selected":""}}>{{__('admin/public.special')}}</option>
-                                            <option value="offer" {{($menus->type=='offer')?"selected":""}}>{{__('admin/public.offer')}}</option>
+                                            <option value="1" {{$menu->status?"selected":""}}>{{__('admin/public.active')}}</option>
                                         </select>
                                     </div>
                                 </div>
 
+
+                                <br>
 
                         </div>
                     </div>

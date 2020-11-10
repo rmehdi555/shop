@@ -25,55 +25,6 @@
                             <h2>{{__('admin/public.menus_list')}}</h2>
                         </div>
                         <div class="body">
-                            {{--<a href="{{ route('menus.create') }}" id="addToTable" class="btn btn-primary m-b-15" type="button">--}}
-                                {{--<i class="icon wb-plus" aria-hidden="true"></i> {{__('admin/public.menu_add')}}--}}
-                            {{--</a>--}}
-                            {{--<div class="table-responsive">--}}
-                                {{--<table class="table table-bordered table-hover table-striped" id="addrowExample">--}}
-                                    {{--<thead>--}}
-                                    {{--<tr>--}}
-                                        {{--<th>Name</th>--}}
-                                        {{--<th>Position</th>--}}
-                                        {{--<th>Office</th>--}}
-                                        {{--<th>Actions</th>--}}
-                                    {{--</tr>--}}
-                                    {{--</thead>--}}
-                                    {{--<tbody>--}}
-                                    {{--<?php--}}
-                                    {{--for($i=0;$i<10;$i++)--}}
-                                    {{--{--}}
-                                    {{--?>--}}
-                                    {{--<tr class="gradeA">--}}
-                                        {{--<td>Tiger Nixon</td>--}}
-                                        {{--<td>System Architect</td>--}}
-                                        {{--<td>Edinburgh</td>--}}
-                                        {{--<td class="actions">--}}
-                                            {{--<button class="btn btn-sm btn-icon btn-pure btn-default on-editing m-r-5 button-save"--}}
-                                                    {{--data-toggle="tooltip" data-original-title="Save" hidden><i class="icon-drawer" aria-hidden="true"></i></button>--}}
-                                            {{--<button class="btn btn-sm btn-icon btn-pure btn-default on-editing button-discard"--}}
-                                                    {{--data-toggle="tooltip" data-original-title="Discard" hidden><i class="icon-close" aria-hidden="true"></i></button>--}}
-                                            {{--<button class="btn btn-sm btn-icon btn-pure btn-default on-default m-r-5 button-edit"--}}
-                                                    {{--data-toggle="tooltip" data-original-title="Edit"><i class="icon-pencil" aria-hidden="true"></i></button>--}}
-                                            {{--<button class="btn btn-sm btn-icon btn-pure btn-default on-default button-remove"--}}
-                                                    {{--data-toggle="tooltip" data-original-title="Remove"><i class="icon-trash" aria-hidden="true"></i></button>--}}
-                                        {{--</td>--}}
-                                    {{--</tr>--}}
-                                    {{--<?php--}}
-                                    {{--}--}}
-                                    {{--?>--}}
-
-
-                                    {{--</tbody>--}}
-                                    {{--<tfoot>--}}
-                                    {{--<tr>--}}
-                                        {{--<th>Name</th>--}}
-                                        {{--<th>Position</th>--}}
-                                        {{--<th>Office</th>--}}
-                                        {{--<th>Actions</th>--}}
-                                    {{--</tr>--}}
-                                    {{--</tfoot>--}}
-                                {{--</table>--}}
-                            {{--</div>--}}
 
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover js-basic-example dataTable table-custom">
