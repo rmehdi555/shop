@@ -34,6 +34,10 @@ Route::middleware('language')->group(function (){
 
     Route::get('/show/page/{id}','HomeController@showPage')->name('web.show.page');
 
+    //contact us
+    Route::get('/contact-us','ContactUsController@index')->name('web.contact.us.index');
+    Route::post('/contact-us','ContactUsController@insert')->name('web.contact.us.insert');
+
 
     // error page
 
@@ -70,6 +74,7 @@ Route::middleware('auth','checkAdmin')->namespace('Admin')->prefix('admin')->gro
     Route::resource('webPages','WebPagesController');
     Route::resource('menus','MenuController');
     Route::resource('menuCategories','MenuCategoriesController');
+    Route::resource('contactUs','ContactUsController');
 });
 
 // end admin  route

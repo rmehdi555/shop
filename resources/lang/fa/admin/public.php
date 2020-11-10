@@ -62,6 +62,14 @@ return [
     'menus_add'=>'اضافه کردن منو',
     'menu_categories_id'=>'زیردته منو',
     'create_menu'=>'ایجاد منو',
+    'name'=>'نام',
+    'family'=>'نام خانوادگی',
+    'email'=>'ایمیل',
+    'phone'=>'شماره همراه',
+    'password'=>'پسورد',
+    're_password'=>'تکرار پسورد',
+    'contact_us_list'=>'پیام های تماس با ما',
+
 
 
 ];

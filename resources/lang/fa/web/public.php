@@ -82,6 +82,8 @@ return [
     'about_us'=>'درباره ما',
     'links'=>'پیوند ها',
     'user_service'=>'خدمات مشتریان',
+    'body_contact_us'=>'متن پیام ',
+    'contact_us_info'=>'پل ارتباط با ما',
 
 
 

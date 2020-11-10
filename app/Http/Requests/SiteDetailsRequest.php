@@ -23,21 +23,34 @@ class SiteDetailsRequest extends FormRequest
      */
     public function rules()
     {
+        $allLang=\App\Providers\MyProvider::get_languages_array();
+        //$allLang=['fa'=>'fa','en'=>'en'];
+        $result=[];
+        foreach ($allLang as $kay => $value)
+        {
+            $result=array_merge($result , [ 'value_'.$kay => 'required|max:250']);
+        }
+
         if($this->method() == 'POST') {
-            return [
-                'title' => 'required|max:250',
+
+            $result=array_merge($result , [
+                'title' => 'required',
                 'key' => 'required',
                 'images' => 'mimes:jpeg,png,bmp',
                 'type' => 'required',
-            ];
+            ]);
+            return $result;
         }
 
-        return [
-            'title' => 'required|max:250',
+        $result=array_merge($result , [
+            'title' => 'required',
             'key' => 'required',
             'images' => 'mimes:jpeg,png,bmp',
             'type' => 'required',
-        ];
+        ]);
+        return $result;
+
+
     }
 
 }

@@ -19,7 +19,7 @@
                             <h2 class="subtitle">{{__('web/public.new_user')}}</h2>
                             <p><strong>{{__('web/public.register')}}</strong></p>
                             <p>{{__('web/messages.login_register')}}</p>
-                            <a href="{{ route('register') }}" class="btn btn-primary">ادامه</a> </div>
+                            <a href="{{ route('register') }}" class="btn btn-primary">{{ __('web/public.continuation') }}</a> </div>
                         <div class="col-sm-6">
                             <h2 class="subtitle">{{__('web/public.old_user')}}</h2>
                             <p><strong>{{__('web/messages.old_user')}}</strong></p>

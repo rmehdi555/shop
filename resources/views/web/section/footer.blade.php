@@ -9,7 +9,7 @@
                         <li class="address"><i class="fa fa-map-marker"></i>{{\App\Providers\MyProvider::_text($siteDetailsProvider["address"]->value)}}</li>
                         <li class="mobile"><i class="fa fa-phone"></i>{{\App\Providers\MyProvider::_text($siteDetailsProvider["phone"]->value)}}</li>
                         <li class="mobile"><i class="fa fa-phone"></i>{{\App\Providers\MyProvider::_text($siteDetailsProvider["mobile"]->value)}}</li>
-                        <li class="email"><i class="fa fa-envelope"></i>{{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}</a>
+                        <li class="email"><i class="fa fa-envelope"></i>{{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}</li>
                     </ul>
                 </div>
                 <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">
