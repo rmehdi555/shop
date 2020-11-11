@@ -4,8 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<body>
+<body dir="{{\App\Providers\MyProvider::get_languages()[App::getLocale()]["dir"]}}">
 <style>
+    @if(\App\Providers\MyProvider::get_languages()[App::getLocale()]["dir"]=="rtl")
+    body{
+        float: right;
+    }
+    @endif
 @media only screen and (max-width: 600px) {
 .inner-body {
 width: 100% !important;

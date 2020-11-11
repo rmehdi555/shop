@@ -88,7 +88,7 @@ return [
     'contact_us_info'=>'پل ارتباط با ما',
     'body_complaint'=>'متن شکایت ',
     'reset_password'=>'تغییر رمز',
-    ''
+    'ok'=>'تایید',
 
 
 

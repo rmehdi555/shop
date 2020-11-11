@@ -24,5 +24,11 @@ return [
     'used_activation_code'=>'این لینک فبلا استفاده شده است',
     'request_reset_password'=>' درخواست فراموشی رمز عبور دهید',
     'active_your_panel'=>'حساب کاربری شما تایید شد',
+    'save_register_and_send_email'=>'ثبت نام شما انجام شد ، جهت تایید حساب به ایمیل خود مراجعه نمایید',
+    'body_email_reset_password_1'=>'جهت تغییر رمز عبور خود روی دکمه تغییر رمز کلیک نمایید.',
+    'btn_title_email_reset_password'=>'تغییر رمز عبور',
+    'body_email_reset_password_2'=>'با تشکر',
+    'subject_email_reset_password'=>'تغییر رمز عبور',
+    'hello'=>'سلام',
 
 ];
