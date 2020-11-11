@@ -79,11 +79,13 @@ return [
     'activation_email_button'=>'فعالسازی حساب',
     'continuation'=>'ادامه',
     'contact_us'=>'تماس با ما',
+    'complaint'=>'ثبت شکایت',
     'about_us'=>'درباره ما',
     'links'=>'پیوند ها',
     'user_service'=>'خدمات مشتریان',
     'body_contact_us'=>'متن پیام ',
     'contact_us_info'=>'پل ارتباط با ما',
+    'body_complaint'=>'متن شکایت ',
 
 
 

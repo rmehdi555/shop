@@ -38,6 +38,10 @@ Route::middleware('language')->group(function (){
     Route::get('/contact-us','ContactUsController@index')->name('web.contact.us.index');
     Route::post('/contact-us','ContactUsController@insert')->name('web.contact.us.insert');
 
+    //complaint
+    Route::get('/complaint','ComplaintController@index')->name('web.complaint.index');
+    Route::post('/complaint','ComplaintController@insert')->name('web.complaint.insert');
+
 
     // error page
 
@@ -75,6 +79,7 @@ Route::middleware('auth','checkAdmin')->namespace('Admin')->prefix('admin')->gro
     Route::resource('menus','MenuController');
     Route::resource('menuCategories','MenuCategoriesController');
     Route::resource('contactUs','ContactUsController');
+    Route::resource('complaint','ComplaintController');
 });
 
 // end admin  route

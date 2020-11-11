@@ -69,6 +69,7 @@ return [
     'password'=>'پسورد',
     're_password'=>'تکرار پسورد',
     'contact_us_list'=>'پیام های تماس با ما',
+    'complaint_list'=>'پیام های ثبت شکایت',
 
 
 

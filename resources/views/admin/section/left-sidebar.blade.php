@@ -67,6 +67,7 @@
                             <li class="@if($SID==900 ) active @endif"><a href="{{ route('siteDetails.index',['SID' => '900']) }}">{{__('admin/public.site_settings_list')}}</a></li>
                             <li class="@if($SID==901 ) active @endif"><a href="{{ route('siteDetails.create',['SID' => '901']) }}">{{__('admin/public.site_settings_add')}}</a></li>
                             <li class="@if($SID==902 ) active @endif"><a href="{{ route('contactUs.index',['SID' => '902']) }}">{{__('admin/public.contact_us_list')}}</a></li>
+                            <li class="@if($SID==903 ) active @endif"><a href="{{ route('complaint.index',['SID' => '903']) }}">{{__('admin/public.complaint_list')}}</a></li>
                         </ul>
                     </li>
 
