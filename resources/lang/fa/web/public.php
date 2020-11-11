@@ -65,6 +65,7 @@ return [
     'phone'=>'شماره همراه',
     'password'=>'پسورد',
     're_password'=>'تکرار پسورد',
+    'new_password'=>'پسورد جدید',
     'register_user_password'=>'رمز عبور شما',
     'login'=>'حساب کاربری ورود',
     'new_user'=>'مشتری جدید',
@@ -86,6 +87,8 @@ return [
     'body_contact_us'=>'متن پیام ',
     'contact_us_info'=>'پل ارتباط با ما',
     'body_complaint'=>'متن شکایت ',
+    'reset_password'=>'تغییر رمز',
+    ''
 
 
 

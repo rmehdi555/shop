@@ -13,17 +13,17 @@ class UserController extends Controller
         $activationCode=ActivationCode::whereCode($token)->first();
         if(! $activationCode)
         {
-            dd('not exist');
+            alert()->error(__('web/messages.not_exist_activation_code'),__('web/messages.alert'));
             return redirect('/');
         }
         if( $activationCode->expire < Carbon::now())
         {
-            dd('expire');
+            alert()->error(__('web/messages.expire_activation_code'),__('web/messages.alert'));
             return redirect('/');
         }
         if( $activationCode->used == true)
         {
-            dd('used');
+            alert()->error(__('web/messages.used_activation_code'),__('web/messages.alert'));
             return redirect('/');
         }
         $activationCode->user->update([
@@ -33,6 +33,7 @@ class UserController extends Controller
             'used'=>true
         ]);
         auth()->loginUsingId($activationCode->user->id);
+        alert()->success(__('web/messages.active_your_panel'),__('web/messages.success'));
         return redirect('/');
     }
 }

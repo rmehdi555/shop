@@ -22,7 +22,7 @@ class ActivationUserAccount extends Mailable implements ShouldQueue
     public function __construct(User $user,$code)
     {
         $this->user=$user;
-        $this->code=$user;
+        $this->code=$code;
     }
 
     /**

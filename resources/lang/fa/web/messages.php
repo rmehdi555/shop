@@ -17,4 +17,12 @@ return [
     'insert_is_false'=>'خطلا هنگام ذخیره شدن فرم رخ داده است',
     'submit_is_true'=>'ثبت شد',
     'submit_is_false'=>'ثبت نشد',
+    'not_exist_activation_code'=>'کد وجود ندارد',
+    'alert'=>'خطا',
+    'success'=>'تایید',
+    'expire_activation_code'=>'زمان اعتبار لینک به پایان رسیده است ',
+    'used_activation_code'=>'این لینک فبلا استفاده شده است',
+    'request_reset_password'=>' درخواست فراموشی رمز عبور دهید',
+    'active_your_panel'=>'حساب کاربری شما تایید شد',
+
 ];
