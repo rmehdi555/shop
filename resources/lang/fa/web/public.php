@@ -89,6 +89,9 @@ return [
     'body_complaint'=>'متن شکایت ',
     'reset_password'=>'تغییر رمز',
     'ok'=>'تایید',
+    'activation_account_by_sms'=>'فعال سازی حساب با وارد کردن کد پیامک شده',
+    'enter_code_sms'=>'کد پیامک شده را وارد نمایید',
+
 
 
 

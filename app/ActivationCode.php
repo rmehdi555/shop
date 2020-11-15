@@ -20,6 +20,15 @@ class ActivationCode extends Model
             'expire'=>Carbon::now()->addMinutes(15),
         ]);
     }
+    public  function scopeCreateCodeSms($query,$user)
+    {
+        $code=$this->codeSms();
+        return $query->create([
+            'user_id'=>$user->id,
+            'code'=>$code,
+            'expire'=>Carbon::now()->addMinutes(15),
+        ]);
+    }
 
     /**
      * @return mixed
@@ -31,6 +40,10 @@ class ActivationCode extends Model
             $check_code=static ::whereCode($code)->get();
         }while(!$check_code->isEmpty());
         return $code;
+    }
+    private function codeSms()
+    {
+        return rand(10001,99999);
     }
 
     public  function user()

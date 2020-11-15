@@ -18,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\UserActivation' => [
             'App\Listeners\UserActivation\SendMailNotification',
         ],
+        'App\Events\UserActivationSms' => [
+            'App\Listeners\UserActivation\SendSmsNotification',
+        ],
     ];
 
     /**

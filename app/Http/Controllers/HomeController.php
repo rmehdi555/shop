@@ -14,6 +14,8 @@ class HomeController extends Controller
 {
     public function index()
     {
+      
+
         $slider=Slider::where('status','=','1')->orderBy('priority','desc')->get();
        // محصولات ویژه
         $specialProducts=Products::where([['type','=','special'],['status','=','1'] ])->limit(10)->get();

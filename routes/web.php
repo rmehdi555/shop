@@ -31,6 +31,7 @@ Route::middleware('language')->group(function (){
 
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/user/active/email/{token}', 'UserController@activationAccountByEmail')->name('activation.account.by.email');
+    Route::POST('/user/active/sme', 'UserController@activationAccountBySMS')->name('web.activation.account.by.sms');
 
     Route::get('/show/page/{id}','HomeController@showPage')->name('web.show.page');
 
@@ -90,7 +91,12 @@ Route::middleware('language')->namespace('Auth')->group(function (){
     // Authentication Routes...
     Route::get('login', 'LoginController@showLoginForm')->name('login');
     Route::post('login', 'LoginController@login');
+
+    Route::get('login/sms', 'LoginSmsController@showLoginForm')->name('login.sms');
+    Route::post('login/sms', 'LoginSmsController@login');
+
     Route::get('logout', 'LoginController@logout')->name('logout');
+
 
 //    // Login And Register With Google
 //    Route::get('login/google', 'LoginController@redirectToProvider');
@@ -98,6 +104,11 @@ Route::middleware('language')->namespace('Auth')->group(function (){
     // Registration Routes...
     Route::get('register', 'RegisterController@showRegistrationForm')->name('register');
     Route::post('register', 'RegisterController@register');
+
+    Route::get('register/sms', 'RegisterSmsController@showRegistrationForm')->name('register.sms');
+    Route::post('register/sms', 'RegisterSmsController@register');
+
+    Route::post('activation/account/sms', 'RegisterSmsController@showActivationAccontSms')->name('activation.account.sms');
 
     // Password Reset Routes...
     Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');

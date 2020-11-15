@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ActivationCode;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -19,12 +20,12 @@ class UserController extends Controller
         if( $activationCode->expire < Carbon::now())
         {
             alert()->error(__('web/messages.expire_activation_code'),__('web/messages.alert'));
-            return redirect('/');
+            return redirect()->route('login');
         }
         if( $activationCode->used == true)
         {
             alert()->error(__('web/messages.used_activation_code'),__('web/messages.alert'));
-            return redirect('/');
+            return redirect()->route('login');
         }
         $activationCode->user->update([
             'active'=>1
@@ -34,6 +35,40 @@ class UserController extends Controller
         ]);
         auth()->loginUsingId($activationCode->user->id);
         alert()->success(__('web/messages.active_your_panel'),__('web/messages.success'));
-        return redirect('/');
+        return redirect()->route('login');
+    }
+    public  function activationAccountBySms(Request $request)
+    {
+        $user=User::wherePhone($request->input('phone'))->first();
+        if(!$user)
+        {
+            alert()->error(__('web/messages.expire_activation_code'),__('web/messages.alert'));
+            return redirect('/');
+        }
+        $activationCode=ActivationCode::where([['user_id','=',$user->id],['code','=',$request->input('code')]])->first();
+        if(! $activationCode)
+        {
+            alert()->error(__('web/messages.not_exist_activation_code'),__('web/messages.alert'));
+            return redirect()->route('login.sms');
+        }
+        if( $activationCode->expire < Carbon::now())
+        {
+            alert()->error(__('web/messages.expire_activation_code'),__('web/messages.alert'));
+            return redirect()->route('login.sms');
+        }
+        if( $activationCode->used == true)
+        {
+            alert()->error(__('web/messages.used_activation_code'),__('web/messages.alert'));
+            return redirect()->route('login.sms');
+        }
+        $activationCode->user->update([
+            'active'=>1
+        ]);
+        $activationCode->update([
+            'used'=>true
+        ]);
+        auth()->loginUsingId($activationCode->user->id);
+        alert()->success(__('web/messages.active_your_panel'),__('web/messages.success'));
+        return redirect()->route('login.sms');
     }
 }

@@ -233,4 +233,12 @@ return [
 
     ],
 
+
+
+
+    'smsPanelUser' => env('SMS_PANEL_USER', 'sms'),
+    'smsPanelPass' => env('SMS_PANEL_PASS', 'pass'),
+    'smsPanelUrl' => env('SMS_PANEL_URL', 'url'),
+    'smsPanelFrom' => env('SMS_PANEL_FROM', 'from'),
+
 ];
