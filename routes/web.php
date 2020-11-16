@@ -32,6 +32,7 @@ Route::middleware('language')->group(function (){
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/user/active/email/{token}', 'UserController@activationAccountByEmail')->name('activation.account.by.email');
     Route::POST('/user/active/sme', 'UserController@activationAccountBySMS')->name('web.activation.account.by.sms');
+    Route::POST('/user/reset/password/code/sme', 'UserController@resetPasswordBySMS')->name('web.reset.password.by.sms');
 
     Route::get('/show/page/{id}','HomeController@showPage')->name('web.show.page');
 
@@ -115,6 +116,13 @@ Route::middleware('language')->namespace('Auth')->group(function (){
     Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
     Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/reset', 'ResetPasswordController@reset')->name('password.update');
+    // Password Reset By SMS Routes
+    Route::get('password/sms/reset', 'ForgotPasswordSmsController@showLinkRequestForm')->name('password.request.sms');
+    Route::post('password/sms', 'ForgotPasswordSmsController@sendResetLinkSms')->name('password.sms');
+    Route::get('password/reset/code/sms', 'ResetPasswordSmsController@showResetForm')->name('password.reset.sms');
+    Route::post('password/update/sms/reset', 'ResetPasswordSmsController@reset')->name('password.update.sms');
+
+
 });
 
 // end auth route

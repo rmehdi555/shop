@@ -32,5 +32,9 @@ return [
     'subject_email_reset_password'=>'تغییر رمز عبور',
     'hello'=>'سلام',
     'save_register_and_send_sms'=>'اطلاعات ثبت شد، کد تایید حساب برای شما پیامک شد که باید آن را وارد نمایید.',
+    'not_exist_phone'=>'شماره همراه وجود ندارد',
+    'reset_password_by_sms'=>'تغییر رمز عبور با پیامک',
+    'not_confirmed_password'=>'رمز عبور باید حداقل 8 کاراکتر باشد و با تکرار آن برابر باشد .',
+    'success_reset_password'=>'رمز با موفقیت تغییر یافت',
 
 ];
