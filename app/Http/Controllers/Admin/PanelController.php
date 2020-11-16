@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PanelController extends Controller
@@ -82,5 +83,13 @@ class PanelController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function uploadImageSubject()
+    {
+//        $year = Carbon::now()->year;
+//        $month = Carbon::now()->month;
+//        $imagePath = "/upload/images/{$year}/{$month}/{$type}/";
+//        $filename = $file->getClientOriginalName();
     }
 }

@@ -48,7 +48,11 @@
 <script type="text/javascript">
     $(function(){
         $('.ckeditor').each(function(e){
-            CKEDITOR.replace( this.id, { customConfig: '/jblog/ckeditor/config_Large.js'});
+            CKEDITOR.replace( this.id, {
+                filebrowserUploadUrl:'/admin/panel/upload-image',
+                filebrowserImageUploadUrl:'/admin/panel/upload-image',
+            });
+
         });
     });
 </script>
