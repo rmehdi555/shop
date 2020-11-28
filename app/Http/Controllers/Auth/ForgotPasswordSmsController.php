@@ -102,28 +102,19 @@ class ForgotPasswordSmsController extends Controller
     private function sendSmsLink($user, $token)
     {
         try {
-        $url = config('app.smsPanelUrl');
 
-        $rcpt_nm = array($user->phone);
-        $param = array
-        (
-            'uname'=>config('app.smsPanelUser'),
-            'pass'=>config('app.smsPanelPass'),
-            'from'=>config('app.smsPanelFrom'),
-            'message'=>$token,
-            'to'=>json_encode($rcpt_nm),
-            'op'=>'send'
-        );
-
-        $handler = curl_init($url);
-        curl_setopt($handler, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($handler, CURLOPT_POSTFIELDS, $param);
-        curl_setopt($handler, CURLOPT_RETURNTRANSFER, true);
-        $response2 = curl_exec($handler);
-
-        $response2 = json_decode($response2);
-        $res_code = $response2[0];
-        $res_data = $response2[1];
+            $username = config('app.smsPanelUser');
+            $password = config('app.smsPanelPass');
+            $from = config('app.smsPanelFrom');
+            $pattern_code = "std2vqdmre";
+            $to = array($user->phone);
+            $input_data = array("code" => $token);
+            $url = config('app.smsPanelUrl') . $username . "&password=" . urlencode($password) . "&from=$from&to=" . json_encode($to) . "&input_data=" . urlencode(json_encode($input_data)) . "&pattern_code=$pattern_code";
+            $handler = curl_init($url);
+            curl_setopt($handler, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($handler, CURLOPT_POSTFIELDS, $input_data);
+            curl_setopt($handler, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($handler);
 
         } catch (ApiException $e) {
             Log::error($e->errorMessage());

@@ -47,13 +47,19 @@
 
 <script type="text/javascript">
     $(function(){
-        $('.ckeditor').each(function(e){
+        $('.ckeditor1').each(function(e){
             CKEDITOR.replace( this.id, {
-                filebrowserUploadUrl:'/admin/panel/upload-image',
-                filebrowserImageUploadUrl:'/admin/panel/upload-image',
+                // Use named CKFinder browser route
+                filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+                // Use named CKFinder connector route
+                filebrowserUploadUrl: '{{ route('ckfinder_connector') }}?command=QuickUpload&type=Files',
+                filebrowserWindowWidth: '1000',
+                filebrowserWindowHeight: '700',
             });
 
         });
+        var editor = CKEDITOR.replace( 'ckfinder' );
+        CKFinder.setupCKEditor( editor );
     });
 </script>
 @yield('script')
