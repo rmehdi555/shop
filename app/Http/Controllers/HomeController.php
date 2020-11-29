@@ -7,6 +7,7 @@ use App\Products;
 use App\Providers\MyProvider;
 use App\Slider;
 use App\WebPages;
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -14,7 +15,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-      
+        //shamsi date
+        //https://hekmatinasser.github.io/verta/
+       // dd(Verta::now());
 
         $slider=Slider::where('status','=','1')->orderBy('priority','desc')->get();
        // محصولات ویژه
