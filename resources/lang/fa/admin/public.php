@@ -70,7 +70,13 @@ return [
     're_password'=>'تکرار پسورد',
     'contact_us_list'=>'پیام های تماس با ما',
     'complaint_list'=>'پیام های ثبت شکایت',
-
+    'news' =>'اخبار',
+    'news_list' =>'لیست اخبار',
+    'news_add' =>'اضافه کردن خبر',
+    'news_categories_list'=>'لیست دسته بندی اخبار',
+    'news_categories'=>'لیست دسته بندی اخبار',
+    'news_categories_add'=>'اضافه کردن دسته خبری جدید',
+    'news_categories_id'=>'انتخاب دسته خبر ',
 
 
 ];

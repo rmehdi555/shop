@@ -32,11 +32,11 @@ class ComposerStaticInita3e195f2d0bd46859ae0c0d554f6ff87
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
+        '4364d9898253482270d33c3e7d349234' => __DIR__ . '/..' . '/hekmatinasser/notowo/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
-        '4364d9898253482270d33c3e7d349234' => __DIR__ . '/..' . '/hekmatinasser/notowo/src/helpers.php',
-        'a806c12c6e24e7e4e900847766218dba' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/functions.php',
         '4ad677cf23be1eeec8c74951804d4cb0' => __DIR__ . '/..' . '/hekmatinasser/verta/src/helpers.php',
+        'a806c12c6e24e7e4e900847766218dba' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -645,6 +645,8 @@ class ComposerStaticInita3e195f2d0bd46859ae0c0d554f6ff87
         'App\\Mail\\ActivationUserAccount' => __DIR__ . '/../..' . '/app/Mail/ActivationUserAccount.php',
         'App\\Menu' => __DIR__ . '/../..' . '/app/Menu.php',
         'App\\MenuCategories' => __DIR__ . '/../..' . '/app/MenuCategories.php',
+        'App\\News' => __DIR__ . '/../..' . '/app/News.php',
+        'App\\NewsCategory' => __DIR__ . '/../..' . '/app/NewsCategory.php',
         'App\\Notifications\\ResetPasswordNotification' => __DIR__ . '/../..' . '/app/Notifications/ResetPasswordNotification.php',
         'App\\ProductCategories' => __DIR__ . '/../..' . '/app/ProductCategories.php',
         'App\\ProductImages' => __DIR__ . '/../..' . '/app/ProductImages.php',

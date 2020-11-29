@@ -22,10 +22,11 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h2>{{__('admin/public.show')}}</h2>
+                            <h2>{{__('admin/public.create')}}</h2>
                         </div>
                         <div class="body">
-
+                            <form id="basic-form" action="{{ route('newsCategories.store') }}" method="post" enctype="multipart/form-data" novalidate>
+                                @csrf
                                 @include('admin.section.errors')
                                 <?php
                                 $allLang=\App\Providers\MyProvider::get_languages();
@@ -34,7 +35,7 @@
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.title')}} ({{$kay}}):</label>
-                                    <input type="text" name="title_{{$kay}}" class="form-control" value="{{\App\Providers\MyProvider::_text($productCategories->title,$kay)}}" required>
+                                    <input type="text" name="title_{{$kay}}" class="form-control" value="{{old('title_'.$kay)}}" required>
                                 </div>
                                 <?php
                                 }
@@ -44,7 +45,7 @@
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.description')}} ({{$kay}}):</label>
-                                    <textarea name="description_{{$kay}}" id="ckeditor" class="form-control" rows="5" cols="30" required>{{\App\Providers\MyProvider::_text($productCategories->description,$kay)}}</textarea>
+                                    <textarea name="description_{{$kay}}" id="ckeditor" class="form-control" rows="5" cols="30" required>{{old('description_'.$kay)}}</textarea>
 
                                 </div>
                                 <?php
@@ -55,39 +56,29 @@
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.body')}} ({{$kay}}):</label>
-                                    <textarea name="body_{{$kay}}" class="form-control ckeditor" rows="5" cols="30" required>{{\App\Providers\MyProvider::_text($productCategories->body,$kay)}}</textarea>
+                                    <textarea name="body_{{$kay}}" class="form-control ckeditor" rows="5" cols="30" required>{{old('body_'.$kay)}}</textarea>
 
                                 </div>
                                 <?php
                                 }
                                 ?>
+
                                 <div class="form-group">
                                     <label>{{__('admin/public.images')}} :</label>
-                                    <input type="file" name="images" class="form-control" value="{{old('images')}}" >
+                                    <input type="file" name="images" class="form-control" value="{{old('images')}}">
                                 </div>
-                                @if($productCategories->images!=[])
-                                    <div class="media">
-                                        <img class="media-object " src="{{$productCategories->images["thumb"]}}" alt="">
-                                        {{--<div class="media-body">--}}
-                                        {{--<span class="name">Joge Lucky</span>--}}
-                                        {{--<span class="message">Sales Lead</span>--}}
-                                        {{--<span class="badge badge-outline status"></span>--}}
-                                        {{--</div>--}}
-                                    </div>
-                                @endif
                                 <div class="form-group">
                                     <label>{{__('admin/public.tags')}} :</label>
-                                    <input type="text" name="tags" class="form-control" value="{{$productCategories->tags}}" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.priority')}} :</label>
-                                    <input type="number" name="priority" class="form-control" value="{{$productCategories->priority}}" required>
+                                    <input type="text" name="tags" class="form-control" value="{{old('tags')}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.icon')}} :</label>
-                                    <input type="text" name="icon" class="form-control" value="{{$productCategories->icon}}" required>
+                                    <input type="text" name="icon" class="form-control" value="i" required>
                                 </div>
-
+                                <div class="form-group">
+                                    <label>{{__('admin/public.priority')}} :</label>
+                                    <input type="number" name="priority" class="form-control" value="1" required>
+                                </div>
 
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.parent_id')}} :</label>
@@ -101,20 +92,21 @@
                                     </div>
                                 </div>
 
+
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.status')}} :</label>
                                     <div class="multiselect_div">
                                         <select id="single-selection" name="status" class="multiselect multiselect-custom" >
+                                            <option value="1">{{__('admin/public.active')}}</option>
                                             <option value="0">{{__('admin/public.inactive')}}</option>
-                                            <option value="1" {{$productCategories->status?"selected":""}}>{{__('admin/public.active')}}</option>
                                         </select>
                                     </div>
                                 </div>
 
 
-
-
-
+                                <br>
+                                <button type="submit" class="btn btn-primary">{{__('admin/public.submit')}}</button>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -34,7 +34,7 @@
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.title')}} ({{$kay}}):</label>
-                                    <input type="text" name="title_{{$kay}}" class="form-control" value="{{\App\Providers\MyProvider::_text($products->title,$kay)}}" required>
+                                    <input type="text" name="title_{{$kay}}" class="form-control" value="{{\App\Providers\MyProvider::_text($news->title,$kay)}}" required>
                                 </div>
                                 <?php
                                 }
@@ -44,7 +44,7 @@
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.description')}} ({{$kay}}):</label>
-                                    <textarea name="description_{{$kay}}" id="ckeditor" class="form-control" rows="5" cols="30" required>{{\App\Providers\MyProvider::_text($products->description,$kay)}}</textarea>
+                                    <textarea name="description_{{$kay}}" id="ckeditor" class="form-control" rows="5" cols="30" required>{{\App\Providers\MyProvider::_text($news->description,$kay)}}</textarea>
 
                                 </div>
                                 <?php
@@ -55,36 +55,29 @@
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.body')}} ({{$kay}}):</label>
-                                    <textarea name="body_{{$kay}}" class="form-control ckeditor" rows="5" cols="30" required>{{\App\Providers\MyProvider::_text($products->body,$kay)}}</textarea>
+                                    <textarea name="body_{{$kay}}" class="form-control ckeditor" rows="5" cols="30" required>{{\App\Providers\MyProvider::_text($news->body,$kay)}}</textarea>
 
                                 </div>
                                 <?php
                                 }
                                 ?>
                                 <div class="form-group col-lg-4 col-md-12">
-                                    <label>{{__('admin/public.product_categories_id')}} :</label>
+                                    <label>{{__('admin/public.news_categories_id')}} :</label>
                                     <div class="multiselect_div">
-                                        <select id="single-selection" name="product_categories_id" class="multiselect multiselect-custom" >
+                                        <select id="single-selection" name="news_categories_id" class="multiselect multiselect-custom" >
                                             @foreach($categories as $category)
-                                                <option value="{{$category->id}}" {{($products->product_categories_id==$category->id)?"selected":""}}>{{\App\Providers\MyProvider::_text($category->title)}}</option>
+                                                <option value="{{$category->id}}" {{($news->news_categories_id==$category->id)?"selected":""}}>{{\App\Providers\MyProvider::_text($category->title)}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.price')}} ({{__('admin/public.IRR')}}) :</label>
-                                    <input type="number" name="price" class="form-control" value="{{$products->price}}" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.discount')}} (0-100 %):</label>
-                                    <input type="number" min="0" max="100" name="discount" class="form-control" value="{{$products->discount}}" required>
-                                </div>
+
                                 <div class="form-group">
                                     <label>{{__('admin/public.images')}} :</label>
                                     <input type="file" name="images" class="form-control" value="{{old('images')}}" >
                                 </div>
                                 <div class="media">
-                                    <img class="media-object " src="{{$products->images["thumb"]}}" alt="">
+                                    <img class="media-object " src="{{$news->images["thumb"]}}" alt="">
                                     {{--<div class="media-body">--}}
                                     {{--<span class="name">Joge Lucky</span>--}}
                                     {{--<span class="message">Sales Lead</span>--}}
@@ -93,11 +86,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.tags')}} :</label>
-                                    <input type="text" name="tags" class="form-control" value="{{$products->tags}}" required>
+                                    <input type="text" name="tags" class="form-control" value="{{$news->tags}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.priority')}} :</label>
-                                    <input type="number" name="priority" class="form-control" value="{{$products->priority}}" required>
+                                    <input type="number" name="priority" class="form-control" value="{{$news->priority}}" required>
                                 </div>
 
                                 <div class="form-group col-lg-4 col-md-12">
@@ -105,7 +98,7 @@
                                     <div class="multiselect_div">
                                         <select id="single-selection" name="status" class="multiselect multiselect-custom" >
                                             <option value="0">{{__('admin/public.inactive')}}</option>
-                                            <option value="1" {{$products->status?"selected":""}}>{{__('admin/public.active')}}</option>
+                                            <option value="1" {{$news->status?"selected":""}}>{{__('admin/public.active')}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -113,9 +106,9 @@
                                     <label>{{__('admin/public.type')}} :</label>
                                     <div class="multiselect_div">
                                         <select id="single-selection" name="type" class="multiselect multiselect-custom" >
-                                            <option value="normal" {{($products->type=='normal')?"selected":""}}>{{__('admin/public.normal')}}</option>
-                                            <option value="special" {{($products->type=='special')?"selected":""}}>{{__('admin/public.special')}}</option>
-                                            <option value="offer" {{($products->type=='offer')?"selected":""}}>{{__('admin/public.offer')}}</option>
+                                            <option value="normal" {{($news->type=='normal')?"selected":""}}>{{__('admin/public.normal')}}</option>
+                                            <option value="special" {{($news->type=='special')?"selected":""}}>{{__('admin/public.special')}}</option>
+                                            <option value="offer" {{($news->type=='offer')?"selected":""}}>{{__('admin/public.offer')}}</option>
                                         </select>
                                     </div>
                                 </div>

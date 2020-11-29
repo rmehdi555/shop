@@ -13,6 +13,23 @@
                     {{--<li><a href="app-calendar.html"><i class="icon-calendar"></i><span>Calendar</span></a></li>--}}
                     {{--<li><a href="app-taskboard.html"><i class="icon-notebook"></i><span>Taskboard</span></a></li>--}}
                     {{--<li class="heading">UI Elements</li>--}}
+                    <li class="@if($SID>=10 and $SID<20) active @endif">
+                        <a href="#news_categories" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.news_categories')}}</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="@if($SID==10 ) active @endif"><a href="{{ route('newsCategories.index',['SID' => '10']) }}">{{__('admin/public.news_categories_list')}}</a></li>
+                            <li class="@if($SID==11 ) active @endif"><a href="{{ route('newsCategories.create',['SID' => '11']) }}">{{__('admin/public.news_categories_add')}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="@if($SID>=20 and $SID<30) active @endif">
+                        <a href="#news" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.news')}}</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="@if($SID==20 ) active @endif"><a href="{{ route('news.index',['SID' => '20']) }}">{{__('admin/public.news_list')}}</a></li>
+                            <li class="@if($SID==21 ) active @endif"><a href="{{ route('news.create',['SID' => '21']) }}">{{__('admin/public.news_add')}}</a></li>
+                        </ul>
+                    </li>
+
+
+
                     <li class="@if($SID>=100 and $SID<200) active @endif">
                         <a href="#slider" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.slider')}}</span></a>
                         <ul aria-expanded="false" class="collapse">
@@ -60,6 +77,9 @@
                             <li class="@if($SID==701 ) active @endif"><a href="{{ route('menuCategories.create',['SID' => '701']) }}">{{__('admin/public.menu_categories_add')}}</a></li>
                         </ul>
                     </li>
+
+
+
 
                     <li class="@if($SID>=900 and $SID<1000) active @endif">
                         <a href="#site-setting" class="has-arrow"><i class="icon-diamond"></i><span>{{__('admin/public.site_settings')}}</span></a>

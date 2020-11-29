@@ -67,6 +67,8 @@ return array(
     'App\\Mail\\ActivationUserAccount' => $baseDir . '/app/Mail/ActivationUserAccount.php',
     'App\\Menu' => $baseDir . '/app/Menu.php',
     'App\\MenuCategories' => $baseDir . '/app/MenuCategories.php',
+    'App\\News' => $baseDir . '/app/News.php',
+    'App\\NewsCategory' => $baseDir . '/app/NewsCategory.php',
     'App\\Notifications\\ResetPasswordNotification' => $baseDir . '/app/Notifications/ResetPasswordNotification.php',
     'App\\ProductCategories' => $baseDir . '/app/ProductCategories.php',
     'App\\ProductImages' => $baseDir . '/app/ProductImages.php',
