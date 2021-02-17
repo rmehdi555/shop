@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\CurrencyConvert;
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
@@ -199,6 +200,21 @@ class MyProvider extends ServiceProvider
         $englishNumbersOnly = str_replace($arabic, $num, $convertedPersianNums);
 
         return $englishNumbersOnly;
+    }
+
+
+
+    static function show_date($date,$format="'Y/n/j H:i:s'") {
+        $lang=App::getLocale();
+        if($lang=="fa")
+        {
+            $v = new Verta($date);
+			$v = $v->timezone('Asia/Tehran');
+            return $v->format($format);
+
+        }else{
+            return $date->format($format);
+        }
     }
 
 

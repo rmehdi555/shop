@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Adlino\Locations\Facades\locations;
+use App\News;
 use App\ProductCategories;
 use App\Products;
 use App\Providers\MyProvider;
+use App\Provinces;
 use App\Slider;
+use App\Visit;
 use App\WebPages;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
@@ -15,10 +19,11 @@ class HomeController extends Controller
 {
     public function index()
     {
+
         //shamsi date
         //https://hekmatinasser.github.io/verta/
-       // dd(Verta::now());
-
+//        $v=Verta::now();
+//        dd($v->formatWord('l').' '.$v->format('d').' '.$v->formatWord('F').' '.$v->format('Y'));
         $slider=Slider::where('status','=','1')->orderBy('priority','desc')->get();
        // محصولات ویژه
         $specialProducts=Products::where([['type','=','special'],['status','=','1'] ])->limit(10)->get();
@@ -47,6 +52,15 @@ class HomeController extends Controller
         //جدید ترین محصولات
         $newProducts=Products::where('status','=','1')->orderBy('created_at','desc')->limit(10)->get();
         return view('web.pages.product',compact('product','specialProducts','newProducts'));
+    }
+    public function showNews($id)
+    {
+
+        $news=News::find($id);
+        if(!isset($news) OR empty($news))
+            return redirect()->route('web.404');
+        $allNews=News::where('status','=','1')->orderBy('priority')->get();
+        return view('web.pages.news',compact('news','allNews'));
     }
     public function showPage($id)
     {

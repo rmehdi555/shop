@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "adlino/locations": "^0.0.1",
         "ckfinder/ckfinder-laravel-package": "v3.5.1.6",
         "cviebrock/eloquent-sluggable": "^7.0",
         "fideloper/proxy": "^4.2",
@@ -19,6 +20,8 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
+        "niklasravnsborg/laravel-pdf": "^4.0",
+        "shetabit/visitor": "^3.0",
         "uxweb/sweet-alert": "^2.0"
     },
     "require-dev": {

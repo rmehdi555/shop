@@ -1,0 +1,1 @@
+ALTER TABLE `payments` ADD `Token` TEXT NULL AFTER `extraDetail`, ADD `RetrivalRefNo` TEXT NULL AFTER `Token`, ADD `SystemTraceNo` TEXT NULL AFTER `RetrivalRefNo`;

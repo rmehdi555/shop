@@ -2,6 +2,24 @@
 
 return [
 
+
+    'smsPanelUser' => env('SMS_PANEL_USER', 'sms'),
+    'smsPanelPass' => env('SMS_PANEL_PASS', 'pass'),
+    'smsPanelUrl' => env('SMS_PANEL_URL', 'url'),
+    'smsPanelFrom' => env('SMS_PANEL_FROM', 'from'),
+
+
+    'bankMeli' => [
+        'MerchantId'      =>  '140335847',
+        'TerminalId'     =>  '24093488',
+        'Key'   =>  'EmnHKXJzNAvL2jq0jXB7cC8rjY3b2oaN',
+
+    ],
+    'bankPay' => [
+        'active'      =>  'meli1',
+    ],
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -67,7 +85,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Tehran',
 
     /*
     |--------------------------------------------------------------------------
@@ -177,6 +195,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         Hekmatinasser\Verta\VertaServiceProvider::class,
+        Adlino\Locations\LocationsServiceProvider::class,
+        niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
 
     ],
 
@@ -232,15 +252,14 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'Verta' => Hekmatinasser\Verta\Verta::class,
+        'Locations' => Adlino\Locations\Facades\Locations::class,
+        'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class,
 
     ],
 
 
 
 
-    'smsPanelUser' => env('SMS_PANEL_USER', 'sms'),
-    'smsPanelPass' => env('SMS_PANEL_PASS', 'pass'),
-    'smsPanelUrl' => env('SMS_PANEL_URL', 'url'),
-    'smsPanelFrom' => env('SMS_PANEL_FROM', 'from'),
+
 
 ];

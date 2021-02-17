@@ -65,7 +65,6 @@ class RegisterSmsController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'family' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'numeric', 'digits:11', 'unique:users'],
-            'email' => ['nullable','string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -81,7 +80,6 @@ class RegisterSmsController extends Controller
         return User::create([
             'name' => $data['name'],
             'family' => $data['family'],
-            'email' => strtolower($data['email']),
             'phone' => \App\Providers\MyProvider::convert_phone_number($data['phone']),
             'password' => Hash::make($data['password']),
         ]);
@@ -98,7 +96,7 @@ class RegisterSmsController extends Controller
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
         event(new UserActivationSms($user));
-        alert()->success(__('web/messages.save_register_and_send_sms'),__('web/messages.success'))->persistent(__('web/public.ok'));;
+        alert()->success(__('web/messages.save_register_and_send_sms'),__('web/messages.success'));
         return view('auth.confirm-sms-code',compact('user'));
     }
 

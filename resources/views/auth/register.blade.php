@@ -19,7 +19,15 @@
                         <p>{{__('web/messages.register_1')}} <a href="{{ route('login') }}"> {{__('web/messages.register_2')}} </a> {{__('web/messages.register_3')}}</p>
                         <fieldset id="account">
                             <legend>{{__('web/public.register_user_info')}}</legend>
-
+                            @if(count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div class="form-group required">
                                 <label for="input-firstname" class="col-sm-2 control-label">{{__('web/public.name')}}</label>
                                 <div class="col-sm-10">
