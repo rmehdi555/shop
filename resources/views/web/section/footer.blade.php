@@ -26,6 +26,8 @@
                         @foreach($webMenusFooter2Provider as $item)
                             <li><a href="{{$item->link}}">{{\App\Providers\MyProvider::_text($item->title)}}</a></li>
                         @endforeach
+
+                            <ali><a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=202090&amp;Code=zWSOD2mavOWNwYYvBijv"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=202090&amp;Code=zWSOD2mavOWNwYYvBijv" alt="اینماد" style="cursor:pointer" id="zWSOD2mavOWNwYYvBijv"></a></li>
                     </ul>
                 </div>
             </div>
@@ -34,9 +36,9 @@
     <div class="fpart-second">
         <div class="container">
             <div id="powered" class="clearfix">
-                {{--<div class="powered_text pull-left flip">--}}
-                    {{--<p>کپی رایت © 2016 فروشگاه شما | پارسی سازی و ویرایش توسط <a href="https://mrcode.ir" target="_blank">مسترکد</a></p>--}}
-                {{--</div>--}}
+                <div class="powered_text pull-left flip">
+                    <p>کپی رایت © 2021 فروشگاه شما |ایجاد توسط <a href="https://rmehdi555.ir" target="_blank">555</a></p>
+                </div>
                 {{--<div class="social pull-right flip"> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/facebook.png" alt="Facebook" title="Facebook"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/twitter.png" alt="Twitter" title="Twitter"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/google_plus.png" alt="Google+" title="Google+"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/pinterest.png" alt="Pinterest" title="Pinterest"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/rss.png" alt="RSS" title="RSS"> </a> </div>--}}
             {{--</div>--}}
             {{--<div class="bottom-row">--}}
