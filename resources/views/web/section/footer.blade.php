@@ -1,56 +1,87 @@
-<!--Footer Start-->
-<footer id="footer">
-    <div class="fpart-first">
-        <div class="container">
-            <div class="row">
-                <div class="contact col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <h5>{{__('web/public.contact_us')}}</h5>
+<!-- Footer Section Begin -->
+<footer class="footer-section set-bg" data-setbg="{{asset('web/2021/img/footer-bg.jpg')}}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="fs-logo">
+                    <h4>{{__('web/public.contact_us')}}</h4>
                     <ul>
-                        <li class="address"><i class="fa fa-map-marker"></i>{{\App\Providers\MyProvider::_text($siteDetailsProvider["address"]->value)}}</li>
-                        <li class="mobile"><i class="fa fa-phone"></i>{{\App\Providers\MyProvider::_text($siteDetailsProvider["phone"]->value)}}</li>
-                        <li class="mobile"><i class="fa fa-phone"></i>{{\App\Providers\MyProvider::_text($siteDetailsProvider["mobile"]->value)}}</li>
-                        <li class="email"><i class="fa fa-envelope"></i>{{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}</li>
+                        <li><i class="fa fa-envelope"></i> {{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}</li>
+                        <li><i class="fa fa-copy"></i> {{\App\Providers\MyProvider::_text($siteDetailsProvider["mobile"]->value)}}</li>
+                        <li><i class="fa fa-thumb-tack"></i> {{\App\Providers\MyProvider::_text($siteDetailsProvider["address"]->value)}}</li>
                     </ul>
+                    <div class="fs-social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-tumblr"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
                 </div>
-                <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <h5>{{__('web/public.links')}}</h5>
-                    <ul>
+            </div>
+            <div class="col-lg-4 col-md-6 offset-lg-1">
+                <div class="fs-widget">
+                    <h4>{{__('web/public.links')}}</h4>
+                    <ul class="fw-links">
                         @foreach($webMenusFooter1Provider as $item)
                             <li><a href="{{$item->link}}">{{\App\Providers\MyProvider::_text($item->title)}}</a></li>
                         @endforeach
                     </ul>
-                </div>
-                <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <h5>{{__('web/public.user_service')}}</h5>
-                    <ul>
-                        @foreach($webMenusFooter2Provider as $item)
-                            <li><a href="{{$item->link}}">{{\App\Providers\MyProvider::_text($item->title)}}</a></li>
-                        @endforeach
-
-                            <ali><a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=202090&amp;Code=zWSOD2mavOWNwYYvBijv"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=202090&amp;Code=zWSOD2mavOWNwYYvBijv" alt="اینماد" style="cursor:pointer" id="zWSOD2mavOWNwYYvBijv"></a></li>
+                    <ul class="fw-links">
+                        <li><a href="#">England</a></li>
+                        <li><a href="#">Netherlands</a></li>
+                        <li><a href="#">Hungary</a></li>
+                        <li><a href="#">Croatia</a></li>
+                        <li><a href="#">Poland</a></li>
                     </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="fs-widget">
+                    <h4>{{__('web/public.user_service')}}</h4>
+                    @foreach($webMenusFooter2Provider as $item)
+                        <div class="fw-item">
+                            <h5><a href="{{$item->link}}">{{\App\Providers\MyProvider::_text($item->title)}}</a></h5>
+                        </div>
+
+                    @endforeach
+
                 </div>
             </div>
         </div>
     </div>
-    <div class="fpart-second">
-        <div class="container">
-            <div id="powered" class="clearfix">
-                <div class="powered_text pull-left flip">
-                    <p>کپی رایت © 2021 فروشگاه شما |ایجاد توسط <a href="https://rmehdi555.ir" target="_blank">555</a></p>
+    <div class="container">
+        <div class="copyright-option">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="co-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                    <div class="co-widget">
+                        <ul>
+                            <li><a href="#">Copyright notification</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
                 </div>
-                {{--<div class="social pull-right flip"> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/facebook.png" alt="Facebook" title="Facebook"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/twitter.png" alt="Twitter" title="Twitter"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/google_plus.png" alt="Google+" title="Google+"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/pinterest.png" alt="Pinterest" title="Pinterest"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/rss.png" alt="RSS" title="RSS"> </a> </div>--}}
-            {{--</div>--}}
-            {{--<div class="bottom-row">--}}
-                {{--<div class="custom-text text-center">--}}
-                    {{--<p>این یک بلاک مدیریت محتواست. شما میتوانید هر نوع محتوای html نوشتاری یا تصویری را در آن قرار دهید. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>--}}
-                {{--</div>--}}
-                {{--<div class="payments_types"> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_paypal.png" alt="paypal" title="PayPal"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_american.png" alt="american-express" title="American Express"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_2checkout.png" alt="2checkout" title="2checkout"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_maestro.png" alt="maestro" title="Maestro"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_discover.png" alt="discover" title="Discover"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_mastercard.png" alt="mastercard" title="MasterCard"></a> </div>--}}
-            {{--</div>--}}
+            </div>
         </div>
     </div>
-    <div id="back-top"><a data-toggle="tooltip" title="بازگشت به بالا" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
 </footer>
-<!--Footer End-->
+<!-- Footer Section End -->
 
+<!-- Search model Begin -->
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch"><i class="fa fa-close"></i></div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
 </div>
+<!-- Search model end -->
+
+
+
+

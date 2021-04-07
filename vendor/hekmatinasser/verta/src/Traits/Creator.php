@@ -35,6 +35,7 @@ trait Creator
 
         try {
             parent::__construct($datetime, static::createTimeZone($timezone));
+            parent::setTimezone(static::createTimeZone($timezone));
         } catch (Exception $exception) {
             throw new InvalidArgumentException(sprintf("Unknown datetime '%s'", $datetime));
         }
@@ -147,10 +148,8 @@ trait Creator
         }, range(1,12));
         $formatted = str_replace($names, $values, $datetime);
         $formatted = str_replace(self::$monthYear, range(1,12), $formatted);
-
         $parse = date_parse($formatted);
-
-        if($parse['error_count'] > 0 && !self::isValidDate($parse['year'], $parse['month'], $parse['day']) && !self::isValidTime($parse['hour'], $parse['minute'], $parse['second'])) {
+        if($parse['error_count'] > 0 || !self::isValidDate($parse['year'], $parse['month'], $parse['day']) || !self::isValidTime($parse['hour'], $parse['minute'], $parse['second'])) {
             throw new InvalidArgumentException(sprintf("Unknown datetime '%s'", $datetime));
         }
 
@@ -173,7 +172,7 @@ trait Creator
         $formatted = str_replace(self::$monthYear, range(1,12), $datetime);
 
         $parse = date_parse_from_format($format, $formatted);
-        if($parse['error_count'] > 0 && !self::isValidDate($parse['year'], $parse['month'], $parse['day']) && !self::isValidTime($parse['hour'], $parse['minute'], $parse['second'])) {
+        if($parse['error_count'] > 0 || !self::isValidDate($parse['year'], $parse['month'], $parse['day']) || !self::isValidTime($parse['hour'], $parse['minute'], $parse['second'])) {
             throw new InvalidArgumentException(sprintf("Unknown datetime '%s'", $datetime));
         }
         list($year, $month, $day) = self::getGregorian($parse['year'], $parse['month'], $parse['day']);

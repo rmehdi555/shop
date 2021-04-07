@@ -1,90 +1,198 @@
 
-@extends('web.master-product')
+@extends('web.master')
 @section('content')
 
-
-
-
-                <!-- Left Part End-->
-                <!--Middle Part Start-->
-
-                <div id="content" class="col-sm-9">
-                    <!-- Slideshow Start-->
-                    <div class="slideshow single-slider owl-carousel">
-                        @foreach($slider as $baner)
-                            <div class="item"> <a href="{{$baner->link}}"><img class="img-responsive" src="{{$baner->images["images"]["920-380"]}}" alt="{{\App\Providers\MyProvider::_text($baner->title)}}" /></a> </div>
-                        @endforeach
+    <section class="padding-top-index">
+    </section>
+    <!-- Latest Section Begin -->
+    <section class="latest-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <h3>Club <span>Ranking</span></h3>
                     </div>
-                    <!-- Slideshow End-->
-                    <!-- Featured محصولات Start-->
-                    @if(isset($newProducts))
-                        <h3 class="subtitle">{{__('web/public.product_new')}}</h3>
-                            <div class="owl-carousel product_carousel">
-                             @foreach($newProducts as $product)
+                    <div class="points-table">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th class="th-o">Pos</th>
+                                <th>Team</th>
+                                <th class="th-o">P</th>
+                                <th class="th-o">W</th>
+                                <th class="th-o">L</th>
+                                <th class="th-o">PTS</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @if(isset($newProducts))
+                                @foreach($newProducts as $product)
+                                    <tr>
+                                        <th class="th-o"><a href="{{ route('web.show.product',$product->id) }}"><img src="{{$product->images["images"]["200"]}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}" title="{{\App\Providers\MyProvider::_text($product->title)}}" class="img-responsive" /></a></th>
+                                        <th><a href="{{ route('web.show.product',$product->id) }}">{{\App\Providers\MyProvider::_text($product->title)}}</a></th>
+                                        <th class="th-o">P</th>
+                                        <th class="th-o">W</th>
+                                        <th class="th-o">L</th>
+                                        <th class="th-o">PTS</th>
+                                    </tr>
+                                @endforeach
 
+                            @endif
 
-                                    <div class="product-thumb clearfix">
-                                        <div class="image"><a href="{{ route('web.show.product',$product->id) }}"><img src="{{$product->images["images"]["200"]}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}" title="{{\App\Providers\MyProvider::_text($product->title)}}" class="img-responsive" /></a></div>
-                                        <div class="caption">
-                                            <h4><a href="{{ route('web.show.product',$product->id) }}">{{\App\Providers\MyProvider::_text($product->title)}}</a></h4>
-                                            <p class="price"> <span class="price-new">{{\App\Providers\MyProvider::exToLocalDiscount($product->price,$product->discount)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</span><br> @if($product->discount>0)<span class="price-old">{{\App\Providers\MyProvider::exToLocal($product->price)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</span> <span class="saving">-{{$product->discount}}%</span> @endif</p>
-                                            <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-                                        </div>
-                                        <div class="button-group">
-                                            <button class="btn-primary" type="button" onClick="cart.add('46');"><span>{{__('web/public.add_cart')}}</span></button>
-                                            {{--<div class="add-to-links">--}}
-                                                {{--<button type="button" data-toggle="tooltip" title="Add to Wish List" onClick=""><i class="fa fa-heart"></i></button>--}}
-                                                {{--<button type="button" data-toggle="tooltip" title="مقایسه this محصولات" onClick=""><i class="fa fa-exchange"></i></button>--}}
-                                            {{--</div>--}}
-                                        </div>
-                                    </div>
-                             @endforeach
-                            </div>
-
-                    @endif
-
-                    @if(isset($specialProducts))
-                        <h3 class="subtitle">{{__('web/public.product_vip')}}</h3>
-                        <div class="owl-carousel product_carousel">
-                            @foreach($specialProducts as $product)
-
-
-                                <div class="product-thumb clearfix">
-                                    <div class="image"><a href="{{ route('web.show.product',$product->id) }}"><img src="{{$product->images["images"]["200"]}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}" title="{{\App\Providers\MyProvider::_text($product->title)}}" class="img-responsive" /></a></div>
-                                    <div class="caption">
-                                        <h4><a href="{{ route('web.show.product',$product->id) }}">{{\App\Providers\MyProvider::_text($product->title)}}</a></h4>
-                                        <p class="price"> <span class="price-new">{{\App\Providers\MyProvider::exToLocalDiscount($product->price,$product->discount)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</span><br> @if($product->discount>0)<span class="price-old">{{\App\Providers\MyProvider::exToLocal($product->price)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</span> <span class="saving">-{{$product->discount}}%</span> @endif</p>
-                                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-                                    </div>
-                                    <div class="button-group">
-                                        <button class="btn-primary" type="button" onClick="cart.add('46');"><span>{{__('web/public.add_cart')}}</span></button>
-                                        {{--<div class="add-to-links">--}}
-                                            {{--<button type="button" data-toggle="tooltip" title="Add to Wish List" onClick=""><i class="fa fa-heart"></i></button>--}}
-                                            {{--<button type="button" data-toggle="tooltip" title="مقایسه this محصولات" onClick=""><i class="fa fa-exchange"></i></button>--}}
-                                        {{--</div>--}}
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-
-                    @endif
-
-
-                    <!-- Brand محصولات Slider End -->
-                    <!-- Brand Logo Carousel Start-->
-                    <div id="carousel" class="owl-carousel nxt">
-                        <div class="item text-center"> <a href="#"><img src="image/product/apple_logo-100x100.jpg" alt=" میلگرد نیشابور" class="img-responsive" /></a> </div>
-                        <div class="item text-center"> <a href="#"><img src="image/product/canon_logo-100x100.jpg" alt="میلگرد ظفر بناب" class="img-responsive" /></a> </div>
-                        <div class="item text-center"> <a href="#"><img src="image/product/apple_logo-100x100.jpg" alt="میلگرد ذوب آهن اصفهان" class="img-responsive" /></a> </div>
-                        <div class="item text-center"> <a href="#"><img src="image/product/canon_logo-100x100.jpg" alt="میلگرد میانه" class="img-responsive" /></a> </div>
-                        <div class="item text-center"> <a href="#"><img src="image/product/apple_logo-100x100.jpg" alt="میلگرد ابهر" class="img-responsive" /></a> </div>
-                        <div class="item text-center"> <a href="#"><img src="image/product/canon_logo-100x100.jpg" alt="میلگرد امیرکبیر" class="img-responsive" /></a> </div>
-
+                            <tr>
+                                <td>4</td>
+                                <td class="team-name">
+                                    <img src="img/flag/flag-4.jpg" alt="">
+                                    <span>Cambodia</span>
+                                </td>
+                                <td>17</td>
+                                <td>2</td>
+                                <td>7</td>
+                                <td>64</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td class="team-name">
+                                    <img src="img/flag/flag-5.jpg" alt="">
+                                    <span>Uzbekistan</span>
+                                </td>
+                                <td>17</td>
+                                <td>2</td>
+                                <td>6</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td class="team-name">
+                                    <img src="img/flag/flag-6.jpg" alt="">
+                                    <span>Turkme</span>
+                                </td>
+                                <td>161</td>
+                                <td>1</td>
+                                <td>8</td>
+                                <td>57</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td class="team-name">
+                                    <img src="img/flag/flag-7.jpg" alt="">
+                                    <span>Sri Lanka</span>
+                                </td>
+                                <td>15</td>
+                                <td>4</td>
+                                <td>8</td>
+                                <td>52</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td class="team-name">
+                                    <img src="img/flag/flag-8.jpg" alt="">
+                                    <span>Myanmar</span>
+                                </td>
+                                <td>14</td>
+                                <td>3</td>
+                                <td>7</td>
+                                <td>48</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a href="#" class="p-all">View All</a>
                     </div>
-                    <!-- Brand Logo Carousel End -->
+
                 </div>
-                <!--Middle Part End-->
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <h3>Club <span>Ranking</span></h3>
+                    </div>
+                    <div class="points-table ">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th class="th-o">Pos</th>
+                                <th>Team</th>
+                                <th class="th-o">P</th>
+                                <th class="th-o">W</th>
+                                <th class="th-o">L</th>
+                                <th class="th-o">PTS</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @if(isset($newProducts))
+                                @foreach($newProducts as $product)
+                                    <tr>
+                                        <th class="th-o"><a href="{{ route('web.show.product',$product->id) }}"><img src="{{$product->images["images"]["200"]}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}" title="{{\App\Providers\MyProvider::_text($product->title)}}" class="img-responsive" /></a></th>
+                                        <th><a href="{{ route('web.show.product',$product->id) }}">{{\App\Providers\MyProvider::_text($product->title)}}</a></th>
+                                        <th class="th-o">P</th>
+                                        <th class="th-o">W</th>
+                                        <th class="th-o">L</th>
+                                        <th class="th-o">PTS</th>
+                                    </tr>
+                                @endforeach
+
+                            @endif
+
+                            <tr>
+                                <td>4</td>
+                                <td class="team-name">
+                                    <img src="img/flag/flag-4.jpg" alt="">
+                                    <span>Cambodia</span>
+                                </td>
+                                <td>17</td>
+                                <td>2</td>
+                                <td>7</td>
+                                <td>64</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td class="team-name">
+                                    <img src="img/flag/flag-5.jpg" alt="">
+                                    <span>Uzbekistan</span>
+                                </td>
+                                <td>17</td>
+                                <td>2</td>
+                                <td>6</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td class="team-name">
+                                    <img src="img/flag/flag-6.jpg" alt="">
+                                    <span>Turkme</span>
+                                </td>
+                                <td>161</td>
+                                <td>1</td>
+                                <td>8</td>
+                                <td>57</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td class="team-name">
+                                    <img src="img/flag/flag-7.jpg" alt="">
+                                    <span>Sri Lanka</span>
+                                </td>
+                                <td>15</td>
+                                <td>4</td>
+                                <td>8</td>
+                                <td>52</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td class="team-name">
+                                    <img src="img/flag/flag-8.jpg" alt="">
+                                    <span>Myanmar</span>
+                                </td>
+                                <td>14</td>
+                                <td>3</td>
+                                <td>7</td>
+                                <td>48</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a href="#" class="p-all">View All</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- Latest Section End -->
 @endsection

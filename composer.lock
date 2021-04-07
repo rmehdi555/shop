@@ -1337,16 +1337,16 @@
         },
         {
             "name": "hekmatinasser/verta",
-            "version": "v1.11.7",
+            "version": "v1.11.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hekmatinasser/verta.git",
-                "reference": "608dccf9dce1aafbeb1b3fe349d9d5324f94b25d"
+                "reference": "3e8790d65197b8e6dd005a14d2f15d7f46c470f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hekmatinasser/verta/zipball/608dccf9dce1aafbeb1b3fe349d9d5324f94b25d",
-                "reference": "608dccf9dce1aafbeb1b3fe349d9d5324f94b25d",
+                "url": "https://api.github.com/repos/hekmatinasser/verta/zipball/3e8790d65197b8e6dd005a14d2f15d7f46c470f0",
+                "reference": "3e8790d65197b8e6dd005a14d2f15d7f46c470f0",
                 "shasum": ""
             },
             "require": {
@@ -1399,9 +1399,9 @@
             ],
             "support": {
                 "issues": "https://github.com/hekmatinasser/verta/issues",
-                "source": "https://github.com/hekmatinasser/verta/tree/v1.11.7"
+                "source": "https://github.com/hekmatinasser/verta/tree/v1.11.9"
             },
-            "time": "2020-12-02T07:14:46+00:00"
+            "time": "2021-04-01T20:23:26+00:00"
         },
         {
             "name": "intervention/image",

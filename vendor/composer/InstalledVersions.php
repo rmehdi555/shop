@@ -14,12 +14,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => '6d53facfb840efa10666dc5a692e5e90f8f3b60f',
+    'reference' => '8858ab65c760f0bcf30d95e266b62221318ef803',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -283,12 +283,12 @@ private static $installed = array (
     ),
     'hekmatinasser/verta' => 
     array (
-      'pretty_version' => 'v1.11.7',
-      'version' => '1.11.7.0',
+      'pretty_version' => 'v1.11.9',
+      'version' => '1.11.9.0',
       'aliases' => 
       array (
       ),
-      'reference' => '608dccf9dce1aafbeb1b3fe349d9d5324f94b25d',
+      'reference' => '3e8790d65197b8e6dd005a14d2f15d7f46c470f0',
     ),
     'illuminate/auth' => 
     array (
@@ -538,12 +538,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => '6d53facfb840efa10666dc5a692e5e90f8f3b60f',
+      'reference' => '8858ab65c760f0bcf30d95e266b62221318ef803',
     ),
     'laravel/tinker' => 
     array (

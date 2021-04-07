@@ -219,6 +219,14 @@ class MyProvider extends ServiceProvider
 
 
 
+    static function activeSidebar($routeUrl, $contain = true , $className='active')
+    {
+        if($contain)
+            return strpos(url()->current(), $routeUrl) === false ? '' : $className;
+        else
+            return ($routeUrl == url()->current()) ? $className : '';
+    }
+
 }
 
 
