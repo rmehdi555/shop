@@ -1,4 +1,4 @@
-@extends('web.master-product')
+@extends('web.master')
 @section('content')
 
     <div id="container">

@@ -29,7 +29,17 @@ class HomeController extends Controller
         $specialProducts=Products::where([['type','=','special'],['status','=','1'] ])->limit(10)->get();
         //جدید ترین محصولات
         $newProducts=Products::where('status','=','1')->orderBy('created_at','desc')->limit(10)->get();
-        return view('web.pages.index',compact('slider','specialProducts','newProducts'));
+
+        $categoryName[23]=ProductCategories::find(23);
+        $products23=Products::where([['product_categories_id','=','23'],['status','=','1'] ])->limit(10)->get();
+        $categoryName[20]=ProductCategories::find(20);
+        $products20=Products::where([['product_categories_id','=','20'],['status','=','1'] ])->limit(10)->get();
+        $categoryName[21]=ProductCategories::find(21);
+        $products21=Products::where([['product_categories_id','=','21'],['status','=','1'] ])->limit(10)->get();
+        $categoryName[22]=ProductCategories::find(22);
+        $products22=Products::where([['product_categories_id','=','22'],['status','=','1'] ])->limit(10)->get();
+
+        return view('web.pages.index',compact('slider','specialProducts','newProducts','products23','products20','products21','products22','categoryName'));
     }
     public function showCategory($id)
     {

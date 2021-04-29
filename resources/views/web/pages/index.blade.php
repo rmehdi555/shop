@@ -4,195 +4,195 @@
 
     <section class="padding-top-index">
     </section>
+
     <!-- Latest Section Begin -->
     <section class="latest-section">
         <div class="container">
             <div class="row">
+                @if(isset($products20))
                 <div class="col-lg-6">
+
                     <div class="section-title">
-                        <h3>Club <span>Ranking</span></h3>
+                        <h3> <span>{{\App\Providers\MyProvider::_text($categoryName[20]->title)}}</span></h3>
                     </div>
-                    <div class="points-table">
-                        <table class="table table-striped">
-                            <thead>
+
+                        <table class="table table-striped table-responsive-stack " id="tableOne1">
+                            <thead class="thead-dark">
                             <tr>
-                                <th class="th-o">Pos</th>
-                                <th>Team</th>
-                                <th class="th-o">P</th>
-                                <th class="th-o">W</th>
-                                <th class="th-o">L</th>
-                                <th class="th-o">PTS</th>
+                                <th>{{__('web/public.code')}}</th>
+                                <th>{{__('web/public.title')}}</th>
+                                <th>{{__('web/public.size')}}</th>
+                                <th>{{__('web/public.standard')}}</th>
+                                <th>{{__('web/public.unit')}}</th>
+                                <th>{{__('web/public.price')}}</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @if(isset($newProducts))
-                                @foreach($newProducts as $product)
+
+                                @foreach($products20 as $product)
+
                                     <tr>
-                                        <th class="th-o"><a href="{{ route('web.show.product',$product->id) }}"><img src="{{$product->images["images"]["200"]}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}" title="{{\App\Providers\MyProvider::_text($product->title)}}" class="img-responsive" /></a></th>
-                                        <th><a href="{{ route('web.show.product',$product->id) }}">{{\App\Providers\MyProvider::_text($product->title)}}</a></th>
-                                        <th class="th-o">P</th>
-                                        <th class="th-o">W</th>
-                                        <th class="th-o">L</th>
-                                        <th class="th-o">PTS</th>
+                                        <td>{{$product->id}}</td>
+                                        <td>{{\App\Providers\MyProvider::_text($product->title)}}</td>
+                                        <td>{{empty($product->size)?"_":$product->size}}</td>
+                                        <td>{{empty($product->standard)?"_":$product->standard}}</td>
+                                        <td>{{empty($product->unit)?"_":$product->unit}}</td>
+                                        <td>{{\App\Providers\MyProvider::exToLocalDiscount($product->price,$product->discount)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</td>
                                     </tr>
+
                                 @endforeach
 
-                            @endif
 
-                            <tr>
-                                <td>4</td>
-                                <td class="team-name">
-                                    <img src="img/flag/flag-4.jpg" alt="">
-                                    <span>Cambodia</span>
-                                </td>
-                                <td>17</td>
-                                <td>2</td>
-                                <td>7</td>
-                                <td>64</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td class="team-name">
-                                    <img src="img/flag/flag-5.jpg" alt="">
-                                    <span>Uzbekistan</span>
-                                </td>
-                                <td>17</td>
-                                <td>2</td>
-                                <td>6</td>
-                                <td>60</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td class="team-name">
-                                    <img src="img/flag/flag-6.jpg" alt="">
-                                    <span>Turkme</span>
-                                </td>
-                                <td>161</td>
-                                <td>1</td>
-                                <td>8</td>
-                                <td>57</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td class="team-name">
-                                    <img src="img/flag/flag-7.jpg" alt="">
-                                    <span>Sri Lanka</span>
-                                </td>
-                                <td>15</td>
-                                <td>4</td>
-                                <td>8</td>
-                                <td>52</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td class="team-name">
-                                    <img src="img/flag/flag-8.jpg" alt="">
-                                    <span>Myanmar</span>
-                                </td>
-                                <td>14</td>
-                                <td>3</td>
-                                <td>7</td>
-                                <td>48</td>
-                            </tr>
+
                             </tbody>
                         </table>
-                        <a href="#" class="p-all">View All</a>
+
                     </div>
 
-                </div>
-                <div class="col-lg-6">
-                    <div class="section-title">
-                        <h3>Club <span>Ranking</span></h3>
-                    </div>
-                    <div class="points-table ">
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th class="th-o">Pos</th>
-                                <th>Team</th>
-                                <th class="th-o">P</th>
-                                <th class="th-o">W</th>
-                                <th class="th-o">L</th>
-                                <th class="th-o">PTS</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @if(isset($newProducts))
-                                @foreach($newProducts as $product)
+
+
+                @endif
+
+                    @if(isset($products21))
+                        <div class="col-lg-6">
+
+                            <div class="section-title">
+                                <h3> <span>{{\App\Providers\MyProvider::_text($categoryName[21]->title)}}</span></h3>
+                            </div>
+
+                            <table class="table table-striped table-responsive-stack " id="tableOne2">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th>{{__('web/public.code')}}</th>
+                                    <th>{{__('web/public.title')}}</th>
+                                    <th>{{__('web/public.size')}}</th>
+                                    <th>{{__('web/public.standard')}}</th>
+                                    <th>{{__('web/public.unit')}}</th>
+                                    <th>{{__('web/public.price')}}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                @foreach($products21 as $product)
+
                                     <tr>
-                                        <th class="th-o"><a href="{{ route('web.show.product',$product->id) }}"><img src="{{$product->images["images"]["200"]}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}" title="{{\App\Providers\MyProvider::_text($product->title)}}" class="img-responsive" /></a></th>
-                                        <th><a href="{{ route('web.show.product',$product->id) }}">{{\App\Providers\MyProvider::_text($product->title)}}</a></th>
-                                        <th class="th-o">P</th>
-                                        <th class="th-o">W</th>
-                                        <th class="th-o">L</th>
-                                        <th class="th-o">PTS</th>
+                                        <td>{{$product->id}}</td>
+                                        <td>{{\App\Providers\MyProvider::_text($product->title)}}</td>
+                                        <td>{{empty($product->size)?"_":$product->size}}</td>
+                                        <td>{{empty($product->standard)?"_":$product->standard}}</td>
+                                        <td>{{empty($product->unit)?"_":$product->unit}}</td>
+                                        <td>{{\App\Providers\MyProvider::exToLocalDiscount($product->price,$product->discount)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</td>
                                     </tr>
+
                                 @endforeach
 
-                            @endif
 
-                            <tr>
-                                <td>4</td>
-                                <td class="team-name">
-                                    <img src="img/flag/flag-4.jpg" alt="">
-                                    <span>Cambodia</span>
-                                </td>
-                                <td>17</td>
-                                <td>2</td>
-                                <td>7</td>
-                                <td>64</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td class="team-name">
-                                    <img src="img/flag/flag-5.jpg" alt="">
-                                    <span>Uzbekistan</span>
-                                </td>
-                                <td>17</td>
-                                <td>2</td>
-                                <td>6</td>
-                                <td>60</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td class="team-name">
-                                    <img src="img/flag/flag-6.jpg" alt="">
-                                    <span>Turkme</span>
-                                </td>
-                                <td>161</td>
-                                <td>1</td>
-                                <td>8</td>
-                                <td>57</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td class="team-name">
-                                    <img src="img/flag/flag-7.jpg" alt="">
-                                    <span>Sri Lanka</span>
-                                </td>
-                                <td>15</td>
-                                <td>4</td>
-                                <td>8</td>
-                                <td>52</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td class="team-name">
-                                    <img src="img/flag/flag-8.jpg" alt="">
-                                    <span>Myanmar</span>
-                                </td>
-                                <td>14</td>
-                                <td>3</td>
-                                <td>7</td>
-                                <td>48</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <a href="#" class="p-all">View All</a>
-                    </div>
-                </div>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+
+
+                    @endif
             </div>
         </div>
     </section>
     <!-- Latest Section End -->
+
+
+    <section class="latest-section">
+        <div class="container">
+            <div class="row">
+                @if(isset($products22))
+                    <div class="col-lg-6">
+
+                        <div class="section-title">
+                            <h3> <span>{{\App\Providers\MyProvider::_text($categoryName[22]->title)}}</span></h3>
+                        </div>
+
+                        <table class="table table-striped table-responsive-stack " id="tableOne3">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th>{{__('web/public.code')}}</th>
+                                <th>{{__('web/public.title')}}</th>
+                                <th>{{__('web/public.size')}}</th>
+                                <th>{{__('web/public.standard')}}</th>
+                                <th>{{__('web/public.unit')}}</th>
+                                <th>{{__('web/public.price')}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            @foreach($products22 as $product)
+
+                                <tr>
+                                    <td>{{$product->id}}</td>
+                                    <td>{{\App\Providers\MyProvider::_text($product->title)}}</td>
+                                    <td>{{empty($product->size)?"_":$product->size}}</td>
+                                    <td>{{empty($product->standard)?"_":$product->standard}}</td>
+                                    <td>{{empty($product->unit)?"_":$product->unit}}</td>
+                                    <td>{{\App\Providers\MyProvider::exToLocalDiscount($product->price,$product->discount)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</td>
+                                </tr>
+
+                            @endforeach
+
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+
+                @endif
+
+                @if(isset($products23))
+                    <div class="col-lg-6">
+
+                        <div class="section-title">
+                            <h3> <span>{{\App\Providers\MyProvider::_text($categoryName[23]->title)}}</span></h3>
+                        </div>
+
+                        <table class="table table-striped table-responsive-stack " id="tableOne4">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th>{{__('web/public.code')}}</th>
+                                <th>{{__('web/public.title')}}</th>
+                                <th>{{__('web/public.size')}}</th>
+                                <th>{{__('web/public.standard')}}</th>
+                                <th>{{__('web/public.unit')}}</th>
+                                <th>{{__('web/public.price')}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            @foreach($products23 as $product)
+
+                                <tr>
+                                    <td>{{$product->id}}</td>
+                                    <td>{{\App\Providers\MyProvider::_text($product->title)}}</td>
+                                    <td>{{empty($product->size)?"_":$product->size}}</td>
+                                    <td>{{empty($product->standard)?"_":$product->standard}}</td>
+                                    <td>{{empty($product->unit)?"_":$product->unit}}</td>
+                                    <td>{{\App\Providers\MyProvider::exToLocalDiscount($product->price,$product->discount)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</td>
+                                </tr>
+
+                            @endforeach
+
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+
+                @endif
+            </div>
+        </div>
+    </section>
 @endsection

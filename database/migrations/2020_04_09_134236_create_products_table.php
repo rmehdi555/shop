@@ -24,6 +24,11 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->text('body');
             $table->string('price',50);
+            $table->string('price_usd',50)->default(0);
+            $table->string('price_euro',50)->default(0);
+            $table->string('size',50);
+            $table->string('standard',50);
+            $table->string('unit',50);
             $table->double('discount')->default(0);
             $table->string('type')->default('normal');
             $table->text('images');

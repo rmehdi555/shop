@@ -1,4 +1,4 @@
-/******************************************************************
+tableOne/******************************************************************
   Template Name: Specer
   Description: Specer Sport HTML Template
   Author: Colorlib
@@ -125,6 +125,7 @@ ol {
 	position: relative;
 	padding-bottom: 16px;
 	margin-bottom: 30px;
+	padding-top: 24px;
 }
 
 .section-title.sidebar-title:before {
@@ -401,11 +402,15 @@ ol {
 }
 
 .header__nav .logo {
-	padding: 30px 0;
+	padding: 10px 0;
 }
 
 .header__nav .logo a {
 	display: inline-block;
+}
+
+.header__nav .logo a img{
+	max-height: 80px;
 }
 
 .header__nav .nav-menu {
@@ -481,7 +486,7 @@ ol {
 	font-weight: 500;
 	display: inline-block;
 	text-transform: uppercase;
-	padding: 39px 0;
+	padding: 24px 0;
 	position: relative;
 }
 
@@ -1238,16 +1243,16 @@ ol {
 }
 
 .fs-logo {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 
 .fs-logo .logo {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 
 .fs-logo .logo a {
-	display: inline-block;
-}
+	 display: inline-block;
+ }
 
 .fs-logo ul {
 	margin-bottom: 22px;
@@ -2332,7 +2337,7 @@ ol {
 		width: 25%;
 	}
 	.padding-top-index{
-		padding-top : 170px;
+		padding-top : 150px;
 	}
 }
 
@@ -2341,7 +2346,7 @@ ol {
 		width: 22%;
 	}
 	.padding-top-index{
-		padding-top : 170px;
+		padding-top : 150px;
 	}
 }
 
@@ -2350,7 +2355,7 @@ ol {
 		max-width: 1200px;
 	}
 	.padding-top-index{
-		padding-top : 170px;
+		padding-top : 150px;
 	}
 }
 
@@ -2376,7 +2381,7 @@ ol {
 		padding-right: 15px;
 	}
 	.padding-top-index{
-		padding-top : 170px;
+		padding-top : 150px;
 	}
 	
 }
@@ -2533,7 +2538,7 @@ ol {
 		padding-top: 40px;
 	}
 	.padding-top-index{
-		padding-top : 120px;
+		padding-top : 90px;
 	}
 }
 
@@ -2710,6 +2715,50 @@ ol {
 	.blog-hero-section {
 		height: 410px;
 	}
-	
-	
+
+
+
+
 }
+
+.table-responsive-stack tr {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
+
+.table-responsive-stack td,
+.table-responsive-stack th {
+	display:block;
+	/*
+       flex-grow | flex-shrink | flex-basis   */
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+}
+
+.table-responsive-stack .table-responsive-stack-thead {
+	font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+	.table-responsive-stack tr {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		border-bottom: 3px solid #ccc;
+		display:block;
+
+	}
+	/*  IE9 FIX   */
+	.table-responsive-stack td {
+		float: left\9;
+		width:100%;
+	}
+}
+

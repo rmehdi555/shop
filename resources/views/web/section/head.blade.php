@@ -1,5 +1,5 @@
 <?php
-
+if(session('Local_Currency')=='')  session()->put('Local_Currency', "IRR");
 use Illuminate\Support\Facades\App;
 use Hekmatinasser\Verta\Verta;
 $locale = App::getLocale();
@@ -10,7 +10,10 @@ $locale = App::getLocale();
     <meta charset="UTF-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="{{asset('web/2021/image/favicon.png" rel="icon')}}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{$siteDetailsProvider["image_logo"]->images["images"]["original"]}}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{$siteDetailsProvider["image_logo"]->images["images"]["original"]}}">
+    <link rel="icon" type="image/png" sizes="128x128" href="{{$siteDetailsProvider["image_logo"]->images["images"]["original"]}}">
+    <link rel="icon" type="image/png" sizes="256x256" href="{{$siteDetailsProvider["image_logo"]->images["images"]["original"]}}">
     <title>{{\App\Providers\MyProvider::_text($siteDetailsProvider["site_name"]->value)}}</title>
     <meta name="description" content="آسن">
     <!-- CSS Part Start-->

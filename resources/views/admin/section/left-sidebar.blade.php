@@ -1,4 +1,5 @@
-<div id="leftsidebar" class="sidebar">
+@php if(!isset($SID)) $SID=10;@endphp
+    <div id="leftsidebar" class="sidebar">
     <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: calc(100vh - 65px);">
         <div class="sidebar-scroll" style="overflow: hidden; width: auto; height: calc(100vh - 65px);">
             <nav id="leftsidebar-nav" class="sidebar-nav">

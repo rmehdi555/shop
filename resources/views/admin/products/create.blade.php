@@ -77,6 +77,22 @@
                                     <input type="number" name="price" class="form-control" value="{{old('price')}}" required>
                                 </div>
                                 <div class="form-group">
+                                    <label>{{__('admin/public.price')}} ({{__('admin/public.USD')}}): ({{__('admin/public.USD_help')}})</label>
+                                    <input type="text" name="price_usd" class="form-control" value="{{old('price_usd')}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{__('admin/public.price')}} ({{__('admin/public.EURO')}}): ({{__('admin/public.EURO_help')}})</label>
+                                    <input type="text" name="price_euro" class="form-control" value="{{old('price_euro')}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{__('admin/public.size')}} :</label>
+                                    <input type="text" name="size" class="form-control" value="{{old('size')}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{__('admin/public.standard')}} :</label>
+                                    <input type="text" name="standard" class="form-control" value="{{old('standard')}}" required>
+                                </div>
+                                <div class="form-group">
                                     <label>{{__('admin/public.discount')}} (0-100 %):</label>
                                     <input type="number" min="0" max="100" name="discount" class="form-control" value="{{old('discount')}}" required>
                                 </div>
@@ -92,7 +108,14 @@
                                     <label>{{__('admin/public.priority')}} :</label>
                                     <input type="number" name="priority" class="form-control" value="{{old('priority')}}" required>
                                 </div>
-
+                                <div class="form-group col-lg-4 col-md-12">
+                                    <label>{{__('admin/public.unit')}} :</label>
+                                    <div class="multiselect_div">
+                                        <select id="single-selection" name="unit" class="multiselect multiselect-custom" >
+                                            <option value="KG">{{__('admin/public.KG')}}</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.status')}} :</label>
                                     <div class="multiselect_div">

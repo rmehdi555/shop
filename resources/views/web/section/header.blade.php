@@ -1,5 +1,5 @@
 
-<body>
+<body dir="rtl">
 @include('sweet::alert')
 
 
@@ -17,6 +17,9 @@
     <div class="search-btn search-switch">
         <i class="fa fa-search"></i>
     </div>
+
+
+
     <div class="header__top--canvas">
         <div class="ht-info">
             <ul>
@@ -43,6 +46,8 @@
             <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
     </div>
+
+
     <ul class="main-menu mobile-menu">
         @foreach($webMenusHeaderProvider as $menu)
             @if($menu->parent_id==0)
@@ -59,7 +64,7 @@
             @endif
         @endforeach
 
-        <li><a href="#">{{__('web/public.lang_name_'.App::getLocale())}}  </a>
+        <li>{{__('web/public.lang_name_'.App::getLocale())}}
             <ul class="dropdown">
                 <li>
                     <a class="btn btn-link btn-block language-select" href="{{ route('web.change.lang','fa') }}" ><img src="{{asset('web/2020/image/flags/fa.png')}}" alt="{{__('web/public.lang_name_fa')}}" title="{{__('web/public.lang_name_fa')}}" /> {{__('web/public.lang_name_fa')}}</a>
@@ -68,7 +73,7 @@
             </ul>
         </li>
 
-        <li><a href="#">{{__('web/public.currency_name_'.session('Local_Currency'))}} </a>
+        <li>{{__('web/public.currency_name_'.session('Local_Currency'))}}
             <ul class="dropdown">
                 <li>
                     <a href="{{ route('web.change.currency','EUR') }}"  name="EUR">€ Euro</a>
@@ -91,48 +96,53 @@
     <div class="header__top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="ht-info">
-                        <ul>
-                            <li>@php $v=Verta::now();  echo($v->formatWord('l').' '.$v->format('d').' '.$v->formatWord('F').' '.$v->format('Y'));@endphp</li>
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="logo">
+                            <a href="{{ route('web.home') }}"><img style="width: 10rem;" src="{{$siteDetailsProvider["image_logo"]->images["images"]["original"]}}" alt=""></a>
+                        </div>
+                        <div class="ht-links">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-vimeo"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                        <div class="ht-info">
+                            <ul>
+                                <li>@php $v=Verta::now();  echo($v->formatWord('l').' '.$v->format('d').' '.$v->formatWord('F').' '.$v->format('Y'));@endphp</li>
 
-                            @if(auth()->check())
+                                @if(auth()->check())
 
                                     <li><a href="{{ route('home') }}">{{auth()->user()->name}} {{auth()->user()->family}}</a></li>
                                     <li><a href="{{ route('logout') }}">{{__('web/public.btn_logout')}}</a></li>
 
 
-                            @else
+                                @else
 
                                     <li><a href="{{ route('login') }}">{{__('web/public.btn_login')}}</a></li>
                                     <li><a href="{{ route('register') }}"> {{__('web/public.btn_register')}}</a></li>
 
-                            @endif
+                                @endif
 
-                        </ul>
+                            </ul>
+                        </div>
+
+                        <div class="canvas-open">
+                            <i class="fa fa-bars" style="color: #dd1515;"></i>
+                        </div>
+
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="ht-links">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-vimeo"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
     <div class="header__nav" >
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
-                    <div class="logo">
-                        <a href="{{ route('web.home') }}"><img src="{{$siteDetailsProvider["image_logo"]->images["images"]["original"]}}" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-10">
+
+                <div class="col-lg-12">
                     <div class="nav-menu">
                         <ul class="main-menu">
                             @foreach($webMenusHeaderProvider as $menu)
@@ -179,9 +189,7 @@
                     </div>
                 </div>
             </div>
-            <div class="canvas-open">
-                <i class="fa fa-bars"></i>
-            </div>
+
         </div>
     </div>
 </header>

@@ -83,6 +83,22 @@
                                            required>
                                 </div>
                                 <div class="form-group">
+                                    <label>{{__('admin/public.price')}} ({{__('admin/public.USD')}}): ({{__('admin/public.USD_help')}})</label>
+                                    <input type="text" name="price_usd" class="form-control" value="{{$products->price_usd}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{__('admin/public.price')}} ({{__('admin/public.EURO')}}): ({{__('admin/public.EURO_help')}})</label>
+                                    <input type="text" name="price_euro" class="form-control" value="{{$products->price_euro}}"required>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{__('admin/public.size')}} :</label>
+                                    <input type="text" name="size" class="form-control" value="{{$products->size}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{__('admin/public.standard')}} :</label>
+                                    <input type="text" name="standard" class="form-control" value="{{$products->standard}}" required>
+                                </div>
+                                <div class="form-group">
                                     <label>{{__('admin/public.discount')}} (0-100 %):</label>
                                     <input type="number" min="0" max="100" name="discount" class="form-control"
                                            value="{{$products->discount}}" required>
@@ -109,7 +125,14 @@
                                     <input type="number" name="priority" class="form-control"
                                            value="{{$products->priority}}" required>
                                 </div>
-
+                                <div class="form-group col-lg-4 col-md-12">
+                                    <label>{{__('admin/public.unit')}} :</label>
+                                    <div class="multiselect_div">
+                                        <select id="single-selection" name="unit" class="multiselect multiselect-custom" >
+                                            <option value="KG">{{__('admin/public.KG')}}</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.status')}} :</label>
                                     <div class="multiselect_div">
