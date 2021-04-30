@@ -14,9 +14,9 @@
     <div class="canvas-close">
         <i class="fa fa-close"></i>
     </div>
-    <div class="search-btn search-switch">
-        <i class="fa fa-search"></i>
-    </div>
+    {{--<div class="search-btn search-switch">--}}
+        {{--<i class="fa fa-search"></i>--}}
+    {{--</div>--}}
 
 
 
@@ -39,11 +39,9 @@
             </ul>
         </div>
         <div class="ht-links">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-vimeo"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-google-plus"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"><i class="fa fa-instagram"></i></a>
+            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"><i class="fa fa-whatsapp"></i></a>
+            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"><i class="fa fa-telegram"></i></a>
         </div>
     </div>
 
@@ -102,11 +100,9 @@
                             <a href="{{ route('web.home') }}"><img style="width: 10rem;" src="{{$siteDetailsProvider["image_logo"]->images["images"]["original"]}}" alt=""></a>
                         </div>
                         <div class="ht-links">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-vimeo"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"><i class="fa fa-instagram"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"><i class="fa fa-whatsapp"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"><i class="fa fa-telegram"></i></a>
                         </div>
                         <div class="ht-info">
                             <ul>

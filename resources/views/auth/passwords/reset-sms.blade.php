@@ -1,5 +1,7 @@
-@extends('web.master-product')
+@extends('web.master')
 @section('content')
+    <section class="padding-top-index">
+    </section>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -61,4 +63,5 @@
         </div>
     </div>
 </div>
+
 @endsection

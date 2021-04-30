@@ -1,24 +1,18 @@
 @extends('web.master')
 @section('content')
-
-    <div id="container">
+    <section class="padding-top-index">
+    </section>
+    <!-- Contact Section Begin -->
+    <section class="contact-section spad">
         <div class="container">
-            <!-- Breadcrumb Start-->
-        {{--<ul class="breadcrumb">--}}
-        {{--<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="index.html" itemprop="url"><span itemprop="title"><i class="fa fa-home"></i></span></a></li>--}}
-        {{--<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="category.html" itemprop="url"><span itemprop="title">الکترونیکی</span></a></li>--}}
-        {{--<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="product.html" itemprop="url"><span itemprop="title">لپ تاپ ایلین ور</span></a></li>--}}
-        {{--</ul>--}}
-        <!-- Breadcrumb End-->
             <div class="row">
-                <!--Middle Part Start-->
-                <div id="content" class="col-sm-9">
-                    <form class="form-horizontal" method="POST" action="{{ route('register.sms') }}">
-                        @csrf
-                        <h1 class="title">{{__('web/public.register')}}</h1>
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <h2>{{__('web/public.register')}} </h2>
                         <p>{{__('web/messages.register_1')}} <a href="{{ route('login') }}"> {{__('web/messages.register_2')}} </a> {{__('web/messages.register_3')}}</p>
-                        <fieldset id="account">
-                            <legend>{{__('web/public.register_user_info')}}</legend>
+                        <form class="form-horizontal" method="POST" action="{{ route('register.sms') }}">
+                            @csrf
+                            <h4>{{__('web/public.register_user_info')}}</h4>
                             @if(count($errors) > 0)
                                 <div class="alert alert-danger">
                                     <ul>
@@ -28,9 +22,9 @@
                                     </ul>
                                 </div>
                             @endif
-                            <div class="form-group required">
-                                <label for="input-firstname" class="col-sm-2 control-label">{{__('web/public.name')}}</label>
-                                <div class="col-sm-10">
+
+                            <div class="group-in">
+                                <label for="input-firstname" >{{__('web/public.name')}}</label>
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                     @error('name')
@@ -38,11 +32,10 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
-                                </div>
                             </div>
-                            <div class="form-group required">
-                                <label for="input-firstname" class="col-sm-2 control-label">{{__('web/public.family')}}</label>
-                                <div class="col-sm-10">
+                            <div class="group-in">
+                                <label for="input-firstname" >{{__('web/public.family')}}</label>
+
                                     <input id="family" type="text" class="form-control @error('family') is-invalid @enderror" name="family" value="{{ old('family') }}" required autocomplete="family" autofocus>
 
                                     @error('family')
@@ -50,54 +43,69 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
-                                </div>
+
                             </div>
 
-                            <div class="form-group required">
-                                <label for="input-telephone" class="col-sm-2 control-label">{{__('web/public.phone')}}</label>
-                                <div class="col-sm-10">
+                            <div class="group-in">
+                                <label for="input-telephone" >{{__('web/public.phone')}}</label>
+
                                     <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
                                     @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
-                                </div>
+
                             </div>
 
-                        </fieldset>
-
-                        <fieldset>
                             <legend>{{__('web/public.register_user_password')}}</legend>
-                            <div class="form-group required">
-                                <label for="input-password" class="col-sm-2 control-label">{{__('web/public.password')}}</label>
-                                <div class="col-sm-10">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <div class="group-in">
+                                <label for="input-password" >{{__('web/public.password')}}</label>
 
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-group required">
-                                <label for="input-confirm" class="col-sm-2 control-label">{{__('web/public.re_password')}}</label>
-                                <div class="col-sm-10">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                </div>
-                            </div>
-                        </fieldset>
+                                @enderror
 
-                        <div class="buttons">
-                            <div class="pull-right">
-                                <input type="submit" class="btn btn-primary" value="{{__('web/public.submit')}}">
                             </div>
+                            <div class="group-in">
+                                <label for="input-confirm" >{{__('web/public.re_password')}}</label>
+
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+
+                            </div>
+
+                            <button type="submit" >
+                                {{__('web/public.submit')}}
+                            </button>
+
+
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <h2>{{__('web/public.contact_us')}}</h2>
+
+                        <div class="ci-address">
+                            <h5></h5>
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> {{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}</li>
+                                <li><i class="fa fa-copy"></i> <a href="tel:{{\App\Providers\MyProvider::_text($siteDetailsProvider["mobile"]->value)}}" class="call-phone">{{\App\Providers\MyProvider::_text($siteDetailsProvider["mobile"]->value)}}</a></li>
+                                <li><i class="fa fa-thumb-tack"></i> {{\App\Providers\MyProvider::_text($siteDetailsProvider["address"]->value)}}</li>
+                            </ul>
                         </div>
-                    </form>
+
+                    </div>
                 </div>
             </div>
-            <!--Middle Part End -->
+        </div>
+    </section>
+
 
 
 

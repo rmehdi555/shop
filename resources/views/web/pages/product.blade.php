@@ -1,6 +1,7 @@
 @extends('web.master-product')
 @section('content')
-
+    <section class="padding-top-index">
+    </section>
     <div id="container">
         <div class="container">
             <!-- Breadcrumb Start-->

@@ -1,7 +1,8 @@
 @extends('web.master')
 @section('content')
-
-    <div id="container">
+    <section class="padding-top-index">
+    </section>
+    <section class="latest-section">
         <div class="container">
             <div class="row">
                 <!--Middle Part Start-->
@@ -11,5 +12,6 @@
                 <!--Middle Part End -->
             </div>
         </div>
-    </div>
+    </section>
+
 @endsection

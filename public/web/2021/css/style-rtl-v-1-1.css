@@ -108,7 +108,7 @@ a:hover,
 a:focus {
 	text-decoration: none;
 	outline: none;
-	color: #fff;
+	/*color: #fff;*/
 }
 
 ul,
@@ -173,6 +173,17 @@ ol {
 	font-weight: 700;
 }
 
+.section-title h3 a {
+	color: #fff;
+	font-size: 24px;
+	font-weight: 700;
+	display: inline-block;
+	padding: 0 10px;
+	line-height: 38px;
+	background-color: #dd1515;
+	border-radius: 5px;
+	position: relative;
+}
 .set-bg {
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -2762,3 +2773,17 @@ ol {
 	}
 }
 
+
+.call-phone{
+	color: #ababab;
+}
+.color-footer{
+	color: #ababab;
+}
+.call-for-price
+{
+	color:#212529;
+}
+
+
+.footerIcons i{display:none}@media (max-width:640px){.footerIcons{display:block;position:fixed;text-align:center;bottom:7px;left:10px;right:10px;z-index:9999}.footerIcons i{display:inline-block;width:45px;height:45px;box-shadow:0 1px 1px rgba(30,41,46,.25);background-color:#d70808;border:none;color:#fff;border-radius:3px;text-align:center;line-height:45px;font-size:18px;transition:all .3s ease-in-out;margin:0 3px}.footerIcons .tellFooterIcon i{background-color:#24b23b}}.footerIconsBg{display:none}@media (max-width:640px){.footerIconsBg{display:block;background-color:#6d6d6d;height:60px;width:100%;position:fixed;bottom:0;z-index:999;opacity:.25;box-shadow:0 -1px rgba(103,103,103,.5)}}
