@@ -35,17 +35,17 @@ class HomeController extends Controller
         $products20=Products::where([['product_categories_id','=','20'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
         $categoryName[21]=ProductCategories::find(21);
         $products21=Products::where([['product_categories_id','=','21'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
-        $categoryName[22]=ProductCategories::find(22);
-        $products22=Products::where([['product_categories_id','=','22'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
-        $categoryName[23]=ProductCategories::find(23);
-        $products23=Products::where([['product_categories_id','=','23'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
+        $categoryName[27]=ProductCategories::find(27);
+        $products27=Products::where([['product_categories_id','=','27'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
+        $categoryName[28]=ProductCategories::find(28);
+        $products28=Products::where([['product_categories_id','=','28'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
         $categoryName[24]=ProductCategories::find(24);
         $products24=Products::where([['product_categories_id','=','24'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
         $categoryName[25]=ProductCategories::find(25);
         $products25=Products::where([['product_categories_id','=','25'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
         $categoryName[26]=ProductCategories::find(26);
         $products26=Products::where([['product_categories_id','=','26'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
-        return view('web.pages.index',compact('slider','specialProducts','newProducts','products20','products21','products22','products23','products24','products25','products26','categoryName'));
+        return view('web.pages.index',compact('slider','specialProducts','newProducts','products20','products21','products27','products28','products24','products25','products26','categoryName'));
     }
     public function showCategory($id)
     {
