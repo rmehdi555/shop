@@ -6,7 +6,7 @@
                 <div class="fs-logo">
                     <h4>{{__('web/public.contact_us')}}</h4>
                     <ul>
-                        <li><i class="fa fa-envelope"></i> {{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}</li>
+                        <li><i class="fa fa-envelope"></i> <a href="mailto:{{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}" class="call-phone"> {{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}</a></li>
                         <li><i class="fa fa-copy"></i> <a href="tel:{{\App\Providers\MyProvider::_text($siteDetailsProvider["mobile"]->value)}}" class="call-phone">{{\App\Providers\MyProvider::_text($siteDetailsProvider["mobile"]->value)}}</a></li>
                         <li><i class="fa fa-thumb-tack"></i> {{\App\Providers\MyProvider::_text($siteDetailsProvider["address"]->value)}}</li>
                     </ul>
@@ -42,6 +42,7 @@
                         </div>
 
                     @endforeach
+                    <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=202090&amp;Code=zWSOD2mavOWNwYYvBijv"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=202090&amp;Code=zWSOD2mavOWNwYYvBijv" alt="" style="cursor:pointer" id="zWSOD2mavOWNwYYvBijv"></a>
 
                 </div>
             </div>

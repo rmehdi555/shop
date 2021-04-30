@@ -48,15 +48,16 @@
 
     <ul class="main-menu mobile-menu">
         @foreach($webMenusHeaderProvider as $menu)
-            @if($menu->parent_id==0)
-                <li class="{{ \App\Providers\MyProvider::activeSidebar($menu->link) }}"><a href="{{ $menu->link }}">{{\App\Providers\MyProvider::_text($menu->title)}}</a>
+            @if($menu->parent_id==0 AND !isset($menu->children[0]))
+                <li class="{{ \App\Providers\MyProvider::activeSidebar($menu->link) }}"><a href="{{ $menu->link }}">{{\App\Providers\MyProvider::_text($menu->title)}}</a></li>
+            @endif
+            @if($menu->parent_id==0 AND isset($menu->children[0]))
+                <li>{{\App\Providers\MyProvider::_text($menu->title)}}
                     @if(isset($menu->children[0]) and $menu->children!=[])
-                        <div class="dropdown">
-                            <ul>
+                            <ul class="dropdown">
                                 <x-web-show-menus :menus="$menu->children">
                                 </x-web-show-menus>
                             </ul>
-                        </div>
                     @endif
                 </li>
             @endif
@@ -142,8 +143,11 @@
                     <div class="nav-menu">
                         <ul class="main-menu">
                             @foreach($webMenusHeaderProvider as $menu)
-                                @if($menu->parent_id==0)
-                                    <li class="{{ \App\Providers\MyProvider::activeSidebar($menu->link) }}"><a href="{{ $menu->link }}">{{\App\Providers\MyProvider::_text($menu->title)}}</a>
+                                @if($menu->parent_id==0 AND !isset($menu->children[0]))
+                                    <li class="{{ \App\Providers\MyProvider::activeSidebar($menu->link) }}"><a href="{{ $menu->link }}">{{\App\Providers\MyProvider::_text($menu->title)}}</a></li>
+                                @endif
+                                @if($menu->parent_id==0 AND isset($menu->children[0]))
+                                    <li><a href="{{ $menu->link }}">{{\App\Providers\MyProvider::_text($menu->title)}}</a>
                                         @if(isset($menu->children[0]) and $menu->children!=[])
                                             <div class="dropdown">
                                                 <ul>

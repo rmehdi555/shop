@@ -9,10 +9,10 @@
     <section class="latest-section">
         <div class="container">
             <div class="row">
-                @if(isset($products20))
+                @if(isset($products21))
                 <div class="col-lg-6">
 
-                    <x-web-show-product-in-index :category="$categoryName[20]">
+                    <x-web-show-product-in-index :category="$categoryName[21]">
                     </x-web-show-product-in-index>
                 </div>
 
@@ -20,9 +20,9 @@
 
                 @endif
 
-                    @if(isset($products21))
+                    @if(isset($products27))
                         <div class="col-lg-6">
-                            <x-web-show-product-in-index :category="$categoryName[21]">
+                            <x-web-show-product-in-index :category="$categoryName[27]">
                             </x-web-show-product-in-index>
 
                         </div>
@@ -39,10 +39,10 @@
     <section class="latest-section">
         <div class="container">
             <div class="row">
-                @if(isset($products27))
+                @if(isset($products24))
                     <div class="col-lg-6">
 
-                        <x-web-show-product-in-index :category="$categoryName[27]">
+                        <x-web-show-product-in-index :category="$categoryName[24]">
                         </x-web-show-product-in-index>
 
                     </div>
@@ -68,10 +68,10 @@
     <section class="latest-section">
         <div class="container">
             <div class="row">
-                @if(isset($products24))
+                @if(isset($products20))
                     <div class="col-lg-6">
 
-                        <x-web-show-product-in-index :category="$categoryName[24]">
+                        <x-web-show-product-in-index :category="$categoryName[20]">
                         </x-web-show-product-in-index>
 
                     </div>
