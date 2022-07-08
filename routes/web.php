@@ -88,6 +88,10 @@ Route::middleware('auth','checkAdmin')->namespace('Admin')->prefix('admin')->gro
     Route::get('/panel/upload-image','PanelCotroller@uploadImageSubject');
     Route::resource('newsCategories','NewsCategoriesController');
     Route::resource('news','NewsController');
+
+
+    Route::get('/test/irandargah','TestIrandargahCotroller@index')->name('admin.test.irandargah.index');
+    Route::post('/test/irandargah/send','TestIrandargahCotroller@send')->name('admin.test.irandargah.send');
   });
 
 // end admin  route
@@ -195,4 +199,9 @@ Route::post('payment/online/meli/callback','PaymentController@payMeliCallback')-
 Route::post('payment/online/meli/callback/teacher','PaymentController@payMeliCallbackTeacher')->name('web.payment.online.meli.callback.teacher');
 Route::post('payment/online/meli/callback/noor','PaymentController@payMeliCallbackNoor')->name('web.payment.online.meli.callback.noor');
 Route::get('payment/online/meli/callback/noor','PaymentController@payMeliCallbackNoor')->name('web.payment.online.meli.callback.noor.get');
+
+
+
+Route::post('payment/online/irandargah','PaymentController@payIrandargah')->name('web.payment.online.irandargah');
+Route::post('payment/online/irandargah/callback','PaymentController@payIrandargahCallback')->name('web.payment.online.irandargah.callback');
 // end route payment

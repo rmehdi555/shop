@@ -1,5 +1,5 @@
 @php if(!isset($SID)) $SID=10;@endphp
-    <div id="leftsidebar" class="sidebar">
+<div id="leftsidebar" class="sidebar">
     <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: calc(100vh - 65px);">
         <div class="sidebar-scroll" style="overflow: hidden; width: auto; height: calc(100vh - 65px);">
             <nav id="leftsidebar-nav" class="sidebar-nav">
@@ -126,6 +126,17 @@
                             </li>
                             <li class="@if($SID==903 ) active @endif"><a
                                         href="{{ route('complaint.index',['SID' => '903']) }}">{{__('admin/public.complaint_list')}}</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="@if($SID>=1000 and $SID<1010) active @endif">
+                        <a href="#site-setting" class="has-arrow"><i
+                                    class="icon-diamond"></i><span>تست ها</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="@if($SID==900 ) active @endif"><a
+                                        href="{{ route('admin.test.irandargah.index',['SID' => '1001']) }}">تست درگاه پرداخت ایران درگاه</a>
                             </li>
                         </ul>
                     </li>

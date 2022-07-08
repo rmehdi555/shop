@@ -42,7 +42,7 @@
                         </div>
 
                     @endforeach
-                    <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=202090&amp;Code=zWSOD2mavOWNwYYvBijv"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=202090&amp;Code=zWSOD2mavOWNwYYvBijv" alt="" style="cursor:pointer" id="zWSOD2mavOWNwYYvBijv"></a>
+                    <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=237712&amp;Code=IWsjWV40oCJhi2g89rcg"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=237712&amp;Code=IWsjWV40oCJhi2g89rcg" alt="" style="cursor:pointer" id="IWsjWV40oCJhi2g89rcg"></a>
 
                 </div>
             </div>
