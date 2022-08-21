@@ -39,9 +39,9 @@
             </ul>
         </div>
         <div class="ht-links">
-            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"><i class="fa fa-instagram"></i></a>
-            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"><i class="fa fa-whatsapp"></i></a>
-            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"><i class="fa fa-telegram"></i></a>
+            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"><i class="fa fa-instagram" style="font-size:48px ;color:red;"></i></a>
+            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"><i class="fa fa-whatsapp" style="font-size:48px ;color:green;"></i></a>
+            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"><i class="fa fa-telegram" style="font-size:48px ;color:blue;"></i></a>
         </div>
     </div>
 
@@ -101,9 +101,9 @@
                             <a href="{{ route('web.home') }}"><img style="width: 10rem;" src="{{$siteDetailsProvider["image_logo"]->images["images"]["original"]}}" alt=""></a>
                         </div>
                         <div class="ht-links">
-                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"><i class="fa fa-instagram"></i></a>
-                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"><i class="fa fa-whatsapp"></i></a>
-                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"><i class="fa fa-telegram"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"><i class="fa fa-instagram " style="font-size:48px ;color:red;"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"><i class="fa fa-whatsapp" style="font-size:48px ;color:green;"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"><i class="fa fa-telegram" style="font-size:48px ;color:blue;"></i></a>
                         </div>
                         <div class="ht-info">
                             <ul>

@@ -1,6 +1,3 @@
-
-
-
 # Laravel 5 & Lumen specific
 public/storage
 public/hot
@@ -8,4 +5,5 @@ public/hot
 .env.php
 .env
 .git/
+.idea/*
 .idea/

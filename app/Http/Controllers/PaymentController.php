@@ -371,4 +371,50 @@ class PaymentController extends Controller
 
     }
 
+
+    public function payIrandargahCallback(Request $request)
+    {
+
+        if(!array_key_exists('code', $_POST)) {
+            throw new \Exception('callback has not valid data');
+        }
+        $merchantCode='6908c3cf-eb85-4a04-9538-1f0618c2753b';
+
+        if ($_POST['code'] == 100) {
+            $data = [
+                'merchantID' => $merchantCode,
+                'authority' => $request->authority, // you can set this variable by: $_POST['authority'],
+                'amount' => $request->amount, // you can set this variable by: intval($_POST['amount']),
+                'orderId' => $request->orderId, // you can set this variable by: $_POST['orderId'],
+            ];
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_URL, "https://dargaah.com/verification");
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            # if you get SSL error (curl error 60) add 2 lines below
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+            # end SSL error
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $response = curl_exec($ch);
+
+            curl_close($ch);
+            $result = json_decode($response);
+
+            echo 'transaction verified: ' . $result->message;
+            echo '<br />';
+            echo 'verification status code: ' . $result->status;
+            echo '<br />';
+            echo 'refId: ' . $result->refId;
+            echo '<br />';
+            echo 'cardnumber: ' . $result->cardNumber;
+            echo '<br />';
+            echo 'order id: ' . $result->orderId;
+        } else {
+            die('error in transaction\'s payment: ' . $_POST['message']);
+        }
+    }
+
 }

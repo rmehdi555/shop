@@ -134,12 +134,12 @@ $(document).ready(function() {
 
 
 
-    $( '.table-responsive-stack' ).each(function() {
-        var thCount = $(this).find("th").length;
-        var rowGrow = 100 / thCount + '%';
-        //console.log(rowGrow);
-        $(this).find("th, td").css('flex-basis', rowGrow);
-    });
+    // $( '.table-responsive-stack' ).each(function() {
+    //     var thCount = $(this).find("th").length;
+    //     var rowGrow = 100 / thCount + '%';
+    //     //console.log(rowGrow);
+    //     $(this).find("th, td").css('flex-basis', rowGrow);
+    // });
 
 
 
@@ -153,6 +153,12 @@ $(document).ready(function() {
                 $(this).find(".hidden-mobile-view").hide();
             });
 
+            $( '.table-responsive-stack' ).each(function() {
+                var thCount = $(this).find("th").length;
+                var rowGrow = 100 / thCount + '%';
+                //console.log(rowGrow);
+                $(this).find("th, td").css('flex-basis', rowGrow);
+            });
 
             // window is less than 768px
         } else {
@@ -162,6 +168,12 @@ $(document).ready(function() {
                 $(this).find(".table-responsive-stack-thead").hide();
                 $(this).find('thead').show();
                 $(this).find(".hidden-mobile-view").show();
+            });
+            $( '.table-responsive-stack' ).each(function() {
+                $(this).find(".th-td-50").css('flex-basis', '50%');
+                $(this).find(".th-td-10").css('flex-basis', '10%');
+                $(this).find(".th-td-8").css('flex-basis', '8%');
+                $(this).find(".th-td-16").css('flex-basis', '16%');
             });
 
 
