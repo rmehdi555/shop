@@ -172,6 +172,7 @@ return [
     'code'=>'کد',
     'call_for_price'=>'تماس بگیرید',
     'unit_KG'=>'کیلوگرم',
+    'updated_at' => 'تاریخ بروزرسانی'
 
 
 

@@ -171,6 +171,10 @@ $(document).ready(function() {
             });
             $( '.table-responsive-stack' ).each(function() {
                 $(this).find(".th-td-50").css('flex-basis', '50%');
+                $(this).find(".th-td-40").css('flex-basis', '40%');
+                $(this).find(".th-td-34").css('flex-basis', '34%');
+                $(this).find(".th-td-30").css('flex-basis', '30%');
+                $(this).find(".th-td-20").css('flex-basis', '20%');
                 $(this).find(".th-td-10").css('flex-basis', '10%');
                 $(this).find(".th-td-8").css('flex-basis', '8%');
                 $(this).find(".th-td-16").css('flex-basis', '16%');
