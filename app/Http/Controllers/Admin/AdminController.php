@@ -9,7 +9,7 @@ use Intervention\Image\Facades\Image;
 
 class AdminController extends Controller
 {
-    public function uploadImages($file,$type="public",$sizes= ["300" , "600" , "900"])
+    public function uploadImages($file,$type="public",$sizes= ["100" ,"300"  , "900"])
     {
         $year = Carbon::now()->year;
         $month = Carbon::now()->month;

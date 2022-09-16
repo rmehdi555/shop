@@ -29,6 +29,7 @@ class MyProvider extends ServiceProvider
     {
         session()->regenerate();
     }
+
     static function get_languages()
     {
         $lang_props = array(
@@ -41,12 +42,12 @@ class MyProvider extends ServiceProvider
 //                'flag' => 'iraq-flag.png' ,
 //            ),
             'fa' => array(
-                'title' => 'فارسی' ,
-                'dir' => 'rtl' ,
-                'active' => TRUE ,
-                'theme_postfix' => '' ,
-                'flag' => 'iran-flag.png' ,
-            ) ,
+                'title' => 'فارسی',
+                'dir' => 'rtl',
+                'active' => TRUE,
+                'theme_postfix' => '',
+                'flag' => 'iran-flag.png',
+            ),
 //            'en' => array(
 //                'title' => 'English' ,
 //                'dir' => 'ltr' ,
@@ -81,33 +82,30 @@ class MyProvider extends ServiceProvider
         );
         return $lang_props;
     }
+
     static function get_languages_array()
     {
-        $result=array();
+        $result = array();
         $lang_props = self::get_languages();
-        foreach ($lang_props as $key=>$item)
-        {
-            $result[$key]=$key;
+        foreach ($lang_props as $key => $item) {
+            $result[$key] = $key;
         }
         return $result;
     }
 
-    static function _text($str = '' , $setLang = '')
+    static function _text($str = '', $setLang = '')
     {
-        $lang=App::getLocale();
-        $arr = explode('@@' , $str);
+        $lang = App::getLocale();
+        $arr = explode('@@', $str);
         $setLang = empty($setLang) ? $lang : $setLang;
-        if(!empty($arr[1]))
-        {
+        if (!empty($arr[1])) {
             $en = '';
-            foreach ($arr as $value)
-            {
-                $ar = explode('==' , $value);
-                if(!empty($ar[1]))
-                {
-                    if($ar[0] == $setLang)
+            foreach ($arr as $value) {
+                $ar = explode('==', $value);
+                if (!empty($ar[1])) {
+                    if ($ar[0] == $setLang)
                         return $ar[1];
-                    elseif($ar[0] == 'en')
+                    elseif ($ar[0] == 'en')
                         $en = $ar[1];
                 }
             }
@@ -115,22 +113,19 @@ class MyProvider extends ServiceProvider
         }
         return $str;
     }
-    static function _insert_text($env,$str = '')
+
+    static function _insert_text($env, $str = '')
     {
         $lang_props = self::get_languages();
         $return_str = '@@';
-        foreach ((array) $env as $key => $value)
-        {
+        foreach ((array)$env as $key => $value) {
             $var = explode('_', $key);
-            if(isset($var[1]) && $var[0] == $str)
-            {
-                foreach ($lang_props as $k => $v)
-                {
-                    if($var[1] == $k)
-                    {
+            if (isset($var[1]) && $var[0] == $str) {
+                foreach ($lang_props as $k => $v) {
+                    if ($var[1] == $k) {
                         $vars = $value;
                         $return_str .= "$k==$vars@@";
-                        if(count($lang_props)==1)
+                        if (count($lang_props) == 1)
                             return $vars;
                     }
                 }
@@ -140,48 +135,55 @@ class MyProvider extends ServiceProvider
         //$return_str = trim($return_str , '@@');
         return $return_str;
     }
-    static function _insert_text_lang($str,$lang='en')
+
+    static function _insert_text_lang($str, $lang = 'en')
     {
-        $return_str = "@@"."$lang==$str";
+        $return_str = "@@" . "$lang==$str";
         return $return_str;
     }
-
 
 
     //CurrencyPrice
 
 
-    static  function getCurrencyPrice()
+    static function getCurrencyPrice()
     {
-        return ['IRR'=>'IRR','EUR'=>'EUR','AFN'=>'AFN','USD'=>'USD','GEL'=>'GEL'];
+        return ['IRR' => 'IRR', 'EUR' => 'EUR', 'AFN' => 'AFN', 'USD' => 'USD', 'GEL' => 'GEL'];
     }
-    static function exToLocal($price,$currence="IRR"){
-        $price=(double) $price;
-        $currencyLIVE=self::currencyLIVE();
-        $price=$currencyLIVE[$currence][session('Local_Currency')]*$price;
-        if(session('Local_Currency')=='IRR')
-        {
-            $price=round($price,-3);
-        }else{
-            $price=round($price,3);
-        }
-        return $price;
-    }
-    static function exToLocalDiscount($price,$discount,$currence="IRR")
-    {
-        $price=(double) $price;
 
-        if($discount>0)
-        {
-            $price=$price-$price*($discount/100);
+    static function exToLocal($price, $currence = "IRR")
+    {
+        $price = (double)$price;
+        $currencyLIVE = self::currencyLIVE();
+        $price = $currencyLIVE[$currence][session('Local_Currency')] * $price;
+        if (session('Local_Currency') == 'IRR') {
+            $price = round($price, -2);
+        } else {
+            $price = round($price, 2);
         }
-        $price=self::exToLocal($price);
         return $price;
     }
-    static function currencyLIVE(){
-        if(session('Local_Currency')==null)
+
+    static function exToLocalDiscount($price, $discount, $currence = "IRR")
+    {
+        $price = (double)$price;
+
+        if ($discount > 0) {
+            $price = $price - $price * ($discount / 100);
+        }
+        $price = self::exToLocal($price);
+        if (session('Local_Currency') == "IRR") {
+            $price = number_format($price);
+            $price = self::convert_number_to_persian($price);
+        }
+        return $price;
+    }
+
+    static function currencyLIVE()
+    {
+        if (session('Local_Currency') == null)
             session(['Local_Currency' => 'IRR']);
-        $result  = CurrencyConvert::all();
+        $result = CurrencyConvert::all();
 
         foreach ($result as $res) {
             $Curency[$res->exFrom][$res->exTo] = $res->rate;
@@ -190,10 +192,10 @@ class MyProvider extends ServiceProvider
     }
 
 
-
-    static function convert_phone_number($string) {
+    static function convert_phone_number($string)
+    {
         $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-        $arabic = ['٩', '٨', '٧', '٦', '٥', '٤', '٣', '٢', '١','٠'];
+        $arabic = ['٩', '٨', '٧', '٦', '٥', '٤', '٣', '٢', '١', '٠'];
 
         $num = range(0, 9);
         $convertedPersianNums = str_replace($persian, $num, $string);
@@ -202,26 +204,35 @@ class MyProvider extends ServiceProvider
         return $englishNumbersOnly;
     }
 
+    static function convert_number_to_persian($string)
+    {
+        $en = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        $arabic = ['٩', '٨', '٧', '٦', '٥', '٤', '٣', '٢', '١', '٠'];
+        $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+        $convertedPersianNums = str_replace($en, $persian, $string);
+        $persianNumbersOnly = str_replace($arabic, $persian, $convertedPersianNums);
+        return $persianNumbersOnly;
+    }
 
 
-    static function show_date($date,$format="'Y/n/j H:i:s'") {
-        $lang=App::getLocale();
-        if($lang=="fa")
-        {
+    static function show_date($date, $format = "'Y/n/j H:i:s'")
+    {
+        $lang = App::getLocale();
+        if ($lang == "fa") {
             $v = new Verta($date);
-			$v = $v->timezone('Asia/Tehran');
-            return $v->format($format);
+            $v = $v->timezone('Asia/Tehran');
+            $v = $v->format($format);
+            return self::convert_number_to_persian($v);
 
-        }else{
+        } else {
             return $date->format($format);
         }
     }
 
 
-
-    static function activeSidebar($routeUrl, $contain = true , $className='active')
+    static function activeSidebar($routeUrl, $contain = true, $className = 'active')
     {
-        if($contain)
+        if ($contain)
             return strpos(url()->current(), $routeUrl) === false ? '' : $className;
         else
             return ($routeUrl == url()->current()) ? $className : '';

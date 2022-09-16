@@ -16,8 +16,6 @@
             {{--</div>--}}
 
 
-
-
             <div class="row clearfix">
                 <div class="col-md-12">
                     <div class="card">
@@ -25,38 +23,42 @@
                             <h2>{{__('admin/public.create_product')}}</h2>
                         </div>
                         <div class="body">
-                            <form id="basic-form" action="{{ route('products.store') }}" method="post" enctype="multipart/form-data" novalidate>
+                            <form id="basic-form" action="{{ route('products.store') }}" method="post"
+                                  enctype="multipart/form-data" novalidate>
                                 @csrf
                                 @include('admin.section.errors')
                                 <?php
-                                $allLang=\App\Providers\MyProvider::get_languages();
+                                $allLang = \App\Providers\MyProvider::get_languages();
                                 foreach ($allLang as $kay => $value)
                                 {
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.title')}} ({{$kay}}):</label>
-                                    <input type="text" name="title_{{$kay}}" class="form-control" value="{{old('title_'.$kay)}}" required>
+                                    <input type="text" name="title_{{$kay}}" class="form-control"
+                                           value="{{old('title_'.$kay)}}" required>
                                 </div>
                                 <?php
                                 }
-                                $allLang=\App\Providers\MyProvider::get_languages();
+                                $allLang = \App\Providers\MyProvider::get_languages();
                                 foreach ($allLang as $kay => $value)
                                 {
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.description')}} ({{$kay}}):</label>
-                                    <textarea name="description_{{$kay}}" id="description_{{$kay}}" class="form-control" rows="5" cols="30" required>{{old('description_'.$kay)}}</textarea>
+                                    <textarea name="description_{{$kay}}" id="description_{{$kay}}" class="form-control"
+                                              rows="5" cols="30" required>{{old('description_'.$kay)}}</textarea>
 
                                 </div>
                                 <?php
                                 }
-                                $allLang=\App\Providers\MyProvider::get_languages();
+                                $allLang = \App\Providers\MyProvider::get_languages();
                                 foreach ($allLang as $kay => $value)
                                 {
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.body')}} ({{$kay}}):</label>
-                                    <textarea name="body_{{$kay}}" class="form-control ckeditor" rows="5" cols="30" required>{{old('body_'.$kay)}}</textarea>
+                                    <textarea name="body_{{$kay}}" class="form-control ckeditor" rows="5" cols="30"
+                                              required>{{old('body_'.$kay)}}</textarea>
 
                                 </div>
                                 <?php
@@ -65,7 +67,8 @@
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.product_categories_id')}} :</label>
                                     <div class="multiselect_div">
-                                        <select id="single-selection" name="product_categories_id" class="multiselect multiselect-custom" >
+                                        <select id="single-selection" name="product_categories_id"
+                                                class="multiselect multiselect-custom">
                                             @foreach($categories as $category)
                                                 <option value="{{$category->id}}">{{\App\Providers\MyProvider::_text($category->title)}}</option>
                                             @endforeach
@@ -74,67 +77,90 @@
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.price')}} ({{__('admin/public.IRR')}}):</label>
-                                    <input type="number" name="price" class="form-control" value="{{old('price')}}" required>
+                                    <input type="number" name="price" class="form-control" value="{{old('price')}}"
+                                           required>
                                 </div>
                                 <div class="form-group">
-                                    <label>{{__('admin/public.price')}} ({{__('admin/public.USD')}}): ({{__('admin/public.USD_help')}})</label>
-                                    <input type="text" name="price_usd" class="form-control" value="{{old('price_usd')}}" required>
+                                    <label>{{__('admin/public.price')}} ({{__('admin/public.USD')}}):
+                                        ({{__('admin/public.USD_help')}})</label>
+                                    <input type="text" name="price_usd" class="form-control"
+                                           value="{{old('price_usd')}}" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>{{__('admin/public.price')}} ({{__('admin/public.EURO')}}): ({{__('admin/public.EURO_help')}})</label>
-                                    <input type="text" name="price_euro" class="form-control" value="{{old('price_euro')}}" required>
+                                    <label>{{__('admin/public.price')}} ({{__('admin/public.EURO')}}):
+                                        ({{__('admin/public.EURO_help')}})</label>
+                                    <input type="text" name="price_euro" class="form-control"
+                                           value="{{old('price_euro')}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.size')}} :</label>
-                                    <input type="text" name="size" class="form-control" value="{{old('size')}}" required>
+                                    <input type="text" name="size" class="form-control" value="{{old('size')}}"
+                                           required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.standard')}} :</label>
-                                    <input type="text" name="standard" class="form-control" value="{{old('standard')}}" required>
+                                    <input type="text" name="standard" class="form-control" value="{{old('standard')}}"
+                                           required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.discount')}} (0-100 %):</label>
-                                    <input type="number" min="0" max="100" name="discount" class="form-control" value="{{old('discount')}}" required>
+                                    <input type="number" min="0" max="100" name="discount" class="form-control"
+                                           value="{{old('discount')}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.images')}} :</label>
-                                    <input type="file" name="images" class="form-control" value="{{old('images')}}" required>
+                                    <input type="file" name="images" class="form-control" value="{{old('images')}}"
+                                           required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.tags')}} :</label>
-                                    <input type="text" name="tags" class="form-control" value="{{old('tags')}}" required>
+                                    <input type="text" name="tags" class="form-control" value="{{old('tags')}}"
+                                           required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.priority')}} :</label>
-                                    <input type="number" name="priority" class="form-control" value="{{old('priority')}}" required>
+                                    <input type="number" name="priority" class="form-control"
+                                           value="{{old('priority')}}" required>
                                 </div>
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.unit')}} :</label>
                                     <div class="multiselect_div">
-                                        <select id="single-selection" name="unit" class="multiselect multiselect-custom" >
+                                        <select id="single-selection" name="unit"
+                                                class="multiselect multiselect-custom">
                                             <option value="KG">{{__('admin/public.KG')}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-4 col-md-12">
+                                    <label>{{__('admin/public.place_of_delivery')}} :</label>
+                                    <div class="multiselect_div">
+                                        <select id="single-selection" name="place_of_delivery"
+                                                class="multiselect multiselect-custom">
+                                            <option value="store">{{__('admin/public.product_place_of_delivery_store')}}</option>
+                                            <option value="factory">{{__('admin/public.product_place_of_delivery_factory')}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.status')}} :</label>
                                     <div class="multiselect_div">
-                                        <select id="single-selection" name="status" class="multiselect multiselect-custom" >
+                                        <select id="single-selection" name="status"
+                                                class="multiselect multiselect-custom">
                                             <option value="1">{{__('admin/public.active')}}</option>
                                             <option value="0">{{__('admin/public.inactive')}}</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group col-lg-4 col-md-12">
-                                    <label>{{__('admin/public.type')}} :</label>
-                                    <div class="multiselect_div">
-                                        <select id="single-selection" name="type" class="multiselect multiselect-custom" >
-                                            <option value="normal">{{__('admin/public.normal')}}</option>
-                                            <option value="special">{{__('admin/public.special')}}</option>
-                                            <option value="offer">{{__('admin/public.offer')}}</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                {{--<div class="form-group col-lg-4 col-md-12">--}}
+                                {{--<label>{{__('admin/public.type')}} :</label>--}}
+                                {{--<div class="multiselect_div">--}}
+                                {{--<select id="single-selection" name="type" class="multiselect multiselect-custom" >--}}
+                                {{--<option value="normal">{{__('admin/public.normal')}}</option>--}}
+                                {{--<option value="special">{{__('admin/public.special')}}</option>--}}
+                                {{--<option value="offer">{{__('admin/public.offer')}}</option>--}}
+                                {{--</select>--}}
+                                {{--</div>--}}
+                                {{--</div>--}}
 
 
                                 <br>

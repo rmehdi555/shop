@@ -83,20 +83,26 @@
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label>{{__('admin/public.price')}} ({{__('admin/public.USD')}}): ({{__('admin/public.USD_help')}})</label>
-                                    <input type="text" name="price_usd" class="form-control" value="{{$products->price_usd}}" required>
+                                    <label>{{__('admin/public.price')}} ({{__('admin/public.USD')}}):
+                                        ({{__('admin/public.USD_help')}})</label>
+                                    <input type="text" name="price_usd" class="form-control"
+                                           value="{{$products->price_usd}}" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>{{__('admin/public.price')}} ({{__('admin/public.EURO')}}): ({{__('admin/public.EURO_help')}})</label>
-                                    <input type="text" name="price_euro" class="form-control" value="{{$products->price_euro}}"required>
+                                    <label>{{__('admin/public.price')}} ({{__('admin/public.EURO')}}):
+                                        ({{__('admin/public.EURO_help')}})</label>
+                                    <input type="text" name="price_euro" class="form-control"
+                                           value="{{$products->price_euro}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.size')}} :</label>
-                                    <input type="text" name="size" class="form-control" value="{{$products->size}}" required>
+                                    <input type="text" name="size" class="form-control" value="{{$products->size}}"
+                                           required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.standard')}} :</label>
-                                    <input type="text" name="standard" class="form-control" value="{{$products->standard}}" required>
+                                    <input type="text" name="standard" class="form-control"
+                                           value="{{$products->standard}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.discount')}} (0-100 %):</label>
@@ -128,8 +134,19 @@
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.unit')}} :</label>
                                     <div class="multiselect_div">
-                                        <select id="single-selection" name="unit" class="multiselect multiselect-custom" >
+                                        <select id="single-selection" name="unit"
+                                                class="multiselect multiselect-custom">
                                             <option value="KG">{{__('admin/public.KG')}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-4 col-md-12">
+                                    <label>{{__('admin/public.place_of_delivery')}} :</label>
+                                    <div class="multiselect_div">
+                                        <select id="single-selection" name="place_of_delivery"
+                                                class="multiselect multiselect-custom">
+                                            <option value="store">{{__('admin/public.product_place_of_delivery_store')}}</option>
+                                            <option value="factory" {{$products->place_of_delivery=='factory'?"selected":""}}>{{__('admin/public.product_place_of_delivery_factory')}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -143,17 +160,17 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group col-lg-4 col-md-12">
-                                    <label>{{__('admin/public.type')}} :</label>
-                                    <div class="multiselect_div">
-                                        <select id="single-selection" name="type"
-                                                class="multiselect multiselect-custom">
-                                            <option value="normal" {{($products->type=='normal')?"selected":""}}>{{__('admin/public.normal')}}</option>
-                                            <option value="special" {{($products->type=='special')?"selected":""}}>{{__('admin/public.special')}}</option>
-                                            <option value="offer" {{($products->type=='offer')?"selected":""}}>{{__('admin/public.offer')}}</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                {{--<div class="form-group col-lg-4 col-md-12">--}}
+                                {{--<label>{{__('admin/public.type')}} :</label>--}}
+                                {{--<div class="multiselect_div">--}}
+                                {{--<select id="single-selection" name="type"--}}
+                                {{--class="multiselect multiselect-custom">--}}
+                                {{--<option value="normal" {{($products->type=='normal')?"selected":""}}>{{__('admin/public.normal')}}</option>--}}
+                                {{--<option value="special" {{($products->type=='special')?"selected":""}}>{{__('admin/public.special')}}</option>--}}
+                                {{--<option value="offer" {{($products->type=='offer')?"selected":""}}>{{__('admin/public.offer')}}</option>--}}
+                                {{--</select>--}}
+                                {{--</div>--}}
+                                {{--</div>--}}
 
 
                                 <br>

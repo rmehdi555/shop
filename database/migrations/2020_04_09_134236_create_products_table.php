@@ -31,6 +31,7 @@ class CreateProductsTable extends Migration
             $table->string('unit',50);
             $table->double('discount')->default(0);
             $table->string('type')->default('normal');
+            $table->enum('place_of_delivery', ['store', 'factory'])->default('store');
             $table->text('images');
             $table->text('tags');
             $table->integer('priority')->default(0);

@@ -44,4 +44,9 @@ class News extends Model
             ]
         ];
     }
+
+    public function category()
+    {
+        return $this->hasOne('App\NewsCategories','id');
+    }
 }

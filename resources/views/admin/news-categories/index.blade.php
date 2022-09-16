@@ -82,6 +82,7 @@
                                         <th>{{__('admin/public.id')}}</th>
                                         <th>{{__('admin/public.title')}}</th>
                                         <th>{{__('admin/public.parent_id')}}</th>
+                                        <th>{{__('admin/public.priority')}}</th>
                                         <th>{{__('admin/public.status')}}</th>
                                         <th>{{__('admin/public.actions')}}</th>
                                     </tr>
@@ -92,6 +93,7 @@
                                             <td>{{$newsCategories->id}}</td>
                                             <td>{{\App\Providers\MyProvider::_text($newsCategories->title)}}</td>
                                             <td>{{$newsCategories->parent_id}}</td>
+                                            <td>{{$newsCategories->priority}}</td>
                                             <td>{{$newsCategories->status?__('admin/public.active'):__('admin/public.inactive')}}</td>
                                             <td class="actions">
 

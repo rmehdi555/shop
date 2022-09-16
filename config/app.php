@@ -18,6 +18,10 @@ return [
     'bankPay' => [
         'active'      =>  'meli1',
     ],
+    'newsId' => [
+        'news'      =>  '3',
+        'article'      =>  '4',
+    ],
 
 
     /*

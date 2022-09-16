@@ -31,6 +31,30 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="@if($SID>=900 and $SID<1000) active @endif">
+                        <a href="#site-setting" class="has-arrow"><i
+                                    class="icon-diamond"></i><span>{{__('admin/public.site_settings')}}</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="@if($SID==900 ) active @endif"><a
+                                        href="{{ route('siteDetails.index',['SID' => '900']) }}">{{__('admin/public.site_settings_list')}}</a>
+                            </li>
+                            <li class="@if($SID==901 ) active @endif"><a
+                                        href="{{ route('siteDetails.create',['SID' => '901']) }}">{{__('admin/public.site_settings_add')}}</a>
+                            </li>
+                            <li class="@if($SID==902 ) active @endif"><a
+                                        href="{{ route('contactUs.index',['SID' => '902']) }}">{{__('admin/public.contact_us_list')}}</a>
+                            </li>
+                            <li class="@if($SID==903 ) active @endif"><a
+                                        href="{{ route('complaint.index',['SID' => '903']) }}">{{__('admin/public.complaint_list')}}</a>
+                            </li>
+                            <li class="@if($SID==904 ) active @endif"><a
+                                        href="{{ route('currencyConvert.index',['SID' => '904']) }}">{{__('admin/public.currency_convert_list')}}</a>
+                            </li>
+                            <li class="@if($SID==905 ) active @endif"><a
+                                        href="{{ route('usersList.index',['SID' => '905']) }}">{{__('admin/public.users_list')}}</a>
+                            </li>
+                        </ul>
+                    </li>
 
                     <li class="@if($SID>=100 and $SID<200) active @endif">
                         <a href="#slider" class="has-arrow"><i
@@ -56,6 +80,7 @@
                             </li>
                         </ul>
                     </li>
+
 
                     <li class="@if($SID>=300 and $SID<400) active @endif">
                         <a href="#product_categories" class="has-arrow"><i
@@ -111,32 +136,13 @@
                     </li>
 
 
-                    <li class="@if($SID>=900 and $SID<1000) active @endif">
-                        <a href="#site-setting" class="has-arrow"><i
-                                    class="icon-diamond"></i><span>{{__('admin/public.site_settings')}}</span></a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li class="@if($SID==900 ) active @endif"><a
-                                        href="{{ route('siteDetails.index',['SID' => '900']) }}">{{__('admin/public.site_settings_list')}}</a>
-                            </li>
-                            <li class="@if($SID==901 ) active @endif"><a
-                                        href="{{ route('siteDetails.create',['SID' => '901']) }}">{{__('admin/public.site_settings_add')}}</a>
-                            </li>
-                            <li class="@if($SID==902 ) active @endif"><a
-                                        href="{{ route('contactUs.index',['SID' => '902']) }}">{{__('admin/public.contact_us_list')}}</a>
-                            </li>
-                            <li class="@if($SID==903 ) active @endif"><a
-                                        href="{{ route('complaint.index',['SID' => '903']) }}">{{__('admin/public.complaint_list')}}</a>
-                            </li>
-                        </ul>
-                    </li>
-
-
                     <li class="@if($SID>=1000 and $SID<1010) active @endif">
                         <a href="#site-setting" class="has-arrow"><i
                                     class="icon-diamond"></i><span>تست ها</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li class="@if($SID==900 ) active @endif"><a
-                                        href="{{ route('admin.test.irandargah.index',['SID' => '1001']) }}">تست درگاه پرداخت ایران درگاه</a>
+                                        href="{{ route('admin.test.irandargah.index',['SID' => '1001']) }}">تست درگاه
+                                    پرداخت ایران درگاه</a>
                             </li>
                         </ul>
                     </li>

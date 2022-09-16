@@ -1,11 +1,10 @@
-
 <body dir="rtl">
 @include('sweet::alert')
 
 
 <!-- Page Preloder -->
 {{--<div id="preloder">--}}
-    {{--<div class="loader"></div>--}}
+{{--<div class="loader"></div>--}}
 {{--</div>--}}
 
 <!-- Offcanvas Menu Section Begin -->
@@ -15,9 +14,8 @@
         <i class="fa fa-close"></i>
     </div>
     {{--<div class="search-btn search-switch">--}}
-        {{--<i class="fa fa-search"></i>--}}
+    {{--<i class="fa fa-search"></i>--}}
     {{--</div>--}}
-
 
 
     <div class="header__top--canvas">
@@ -39,9 +37,12 @@
             </ul>
         </div>
         <div class="ht-links">
-            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"><i class="fa fa-instagram" style="font-size:48px ;color:red;"></i></a>
-            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"><i class="fa fa-whatsapp" style="font-size:48px ;color:green;"></i></a>
-            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"><i class="fa fa-telegram" style="font-size:48px ;color:blue;"></i></a>
+            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"><i
+                        class="fa fa-instagram" style="font-size:32px ;color:red;"></i></a>
+            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"><i
+                        class="fa fa-whatsapp" style="font-size:32px ;color:green;"></i></a>
+            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"><i
+                        class="fa fa-telegram" style="font-size:32px ;color:blue;"></i></a>
         </div>
     </div>
 
@@ -49,15 +50,16 @@
     <ul class="main-menu mobile-menu">
         @foreach($webMenusHeaderProvider as $menu)
             @if($menu->parent_id==0 AND !isset($menu->children[0]))
-                <li class="{{ \App\Providers\MyProvider::activeSidebar($menu->link) }}"><a href="{{ $menu->link }}">{{\App\Providers\MyProvider::_text($menu->title)}}</a></li>
+                <li class="{{ \App\Providers\MyProvider::activeSidebar($menu->link) }}"><a
+                            href="{{ $menu->link }}">{{\App\Providers\MyProvider::_text($menu->title)}}</a></li>
             @endif
             @if($menu->parent_id==0 AND isset($menu->children[0]))
                 <li>{{\App\Providers\MyProvider::_text($menu->title)}}
                     @if(isset($menu->children[0]) and $menu->children!=[])
-                            <ul class="dropdown">
-                                <x-web-show-menus :menus="$menu->children">
-                                </x-web-show-menus>
-                            </ul>
+                        <ul class="dropdown">
+                            <x-web-show-menus :menus="$menu->children">
+                            </x-web-show-menus>
+                        </ul>
                     @endif
                 </li>
             @endif
@@ -66,7 +68,9 @@
         <li>{{__('web/public.lang_name_'.App::getLocale())}}
             <ul class="dropdown">
                 <li>
-                    <a class="btn btn-link btn-block language-select" href="{{ route('web.change.lang','fa') }}" ><img src="{{asset('web/2020/image/flags/fa.png')}}" alt="{{__('web/public.lang_name_fa')}}" title="{{__('web/public.lang_name_fa')}}" /> {{__('web/public.lang_name_fa')}}</a>
+                    <a class="btn btn-link btn-block language-select" href="{{ route('web.change.lang','fa') }}"><img
+                                src="{{asset('web/2020/image/flags/fa.png')}}" alt="{{__('web/public.lang_name_fa')}}"
+                                title="{{__('web/public.lang_name_fa')}}"/> {{__('web/public.lang_name_fa')}}</a>
                 </li>
 
             </ul>
@@ -75,13 +79,14 @@
         <li>{{__('web/public.currency_name_'.session('Local_Currency'))}}
             <ul class="dropdown">
                 <li>
-                    <a href="{{ route('web.change.currency','EUR') }}"  name="EUR">€ Euro</a>
+                    <a href="{{ route('web.change.currency','EUR') }}" name="EUR">€ Euro</a>
                 </li>
                 <li>
-                    <a href="{{ route('web.change.currency','IRR') }}"  name="IRR">{{__('web/public.currency_name_IRR')}} IRR</a>
+                    <a href="{{ route('web.change.currency','IRR') }}" name="IRR">{{__('web/public.currency_name_IRR')}}
+                        IRR</a>
                 </li>
                 <li>
-                    <a  href="{{ route('web.change.currency','USD') }}"  name="USD">$ USD</a>
+                    <a href="{{ route('web.change.currency','USD') }}" name="USD">$ USD</a>
                 </li>
             </ul>
         </li>
@@ -91,19 +96,24 @@
 <!-- Offcanvas Menu Section End -->
 
 <!-- Header Section Begin -->
-<header class="header-section" >
+<header class="header-section">
     <div class="header__top">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="{{ route('web.home') }}"><img style="width: 10rem;" src="{{$siteDetailsProvider["image_logo"]->images["images"]["original"]}}" alt=""></a>
+                            <a href="{{ route('web.home') }}"><img style="width: 10rem;"
+                                                                   src="{{$siteDetailsProvider["image_logo"]->images["images"]["original"]}}"
+                                                                   alt=""></a>
                         </div>
                         <div class="ht-links">
-                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"><i class="fa fa-instagram " style="font-size:48px ;color:red;"></i></a>
-                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"><i class="fa fa-whatsapp" style="font-size:48px ;color:green;"></i></a>
-                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"><i class="fa fa-telegram" style="font-size:48px ;color:blue;"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"><i
+                                        class="fa fa-instagram " style="font-size:32px ;color:red;"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"><i
+                                        class="fa fa-whatsapp" style="font-size:32px ;color:green;"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"><i
+                                        class="fa fa-telegram" style="font-size:32px ;color:blue;"></i></a>
                         </div>
                         <div class="ht-info">
                             <ul>
@@ -111,7 +121,11 @@
 
                                 @if(auth()->check())
 
-                                    <li><a href="{{ route('home') }}">{{auth()->user()->name}} {{auth()->user()->family}}</a></li>
+                                    @if(auth()->user()->isAdmin())
+                                        <li><a href="{{ route('admin.panel') }}">{{__('web/public.panel')}}</a></li>
+                                    @else
+                                        <li><a href="{{ route('user.panel') }}">{{__('web/public.panel')}}</a></li>
+                                    @endif
                                     <li><a href="{{ route('logout') }}">{{__('web/public.btn_logout')}}</a></li>
 
 
@@ -135,7 +149,7 @@
             </div>
         </div>
     </div>
-    <div class="header__nav" >
+    <div class="header__nav">
         <div class="container">
             <div class="row">
 
@@ -144,10 +158,13 @@
                         <ul class="main-menu">
                             @foreach($webMenusHeaderProvider as $menu)
                                 @if($menu->parent_id==0 AND !isset($menu->children[0]))
-                                    <li class="{{ \App\Providers\MyProvider::activeSidebar($menu->link) }}"><a href="{{ $menu->link }}">{{\App\Providers\MyProvider::_text($menu->title)}}</a></li>
+                                    <li class="{{ \App\Providers\MyProvider::activeSidebar($menu->link) }}"><a
+                                                href="{{ $menu->link }}">{{\App\Providers\MyProvider::_text($menu->title)}}</a>
+                                    </li>
                                 @endif
                                 @if($menu->parent_id==0 AND isset($menu->children[0]))
-                                    <li><a href="{{ $menu->link }}">{{\App\Providers\MyProvider::_text($menu->title)}}</a>
+                                    <li>
+                                        <a href="{{ $menu->link }}">{{\App\Providers\MyProvider::_text($menu->title)}}</a>
                                         @if(isset($menu->children[0]) and $menu->children!=[])
                                             <div class="dropdown">
                                                 <ul>
@@ -163,7 +180,12 @@
                             <li><a href="#">{{__('web/public.lang_name_'.App::getLocale())}}  </a>
                                 <ul class="dropdown">
                                     <li>
-                                        <a class="btn btn-link btn-block language-select" href="{{ route('web.change.lang','fa') }}" ><img src="{{asset('web/2020/image/flags/fa.png')}}" alt="{{__('web/public.lang_name_fa')}}" title="{{__('web/public.lang_name_fa')}}" /> {{__('web/public.lang_name_fa')}}</a>
+                                        <a class="btn btn-link btn-block language-select"
+                                           href="{{ route('web.change.lang','fa') }}"><img
+                                                    src="{{asset('web/2020/image/flags/fa.png')}}"
+                                                    alt="{{__('web/public.lang_name_fa')}}"
+                                                    title="{{__('web/public.lang_name_fa')}}"/> {{__('web/public.lang_name_fa')}}
+                                        </a>
                                     </li>
 
                                 </ul>
@@ -172,19 +194,20 @@
                             <li><a href="#">{{__('web/public.currency_name_'.session('Local_Currency'))}} </a>
                                 <ul class="dropdown">
                                     <li>
-                                        <a href="{{ route('web.change.currency','EUR') }}"  name="EUR">€ Euro</a>
+                                        <a href="{{ route('web.change.currency','EUR') }}" name="EUR">€ Euro</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('web.change.currency','IRR') }}"  name="IRR">{{__('web/public.currency_name_IRR')}} IRR</a>
+                                        <a href="{{ route('web.change.currency','IRR') }}"
+                                           name="IRR">{{__('web/public.currency_name_IRR')}} IRR</a>
                                     </li>
                                     <li>
-                                        <a  href="{{ route('web.change.currency','USD') }}"  name="USD">$ USD</a>
+                                        <a href="{{ route('web.change.currency','USD') }}" name="USD">$ USD</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                         {{--<div class="nm-right search-switch">--}}
-                            {{--<i class="fa fa-search"></i>--}}
+                        {{--<i class="fa fa-search"></i>--}}
                         {{--</div>--}}
                     </div>
                 </div>
@@ -196,16 +219,16 @@
 <!-- Header End -->
 
 {{--@foreach($categoriesProvider as $category)--}}
-    {{--@if($category->parent_id==0)--}}
-        {{--<div class="column col-lg-2 col-md-3"><a href="{{ route('web.show.category',$category->id) }}">{{\App\Providers\MyProvider::_text($category->title)}}</a>--}}
-            {{--<div>--}}
-                {{--<ul>--}}
-                    {{--@if(isset($category->children[0]) and $category->children!=[])--}}
-                        {{--<x-web-show-categories :categories="$category->children">--}}
-                        {{--</x-web-show-categories>--}}
-                    {{--@endif--}}
-                {{--</ul>--}}
-            {{--</div>--}}
-        {{--</div>--}}
+{{--@if($category->parent_id==0)--}}
+{{--<div class="column col-lg-2 col-md-3"><a href="{{ route('web.show.category',$category->id) }}">{{\App\Providers\MyProvider::_text($category->title)}}</a>--}}
+{{--<div>--}}
+{{--<ul>--}}
+{{--@if(isset($category->children[0]) and $category->children!=[])--}}
+{{--<x-web-show-categories :categories="$category->children">--}}
+{{--</x-web-show-categories>--}}
+{{--@endif--}}
+{{--</ul>--}}
+{{--</div>--}}
+{{--</div>--}}
 {{--@endif--}}
 {{--@endforeach--}}

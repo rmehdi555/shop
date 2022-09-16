@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Adlino\Locations\Facades\locations;
 use App\News;
+use App\NewsCategories;
 use App\ProductCategories;
 use App\Products;
 use App\Providers\MyProvider;
@@ -24,28 +25,17 @@ class HomeController extends Controller
         //https://hekmatinasser.github.io/verta/
 //        $v=Verta::now();
 //        dd($v->formatWord('l').' '.$v->format('d').' '.$v->formatWord('F').' '.$v->format('Y'));
-        $slider=Slider::where('status','=','1')->orderBy('priority','desc')->get();
-       // محصولات ویژه
-        $specialProducts=Products::where([['type','=','special'],['status','=','1'] ])->limit(10)->get();
-        //جدید ترین محصولات
-        $newProducts=Products::where('status','=','1')->orderBy('created_at','desc')->limit(10)->get();
-
-
-        $categoryName[20]=ProductCategories::find(20);
-        $products20=Products::where([['product_categories_id','=','20'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
-        $categoryName[21]=ProductCategories::find(21);
-        $products21=Products::where([['product_categories_id','=','21'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
-        $categoryName[27]=ProductCategories::find(27);
-        $products27=Products::where([['product_categories_id','=','27'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
-        $categoryName[28]=ProductCategories::find(28);
-        $products28=Products::where([['product_categories_id','=','28'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
-        $categoryName[24]=ProductCategories::find(24);
-        $products24=Products::where([['product_categories_id','=','24'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
-        $categoryName[25]=ProductCategories::find(25);
-        $products25=Products::where([['product_categories_id','=','25'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
-        $categoryName[26]=ProductCategories::find(26);
-        $products26=Products::where([['product_categories_id','=','26'],['status','=','1'] ])->orderBy('created_at','desc')->limit(5)->get();
-        return view('web.pages.index',compact('slider','specialProducts','newProducts','products20','products21','products27','products28','products24','products25','products26','categoryName'));
+//        $slider=Slider::where('status','=','1')->orderBy('priority','desc')->get();
+//       // محصولات ویژه
+//        $specialProducts=Products::where([['type','=','special'],['status','=','1'] ])->limit(10)->get();
+//        //جدید ترین محصولات
+//        $newProducts=Products::where('status','=','1')->orderBy('created_at','desc')->limit(10)->get();
+        $categories=ProductCategories::where('status','=','1')->orderBy('priority','desc')->limit(5)->get();
+        $newsCategory=NewsCategories::where([['parent_id','=',config('app.newsId.news')],['status','=','1']])->orderBy('priority','desc')->orderBy('created_at','desc')->pluck('id')->toArray();
+        $news=News::whereIn('news_categories_id',$newsCategory)->where('status','=','1')->orderBy('priority','desc')->limit(3)->get();
+        $newsCategory=NewsCategories::where([['parent_id','=',config('app.newsId.article')],['status','=','1']])->orderBy('priority','desc')->orderBy('created_at','desc')->pluck('id')->toArray();
+        $articles=News::whereIn('news_categories_id',$newsCategory)->where('status','=','1')->orderBy('priority','desc')->limit(3)->get();
+        return view('web.pages.index',compact('categories','news','articles'));
     }
     public function showCategory($id)
     {
@@ -69,14 +59,21 @@ class HomeController extends Controller
         $newProducts=Products::where('status','=','1')->orderBy('created_at','desc')->limit(10)->get();
         return view('web.pages.product',compact('product','specialProducts','newProducts'));
     }
+    public function showNewsCategory($id)
+    {
+        $category=NewsCategories::where([['parent_id','=',0],['status','=','1']])->orderBy('priority','desc')->get();
+        $newsCategory=NewsCategories::where([['parent_id','=',$id],['status','=','1']])->orderBy('priority','desc')->pluck('id')->toArray();
+        $news=News::whereIn('news_categories_id',$newsCategory)->where('status','=','1')->orderBy('priority','desc')->orderBy('created_at','desc')->paginate(10);
+        return view('web.pages.news-category',compact('news','category'));
+    }
     public function showNews($id)
     {
 
-        $news=News::find($id);
-        if(!isset($news) OR empty($news))
+        $item=News::find($id);
+        if(!isset($item) OR empty($item))
             return redirect()->route('web.404');
-        $allNews=News::where('status','=','1')->orderBy('priority')->get();
-        return view('web.pages.news',compact('news','allNews'));
+        $category=NewsCategories::where([['parent_id','=',0],['status','=','1']])->orderBy('priority','desc')->get();
+        return view('web.pages.news',compact('item','category'));
     }
     public function showPage($id)
     {

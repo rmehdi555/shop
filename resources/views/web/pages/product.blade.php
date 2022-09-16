@@ -30,8 +30,8 @@
                                         <p>{{empty($product->size)?"_":$product->size}}</p>
                                     </li>
                                     <li>
-                                        <h5>{{__('web/public.standard')}}</h5>
-                                        <p>{{empty($product->standard)?"_":$product->standard}}</p>
+                                        <h5>{{__('web/public.place_of_delivery')}}</h5>
+                                        <p>{{__('web/public.product_place_of_delivery_'.$product->place_of_delivery)}}</p>
                                     </li>
                                     <li>
                                         <h5>{{__('web/public.unit')}}</h5>

@@ -1,4 +1,3 @@
-
 @extends('web.master')
 @section('content')
 
@@ -9,27 +8,27 @@
     <section class="latest-section">
         <div class="container">
             <div class="row">
-                @if(isset($products21))
-                <div class="col-lg-6">
+                @if(isset($news[0]))
+                    <div class="col-lg-4">
 
-                    <x-web-show-product-in-index :category="$categoryName[21]">
-                    </x-web-show-product-in-index>
-                </div>
+                        <x-web-show-news-in-index :news="$news">
+                        </x-web-show-news-in-index>
+                    </div>
 
 
 
                 @endif
 
-                    @if(isset($products27))
-                        <div class="col-lg-6">
-                            <x-web-show-product-in-index :category="$categoryName[27]">
-                            </x-web-show-product-in-index>
+                @if(isset($categories[0]))
+                    <div class="col-lg-8">
+                        <x-web-show-product-in-index :category="$categories[0]">
+                        </x-web-show-product-in-index>
 
-                        </div>
+                    </div>
 
 
 
-                    @endif
+                @endif
             </div>
         </div>
     </section>
@@ -39,22 +38,20 @@
     <section class="latest-section">
         <div class="container">
             <div class="row">
-                @if(isset($products24))
-                    <div class="col-lg-6">
+                @if(isset($articles[0]))
+                    <div class="col-lg-4">
 
-                        <x-web-show-product-in-index :category="$categoryName[24]">
-                        </x-web-show-product-in-index>
-
+                        <x-web-show-article-in-index :articles="$articles">
+                        </x-web-show-article-in-index>
                     </div>
 
 
 
                 @endif
+                @if(isset($categories[1]))
+                    <div class="col-lg-8">
 
-                @if(isset($products28))
-                    <div class="col-lg-6">
-
-                        <x-web-show-product-in-index :category="$categoryName[28]">
+                        <x-web-show-product-in-index :category="$categories[1]">
                         </x-web-show-product-in-index>
 
                     </div>
@@ -68,10 +65,10 @@
     <section class="latest-section">
         <div class="container">
             <div class="row">
-                @if(isset($products20))
+                @if(isset($categories[2]))
                     <div class="col-lg-6">
 
-                        <x-web-show-product-in-index :category="$categoryName[20]">
+                        <x-web-show-product-in-index :category="$categories[2]">
                         </x-web-show-product-in-index>
 
                     </div>
@@ -80,10 +77,10 @@
 
                 @endif
 
-                @if(isset($products25))
+                @if(isset($categories[3]))
                     <div class="col-lg-6">
 
-                        <x-web-show-product-in-index :category="$categoryName[25]">
+                        <x-web-show-product-in-index :category="$categories[3]">
                         </x-web-show-product-in-index>
 
                     </div>

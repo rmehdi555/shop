@@ -23,28 +23,28 @@
                                 </div>
                             @endif
 
-                            <div class="group-in">
-                                <label for="input-firstname" >{{__('web/public.name')}}</label>
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            {{--<div class="group-in">--}}
+                                {{--<label for="input-firstname" >{{__('web/public.name')}}</label>--}}
+                                    {{--<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>--}}
 
-                                    @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                            </div>
-                            <div class="group-in">
-                                <label for="input-firstname" >{{__('web/public.family')}}</label>
+                                    {{--@error('name')--}}
+                                    {{--<span class="invalid-feedback" role="alert">--}}
+                                        {{--<strong>{{ $message }}</strong>--}}
+                                    {{--</span>--}}
+                                    {{--@enderror--}}
+                            {{--</div>--}}
+                            {{--<div class="group-in">--}}
+                                {{--<label for="input-firstname" >{{__('web/public.family')}}</label>--}}
 
-                                    <input id="family" type="text" class="form-control @error('family') is-invalid @enderror" name="family" value="{{ old('family') }}" required autocomplete="family" autofocus>
+                                    {{--<input id="family" type="text" class="form-control @error('family') is-invalid @enderror" name="family" value="{{ old('family') }}" required autocomplete="family" autofocus>--}}
 
-                                    @error('family')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                    {{--@error('family')--}}
+                                    {{--<span class="invalid-feedback" role="alert">--}}
+                                        {{--<strong>{{ $message }}</strong>--}}
+                                    {{--</span>--}}
+                                    {{--@enderror--}}
 
-                            </div>
+                            {{--</div>--}}
 
                             <div class="group-in">
                                 <label for="input-telephone" >{{__('web/public.phone')}}</label>
@@ -79,7 +79,7 @@
                             </div>
 
                             <button type="submit" >
-                                {{__('web/public.submit')}}
+                                {{__('web/public.register')}}
                             </button>
 
 

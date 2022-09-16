@@ -28,7 +28,7 @@ $locale = App::getLocale();
     @if($locale=="en")
         <link rel="stylesheet" type="text/css" href="{{asset('web/2021/css/style.css')}}" />
         @else
-        <link rel="stylesheet" type="text/css" href="{{asset('web/2021/css/style-rtl-v-1-3.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('web/2021/css/style-rtl-v-1-4.css')}}" />
         @endif
 
 

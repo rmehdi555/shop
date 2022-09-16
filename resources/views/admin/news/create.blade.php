@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h2>{{__('admin/public.create_product')}}</h2>
+                            <h2>{{__('admin/public.create')}}</h2>
                         </div>
                         <div class="body">
                             <form id="basic-form" action="{{ route('news.store') }}" method="post" enctype="multipart/form-data" novalidate>

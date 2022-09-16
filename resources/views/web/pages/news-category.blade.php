@@ -1,0 +1,54 @@
+@extends('web.master')
+@section('content')
+
+    <section class="padding-top-index">
+    </section>
+
+    <!-- Latest Section Begin -->
+    <section class="blog-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 left-blog-pad">
+                    <div class="blog-items">
+                        @foreach($news as $item)
+                            <div class="single-item">
+                                <div class="bi-pic">
+                                    <img src="{{$item->images['images'][300]}}" alt="{{\App\Providers\MyProvider::_text($item->title)}}">
+                                </div>
+                                <div class="bi-text">
+                                    <h4>
+                                        <a href="{{ route('web.show.news',$item->id) }}">{{\App\Providers\MyProvider::_text($item->title)}}</a>
+                                    </h4>
+                                    <ul>
+                                        <li>
+                                            <i class="fa fa-calendar"></i> {{empty($item->updated_at)? \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') : \App\Providers\MyProvider::show_date($item->updated_at,'Y/n/j')}}
+                                        </li>
+                                    </ul>
+                                    <p>{{\App\Providers\MyProvider::_text($item->description)}}</p>
+                                </div>
+                            </div>
+
+                        @endforeach
+                    </div>
+                    {!!  $news->links() !!}
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-sidebar">
+                        <div class="bs-categories">
+                            <div class="section-title sidebar-title">
+                                <h5>{{__('web/public.category')}}</h5>
+                            </div>
+                            <ul>
+                                @foreach($category as $item)
+                                    <li>
+                                        <a href="{{ route('web.show.news.category',$item->id) }}">{{\App\Providers\MyProvider::_text($item->title)}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection

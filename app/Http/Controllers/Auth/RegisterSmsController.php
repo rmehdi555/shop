@@ -62,8 +62,8 @@ class RegisterSmsController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'family' => ['required', 'string', 'max:255'],
+//            'name' => ['required', 'string', 'max:255'],
+//            'family' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'numeric', 'digits:11', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -78,8 +78,8 @@ class RegisterSmsController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'family' => $data['family'],
+//            'name' => $data['name'],
+//            'family' => $data['family'],
             'phone' => \App\Providers\MyProvider::convert_phone_number($data['phone']),
             'password' => Hash::make($data['password']),
         ]);

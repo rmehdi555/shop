@@ -47,7 +47,7 @@ class NewsController extends AdminController
         $inputs=$request->all();
         $file = $request->file('images');
         if($file) {
-            $inputs['images'] = $this->uploadImages($request->file('images'),'news',["50" ,"66", "200" , "350","500"]);
+            $inputs['images'] = $this->uploadImages($request->file('images'),'news',["64" ,"300" , "600","1200"]);
         } else {
             $inputs['images'] = [];
         }
@@ -103,7 +103,7 @@ class NewsController extends AdminController
         $news=News::find($news);
 
         if($file) {
-            $inputs['images'] = $this->uploadImages($request->file('images'),'news',["50" ,"66", "200" , "350","500"]);
+            $inputs['images'] = $this->uploadImages($request->file('images'),'news',["64" ,"300" , "600","1200"]);
         } else {
             $inputs['images'] = $news->images;
         }

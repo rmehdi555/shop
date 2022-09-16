@@ -6,21 +6,14 @@
     <section class="latest-section">
         <div class="container">
             <div class="row">
-                @if(isset($category->products))
+                @if(isset($category->activeProducts()[0]))
                     <div class="col-lg-12">
 
                         <x-web-show-product-in-category :category="$category">
                         </x-web-show-product-in-category>
 
-
-
-
                     </div>
-
-
-
                 @endif
-
 
             </div>
         </div>
