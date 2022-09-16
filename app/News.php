@@ -15,22 +15,19 @@ class News extends Model
      */
     use SoftDeletes;
     protected $fillable = [
-        'title', 'slug','news_categories_id','type','description','body','images','tags','priority','status',
+        'title', 'slug', 'news_categories_id', 'type', 'description', 'body', 'images', 'tags', 'priority', 'status',
     ];
     protected $casts = [
         'images' => 'array'
     ];
     /**
-
      * The attributes that should be mutated to dates.
-
      *
-
      * @var array
-
      */
     protected $dates = ['deleted_at'];
     use Sluggable;
+
     /**
      * Return the sluggable configuration array for this model.
      *
@@ -47,6 +44,6 @@ class News extends Model
 
     public function category()
     {
-        return $this->hasOne('App\NewsCategories','id');
+        return $this->hasOne('App\NewsCategories', 'id', 'news_categories_id');
     }
 }

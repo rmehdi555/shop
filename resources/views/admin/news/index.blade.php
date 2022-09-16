@@ -42,7 +42,7 @@
                                         <tr class="gradeA">
                                             <td>{{$item->id}}</td>
                                             <td>{{\App\Providers\MyProvider::_text($item->title)}}</td>
-                                            <td>{{\App\Providers\MyProvider::_text($item->category()->first()->title)}}</td>
+                                            <td>@if(isset($item->category->title)){{\App\Providers\MyProvider::_text($item->category->title)}}@endif</td>
                                             <td>{{$item->priority}}</td>
                                             <td>{{$item->status?__('admin/public.active'):__('admin/public.inactive')}}</td>
                                             <td class="actions">
