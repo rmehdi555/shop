@@ -65,13 +65,9 @@ class User extends Authenticatable
     {
         return $this->level=='admin'?true:false;
     }
-    public function isStudent()
+    public function isBuyer()
     {
-        return $this->level=='student'?true:false;
-    }
-    public function isTeacher()
-    {
-        return $this->level=='teacher'?true:false;
+        return $this->level=='buyer'?true:false;
     }
 
     public function activationCode()
@@ -100,29 +96,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(News::class);
     }
-    public function fields()
-    {
-        return $this->hasMany(Field::class);
-    }
-    public function student()
-    {
-        return $this->hasOne(Students::class, 'user_id');
-    }
-    public function teacher()
-    {
-        return $this->hasOne(Teachers::class, 'user_id');
-    }
     public function payments()
     {
         return $this->hasMany(Payment::class, 'user_id');
-    }
-    public function studentsDocuments()
-    {
-        return $this->hasOne(StudentsDocuments::class, 'user_id');
-    }
-    public function teacherDocuments()
-    {
-        return $this->hasOne(TeachersDocuments::class, 'user_id');
     }
 
 }

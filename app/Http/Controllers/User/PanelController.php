@@ -10,14 +10,11 @@ class PanelController extends Controller
 {
     public function index(Request $request)
     {
-        if(Auth::user()->level=='student')
-        {
-            return redirect()->route('student.panel');
-        }elseif (Auth::user()->level=='teacher'){
-            return redirect()->route('teacher.panel');
-        }elseif (Auth::user()->level=='admin'){
+        if (Auth::user()->level == 'buyer') {
+            return redirect()->route('buyer.panel');
+        } elseif (Auth::user()->level == 'admin') {
             return redirect()->route('admin.panel');
-        }{
+        } else {
             return redirect()->route('web.home');
         }
 

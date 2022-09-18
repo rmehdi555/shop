@@ -41,7 +41,7 @@ class ProductRequest extends FormRequest
                 'product_categories_id' => 'required',
                 'price'=>'required|integer',
                 'discount'=>'required|integer|digits_between:0,100',
-                'type'=>'required',
+                'place_of_delivery'=>'required',
                 'status'=>'required|integer',
                 'priority'=>'required|integer',
             ]);
@@ -53,7 +53,7 @@ class ProductRequest extends FormRequest
             'product_categories_id' => 'required',
             'price'=>'required|integer',
             'discount'=>'required|integer|digits_between:0,100',
-            'type'=>'required',
+            'place_of_delivery'=>'required',
             'status'=>'required|integer',
             'priority'=>'required|integer',
         ]);

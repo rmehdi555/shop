@@ -23,6 +23,9 @@ $locale = App::getLocale();
     <link rel="stylesheet" type="text/css" href="{{asset('web/2021/css/owl.carousel.min.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('web/2021/css/magnific-popup.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('web/2021/css/slicknav.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('web/2021/css/w3-theme-blue-grey.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('web/2021/css/w3.css')}}" />
+
 
     <!-- CSS Part End-->
     @if($locale=="en")

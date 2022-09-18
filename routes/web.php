@@ -144,27 +144,15 @@ Route::middleware('auth', 'language', 'visit')->namespace('User')->prefix('user'
 
 // end user  route
 
-// start student  route
 
-Route::middleware('auth', 'language', 'visit', 'checkStudent')->namespace('Student')->prefix('student')->group(function () {
-    Route::get('panel', 'PanelController@index')->name('student.panel');
-    Route::post('level/1/save', 'PanelController@level1Save')->name('student.level.1.save');
-    Route::get('payment', 'PaymentController@index')->name('student.payment.index');
-    Route::post('level/4/save', 'PanelController@level4Save')->name('student.level.4.save');
+// start buyer  route
+
+Route::middleware('auth', 'language', 'visit', 'checkBuyer')->namespace('Buyer')->prefix('buyer')->group(function () {
+    Route::get('panel', 'PanelController@index')->name('buyer.panel');
+    Route::post('profile/save', 'ProfileController@save')->name('buyer.profile.save');
 });
 
-// end student  route
-// start teacher  route
-
-Route::middleware('auth', 'language', 'visit', 'checkTeacher')->namespace('Teacher')->prefix('teacher')->group(function () {
-    Route::get('panel', 'PanelController@index')->name('teacher.panel');
-    Route::post('level/1/save', 'PanelController@level1Save')->name('teacher.level.1.save');
-    Route::post('level/2/save', 'PanelController@level2Save')->name('teacher.level.2.save');
-    Route::post('level/3/save', 'PanelController@level3Save')->name('teacher.level.3.save');
-    Route::get('payment', 'PaymentController@index')->name('teacher.payment.index');
-});
-
-// end teacher  route
+// end buyer  route
 
 
 //start ckfinder route

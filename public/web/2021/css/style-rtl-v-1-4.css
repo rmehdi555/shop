@@ -1837,15 +1837,17 @@ ol {
 	font-weight: 500;
 	line-height: 60px;
 	margin-bottom: 18px;
+	text-shadow: 5px 5px black;
 }
 
 .blog-hero-section .bh-text ul li {
 	list-style: none;
 	display: inline-block;
 	font-size: 13px;
-	color: #ababab;
+	color: #f8f9fa;
 	margin-right: 20px;
 	position: relative;
+	background-color: black;
 }
 
 .blog-hero-section .bh-text ul li i {

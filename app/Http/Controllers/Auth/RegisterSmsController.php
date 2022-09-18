@@ -82,6 +82,7 @@ class RegisterSmsController extends Controller
 //            'family' => $data['family'],
             'phone' => \App\Providers\MyProvider::convert_phone_number($data['phone']),
             'password' => Hash::make($data['password']),
+            'level' => 'buyer',
         ]);
     }
 

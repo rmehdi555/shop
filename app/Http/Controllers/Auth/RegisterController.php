@@ -47,7 +47,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -64,7 +64,7 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
@@ -75,13 +75,14 @@ class RegisterController extends Controller
             'email' => strtolower($data['email']),
             'phone' => \App\Providers\MyProvider::convert_phone_number($data['phone']),
             'password' => Hash::make($data['password']),
+            'level' => 'buyer',
         ]);
     }
 
     /**
      * Handle a registration request for the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
      */
     public function register(Request $request)
@@ -96,7 +97,7 @@ class RegisterController extends Controller
         if ($response = $this->registered($request, $user)) {
             return $response;
         }
-        alert()->success(__('web/messages.save_register_and_send_email'),__('web/messages.success'));
+        alert()->success(__('web/messages.save_register_and_send_email'), __('web/messages.success'));
         return view('auth.login');
 //        return $request->wantsJson()
 //            ? new JsonResponse([], 201)
