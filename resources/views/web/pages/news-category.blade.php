@@ -1,4 +1,14 @@
 @extends('web.master')
+@section('meta')
+    <title> اخبار و مقالات آهن آلات | شرکت اسن </title>
+    <meta name="description"
+          content="شرکت آسن : اخبار و مقالات میلگرد + آهن + تیرآهن + فولاد + قیمت روز آهن آلات  "/>
+    <meta property="og:title" content=" اخبار و مقالات آهن آلات | شرکت اسن"/>
+    <meta property="og:description"
+          content="شرکت آسن : اخبار و مقالات میلگرد + آهن + تیرآهن + فولاد + قیمت روز آهن آلات  "/>
+
+    <meta name="keywords" content="آسن, assen, قیمت آهن,شرکت آسن,قیمت میلگرد,کمترین قیمت میلگرد,اخبار میلگرد , مقاله آهن آلات , خبر بازار آهن , مقاله فلزات">
+@endsection
 @section('content')
 
     <section class="padding-top-index">
@@ -17,7 +27,7 @@
                                 </div>
                                 <div class="bi-text">
                                     <h4>
-                                        <a href="{{ route('web.show.news',$item->id) }}">{{\App\Providers\MyProvider::_text($item->title)}}</a>
+                                        <a href="{{ route('web.show.news',$item->slug) }}">{{\App\Providers\MyProvider::_text($item->title)}}</a>
                                     </h4>
                                     <ul>
                                         <li>
@@ -41,7 +51,7 @@
                             <ul>
                                 @foreach($category as $item)
                                     <li>
-                                        <a href="{{ route('web.show.news.category',$item->id) }}">{{\App\Providers\MyProvider::_text($item->title)}}</a>
+                                        <a href="{{ route('web.show.news.category',$item->slug) }}">{{\App\Providers\MyProvider::_text($item->title)}}</a>
                                     </li>
                                 @endforeach
                             </ul>

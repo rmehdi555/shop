@@ -1,4 +1,14 @@
 @extends('web.master')
+@section('meta')
+    <title>{{\App\Providers\MyProvider::_text($product->title)}} | شرکت اسن </title>
+    <meta name="description"
+          content="شرکت آسن : اخبار مربوط به آهن آلات  {{\App\Providers\MyProvider::_text($product->description)}}"/>
+    <meta property="og:title" content="{{\App\Providers\MyProvider::_text($product->title)}} شرکت اسن |"/>
+    <meta property="og:description"
+          content="شرکت آسن : اخبار مربوط به آهن آلات  {{\App\Providers\MyProvider::_text($product->description)}}"/>
+
+    <meta name="keywords" content="آسن, assen, قیمت آهن,شرکت آسن,قیمت میلگرد,قیمت روز میلگرد,کمترین قیمت میلگرد,{{\App\Providers\MyProvider::_text($product->tags)}}">
+@endsection
 @section('content')
     <section class="padding-top-index">
     </section>

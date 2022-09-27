@@ -6,4 +6,26 @@
 --
 
 
-ALTER TABLE `products` ADD `place_of_delivery` ENUM('store','factory') NOT NULL DEFAULT 'store' AFTER `status`;
+-- ALTER TABLE `products` ADD `place_of_delivery` ENUM('store','factory') NOT NULL DEFAULT 'store' AFTER `status`;
+
+-- ALTER TABLE `products` ADD `price_old` VARCHAR(191) NULL DEFAULT NULL AFTER `price_euro`;
+-- UPDATE `products` SET `price_old`=price WHERE 1
+--
+--
+-- RENAME TABLE `assenir_assen`.`payments` TO `assenir_assen`.`online_payments`;
+-- ALTER TABLE `online_payments` ADD `payment_id` INT(19) NULL DEFAULT NULL AFTER `id`;
+-- CREATE TABLE `payments` (
+--   `id` bigint(20) UNSIGNED NOT NULL,
+--   `user_id` bigint(20) DEFAULT NULL,
+--   `price` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+--   `description_admin` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+--   `description_user` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+--   `type` enum('online','card','check') COLLATE utf8mb4_unicode_ci DEFAULT 'online',
+--   `images` text COLLATE utf8mb4_unicode_ci,
+--   `status` int(11) NOT NULL DEFAULT '0',
+--   `created_at` timestamp NULL DEFAULT NULL,
+--   `updated_at` timestamp NULL DEFAULT NULL,
+--   `deleted_at` timestamp NULL DEFAULT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- ALTER TABLE `online_payments` DROP `user_code`, DROP `email`;
+-- ALTER TABLE `online_payments` CHANGE `description` `order_id` INT(20) NULL DEFAULT NULL;

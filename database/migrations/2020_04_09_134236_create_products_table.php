@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->string('price',50);
             $table->string('price_usd',50)->default(0);
             $table->string('price_euro',50)->default(0);
+            $table->string('price_old',50)->nullable();
             $table->string('size',50);
             $table->string('standard',50);
             $table->string('unit',50);

@@ -35,7 +35,7 @@ tableOne/******************************************************************
 html,
 body {
 	height: 100%;
-	font-family: IRANSans,"Roboto", sans-serif;
+	font-family: IRANSans,Vazir,"Roboto", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 	direction:rtl;
@@ -47,6 +47,16 @@ body {
     src: url('../fonts/IRANSansWeb.eot');
     src: url('../fonts/IRANSansWeb.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/IRANSansWeb.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/IRANSansWeb.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('../fonts/IRANSansWeb.ttf') format('truetype');
 }
+@font-face {
+	font-family: Vazir;
+	src: url('../fonts/Vazir-Light.eot');
+	src: url('../fonts/Vazir-Light.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/Vazir-Light.woff2') format('woff2'),
+	url('../fonts/Vazir-Light.woff') format('woff'),
+	url('../fonts/Vazir-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
 
 h1,
 h2,
@@ -57,7 +67,6 @@ h6 {
 	margin: 0;
 	color: #111111;
 	font-weight: 400;
-	font-family: "Roboto", sans-serif;
 }
 
 h1 {
@@ -86,7 +95,6 @@ h6 {
 
 p {
 	font-size: 16px;
-	font-family: "Roboto", sans-serif;
 	color: #636363;
 	font-weight: 400;
 	line-height: 24px;
@@ -175,7 +183,7 @@ ol {
 
 .section-title h3 a {
 	color: #fff;
-	font-size: 20px;
+	font-size: 14px;
 	font-weight: 400;
 	display: inline-block;
 	padding: 0 10px;
@@ -492,13 +500,17 @@ ol {
 }
 
 .header__nav .nav-menu .main-menu li a {
-	font-size: 15px;
+	font-size: 14px;
 	color: #ffffff;
-	font-weight: 500;
+	font-weight: 300;
 	display: inline-block;
 	text-transform: uppercase;
-	padding: 15px 0;
+	padding: 7px 0;
 	position: relative;
+}
+
+.header__nav .nav-menu .main-menu li a:hover {
+	color: #000000;
 }
 
 .header__nav .nav-menu .main-menu li a:after {
@@ -935,7 +947,7 @@ ol {
 }
 
 .points-table table thead tr th {
-	font-size: 14px;
+	font-size: 12px;
 	color: #ffffff;
 	font-weight: 300;
 	background: #2c2d2f;
@@ -957,7 +969,7 @@ ol {
 
 .points-table table tbody tr td {
 	text-align: center;
-	font-size: 14px;
+	font-size: 11px;
 	color: #636363;
 	padding: 5px 0;
 }
@@ -976,7 +988,7 @@ ol {
 
 .points-table table tbody tr td.team-name span {
 	display: inline-block;
-	font-size: 14px;
+	font-size: 11px;
 	color: #2d2d2d;
 	font-weight: 500;
 }
@@ -2806,4 +2818,11 @@ ol {
 	height:100%;
 	width:100%;
 	position:absolute;
+}
+
+.color-up-price {
+	color: #16c784;
+}
+.color-done-price {
+	color: #ea3943;
 }

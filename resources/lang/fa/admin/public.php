@@ -176,4 +176,15 @@ return [
     'place_of_delivery' => 'محل تحویل',
     'product_place_of_delivery_store' => 'انبار',
     'product_place_of_delivery_factory' => 'کارخانه',
+    'payments_list' => 'لیست پرداختی کاربران',
+    'payment_status_1' => 'ایجاد شده توسط ادمین',
+    'payment_status_2' => 'ایجاد شده توسط کاربر',
+    'payment_status_3' => 'در انتظار پرداخت',
+    'payment_status_5' => 'پرداخت موفق',
+    'payment_status_6' => 'ناموفق',
+    'payment_type_online' => 'درگاه پرداخت آنلاین',
+    'payment_type_card' => 'کارت به کارت',
+    'payment_type_check' => 'چک',
+    'buyer' => 'خریدار',
+    'description_admin' => 'توضیحات ادمین'
 ];

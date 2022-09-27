@@ -10,7 +10,6 @@ class PanelController extends Controller
 {
     public function index(Request $request)
     {
-        $user=Auth::user();
-        return view('buyer.pages.panel',compact('user'));
+        return view('buyer.pages.panel');
     }
 }

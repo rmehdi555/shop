@@ -13,6 +13,7 @@ class ProfileController extends Controller
         $user = Auth::user();
         $user->name = $request->name;
         $user->family = $request->family;
+        $user->email = strtolower($request->email);
         $user->save();
         return redirect()->route('buyer.panel');
     }

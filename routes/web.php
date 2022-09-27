@@ -26,11 +26,11 @@ Route::middleware('language', 'visit')->group(function () {
 
     Route::get('index', 'HomeController@index')->name('web.index');
     Route::get('/', 'HomeController@index')->name('web.home');
-    Route::get('/category/{id}', 'HomeController@showCategory')->name('web.show.category');
-    Route::get('/product/{id}', 'HomeController@showProduct')->name('web.show.product');
+    Route::get('/category/{slug}', 'HomeController@showCategory')->name('web.show.category');
+    Route::get('/product/{slug}', 'HomeController@showProduct')->name('web.show.product');
 
-    Route::get('/news/category/{id}', 'HomeController@showNewsCategory')->name('web.show.news.category');
-    Route::get('/news/{id}', 'HomeController@showNews')->name('web.show.news');
+    Route::get('/news/category/{slug}', 'HomeController@showNewsCategory')->name('web.show.news.category');
+    Route::get('/news/{slug}', 'HomeController@showNews')->name('web.show.news');
 
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/user/active/email/{token}', 'UserController@activationAccountByEmail')->name('activation.account.by.email');
@@ -47,6 +47,7 @@ Route::middleware('language', 'visit')->group(function () {
     Route::get('/complaint', 'ComplaintController@index')->name('web.complaint.index');
     Route::post('/complaint', 'ComplaintController@insert')->name('web.complaint.insert');
 
+    Route::get('/قیمت-روز-میلگرد', 'HomeController@showAllMilegerd')->name('web.HomeController.show.all.milegerd');
 
     // error page
 
@@ -89,6 +90,12 @@ Route::middleware('auth', 'checkAdmin')->namespace('Admin')->prefix('admin')->gr
     Route::resource('news', 'NewsController');
     Route::resource('currencyConvert', 'CurrencyConvertController');
     Route::resource('usersList', 'UsersListController');
+
+    Route::get('/payments/index', 'PaymentController@index')->name('admin.payments.index');
+    Route::get('/payments/show', 'PaymentController@show')->name('admin.payments.show');
+    Route::post('/payments/store', 'PaymentController@store')->name('admin.payments.store');
+    Route::post('/payments/update', 'PaymentController@update')->name('admin.payments.update');
+
 
     Route::get('/test/irandargah', 'TestIrandargahCotroller@index')->name('admin.test.irandargah.index');
     Route::post('/test/irandargah/send', 'TestIrandargahCotroller@send')->name('admin.test.irandargah.send');
@@ -150,6 +157,10 @@ Route::middleware('auth', 'language', 'visit')->namespace('User')->prefix('user'
 Route::middleware('auth', 'language', 'visit', 'checkBuyer')->namespace('Buyer')->prefix('buyer')->group(function () {
     Route::get('panel', 'PanelController@index')->name('buyer.panel');
     Route::post('profile/save', 'ProfileController@save')->name('buyer.profile.save');
+    Route::get('/payments/index', 'PaymentController@index')->name('buyer.payments.index');
+    Route::post('/payments/pay', 'PaymentController@pay')->name('buyer.payments.pay');
+    Route::post('/payments/store', 'PaymentController@store')->name('buyer.payments.store');
+    Route::post('/payments/update', 'PaymentController@update')->name('buyer.payments.update');
 });
 
 // end buyer  route
@@ -171,19 +182,19 @@ Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderCon
 
 // start route payment
 
-Route::get('payment/online/zarinpal', 'PaymentController@payZarinpal')->name('web.payment.online.zarinpal');
-Route::get('payment/online/zarinpal/callback', 'PaymentController@payZarinpalCallback')->name('web.payment.online.zarinpal.callback');
-Route::get('payment/online/zarinpal/callback/teacher', 'PaymentController@payZarinpalCallbackTeacher')->name('web.payment.online.zarinpal.callback.teacher');
-Route::get('payment/online/zarinpal/callback/noor', 'PaymentController@payZarinpalCallbackNoor')->name('web.payment.online.zarinpal.callback.noor');
+Route::get('payment/online/zarinpal', 'OnlinePaymentController@payZarinpal')->name('web.payment.online.zarinpal');
+Route::get('payment/online/zarinpal/callback', 'OnlinePaymentController@payZarinpalCallback')->name('web.payment.online.zarinpal.callback');
+Route::get('payment/online/zarinpal/callback/teacher', 'OnlinePaymentController@payZarinpalCallbackTeacher')->name('web.payment.online.zarinpal.callback.teacher');
+Route::get('payment/online/zarinpal/callback/noor', 'OnlinePaymentController@payZarinpalCallbackNoor')->name('web.payment.online.zarinpal.callback.noor');
 
 
-Route::post('payment/online/meli', 'PaymentController@payMeli')->name('web.payment.online.meli');
-Route::post('payment/online/meli/callback', 'PaymentController@payMeliCallback')->name('web.payment.online.meli.callback');
-Route::post('payment/online/meli/callback/teacher', 'PaymentController@payMeliCallbackTeacher')->name('web.payment.online.meli.callback.teacher');
-Route::post('payment/online/meli/callback/noor', 'PaymentController@payMeliCallbackNoor')->name('web.payment.online.meli.callback.noor');
-Route::get('payment/online/meli/callback/noor', 'PaymentController@payMeliCallbackNoor')->name('web.payment.online.meli.callback.noor.get');
+Route::post('payment/online/meli', 'OnlinePaymentController@payMeli')->name('web.payment.online.meli');
+Route::post('payment/online/meli/callback', 'OnlinePaymentController@payMeliCallback')->name('web.payment.online.meli.callback');
+Route::post('payment/online/meli/callback/teacher', 'OnlinePaymentController@payMeliCallbackTeacher')->name('web.payment.online.meli.callback.teacher');
+Route::post('payment/online/meli/callback/noor', 'OnlinePaymentController@payMeliCallbackNoor')->name('web.payment.online.meli.callback.noor');
+Route::get('payment/online/meli/callback/noor', 'OnlinePaymentController@payMeliCallbackNoor')->name('web.payment.online.meli.callback.noor.get');
 
 
-Route::post('payment/online/irandargah', 'PaymentController@payIrandargah')->name('web.payment.online.irandargah');
-Route::post('payment/online/irandargah/callback', 'PaymentController@payIrandargahCallback')->name('web.payment.online.irandargah.callback');
+Route::post('payment/online/irandargah', 'OnlinePaymentController@payIrandargah')->name('web.payment.online.irandargah');
+Route::post('payment/online/irandargah/callback', 'OnlinePaymentController@payIrandargahCallback')->name('web.payment.online.irandargah.callback');
 // end route payment

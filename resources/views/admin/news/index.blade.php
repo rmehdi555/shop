@@ -34,6 +34,7 @@
                                         <th>{{__('admin/public.category')}}</th>
                                         <th>{{__('admin/public.priority')}}</th>
                                         <th>{{__('admin/public.status')}}</th>
+                                        <th>نمایش روی سایت</th>
                                         <th>{{__('admin/public.actions')}}</th>
                                     </tr>
                                     </thead>
@@ -45,6 +46,7 @@
                                             <td>@if(isset($item->category->title)){{\App\Providers\MyProvider::_text($item->category->title)}}@endif</td>
                                             <td>{{$item->priority}}</td>
                                             <td>{{$item->status?__('admin/public.active'):__('admin/public.inactive')}}</td>
+                                            <td><a href="{{ route('web.show.news',$item->slug) }}"  target=”_blank”>نمایش روی سایت</a></td>
                                             <td class="actions">
 
                                                 <form action="{{ route('news.destroy', $item->id) }}" method="POST">

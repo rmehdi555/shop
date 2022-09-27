@@ -22,9 +22,9 @@ class HomeController extends Controller
         return view('web.pages.index', compact('categories', 'news', 'articles'));
     }
 
-    public function showCategory($id)
+    public function showCategory($slug)
     {
-        $category = ProductCategories::find($id);
+        $category = ProductCategories::where('slug',$slug)->first();
         if (!isset($category))
             return redirect()->route('web.404');
         // محصولات ویژه
@@ -34,9 +34,9 @@ class HomeController extends Controller
         return view('web.pages.category', compact('category', 'specialProducts', 'newProducts'));
     }
 
-    public function showProduct($id)
+    public function showProduct($slug)
     {
-        $product = Products::find($id);
+        $product = Products::where('slug',$slug)->first();
         if (!isset($product) OR empty($product))
             return redirect()->route('web.404');
         // محصولات ویژه
@@ -46,18 +46,22 @@ class HomeController extends Controller
         return view('web.pages.product', compact('product', 'specialProducts', 'newProducts'));
     }
 
-    public function showNewsCategory($id)
+    public function showNewsCategory($slug)
     {
+        $categoryN = NewsCategories::where('slug',$slug)->first();
+        if (!isset($categoryN))
+            return redirect()->route('web.404');
+
         $category = NewsCategories::where([['parent_id', '=', 0], ['status', '=', '1']])->orderBy('priority', 'desc')->get();
-        $newsCategory = NewsCategories::where([['parent_id', '=', $id], ['status', '=', '1']])->orderBy('priority', 'desc')->pluck('id')->toArray();
+        $newsCategory = NewsCategories::where([['parent_id', '=', $categoryN->id], ['status', '=', '1']])->orderBy('priority', 'desc')->pluck('id')->toArray();
         $news = News::whereIn('news_categories_id', $newsCategory)->where('status', '=', '1')->orderBy('priority', 'desc')->orderBy('created_at', 'desc')->paginate(10);
         return view('web.pages.news-category', compact('news', 'category'));
     }
 
-    public function showNews($id)
+    public function showNews($slug)
     {
 
-        $item = News::find($id);
+        $item = News::where('slug',$slug)->first();
         if (!isset($item) OR empty($item))
             return redirect()->route('web.404');
         $category = NewsCategories::where([['parent_id', '=', 0], ['status', '=', '1']])->orderBy('priority', 'desc')->get();
@@ -90,6 +94,14 @@ class HomeController extends Controller
         }
         session()->put('Local_Currency', $currency);
         return redirect()->back();
+    }
+
+    public function showAllMilegerd()
+    {
+        $categories = ProductCategories::where([['parent_id', '=', 19], ['status', '=', '1']])->orderBy('priority', 'desc')->get();
+        if (!isset($categories))
+            return redirect()->route('web.404');
+        return view('web.pages.show-all-milegerd', compact('categories'));
     }
 
     public function web404()

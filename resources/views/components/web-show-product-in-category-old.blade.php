@@ -5,10 +5,10 @@
 
         <div class="product-layout product-list col-xs-12">
             <div class="product-thumb">
-                <div class="image"><a href="{{ route('web.show.product',$product->id) }}"><img src="{{$product->images["images"]["200"]}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}" title="{{\App\Providers\MyProvider::_text($product->title)}}" class="img-responsive" /></a></div>
+                <div class="image"><a href="{{ route('web.show.product',$product->slug) }}"><img src="{{$product->images["images"]["200"]}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}" title="{{\App\Providers\MyProvider::_text($product->title)}}" class="img-responsive" /></a></div>
                 <div>
                     <div class="caption">
-                        <h4><a href="{{ route('web.show.product',$product->id) }}">{{\App\Providers\MyProvider::_text($product->title)}}</a></h4>
+                        <h4><a href="{{ route('web.show.product',$product->slug) }}">{{\App\Providers\MyProvider::_text($product->title)}}</a></h4>
                         <p class="description">{{\App\Providers\MyProvider::_text($product->description)}}</p>
                         <p class="price"> <span class="price-new">{{\App\Providers\MyProvider::exToLocalDiscount($product->price,$product->discount)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</span><br> @if($product->discount>0)<span class="price-old">{{\App\Providers\MyProvider::exToLocal($product->price)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</span> <span class="saving">-{{$product->discount}}%</span> @endif</p>
 
