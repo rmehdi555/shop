@@ -238,6 +238,12 @@ class MyProvider extends ServiceProvider
             return ($routeUrl == url()->current()) ? $className : '';
     }
 
+    static function showChangePrice($i)
+    {
+        $i = round($i, 2);
+        return self::convert_number_to_persian($i);
+    }
+
 }
 
 

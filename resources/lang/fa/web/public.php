@@ -179,5 +179,6 @@ return [
     'place_of_delivery' => 'محل تحویل',
     'product_place_of_delivery_store' => 'انبار',
     'product_place_of_delivery_factory' => 'کارخانه',
-    'view_all_product' => 'نمایش همه محصولات'
+    'view_all_product' => 'نمایش همه محصولات',
+    'price_change' => 'نوسانات'
 ];
