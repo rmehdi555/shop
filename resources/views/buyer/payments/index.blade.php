@@ -55,33 +55,36 @@
                 <table class="table table-striped table-responsive-stack" id="tableOne">
                     <thead>
                     <tr>
-                        <th>{{__('buyer/public.id')}}</th>
-                        <th>{{__('buyer/public.create_at')}}</th>
-                        <th>{{__('buyer/public.price')}}</th>
-                        <th>{{__('buyer/public.payment_type')}}</th>
-                        <th>{{__('buyer/public.description_admin')}}</th>
-                        <th>{{__('buyer/public.status')}}</th>
-                        <th>{{__('buyer/public.action')}}</th>
+                        <th class="th-td-8">{{__('buyer/public.id')}}</th>
+                        <th class="th-td-8">{{__('buyer/public.create_at')}}</th>
+                        <th class="th-td-16">{{__('buyer/public.price')}}</th>
+                        <th class="th-td-16">{{__('buyer/public.payment_type')}}</th>
+                        <th class="th-td-28">{{__('buyer/public.description_admin')}}</th>
+                        <th class="th-td-16">{{__('buyer/public.status')}}</th>
+                        <th class="th-td-8">{{__('buyer/public.action')}}</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($payments as $item)
                         <tr>
-                            <td>{{$item->id}}</td>
-                            <td>{{\App\Providers\MyProvider::show_date($item->created_at,'H:i Y/m/d')}}</td>
-                            <td>{{$item->price}}</td>
-                            <td>{{__('buyer/public.payment_type_'.$item->type)}}</td>
-                            <td>{{$item->description_admin??''}}</td>
-                            <td>{{__('buyer/public.payment_status_'.$item->status)}}</td>
+                            <td class="th-td-8">{{$item->id}}</td>
+                            <td class="th-td-8">{{\App\Providers\MyProvider::show_date($item->created_at,'H:i Y/m/d')}}</td>
+                            <td class="th-td-16">{{\App\Providers\MyProvider::convert_number_to_persian(number_format($item->price))}}</td>
+                            <td class="th-td-16">{{__('buyer/public.payment_type_'.$item->type)}}</td>
+                            <td class="th-td-28">{{$item->description_admin??''}}</td>
+                            <td class="th-td-16">{{__('buyer/public.payment_status_'.$item->status)}}</td>
                             @switch($item->status)
                                 @case(1)
-                                <td>
+                                <td class="th-td-8">
                                     <form class="form-horizontal" method="POST" action="{{ route('buyer.payments.pay') }}">
                                         @csrf
                                         <input type="hidden" name="payment_id" value="{{$item->id}}">
                                         <button type="submit" class="btn btn-info">{{__('buyer/public.payment_pay_online')}}</button>
                                     </form>
                                 </td>
+                                @break
+                                @default
+                                    <td class="th-td-8"></td>
                                 @break
                             @endswitch
 

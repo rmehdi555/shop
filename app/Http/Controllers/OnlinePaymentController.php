@@ -80,7 +80,7 @@ class OnlinePaymentController extends Controller
 
         if (!array_key_exists('code', $_POST)) {
             alert()->error(__('web/messages.error_payment_cancel_by_user'));
-            return view('web.home');
+            return redirect()->route('web.home');
         }
 
         $merchantCode = '6908c3cf-eb85-4a04-9538-1f0618c2753b';
@@ -95,7 +95,7 @@ class OnlinePaymentController extends Controller
             $onlinePayment = OnlinePayment::where('authority', '=', $request->authority)->first();
             if (!isset($onlinePayment->id)) {
                 alert()->error(__('web/messages.error_payment_cancel_by_user'));
-                return view('web.home');
+                return redirect()->route('web.home');
             }
 
             $ch = curl_init();
@@ -135,7 +135,7 @@ class OnlinePaymentController extends Controller
             return view('web.pages.result-pay-online', compact('result'));
         } else {
             alert()->error($_POST['message']);
-            return view('web.home');
+            return redirect()->route('web.home');
         }
     }
 

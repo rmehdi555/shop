@@ -34,7 +34,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-lg-3 col-md-12">
-                                        <label>{{__('admin/public.price')}} :</label>
+                                        <label>{{__('admin/public.price')}} : (ریال)</label>
                                         <input type="number" name="price" class="form-control"
                                                value="{{old('price')}}"
                                                required>
@@ -90,8 +90,8 @@
                                             <td>{{\App\Providers\MyProvider::_text($item->user->family??'')}}</td>
                                             <td>{{$item->user->phone??''}}</td>
                                             <td>{{__('admin/public.payment_type_'.$item->type)}}</td>
-                                            <td>{{$item->price??''}}</td>
-                                            <td>{{\App\Providers\MyProvider::show_date($item->created_at)}}</td>
+                                            <td>{{\App\Providers\MyProvider::convert_number_to_persian(number_format($item->price))}}</td>
+                                            <td>{{\App\Providers\MyProvider::show_date($item->created_at,'H:i Y/m/d')}}</td>
                                             <td>{{$item->description_admin??''}}</td>
                                             <td>{{__('admin/public.payment_status_'.$item->status)}}</td>
                                             <td class="actions">
