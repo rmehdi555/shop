@@ -8,6 +8,7 @@ use App\ProductCategories;
 use App\Products;
 use App\Providers\MyProvider;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ProductsController extends AdminController
 {
@@ -114,6 +115,7 @@ class ProductsController extends AdminController
         $inputs["body"]=MyProvider::_insert_text($inputs,'body');
         $inputs["price_old"]=$products->price;
         $inputs["tags"]=str_replace('،',',',$inputs["tags"]);
+        $inputs['updated_at']=Carbon::now()->timestamp;;
 
         $products->update($inputs);
 

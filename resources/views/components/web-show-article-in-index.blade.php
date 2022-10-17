@@ -1,5 +1,5 @@
-<div class="section-title">
-    <h3><a href="{{ route('web.show.news.category',config('app.newsId.article')) }}"><span>{{__('web/public.articles')}}</span></a></h3>
+<div class="section-title ">
+    <h3><a href="{{ route('web.show.news.category','مقالات') }}"><span>{{__('web/public.articles')}}</span></a></h3>
 </div>
 @foreach($articles as $item)
     <div class="news-item">
@@ -13,5 +13,11 @@
             </ul>
         </div>
     </div>
+
 @endforeach
+<br>
+<div class="points-table">
+ <a href="{{ route('web.show.news.category','مقالات') }}"
+       class="p-all view-all-index-link">مشاهده مقالات بیشتر ...</a>
+ </div>
 
