@@ -106,7 +106,7 @@ class ForgotPasswordSmsController extends Controller
             $username = config('app.smsPanelUser');
             $password = config('app.smsPanelPass');
             $from = config('app.smsPanelFrom');
-            $pattern_code = "r6a2a96wdv";
+            $pattern_code = "t7fi9l0yhsfdt1r";
             $to = array($user->phone);
             $input_data = array("verification-code" => $token);
             $url = config('app.smsPanelUrl') .'?username='. $username . "&password=" . urlencode($password) . "&from=$from&to=" . json_encode($to) . "&input_data=" . urlencode(json_encode($input_data)) . "&pattern_code=$pattern_code";

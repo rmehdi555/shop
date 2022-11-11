@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('family')->nullable();
             $table->boolean('active')->default(false);
             $table->string('level')->default('user');
+            $table->string('type')->default('user');
             $table->string('email')->nullable();
             $table->string('phone')->unique();
             $table->string('user_name')->default('user');

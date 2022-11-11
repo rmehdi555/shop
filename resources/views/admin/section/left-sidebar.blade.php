@@ -7,6 +7,7 @@
                     <li class="heading">{{__('admin/public.main')}}</li>
                     <li><a href="{{ route('admin.panel') }}"><i
                                     class="icon-home"></i><span>{{__('admin/public.dashboard')}}</span></a></li>
+                    @if($user->type=='admin')
                     <li class="@if($SID>=10 and $SID<20) active @endif">
                         <a href="#news_categories" class="has-arrow"><i
                                     class="icon-diamond"></i><span>{{__('admin/public.news_categories')}}</span></a>
@@ -19,6 +20,8 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
+                    @if($user->type=='admin')
                     <li class="@if($SID>=20 and $SID<30) active @endif">
                         <a href="#news" class="has-arrow"><i
                                     class="icon-diamond"></i><span>{{__('admin/public.news')}}</span></a>
@@ -31,10 +34,14 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
+                    @if($user->type=='admin' or $user->type=='product')
                     <li class="@if($SID>=900 and $SID<1000) active @endif">
                         <a href="#site-setting" class="has-arrow"><i
                                     class="icon-diamond"></i><span>{{__('admin/public.site_settings')}}</span></a>
                         <ul aria-expanded="false" class="collapse">
+                            @endif
+                            @if($user->type=='admin')
                             <li class="@if($SID==900 ) active @endif"><a
                                         href="{{ route('siteDetails.index',['SID' => '900']) }}">{{__('admin/public.site_settings_list')}}</a>
                             </li>
@@ -47,17 +54,25 @@
                             <li class="@if($SID==903 ) active @endif"><a
                                         href="{{ route('complaint.index',['SID' => '903']) }}">{{__('admin/public.complaint_list')}}</a>
                             </li>
+                            @endif
+                            @if($user->type=='admin' or $user->type=='product')
                             <li class="@if($SID==904 ) active @endif"><a
                                         href="{{ route('currencyConvert.index',['SID' => '904']) }}">{{__('admin/public.currency_convert_list')}}</a>
                             </li>
+                            @endif
+                            @if($user->type=='admin')
                             <li class="@if($SID==905 ) active @endif"><a
                                         href="{{ route('usersList.index',['SID' => '905']) }}">{{__('admin/public.users_list')}}</a>
                             </li>
                             <li class="@if($SID==906 ) active @endif"><a
                                         href="{{ route('admin.payments.index',['SID' => '906']) }}">{{__('admin/public.payments_list')}}</a>
                             </li>
+                            @endif
+                            @if($user->type=='admin' or $user->type=='product')
                         </ul>
                     </li>
+                    @endif
+                    @if($user->type=='admin')
 
                     <li class="@if($SID>=100 and $SID<200) active @endif">
                         <a href="#slider" class="has-arrow"><i
@@ -71,6 +86,8 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
+                    @if($user->type=='admin' or $user->type=='product')
                     <li class="@if($SID>=200 and $SID<300) active @endif">
                         <a href="#products" class="has-arrow"><i
                                     class="icon-diamond"></i><span>{{__('admin/public.products')}}</span></a>
@@ -83,6 +100,8 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
+                    @if($user->type=='admin' or $user->type=='product')
 
 
                     <li class="@if($SID>=300 and $SID<400) active @endif">
@@ -97,7 +116,8 @@
                             </li>
                         </ul>
                     </li>
-
+                    @endif
+                    @if($user->type=='admin')
 
                     <li class="@if($SID>=400 and $SID<500) active @endif">
                         <a href="#page" class="has-arrow"><i
@@ -111,7 +131,8 @@
                             </li>
                         </ul>
                     </li>
-
+                    @endif
+                    @if($user->type=='admin')
                     <li class="@if($SID>=500 and $SID<600) active @endif">
                         <a href="#menus" class="has-arrow"><i
                                     class="icon-diamond"></i><span>{{__('admin/public.menus')}}</span></a>
@@ -124,7 +145,8 @@
                             </li>
                         </ul>
                     </li>
-
+                    @endif
+                    @if($user->type=='admin')
                     <li class="@if($SID>=700 and $SID<800) active @endif">
                         <a href="#menu_categories" class="has-arrow"><i
                                     class="icon-diamond"></i><span>{{__('admin/public.menu_categories')}}</span></a>
@@ -137,7 +159,8 @@
                             </li>
                         </ul>
                     </li>
-
+                    @endif
+                    @if($user->type=='admin')
 
                     <li class="@if($SID>=1000 and $SID<1010) active @endif">
                         <a href="#site-setting" class="has-arrow"><i
@@ -149,7 +172,7 @@
                             </li>
                         </ul>
                     </li>
-
+                    @endif
                     <li><a href="{{ route('logout') }}"><i
                                     class="icon-logout"></i><span>{{__('admin/public.logout')}}</span></a></li>
 
