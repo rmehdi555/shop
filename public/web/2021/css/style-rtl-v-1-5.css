@@ -460,6 +460,8 @@ ol {
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
+	max-height: 500px;
+	overflow: auto;
 }
 
 .header__nav .nav-menu .main-menu li .dropdown li {
