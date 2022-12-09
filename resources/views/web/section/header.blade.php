@@ -37,11 +37,11 @@
             </ul>
         </div>
         <div class="ht-links">
-            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"><i
+            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}" target="_blank"><i
                         class="fa fa-instagram" style="font-size:32px ;color:red;"></i></a>
-            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"><i
+            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}" target="_blank"><i
                         class="fa fa-whatsapp" style="font-size:32px ;color:green;"></i></a>
-            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"><i
+            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}" target="_blank"><i
                         class="fa fa-telegram" style="font-size:32px ;color:blue;"></i></a>
         </div>
     </div>
@@ -108,11 +108,11 @@
                                                                    alt=""></a>
                         </div>
                         <div class="ht-links">
-                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"><i
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}" target="_blank"><i
                                         class="fa fa-instagram " style="font-size:32px ;color:red;"></i></a>
-                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"><i
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}" target="_blank"><i
                                         class="fa fa-whatsapp" style="font-size:32px ;color:green;"></i></a>
-                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"><i
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}" target="_blank"><i
                                         class="fa fa-telegram" style="font-size:32px ;color:blue;"></i></a>
                         </div>
                         <div class="ht-info">
