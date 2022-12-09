@@ -44,7 +44,12 @@
                                         <tr class="gradeA">
                                             <td>{{$productCategories->id}}</td>
                                             <td>{{\App\Providers\MyProvider::_text($productCategories->title)}}</td>
-                                            <td>{{$productCategories->parent_id}}</td>
+                                            <td>@if(isset($productCategories->parent->title))
+                                                    {{\App\Providers\MyProvider::_text($productCategories->parent->title)}}
+                                                    @else
+                                                    دسته اصلی
+                                                @endif
+                                            </td>
                                             <td>{{$productCategories->priority}}</td>
                                             <td>{{$productCategories->status?__('admin/public.active'):__('admin/public.inactive')}}</td>
                                             <td><a href="{{ route('web.show.category',$productCategories->slug) }}"  target=”_blank”>نمایش روی سایت</a></td>

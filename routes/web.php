@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -198,3 +199,6 @@ Route::get('payment/online/meli/callback/noor', 'OnlinePaymentController@payMeli
 Route::post('payment/online/irandargah', 'OnlinePaymentController@payIrandargah')->name('web.payment.online.irandargah');
 Route::post('payment/online/irandargah/callback', 'OnlinePaymentController@payIrandargahCallback')->name('web.payment.online.irandargah.callback');
 // end route payment
+
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.index');

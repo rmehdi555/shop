@@ -97,7 +97,7 @@
                                         <select id="single-selection" name="parent_id" class="multiselect multiselect-custom" >
                                             <option value="0">{{__('admin/public.base_parent_id')}}</option>
                                             @foreach($categories as $category)
-                                                <option value="{{$category->id}}">{{\App\Providers\MyProvider::_text($category->title)}}</option>
+                                                <option value="{{$category->id}}"  {{$category->id==$newsCategories->parent_id?"selected":""}}>{{\App\Providers\MyProvider::_text($category->title)}}</option>
                                             @endforeach
                                         </select>
                                     </div>
