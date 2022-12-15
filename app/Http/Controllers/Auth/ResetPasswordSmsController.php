@@ -44,8 +44,8 @@ class ResetPasswordSmsController extends Controller
      *
      * If no token is present, display the link request form.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  string|null  $token
+     * @param  \Illuminate\Http\Request $request
+     * @param  string|null $token
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function showResetForm(Request $request, $token = null)
@@ -54,35 +54,25 @@ class ResetPasswordSmsController extends Controller
             ['token' => $token, 'phone' => $request->phone]
         );
     }
+
     public function reset(Request $request)
     {
-       // $request->validate($this->rules(), $this->validationErrorMessages());
-       // $this->validator($request->all())->validate();
-
-
-
-
-
-        $password=$request->input('password');
-        $user=User::wherePhone($request->input('phone'))->first();
-        if(!$user)
-        {
-            alert()->error(__('web/messages.not_exist_phone'),__('web/messages.alert'));
-            return redirect('/');
+        $password = $request->input('password');
+        $user = User::wherePhone($request->input('phone'))->first();
+        if (!$user) {
+            alert()->error(__('web/messages.not_exist_phone'), __('web/messages.alert'));
+            return redirect()->route('password.request.sms');
         }
         $passwordTable = DB::table(config('auth.passwords.users.table'));
-        //$activationCode = $passwordTable->where($user->phone);
-        $activationCode=$passwordTable->where([['email','=',$user->phone],['token','=',$request->input('token')]])->first();
-        if(! $activationCode)
-        {
-            alert()->error(__('web/messages.not_exist_activation_code'),__('web/messages.alert'));
+        $activationCode = $passwordTable->where([['email', '=', $user->phone], ['token', '=', $request->input('token')]])->first();
+        if (!$activationCode) {
+            alert()->error(__('web/messages.not_exist_activation_code'), __('web/messages.alert'));
             return redirect()->route('password.request.sms');
         }
 
-        if($request->input('password')!=$request->input('password_confirmation') OR strlen($request->input('password')<8))
-        {
-            alert()->error(__('web/messages.not_confirmed_password'),__('web/messages.alert'));
-            return view('auth.passwords.reset-sms',compact('user','activationCode'));
+        if ($request->input('password') != $request->input('password_confirmation') OR strlen($request->input('password')) < 8) {
+            alert()->error(__('web/messages.not_confirmed_password'), __('web/messages.alert'));
+            return view('auth.passwords.reset-sms', compact('user', 'activationCode'));
         }
 
         $this->setUserPassword($user, $password);
@@ -93,9 +83,9 @@ class ResetPasswordSmsController extends Controller
 
         event(new PasswordReset($user));
 
-       // $this->guard()->login($user);
+        // $this->guard()->login($user);
         Auth::logout();
-        alert()->success(__('web/messages.success_reset_password'),__('web/messages.success'));
+        alert()->success(__('web/messages.success_reset_password'), __('web/messages.success'));
         return redirect()->route('login.sms');
     }
 
@@ -121,10 +111,6 @@ class ResetPasswordSmsController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
-
-
-
-
 
 
 }

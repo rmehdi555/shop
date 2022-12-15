@@ -5,8 +5,19 @@ use Hekmatinasser\Verta\Verta;
 $locale = App::getLocale();
 ?>
 <!DOCTYPE html>
-<html dir="@if($locale=="fa") rtl @else ltr @endif">
+<html dir="@if($locale=="fa") rtl @else ltr @endif" lang="fa">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0SCH5DLEX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-F0SCH5DLEX');
+    </script>
+    <!-- Meta Tags -->
+
     <meta charset="UTF-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -67,4 +78,6 @@ $locale = App::getLocale();
             max-width:100%;
         }
     </style>
+
+    <script src="{{asset('web/2021/js/sweetalert.min.js')}}"></script>
 </head>

@@ -12,21 +12,18 @@
                     <form method="POST" action="{{ route('password.update.sms') }}">
                         @csrf
 
-                        <input type="hidden" name="token" value="{{ $activationCode->token }}">
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('web/public.phone') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $user->phone ?? old('phone') }}" required autocomplete="phone" autofocus>
-
-                                @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        @if(count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
+                        @endif
+
+                        <input type="hidden" name="token" value="{{ $activationCode->token }}">
+                        <input type="hidden" name="phone" value="{{ $user->phone}}">
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('web/public.new_password') }}</label>

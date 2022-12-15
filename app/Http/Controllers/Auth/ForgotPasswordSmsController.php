@@ -65,7 +65,7 @@ class ForgotPasswordSmsController extends Controller
      */
     protected function validatePhone(Request $request)
     {
-        $this->validate($request, ['phone' => 'required|digits:11']);
+        $this->validate($request, ['phone' => 'required|digits:11|exists:users,phone']);
     }
 
     /**
