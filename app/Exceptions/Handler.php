@@ -55,7 +55,7 @@ class Handler extends ExceptionHandler
             switch ($exception->getStatusCode())
             {
                 // not found
-                case 404:
+                case '404':
                     return redirect()->route('web.404');
                     break;
 

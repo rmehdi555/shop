@@ -27,6 +27,7 @@
                             <br>
                             <ul>
                                 <li>
+                                    تاریخ ویرایش :
                                     <i class="fa fa-calendar"></i> {{empty($item->updated_at)? \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') : \App\Providers\MyProvider::show_date($item->updated_at,'Y/n/j')}}
                                 </li>
                             </ul>
@@ -42,6 +43,16 @@
                         {!! \App\Providers\MyProvider::_text($item->body) !!}
 
                     </div>
+                    <ul>
+                        <li>
+                            تاریخ انتشار :
+                            <i class="fa fa-calendar"></i> {{ \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') }}
+                        </li>
+                        <li>
+                            تاریخ ویرایش :
+                            <i class="fa fa-calendar"></i> {{empty($item->updated_at)? \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') : \App\Providers\MyProvider::show_date($item->updated_at,'Y/n/j')}}
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-lg-4">
                     <div class="blog-sidebar">

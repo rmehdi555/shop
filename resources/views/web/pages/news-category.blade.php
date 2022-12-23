@@ -7,7 +7,8 @@
     <meta property="og:description"
           content="شرکت آسن : اخبار و مقالات میلگرد + آهن + تیرآهن + فولاد + قیمت روز آهن آلات  "/>
 
-    <meta name="keywords" content="آسن, assen, قیمت آهن,شرکت آسن,قیمت میلگرد,کمترین قیمت میلگرد,اخبار میلگرد , مقاله آهن آلات , خبر بازار آهن , مقاله فلزات">
+    <meta name="keywords"
+          content="آسن, assen, قیمت آهن,شرکت آسن,قیمت میلگرد,کمترین قیمت میلگرد,اخبار میلگرد , مقاله آهن آلات , خبر بازار آهن , مقاله فلزات">
 @endsection
 @section('content')
 
@@ -23,7 +24,8 @@
                         @foreach($news as $item)
                             <div class="single-item">
                                 <div class="bi-pic">
-                                    <img src="{{$item->images['images'][300]}}" alt="{{\App\Providers\MyProvider::_text($item->title)}}">
+                                    <img src="{{$item->images['images'][300]}}"
+                                         alt="{{\App\Providers\MyProvider::_text($item->title)}}">
                                 </div>
                                 <div class="bi-text">
                                     <h4>
@@ -31,7 +33,7 @@
                                     </h4>
                                     <ul>
                                         <li>
-                                            <i class="fa fa-calendar"></i> {{empty($item->updated_at)? \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') : \App\Providers\MyProvider::show_date($item->updated_at,'Y/n/j')}}
+                                            <i class="fa fa-calendar"></i> {{ \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') }}
                                         </li>
                                     </ul>
                                     <p>{{\App\Providers\MyProvider::_text($item->description)}}</p>

@@ -13,7 +13,7 @@ class PanelController extends Controller
         if (Auth::user()->level == 'buyer') {
             return redirect()->route('buyer.panel');
         } elseif (Auth::user()->level == 'admin') {
-            return redirect()->route('admin.panel');
+            return redirect()->route('products.index' , ['SID' => '200']);
         } else {
             return redirect()->route('web.home');
         }
