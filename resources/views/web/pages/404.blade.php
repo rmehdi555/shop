@@ -1,12 +1,13 @@
-<html lang="en"><head>
+<html lang="fa">
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Error page |assen.ir</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('404/css/bootstrap.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('404/css/error-page.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('404/css/error-page-responsive.css')}}">
+    <title>404 Error page | assen.ir شرکت آسن</title>
+    <link rel="stylesheet" type="text/css" href="{{asset('asset404/css/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('asset404/css/error-page.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('asset404/css/error-page-responsive.css')}}">
 </head>
 <body>
 <div class="loader-wrapper" id="loader-wrapper" style="display: none;">
@@ -33,10 +34,10 @@
         </div>
     </div>
 </section>
-<script src="{{asset('404/js/jquery-3.js')}}"></script>
-<script src="{{asset('404/js/particles.js')}}"></script>
-<script src="{{asset('404/js/app.js')}}"></script>
-<script src="{{asset('404/js/script.js')}}"></script>
+<script src="{{asset('asset404/js/jquery-3.js')}}"></script>
+<script src="{{asset('asset404/js/particles.js')}}"></script>
+<script src="{{asset('asset404/js/app.js')}}"></script>
+<script src="{{asset('asset404/js/script.js')}}"></script>
 <noscript><i>rmehdi555</i></noscript>
 </body>
 </html>

@@ -50,13 +50,12 @@ Route::middleware('language', 'visit')->group(function () {
 
     Route::get('/قیمت-روز-میلگرد', 'HomeController@showAllMilegerd')->name('web.HomeController.show.all.milegerd');
 
-    // error page
-
-    Route::get('/assen/404', 'HomeController@web404')->name('web.404');
-    Route::get('/404', 'HomeController@web404')->name('web.def.404');
-    Route::get('/500', 'HomeController@web500')->name('web.500');
-
 });
+
+// error page
+
+Route::get('/404', 'HomeController@web404')->name('web.404');
+Route::get('/500', 'HomeController@web500')->name('web.500');
 
 
 // start lang route
