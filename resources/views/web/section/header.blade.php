@@ -105,7 +105,7 @@
                         <div class="logo">
                             <a href="{{ route('web.home') }}"><img style="width: 10rem;"
                                                                    src="{{$siteDetailsProvider["image_logo"]->images["images"]["original"]}}"
-                                                                   alt=""></a>
+                                                                   alt="سایت آسن - قیمت میلگرد"></a>
                         </div>
                         <div class="ht-links">
                             <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}" target="_blank"><i

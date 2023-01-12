@@ -26,7 +26,7 @@
     background-color: #dee2e6;">
                         <div class="cc-text">
                             <div class="ct-title">
-                                <h3>{{\App\Providers\MyProvider::_text($product->title)}}</h3>
+                                <h1>{{\App\Providers\MyProvider::_text($product->title)}}</h1>
                                 {{--<p>{!! \App\Providers\MyProvider::_text($product->body)!!} </p>--}}
                             </div>
                             <div class="ct-widget" style="padding:15px 15px">

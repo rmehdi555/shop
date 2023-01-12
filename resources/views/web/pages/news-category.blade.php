@@ -28,9 +28,9 @@
                                          alt="{{\App\Providers\MyProvider::_text($item->title)}}">
                                 </div>
                                 <div class="bi-text">
-                                    <h4>
+                                    <h1>
                                         <a href="{{ route('web.show.news',$item->slug) }}">{{\App\Providers\MyProvider::_text($item->title)}}</a>
-                                    </h4>
+                                    </h1>
                                     <ul>
                                         <li>
                                             <i class="fa fa-calendar"></i> {{ \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') }}

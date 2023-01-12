@@ -1,7 +1,7 @@
 <div class="section-title">
-    <h3>
+    <h1>
         <a href="{{ route('web.show.category',$category->slug) }}" target="_blank"><span>{{\App\Providers\MyProvider::_text($category->title)}}</span></a>
-    </h3>
+    </h1>
 </div>
 <table class="table table-striped table-responsive-stack " id="tableOne{{$category->id}}">
     <thead class="thead-dark">

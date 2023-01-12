@@ -21,9 +21,9 @@
                 <div class="col-lg-12">
                     <div class="bh-text">
                         <div class="section-title">
-                            <h3>
+                            <h1>
                                 <a href="{{ route('web.show.news',$item->slug) }}"><span>{{\App\Providers\MyProvider::_text($item->title)}}</span></a>
-                            </h3>
+                            </h1>
                             <br>
                             <ul>
                                 <li>
