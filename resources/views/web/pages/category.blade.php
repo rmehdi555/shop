@@ -1,6 +1,6 @@
 @extends('web.master')
 @section('meta')
-    <title> قیمت روز آهن آلات | شرکت اسن </title>
+    <title> قیمت روز آهن آلات | شرکت آسن </title>
     <meta name="description"
           content="شرکت آسن : قیمت میلگرد + آهن + تیرآهن + فولاد + قیمت روز آهن آلات  "/>
     <meta property="og:title" content="  قیمت روز آهن آلات | شرکت اسن"/>

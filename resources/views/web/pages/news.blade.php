@@ -1,6 +1,6 @@
 @extends('web.master')
 @section('meta')
-    <title>{{\App\Providers\MyProvider::_text($item->title)}} | شرکت اسن </title>
+    <title>{{\App\Providers\MyProvider::_text($item->title)}} | شرکت آسن </title>
     <meta name="description"
           content="شرکت آسن : اخبار مربوط به آهن آلات  {{\App\Providers\MyProvider::_text($item->description)}}"/>
     <meta property="og:title" content="{{\App\Providers\MyProvider::_text($item->title)}} شرکت اسن |"/>
@@ -27,8 +27,8 @@
                             <br>
                             <ul>
                                 <li>
-                                    تاریخ ویرایش :
-                                    <i class="fa fa-calendar"></i> {{empty($item->updated_at)? \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') : \App\Providers\MyProvider::show_date($item->updated_at,'Y/n/j')}}
+                                    <i class="fa fa-calendar"></i>انتشار {{ \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') }}
+                                    <i class="fa fa-calendar"></i>آخرین به روز رسانی  {{empty($item->updated_at)? \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') : \App\Providers\MyProvider::show_date($item->updated_at,'Y/n/j')}}
                                 </li>
                             </ul>
 
@@ -43,16 +43,6 @@
                         {!! \App\Providers\MyProvider::_text($item->body) !!}
 
                     </div>
-                    <ul>
-                        <li>
-                            تاریخ انتشار :
-                            <i class="fa fa-calendar"></i> {{ \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') }}
-                        </li>
-                        <li>
-                            تاریخ ویرایش :
-                            <i class="fa fa-calendar"></i> {{empty($item->updated_at)? \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') : \App\Providers\MyProvider::show_date($item->updated_at,'Y/n/j')}}
-                        </li>
-                    </ul>
                 </div>
                 <div class="col-lg-4">
                     <div class="blog-sidebar">

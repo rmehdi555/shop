@@ -186,5 +186,6 @@ return [
     'payment_type_card' => 'کارت به کارت',
     'payment_type_check' => 'چک',
     'buyer' => 'خریدار',
-    'description_admin' => 'توضیحات ادمین'
+    'description_admin' => 'توضیحات ادمین',
+    'textarea' => 'متن همراه html'
 ];

@@ -1,4 +1,7 @@
 @extends('web.master')
+@section('meta')
+    @include('web.section.meta-index')
+@endsection
 @section('content')
     <section class="padding-top-index">
     </section>
@@ -25,34 +28,34 @@
                             <div class="group-in">
                                 <label for="password">{{ __('web/public.password') }}
                                     : </label>
-                                    <input id="password" type="password"
-                                           class="form-control @error('password') is-invalid @enderror" name="password"
-                                           required autocomplete="current-password">
-                                    {{--<span>{{ __('web/public.password_help') }}</span>--}}
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
+                                <input id="password" type="password"
+                                       class="form-control @error('password') is-invalid @enderror" name="password"
+                                       required autocomplete="current-password">
+                                {{--<span>{{ __('web/public.password_help') }}</span>--}}
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                    @enderror
+                                @enderror
                             </div>
                             {{--<div class="">--}}
-                                {{--<input class="form-check-input" type="checkbox" name="remember"--}}
-                                       {{--id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
+                            {{--<input class="form-check-input" type="checkbox" name="remember"--}}
+                            {{--id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
 
-                                {{--<label class="form-check-label" for="remember">--}}
-                                    {{--{{ __('web/public.remember_me') }}--}}
-                                {{--</label>--}}
+                            {{--<label class="form-check-label" for="remember">--}}
+                            {{--{{ __('web/public.remember_me') }}--}}
+                            {{--</label>--}}
                             {{--</div>--}}
 
 
-                                <button type="submit" >
-                                    {{ __('web/public.btn_login') }}
-                                </button>
+                            <button type="submit">
+                                {{ __('web/public.btn_login') }}
+                            </button>
                             <br>
 
-                                <a class="btn btn-link" href="{{ route('password.request.sms') }}">
-                                    {{ __('web/public.forgot_yor_password') }}
-                                </a>
+                            <a class="btn btn-link" href="{{ route('password.request.sms') }}">
+                                {{ __('web/public.forgot_yor_password') }}
+                            </a>
                         </form>
                     </div>
                 </div>
@@ -63,9 +66,16 @@
                         <div class="ci-address">
                             <h5></h5>
                             <ul>
-                                <li><i class="fa fa-envelope"></i> {{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}</li>
-                                <li><i class="fa fa-copy"></i> <a href="tel:{{\App\Providers\MyProvider::_text($siteDetailsProvider["mobile"]->value)}}" class="call-phone">{{\App\Providers\MyProvider::_text($siteDetailsProvider["mobile"]->value)}}</a></li>
-                                <li><i class="fa fa-thumb-tack"></i> {{\App\Providers\MyProvider::_text($siteDetailsProvider["address"]->value)}}</li>
+                                <li>
+                                    <i class="fa fa-envelope"></i> {{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}
+                                </li>
+                                <li><i class="fa fa-copy"></i> <a
+                                            href="tel:{{\App\Providers\MyProvider::_text($siteDetailsProvider["mobile"]->value)}}"
+                                            class="call-phone">{{\App\Providers\MyProvider::_text($siteDetailsProvider["mobile"]->value)}}</a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-thumb-tack"></i> {{\App\Providers\MyProvider::_text($siteDetailsProvider["address"]->value)}}
+                                </li>
                             </ul>
                         </div>
 
@@ -78,6 +88,6 @@
 
 
 
-            @endsection
+@endsection
 
 

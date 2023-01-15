@@ -44,7 +44,8 @@
                                 ?>
                                 <div class="form-group">
                                     <label>{{__('admin/public.value')}} ({{$kay}}) :</label>
-                                    <textarea name="value_{{$kay}}" id="ckeditor" class="form-control ckeditor" rows="5" cols="30" required>{{old('value_'.$kay)}}</textarea>
+                                    <input type="text" name="value_{{$kay}}" class="form-control"
+                                           required>
                                 </div>
                                 <?php
                                 }
@@ -69,6 +70,7 @@
                                             <option value="text">{{__('admin/public.text')}}</option>
                                             <option value="image">{{__('admin/public.image')}}</option>
                                             <option value="number">{{__('admin/public.number')}}</option>
+                                            <option value="textarea">{{__('admin/public.textarea')}}</option>
                                         </select>
                                     </div>
                                 </div>

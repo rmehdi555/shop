@@ -79,9 +79,12 @@
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.type')}} :</label>
                                     <div class="multiselect_div">
-                                        <select id="single-selection" name="type" class="multiselect multiselect-custom" >
+                                        <select id="single-selection" name="type"
+                                                class="multiselect multiselect-custom">
                                             <option value="text">{{__('admin/public.text')}}</option>
                                             <option value="image" {{($siteDetails->type=="image")?"selected":""}}>{{__('admin/public.image')}}</option>
+                                            <option value="number" {{($siteDetails->type=="number")?"selected":""}}>{{__('admin/public.number')}}</option>
+                                            <option value="textarea" {{($siteDetails->type=="textarea")?"selected":""}}>{{__('admin/public.textarea')}}</option>
                                         </select>
                                     </div>
                                 </div>

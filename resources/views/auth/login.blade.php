@@ -1,4 +1,7 @@
 @extends('web.master')
+@section('meta')
+    @include('web.section.meta-index')
+@endsection
 @section('content')
     <section class="padding-top-index">
     </section>

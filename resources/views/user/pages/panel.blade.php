@@ -1,4 +1,7 @@
 @extends('user.master')
+@section('meta')
+    @include('web.section.meta-index')
+@endsection
 @section('content')
 
     <div id="container">

@@ -36,7 +36,7 @@ class SiteDetailsRequest extends FormRequest
             $result=array_merge($result , [
                 'title' => 'required',
                 'key' => 'required',
-                'images' => 'mimes:jpeg,png,bmp',
+                'images' => 'mimes:png,jpg,jpeg,bmp',
                 'type' => 'required',
             ]);
             return $result;
@@ -45,7 +45,7 @@ class SiteDetailsRequest extends FormRequest
         $result=array_merge($result , [
             'title' => 'required',
             'key' => 'required',
-            'images' => 'mimes:jpeg,png,bmp',
+            'images' => 'mimes:png,jpg,jpeg,bmp',
             'type' => 'required',
         ]);
         return $result;

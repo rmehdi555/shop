@@ -1,6 +1,6 @@
 @extends('web.master')
 @section('meta')
-    <title>{{\App\Providers\MyProvider::_text($product->title)}} | شرکت اسن </title>
+    <title>{{\App\Providers\MyProvider::_text($product->title)}} | شرکت آسن </title>
     <meta name="description"
           content="شرکت آسن : اخبار مربوط به آهن آلات  {{\App\Providers\MyProvider::_text($product->description)}}"/>
     <meta property="og:title" content="{{\App\Providers\MyProvider::_text($product->title)}} شرکت اسن |"/>

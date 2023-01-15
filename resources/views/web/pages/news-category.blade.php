@@ -1,6 +1,6 @@
 @extends('web.master')
 @section('meta')
-    <title> اخبار و مقالات آهن آلات | شرکت اسن </title>
+    <title> اخبار و مقالات میلگرد | شرکت آسن </title>
     <meta name="description"
           content="شرکت آسن : اخبار و مقالات میلگرد + آهن + تیرآهن + فولاد + قیمت روز آهن آلات  "/>
     <meta property="og:title" content=" اخبار و مقالات آهن آلات | شرکت اسن"/>
@@ -33,7 +33,8 @@
                                     </h1>
                                     <ul>
                                         <li>
-                                            <i class="fa fa-calendar"></i> {{ \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') }}
+                                            <i class="fa fa-calendar"></i> انتشار {{ \App\Providers\MyProvider::show_date($item->created_at,'Y/n/j') }}
+                                            <i class="fa fa-calendar"></i> آخرین به روز رسانی {{ \App\Providers\MyProvider::show_date($item->updated_at,'Y/n/j') }}
                                         </li>
                                     </ul>
                                     <p>{{\App\Providers\MyProvider::_text($item->description)}}</p>

@@ -2,20 +2,6 @@
 @section('content')
     <div id="main-content">
         <div class="container-fluid">
-            {{--<div class="block-header">--}}
-            {{--<div class="row">--}}
-            {{--<div class="col-lg-5 col-md-8 col-sm-12">--}}
-            {{--<h2>Jquery Datatable</h2>--}}
-            {{--</div>--}}
-            {{--<div class="col-lg-7 col-md-4 col-sm-12 text-right">--}}
-            {{--<ul class="breadcrumb justify-content-end">--}}
-            {{--<li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>--}}
-            {{--</ul>--}}
-            {{--</div>--}}
-            {{--</div>--}}
-            {{--</div>--}}
-
-
             <div class="row clearfix">
                 <div class="col-md-12">
                     <div class="card">
@@ -47,15 +33,23 @@
                                 @if($siteDetails->type=="number")
                                     <div class="form-group">
                                         <label>{{__('admin/public.value')}} ({{$kay}}) :</label>
-                                        <input type="number" name="value_{{$kay}}" class="form-control" value="{{\App\Providers\MyProvider::_text($siteDetails->value,$kay)}}"
+                                        <input type="number" name="value_{{$kay}}" class="form-control"
+                                               value="{{\App\Providers\MyProvider::_text($siteDetails->value,$kay)}}"
                                                required>
                                     </div>
-                                @else
+                                @elseif($siteDetails->type=="textarea")
                                     <div class="form-group">
                                         <label>{{__('admin/public.value')}} ({{$kay}}) :</label>
                                         <textarea name="value_{{$kay}}" id="ckeditor" class="form-control ckeditor"
                                                   rows="5" cols="30"
                                                   required>{{\App\Providers\MyProvider::_text($siteDetails->value,$kay)}}</textarea>
+                                    </div>
+                                @else
+                                    <div class="form-group">
+                                        <label>{{__('admin/public.value')}} ({{$kay}}) :</label>
+                                        <input type="text" name="value_{{$kay}}" class="form-control"
+                                               value="{{\App\Providers\MyProvider::_text($siteDetails->value,$kay)}}"
+                                               required>
                                     </div>
                                 @endif
                                 <?php
@@ -69,11 +63,6 @@
 
                                     <div class="media">
                                         <img class="media-object " src="{{$siteDetails->images["thumb"]}}" alt="">
-                                        {{--<div class="media-body">--}}
-                                        {{--<span class="name">Joge Lucky</span>--}}
-                                        {{--<span class="message">Sales Lead</span>--}}
-                                        {{--<span class="badge badge-outline status"></span>--}}
-                                        {{--</div>--}}
                                     </div>
 
                                 @endif
@@ -97,6 +86,7 @@
                                             <option value="text">{{__('admin/public.text')}}</option>
                                             <option value="image" {{($siteDetails->type=="image")?"selected":""}}>{{__('admin/public.image')}}</option>
                                             <option value="number" {{($siteDetails->type=="number")?"selected":""}}>{{__('admin/public.number')}}</option>
+                                            <option value="textarea" {{($siteDetails->type=="textarea")?"selected":""}}>{{__('admin/public.textarea')}}</option>
                                         </select>
                                     </div>
                                 </div>
