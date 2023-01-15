@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\ProductCategories;
+use App\ProductPriceLogs;
 use App\Products;
 use App\Providers\MyProvider;
 use Illuminate\Http\Request;
@@ -19,9 +20,9 @@ class ProductsController extends AdminController
      */
     public function index(Request $request)
     {
-        $SID=$request->SID;
-        $products=Products::all();
-        return view('admin.products.index',compact('products','SID'));
+        $SID = $request->SID;
+        $products = Products::all();
+        return view('admin.products.index', compact('products', 'SID'));
 
     }
 
@@ -32,107 +33,112 @@ class ProductsController extends AdminController
      */
     public function create(Request $request)
     {
-        $SID=$request->SID;
-        $categories=ProductCategories::with('children')->get();
-        return view('admin.products.create',compact('SID','categories'));
+        $SID = $request->SID;
+        $categories = ProductCategories::with('children')->get();
+        return view('admin.products.create', compact('SID', 'categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(ProductRequest $request)
     {
-        $inputs=$request->all();
+        $inputs = $request->all();
         $file = $request->file('images');
-        if($file) {
-            $inputs['images'] = $this->uploadImages($request->file('images'),'products',["50" ,"66", "200" , "350","500"]);
+        if ($file) {
+            $inputs['images'] = $this->uploadImages($request->file('images'), 'products', ["50", "66", "200", "350", "500"]);
         } else {
             $inputs['images'] = [];
         }
-        $inputs["title"]=MyProvider::_insert_text($inputs,'title');
-        $inputs["description"]=MyProvider::_insert_text($inputs,'description');
-        $inputs["body"]=MyProvider::_insert_text($inputs,'body');
-        $inputs["price_old"]=$inputs["price"];
-        $inputs["tags"]=str_replace('،',',',$inputs["tags"]);
+        $inputs["title"] = MyProvider::_insert_text($inputs, 'title');
+        $inputs["description"] = MyProvider::_insert_text($inputs, 'description');
+        $inputs["body"] = MyProvider::_insert_text($inputs, 'body');
+        $inputs["price_old"] = $inputs["price"];
+        $inputs["tags"] = str_replace('،', ',', $inputs["tags"]);
 
         auth()->user()->product()->create($inputs);
 
-        return redirect(route('products.index',['SID' => '200']));
+        return redirect(route('products.index', ['SID' => '200']));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Products  $products
+     * @param  \App\Products $products
      * @return \Illuminate\Http\Response
      */
     public function show($products)
     {
-        $SID=200;
-        $products=Products::find($products);
-        $categories=ProductCategories::with('children')->get();
-        return view('admin.products.show',compact('products','categories','SID'));
+        $SID = 200;
+        $products = Products::find($products);
+        $categories = ProductCategories::with('children')->get();
+        return view('admin.products.show', compact('products', 'categories', 'SID'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Products  $products
+     * @param  \App\Products $products
      * @return \Illuminate\Http\Response
      */
     public function edit($products)
     {
-        $SID=200;
-        $products=Products::find($products);
-        $categories=ProductCategories::with('children')->get();
+        $SID = 200;
+        $products = Products::find($products);
+        $categories = ProductCategories::with('children')->get();
 
-        return view('admin.products.edit',compact('products','categories','SID'));
+        return view('admin.products.edit', compact('products', 'categories', 'SID'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Products  $products
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Products $products
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request,$products)
+    public function update(ProductRequest $request, $products)
     {
         $file = $request->file('images');
         $inputs = $request->all();
-        $products=Products::find($products);
+        $products = Products::find($products);
 
-        if($file) {
-            $inputs['images'] = $this->uploadImages($request->file('images'),'products',["50" ,"66", "200" , "350","500"]);
+        if ($file) {
+            $inputs['images'] = $this->uploadImages($request->file('images'), 'products', ["50", "66", "200", "350", "500"]);
         } else {
             $inputs['images'] = $products->images;
         }
-        $inputs["title"]=MyProvider::_insert_text($inputs,'title');
-        $inputs["description"]=MyProvider::_insert_text($inputs,'description');
-        $inputs["body"]=MyProvider::_insert_text($inputs,'body');
-        $inputs["price_old"]=$products->price;
-        $inputs["tags"]=str_replace('،',',',$inputs["tags"]);
-        $inputs['updated_at']=Carbon::now()->timestamp;;
+        $inputs["title"] = MyProvider::_insert_text($inputs, 'title');
+        $inputs["description"] = MyProvider::_insert_text($inputs, 'description');
+        $inputs["body"] = MyProvider::_insert_text($inputs, 'body');
+        $inputs["price_old"] = $products->price;
+        $inputs["tags"] = str_replace('،', ',', $inputs["tags"]);
+        $inputs['updated_at'] = Carbon::now()->timestamp;;
 
         $products->update($inputs);
 
-        return redirect(route('products.index',['SID' => '200']));
+        ProductPriceLogs::create([
+            'price' => $inputs['price'],
+            'product_id' => $products->id
+        ]);
+
+        return redirect(route('products.index', ['SID' => '200']));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Products  $products
+     * @param  \App\Products $products
      * @return \Illuminate\Http\Response
      */
     public function destroy($products)
     {
         //dd($products);
         Products::find($products)->delete();
-        return redirect(route('products.index',['SID' => '200']));
+        return redirect(route('products.index', ['SID' => '200']));
     }
 
 }
