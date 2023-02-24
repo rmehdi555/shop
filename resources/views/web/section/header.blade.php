@@ -2,21 +2,12 @@
 @include('sweet::alert')
 
 
-<!-- Page Preloder -->
-{{--<div id="preloder">--}}
-{{--<div class="loader"></div>--}}
-{{--</div>--}}
-
 <!-- Offcanvas Menu Section Begin -->
 <div class="offcanvas-menu-overlay"></div>
 <div class="offcanvas-menu-wrapper">
     <div class="canvas-close">
         <i class="fa fa-close"></i>
     </div>
-    {{--<div class="search-btn search-switch">--}}
-    {{--<i class="fa fa-search"></i>--}}
-    {{--</div>--}}
-
 
     <div class="header__top--canvas">
         <div class="ht-info">
@@ -104,8 +95,8 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
                             <a href="{{ route('web.home') }}"><img style="width: 10rem;"
-                                                                   src="{{$siteDetailsProvider["image_logo"]->images["images"]["original"]}}"
-                                                                   alt="سایت آسن - قیمت میلگرد"></a>
+                                                                   src="{{asset($siteDetailsProvider["image_logo"]->images["images"]["original"])}}"
+                                                                   alt="لوگو آسن"></a>
                         </div>
                         <div class="ht-links">
                             <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}" target="_blank"><i
@@ -206,9 +197,6 @@
                                 </ul>
                             </li>
                         </ul>
-                        {{--<div class="nm-right search-switch">--}}
-                        {{--<i class="fa fa-search"></i>--}}
-                        {{--</div>--}}
                     </div>
                 </div>
             </div>
@@ -217,18 +205,3 @@
     </div>
 </header>
 <!-- Header End -->
-
-{{--@foreach($categoriesProvider as $category)--}}
-{{--@if($category->parent_id==0)--}}
-{{--<div class="column col-lg-2 col-md-3"><a href="{{ route('web.show.category',$category->id) }}">{{\App\Providers\MyProvider::_text($category->title)}}</a>--}}
-{{--<div>--}}
-{{--<ul>--}}
-{{--@if(isset($category->children[0]) and $category->children!=[])--}}
-{{--<x-web-show-categories :categories="$category->children">--}}
-{{--</x-web-show-categories>--}}
-{{--@endif--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--@endif--}}
-{{--@endforeach--}}

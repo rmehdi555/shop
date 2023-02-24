@@ -16,7 +16,7 @@ tableOne/******************************************************************
 	1.3	Flexbox
 	1.4	Reset
 2.  Helper Css
-3.  Header Section
+3.  Header Section#17a2b8
 4.  Hero Section
 5.  Match Schedule Section
 6.  Latest News Section
@@ -171,17 +171,39 @@ ol {
 	content: "";
 }
 
-.section-title h1 {
+/*.section-title h3 {*/
+	/*font-size: 20px;*/
+	/*color: #151618;*/
+	/*font-weight: 200;*/
+/*}*/
+
+/*.section-title h3 span {*/
+	/*font-weight: 400;*/
+/*}*/
+
+/*.section-title h3 a {*/
+	/*color: #fff;*/
+	/*font-size: 16px;*/
+	/*font-weight: 400;*/
+	/*display: inline-block;*/
+	/*padding: 0 10px;*/
+	/*line-height: 24px;*/
+	/*background-color: #dd1515;*/
+	/*border-radius: 5px;*/
+	/*position: relative;*/
+/*}*/
+
+.section-title span {
 	font-size: 20px;
 	color: #151618;
 	font-weight: 200;
 }
 
-.section-title h1 span {
+.section-title span {
 	font-weight: 400;
 }
 
-.section-title h1 a {
+.section-title span a {
 	color: #fff;
 	font-size: 16px;
 	font-weight: 400;
@@ -192,6 +214,8 @@ ol {
 	border-radius: 5px;
 	position: relative;
 }
+
+
 .set-bg {
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -1004,7 +1028,7 @@ ol {
 	text-transform: uppercase;
 	font-weight: 300;
 	letter-spacing: 1px;
-	background: #17a2b8;
+	background: #33383e;;
 	display: block;
 	text-align: center;
 	padding: 5px;
@@ -1285,6 +1309,12 @@ ol {
 .fs-logo ul {
 	margin-bottom: 22px;
 }
+.fs-logo span{
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 26px;
+
+}
 
 .fs-logo ul li {
 	font-size: 16px;
@@ -1339,6 +1369,13 @@ ol {
 	color: #ffffff;
 	font-weight: 500;
 	margin-bottom: 26px;
+}
+
+
+.fs-widget span {
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 26px;
 }
 
 .fs-widget .fw-links {
@@ -2265,10 +2302,22 @@ ol {
 	margin-bottom: 45px;
 }
 
-.club-content .cc-text .ct-title h3 {
+.club-content .cc-text .ct-title h1 {
 	font-size: 28px;
 	color: #151618;
 	font-weight: 500;
+	margin-bottom: 30px;
+}
+.club-content .cc-text .ct-title h2 {
+	font-size: 22px;
+	color: #151618;
+	font-weight: 400;
+	margin-bottom: 30px;
+}
+.club-content .cc-text .ct-title h3 {
+	font-size: 18px;
+	color: #151618;
+	font-weight: 300;
 	margin-bottom: 30px;
 }
 
@@ -2809,6 +2858,7 @@ ol {
 .title-link-in-list{
 	color:#212529;
 }
+.footerIcons {display:none}
 .footerIcons i{display:none}@media (max-width:640px){.footerIcons{display:block;position:fixed;text-align:center;bottom:7px;left:10px;right:10px;z-index:9999}.footerIcons i{display:inline-block;width:45px;height:45px;box-shadow:0 1px 1px rgba(30,41,46,.25);border:none;color:#fff;border-radius:3px;text-align:center;line-height:45px;font-size:18px;transition:all .3s ease-in-out;margin:0 3px}.footerIcons .tellFooterIcon i{}}.footerIconsBg{display:none}@media (max-width:640px){.footerIconsBg{display:block;height:60px;width:100%;position:fixed;bottom:0;z-index:999;opacity:.25;box-shadow:0 -1px rgba(103,103,103,.5)}}
 
 

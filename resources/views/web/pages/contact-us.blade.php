@@ -100,6 +100,15 @@
                             </div>
                         </div>
                     </form>
+                    <br>
+                    <br>
+                    <br>
+
+
+                    <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 300px">
+                        <iframe src="https://map.ir/lat/35.767900/lng/51.415951/z/15" frameborder="0"
+                                style="border:0" allowfullscreen></iframe>
+                    </div>
                 </div>
                 <aside id="column-right" class="col-sm-3 hidden-xs">
                     <div class="list-group">
@@ -118,6 +127,7 @@
                         <br>
                         <i class="fa fa-envelope"></i>
                         <br>{{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}
+
                     </div>
                     <div class="banner owl-carousel">
 

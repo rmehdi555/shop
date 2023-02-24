@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="cc-pic">
-                            <img src="{{$product->images["images"]["500"]}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}">
+                            <img src="{{asset$product->images["images"]["500"]}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}">
                         </div>
                     </div>
                     <div class="col-lg-6" style=" padding:15px 15px 15px 15px;  border-radius: 15px;    box-shadow: 0 1px 1px rgb(0 0 0 / 16%);

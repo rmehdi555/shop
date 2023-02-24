@@ -1,10 +1,10 @@
 <div class="section-title">
-    <h1><a href="{{ route('web.show.news.category','اخبار') }}"><span>اخبار میلگرد و آهن آلات</span></a></h1>
+    <span><a href="{{ route('web.show.news.category','اخبار') }}">اخبار میلگرد و آهن آلات</a></span>
 </div>
 @foreach($news as $item)
     <div class="news-item">
         <div class="ni-pic">
-            <img src="{{$item->images['images'][64]}}" alt="{{\App\Providers\MyProvider::_text($item->title)}}">
+            <img src="{{asset($item->images['images'][64])}}" alt="{{\App\Providers\MyProvider::_text($item->title)}}">
         </div>
         <div class="ni-text">
             <h1><a href="{{ route('web.show.news',$item->slug) }}"> {{\App\Providers\MyProvider::_text($item->title)}}</a></h1>

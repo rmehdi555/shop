@@ -62,7 +62,7 @@
                         @foreach($specialProducts as $product)
                             <div class="side-item">
                                 <div class="product-thumb clearfix">
-                                    <div class="image"><a href="{{ route('web.show.product',$product->id) }}"><img src="{{$product->images["images"]["50"]}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}" title="{{\App\Providers\MyProvider::_text($product->title)}} " class="img-responsive" /></a></div>
+                                    <div class="image"><a href="{{ route('web.show.product',$product->id) }}"><img src="{{asset($product->images["images"]["50"])}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}" title="{{\App\Providers\MyProvider::_text($product->title)}} " class="img-responsive" /></a></div>
                                     <div class="caption">
                                         <h4><a href="{{ route('web.show.product',$product->id) }}">{{\App\Providers\MyProvider::_text($product->title)}}</a></h4>
                                         <p class="price"> <span class="price-new">{{\App\Providers\MyProvider::exToLocalDiscount($product->price,$product->discount)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</span> @if($product->discount>0)<span class="price-old">{{\App\Providers\MyProvider::exToLocal($product->price)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</span> <span class="saving">-{{$product->discount}}%</span> @endif</p>
@@ -78,7 +78,7 @@
                         @foreach($newProducts as $product)
                             <div class="side-item">
                                 <div class="product-thumb clearfix">
-                                    <div class="image"><a href="{{ route('web.show.product',$product->id) }}"><img src="{{$product->images["images"]["50"]}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}" title="{{\App\Providers\MyProvider::_text($product->title)}} " class="img-responsive" /></a></div>
+                                    <div class="image"><a href="{{ route('web.show.product',$product->id) }}"><img src="{{asset($product->images["images"]["50"])}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}" title="{{\App\Providers\MyProvider::_text($product->title)}} " class="img-responsive" /></a></div>
                                     <div class="caption">
                                         <h4><a href="{{ route('web.show.product',$product->id) }}">{{\App\Providers\MyProvider::_text($product->title)}}</a></h4>
                                         <p class="price"> <span class="price-new">{{\App\Providers\MyProvider::exToLocalDiscount($product->price,$product->discount)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</span> @if($product->discount>0)<span class="price-old">{{\App\Providers\MyProvider::exToLocal($product->price)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}</span> <span class="saving">-{{$product->discount}}%</span> @endif</p>

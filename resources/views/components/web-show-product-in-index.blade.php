@@ -1,7 +1,7 @@
 <div class="section-title">
-    <h1>
-        <a href="{{ route('web.show.category',$category->slug) }}"><span>{{\App\Providers\MyProvider::_text($category->title)}}</span></a>
-    </h1>
+    <span>
+        <a href="{{ route('web.show.category',$category->slug) }}">{{\App\Providers\MyProvider::_text($category->title)}}</a>
+    </span>
 </div>
 <div class="points-table ">
 

@@ -24,7 +24,7 @@
                         @foreach($news as $item)
                             <div class="single-item">
                                 <div class="bi-pic">
-                                    <img src="{{$item->images['images'][300]}}"
+                                    <img src="{{asset($item->images['images'][300])}}"
                                          alt="{{\App\Providers\MyProvider::_text($item->title)}}">
                                 </div>
                                 <div class="bi-text">
