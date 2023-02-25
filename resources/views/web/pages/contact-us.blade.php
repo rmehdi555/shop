@@ -127,12 +127,41 @@
                         <br>
                         <i class="fa fa-envelope"></i>
                         <br>{{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}
+                        <br>
+                        <br><br>
+
+
+
+
+
+                        <div class="ht-links">
+                            <a href="tel:{{\App\Providers\MyProvider::_text($siteDetailsProvider["phone_call_number"]->value)}}"
+                               target="_blank" title="تماس با آسن"><i
+                                        class="fa fa-phone" style="font-size:32px ;color:green;"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"
+                               target="_blank" title="اینستاگرام آسن"><i
+                                        class="fa fa-instagram " style="font-size:32px ;color:red;"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"
+                               target="_blank" title="واتس آپ آسن"><i
+                                        class="fa fa-whatsapp" style="font-size:32px ;color:green;"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"
+                               target="_blank" title="تلگرام آسن"><i
+                                        class="fa fa-telegram" style="font-size:32px ;color:blue;"></i></a>
+                            <a href="https://www.youtube.com/watch?v=jAAoW8qDdx8"
+                               target="_blank" title="یوتیوب آسن"><i
+                                        class="fa fa-youtube-play" style="font-size:32px ;color:red;"></i></a>
+                            <a href="https://twitter.com/assen_ir"
+                               target="_blank" title="تویتر آسن"><i
+                                        class="fa fa-twitter-square" style="font-size:32px ;color:blue;"></i></a>
+
+                        </div>
 
                     </div>
                     <div class="banner owl-carousel">
 
                     </div>
                 </aside>
+
                 <!--Middle Part End -->
             </div>
         </div>

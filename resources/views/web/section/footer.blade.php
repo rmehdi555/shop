@@ -29,13 +29,25 @@
                     </address>
 
                     <div class="fs-social">
-                        {{--<a href="#"><i class="fa fa-facebook"></i></a>--}}
-                        {{--<a href="#"><i class="fa fa-twitter"></i></a>--}}
-                        {{--<a href="#"><i class="fa fa-tumblr"></i></a>--}}
-                        {{--<a href="#"><i class="fa fa-linkedin"></i></a>--}}
-                        {{--<a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"><i class="fa fa-instagram" style="font-size:48px ;color:red;"></i></a>--}}
-                        {{--<a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"><i class="fa fa-whatsapp" style="font-size:48px ;color:green;"></i></a>--}}
-                        {{--<a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"><i class="fa fa-telegram" style="font-size:48px ;color:blue;"></i></a>--}}
+
+                            <a href="tel:{{\App\Providers\MyProvider::_text($siteDetailsProvider["phone_call_number"]->value)}}"
+                               target="_blank" title="تماس با آسن"><i
+                                        class="fa fa-phone" style="font-size:32px ;"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"
+                               target="_blank" title="اینستاگرام آسن"><i
+                                        class="fa fa-instagram " style="font-size:32px ;"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"
+                               target="_blank" title="واتس آپ آسن"><i
+                                        class="fa fa-whatsapp" style="font-size:32px ;"></i></a>
+                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"
+                               target="_blank" title="تلگرام آسن"><i
+                                        class="fa fa-telegram" style="font-size:32px ;;"></i></a>
+                            <a href="https://www.youtube.com/watch?v=jAAoW8qDdx8"
+                               target="_blank" title="یوتیوب آسن"><i
+                                        class="fa fa-youtube-play" style="font-size:32px ;"></i></a>
+                            <a href="https://twitter.com/assen_ir"
+                               target="_blank" title="تویتر آسن"><i
+                                        class="fa fa-twitter-square" style="font-size:32px ;"></i></a>
 
 
                     </div>
