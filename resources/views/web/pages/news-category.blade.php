@@ -1,6 +1,6 @@
 @extends('web.master')
 @section('meta')
-    <title> اخبار و مقالات میلگرد | شرکت آسن </title>
+    <title> اخبار و مقالات میلگرد | آسن </title>
     <meta name="description"
           content="شرکت آسن : اخبار و مقالات میلگرد + آهن + تیرآهن + فولاد + قیمت روز آهن آلات  "/>
     <meta property="og:title" content=" اخبار و مقالات آهن آلات | شرکت اسن"/>

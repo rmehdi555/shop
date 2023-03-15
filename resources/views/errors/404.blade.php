@@ -18,7 +18,7 @@
         <div class="container-fluid p-0">
             <div class="particles-bg" id="particles-js">
                 <div class="content-detail">
-                    <h4 class="sub-title">شرکت آسن</h4>
+                    <h4 class="sub-title"> آسن</h4>
 
                     <h1 class="global-title"><span>4</span><span>0</span><span>4</span></h1>
 

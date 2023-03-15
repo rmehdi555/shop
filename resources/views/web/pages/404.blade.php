@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Error page | assen.ir شرکت آسن</title>
+    <title>404 Error page | assen.ir  آسن</title>
     <link rel="stylesheet" type="text/css" href="{{asset('asset404/css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('asset404/css/error-page.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('asset404/css/error-page-responsive.css')}}">
@@ -19,7 +19,7 @@
         <div class="container-fluid p-0">
             <div class="particles-bg" id="particles-js">
                 <div class="content-detail">
-                    <h4 class="sub-title">شرکت آسن</h4>
+                    <h4 class="sub-title"> آسن</h4>
 
                     <h1 class="global-title"><span>4</span><span>0</span><span>4</span></h1>
 

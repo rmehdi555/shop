@@ -1,18 +1,17 @@
 @extends('web.master')
 @section('meta')
-    <title> قیمت میلگرد | شرکت آسن </title>
+    <title> قیمت میلگرد امروز در بازار روز و تمام کارخانه ها - آسن </title>
     <meta name="description"
-          content="شرکت آسن : قیمت میلگرد + آهن + تیرآهن + فولاد + قیمت روز آهن آلات  "/>
-    <meta property="og:title" content="  قیمت روز آهن آلات | شرکت اسن"/>
+          content="خرید میلگرد با قیمت روز بناب، نیشابور، آناهیتا، ذوب آهن اصفهان، قیمت میلگرد 12 و 18 ابهر، میانه، قیمت شاخه میلگرد  قیمت میلگرد در کارخانه بدون واسطه"/>
+    <meta property="og:title" content="قیمت میلگرد امروز در بازار روز و تمام کارخانه ها - آسن"/>
     <meta property="og:description"
-          content="شرکت آسن : قیمت میلگرد + آهن + تیرآهن + فولاد + قیمت روز آهن آلات "/>
-
-    <meta name="keywords"
-          content="آسن, assen, قیمت آهن,شرکت آسن,قیمت میلگرد,کمترین قیمت میلگرد, بازار آهن , قیمت فلزات,قیمت تیرآهن,قیمت لوله آهنی,قیمت نبشی">
+          content="خرید میلگرد با قیمت روز بناب، نیشابور، آناهیتا، ذوب آهن اصفهان، قیمت میلگرد 12 و 18 ابهر، میانه، قیمت شاخه میلگرد  قیمت میلگرد در کارخانه بدون واسطه"/>
 @endsection
 @section('content')
     <section class="padding-top-index">
     </section>
+
+
     <!-- Latest Section Begin -->
     <section class="latest-section">
         <div class="container">
@@ -32,5 +31,29 @@
         </div>
     </section>
     <!-- Latest Section End -->
+
+    <section class="club-section spad" style="box-shadow: 0 0 10px 0 rgba(0,0,0,.09); margin: 30px">
+        <div class="container">
+            <div class="club-content">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="cc-text">
+                            <div class="ct-title">
+                                <h1>قیمت میلگرد</h1>
+                                <p>قیمت های اعلام شده امروز برای میلگرد</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="cc-pic">
+                            <img src="{{config('app.url').'/web/2021/img/milgerd.jpg'}}"
+                                 style="max-height: 200px"
+                                 alt="قیمت میلگرد">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 @endsection

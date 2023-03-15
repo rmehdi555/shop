@@ -7,7 +7,7 @@
                     <span>{{__('web/public.contact_us')}}</span>
                     <address>
                         <ul>
-                            <li><i class="fa fa-envelope"></i> <a href="#"
+                            <li><i class="fa fa-envelope"></i> <a  href="mailto:mail@assen.ir"
                                                                   class="call-phone"> {{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}</a>
                             </li>
                             <li><i class="fa fa-copy"></i> <a
@@ -123,12 +123,15 @@
 </div>
 
 
-<div class="footerIcons" id="footerIcons" style="color: #fff;
+<div class="rounded-circle footerIcons" id="footerIcons" style="color: #fff;
     background-color: #dd1515;
-    border-radius: 5px;">
+float: right;
+padding: 10px;
+max-width: 70px">
     <a href="tel:{{\App\Providers\MyProvider::_text($siteDetailsProvider["phone_call_number"]->value)}}" target="_blank"
-       rel="nofollow" id="tellFooterIcon" class="tellFooterIcon"><i class="fa fa-phone"></i> <span
-                style="color: white">{{\App\Providers\MyProvider::_text($siteDetailsProvider["phone_call_title"]->value)}}</span>
+       rel="nofollow" id="tellFooterIcon" class="tellFooterIcon"> <span
+                style="color: white;"><i
+                    class="fa fa-phone" style="font-size:32px ;"></i> </span>
     </a>
 </div>
 

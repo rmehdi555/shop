@@ -1,11 +1,11 @@
 @extends('web.master')
 @section('meta')
-    <title>{{\App\Providers\MyProvider::_text($product->title)}} | شرکت آسن </title>
+    <title>{{\App\Providers\MyProvider::_text($product->title)}} | آسن </title>
     <meta name="description"
-          content="شرکت آسن : اخبار مربوط به آهن آلات  {{\App\Providers\MyProvider::_text($product->description)}}"/>
+          content=" آسن : اخبار مربوط به آهن آلات  {{\App\Providers\MyProvider::_text($product->description)}}"/>
     <meta property="og:title" content="{{\App\Providers\MyProvider::_text($product->title)}} شرکت اسن |"/>
     <meta property="og:description"
-          content="شرکت آسن : اخبار مربوط به آهن آلات  {{\App\Providers\MyProvider::_text($product->description)}}"/>
+          content=" آسن : اخبار مربوط به آهن آلات  {{\App\Providers\MyProvider::_text($product->description)}}"/>
 
     <meta name="keywords" content="آسن, assen, قیمت آهن,شرکت آسن,قیمت میلگرد,قیمت روز میلگرد,کمترین قیمت میلگرد,{{\App\Providers\MyProvider::_text($product->tags)}}">
 @endsection
@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="cc-pic">
-                            <img src="{{asset$product->images["images"]["500"]}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}">
+                            <img src="{{asset($product->images["images"]["500"])}}" alt="{{\App\Providers\MyProvider::_text($product->title)}}">
                         </div>
                     </div>
                     <div class="col-lg-6" style=" padding:15px 15px 15px 15px;  border-radius: 15px;    box-shadow: 0 1px 1px rgb(0 0 0 / 16%);

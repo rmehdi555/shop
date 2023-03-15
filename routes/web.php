@@ -48,7 +48,7 @@ Route::middleware('language', 'visit')->group(function () {
     Route::get('/complaint', 'ComplaintController@index')->name('web.complaint.index');
     Route::post('/complaint', 'ComplaintController@insert')->name('web.complaint.insert');
 
-    Route::get('/قیمت-روز-میلگرد', 'HomeController@showAllMilegerd')->name('web.HomeController.show.all.milegerd');
+    Route::get('/قیمت-میلگرد', 'HomeController@showAllMilegerd')->name('web.HomeController.show.all.milegerd');
 
 });
 
