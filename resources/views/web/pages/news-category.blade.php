@@ -1,14 +1,12 @@
 @extends('web.master')
 @section('meta')
-    <title> اخبار و مقالات میلگرد | آسن </title>
+    <title> {{$categoryN->seo_title}} </title>
     <meta name="description"
-          content="شرکت آسن : اخبار و مقالات میلگرد + آهن + تیرآهن + فولاد + قیمت روز آهن آلات  "/>
-    <meta property="og:title" content=" اخبار و مقالات آهن آلات | شرکت اسن"/>
+          content="{{$categoryN->seo_description}}"/>
+    <meta property="og:title" content=" {{$categoryN->seo_title}} "/>
     <meta property="og:description"
-          content="شرکت آسن : اخبار و مقالات میلگرد + آهن + تیرآهن + فولاد + قیمت روز آهن آلات  "/>
-
-    <meta name="keywords"
-          content="آسن, assen, قیمت آهن,شرکت آسن,قیمت میلگرد,کمترین قیمت میلگرد,اخبار میلگرد , مقاله آهن آلات , خبر بازار آهن , مقاله فلزات">
+          content="{{$categoryN->seo_description}} "/>
+    <meta name="robots" content="{{$categoryN->seo_index?"index":"noindex"}},{{$categoryN->seo_follow?"follow":"nofollow"}}">
 @endsection
 @section('content')
 

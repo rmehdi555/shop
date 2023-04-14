@@ -37,22 +37,28 @@ class NewsRequest extends FormRequest
 
             $result=array_merge($result , [
                 'images' => 'required|mimes:png,jpg,jpeg,bmp',
-                'tags' => 'required',
                 'news_categories_id' => 'required',
                 'type'=>'required',
                 'status'=>'required|integer',
                 'priority'=>'required|integer',
+                'seo_title'=>'required|max:250',
+                'seo_description'=>'required|max:250',
+                'seo_follow'=>'required|integer',
+                'seo_index'=>'required|integer',
             ]);
             return $result;
         }
 
         $result=array_merge($result , [
-            'tags' => 'required',
             'images' => 'mimes:png,jpg,jpeg,bmp',
             'news_categories_id' => 'required',
             'type'=>'required',
             'status'=>'required|integer',
             'priority'=>'required|integer',
+            'seo_title'=>'required|max:250',
+            'seo_description'=>'required|max:250',
+            'seo_follow'=>'required|integer',
+            'seo_index'=>'required|integer',
         ]);
         return $result;
 

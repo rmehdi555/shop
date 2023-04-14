@@ -25,6 +25,10 @@ class CreateWebPagesTable extends Migration
             $table->string('type')->nullable()->default('index');
             $table->integer('priority')->default(0);
             $table->integer('status')->default(0);
+            $table->text('seo_title')->nullable();
+            $table->text('seo_description')->nullable();
+            $table->integer('seo_follow')->default(1);
+            $table->integer('seo_index')->nullable(1);
             $table->timestamps();
             $table->softDeletes();
         });

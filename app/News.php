@@ -16,6 +16,7 @@ class News extends Model
     use SoftDeletes;
     protected $fillable = [
         'title', 'slug', 'news_categories_id', 'type', 'description', 'body', 'images', 'tags', 'priority', 'status',
+        'seo_title','seo_description','seo_follow','seo_index'
     ];
     protected $casts = [
         'images' => 'array'

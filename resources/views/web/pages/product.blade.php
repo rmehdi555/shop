@@ -1,13 +1,12 @@
 @extends('web.master')
 @section('meta')
-    <title>{{\App\Providers\MyProvider::_text($product->title)}} | آسن </title>
+    <title> {{$product->seo_title}} </title>
     <meta name="description"
-          content=" آسن : اخبار مربوط به آهن آلات  {{\App\Providers\MyProvider::_text($product->description)}}"/>
-    <meta property="og:title" content="{{\App\Providers\MyProvider::_text($product->title)}} شرکت اسن |"/>
+          content="{{$product->seo_description}}"/>
+    <meta property="og:title" content=" {{$product->seo_title}} "/>
     <meta property="og:description"
-          content=" آسن : اخبار مربوط به آهن آلات  {{\App\Providers\MyProvider::_text($product->description)}}"/>
-
-    <meta name="keywords" content="آسن, assen, قیمت آهن,شرکت آسن,قیمت میلگرد,قیمت روز میلگرد,کمترین قیمت میلگرد,{{\App\Providers\MyProvider::_text($product->tags)}}">
+          content="{{$product->seo_description}} "/>
+    <meta name="robots" content="{{$product->seo_index?"index":"noindex"}},{{$product->seo_follow?"follow":"nofollow"}}">
 @endsection
 @section('content')
     <section class="padding-top-index">
@@ -55,7 +54,7 @@
                                             @else {{\App\Providers\MyProvider::exToLocalDiscount($product->price,$product->discount)}}{{__('web/public.currency_name_'.session('Local_Currency'))}}@endif</p>
                                     </li>
                                     {{--<li>--}}
-                                        {{--<button type="button" id="button-cart" class="btn btn-primary btn-lg"> {{__('web/public.add_cart')}}</button>--}}
+                                    {{--<button type="button" id="button-cart" class="btn btn-primary btn-lg"> {{__('web/public.add_cart')}}</button>--}}
                                     {{--</li>--}}
 
                                 </ul>

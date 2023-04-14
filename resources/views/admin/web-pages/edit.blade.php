@@ -91,6 +91,42 @@
                                 </div>
 
 
+
+                                <hr>
+                                <h3>سئو</h3>
+
+                                <div class="form-group">
+                                    <label>{{__('admin/public.seo_title')}} :</label>
+                                    <input type="text" name="seo_title" class="form-control" value="{{$webPages->seo_title}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{__('admin/public.seo_description')}} :</label>
+                                    <textarea name="seo_description" id="seo_description" class="form-control" rows="5" cols="30" required>{{$webPages->seo_description}}</textarea>
+
+                                </div>
+                                <div class="form-group col-lg-4 col-md-12">
+                                    <label>{{__('admin/public.seo_follow')}} :</label>
+                                    <div class="multiselect_div">
+                                        <select id="single-selection" name="seo_follow" class="multiselect multiselect-custom" >
+                                            <option value="0">{{__('admin/public.seo_follow_no_follow')}}</option>
+                                            <option value="1" {{$webPages->seo_follow?"selected":""}}>{{__('admin/public.seo_follow_follow')}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-4 col-md-12">
+                                    <label>{{__('admin/public.seo_index')}} :</label>
+                                    <div class="multiselect_div">
+                                        <select id="single-selection" name="seo_index" class="multiselect multiselect-custom" >
+                                            <option value="0">{{__('admin/public.seo_index_no_index')}}</option>
+                                            <option value="1" {{$webPages->seo_index?"selected":""}}>{{__('admin/public.seo_index_index')}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+
+
                                 <br>
                                 <button type="submit" class="btn btn-primary">{{__('admin/public.submit')}}</button>
                             </form>

@@ -35,19 +35,25 @@ class NewsCategoriesRequest extends FormRequest
         if ($this->method() == 'POST') {
 
             $result = array_merge($result, [
-                'tags' => 'required',
                 'parent_id' => 'required|integer',
                 'status' => 'required|integer',
                 'priority' => 'required|integer',
+                'seo_title'=>'required|max:250',
+                'seo_description'=>'required|max:250',
+                'seo_follow'=>'required|integer',
+                'seo_index'=>'required|integer',
             ]);
             return $result;
         }
 
         $result = array_merge($result, [
-            'tags' => 'required',
             'parent_id' => 'required|integer',
             'status' => 'required|integer',
             'priority' => 'required|integer',
+            'seo_title'=>'required|max:250',
+            'seo_description'=>'required|max:250',
+            'seo_follow'=>'required|integer',
+            'seo_index'=>'required|integer',
         ]);
         return $result;
     }

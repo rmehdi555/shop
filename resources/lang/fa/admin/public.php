@@ -187,5 +187,13 @@ return [
     'payment_type_check' => 'چک',
     'buyer' => 'خریدار',
     'description_admin' => 'توضیحات ادمین',
-    'textarea' => 'متن همراه html'
+    'textarea' => 'متن همراه html',
+    'seo_index' =>'index شدن صفحه',
+    'seo_index_no_index' =>'noindex',
+    'seo_index_index' =>'index',
+    'seo_follow' =>'follow شدن صفحه',
+    'seo_follow_no_follow' =>'nofollow',
+    'seo_follow_follow' =>'follow',
+    'seo_description' =>'description',
+    'seo_title' =>'title',
 ];

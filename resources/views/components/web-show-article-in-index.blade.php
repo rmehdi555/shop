@@ -1,5 +1,5 @@
 <div class="section-title">
-    <span><a href="{{ route('web.show.news.category','مقالات') }}}">مقالات میلگرد و آهن آلات</a></span>
+    <span><a href="{{ route('web.show.news.category','مقالات') }}">مقالات میلگرد و آهن آلات</a></span>
 </div>
 @foreach($articles as $item)
     <div class="news-item">

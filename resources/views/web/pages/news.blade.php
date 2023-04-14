@@ -1,13 +1,12 @@
 @extends('web.master')
 @section('meta')
-    <title>{{\App\Providers\MyProvider::_text($item->title)}} | آسن </title>
+    <title> {{$item->seo_title}} </title>
     <meta name="description"
-          content="شرکت آسن : اخبار مربوط به آهن آلات  {{\App\Providers\MyProvider::_text($item->description)}}"/>
-    <meta property="og:title" content="{{\App\Providers\MyProvider::_text($item->title)}} شرکت اسن |"/>
+          content="{{$item->seo_description}}"/>
+    <meta property="og:title" content=" {{$item->seo_title}} "/>
     <meta property="og:description"
-          content="شرکت آسن : اخبار مربوط به آهن آلات  {{\App\Providers\MyProvider::_text($item->description)}}"/>
-
-    <meta name="keywords" content="آسن, assen, قیمت آهن,شرکت آسن,قیمت میلگرد,قیمت روز میلگرد,اخبار میلگرد,مقاله آهن,اخبار آهن,کمترین قیمت میلگرد,{{\App\Providers\MyProvider::_text($item->tags)}}">
+          content="{{$item->seo_description}} "/>
+    <meta name="robots" content="{{$item->seo_index?"index":"noindex"}},{{$item->seo_follow?"follow":"nofollow"}}">
 @endsection
 @section('content')
 
@@ -53,7 +52,7 @@
                             <ul>
                                 @foreach($category as $item)
                                     <li>
-                                        <a href="{{ route('web.show.news.category',$item->slug) }}">{{\App\Providers\MyProvider::_text($item->title)}}</a>
+                                        <a href="{{ route('web.show.news.category',$item->slug)}}">{{\App\Providers\MyProvider::_text($item->title)}}</a>
                                     </li>
                                 @endforeach
                             </ul>

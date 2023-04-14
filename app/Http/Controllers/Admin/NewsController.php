@@ -72,7 +72,7 @@ class NewsController extends AdminController
         $inputs["title"] = MyProvider::_insert_text($inputs, 'title');
         $inputs["description"] = MyProvider::_insert_text($inputs, 'description');
         $inputs["body"] = MyProvider::_insert_text($inputs, 'body');
-        $inputs["tags"] = str_replace('،', ',', $inputs["tags"]);
+//        $inputs["tags"] = str_replace('،', ',', $inputs["tags"]);
 
         $news = auth()->user()->news()->create($inputs);
 
@@ -145,7 +145,7 @@ class NewsController extends AdminController
         $inputs["title"] = MyProvider::_insert_text($inputs, 'title');
         $inputs["description"] = MyProvider::_insert_text($inputs, 'description');
         $inputs["body"] = MyProvider::_insert_text($inputs, 'body');
-        $inputs["tags"] = str_replace('،', ',', $inputs["tags"]);
+//        $inputs["tags"] = str_replace('،', ',', $inputs["tags"]);
 
         $news->update($inputs);
 

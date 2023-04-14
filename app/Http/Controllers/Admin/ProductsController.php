@@ -57,7 +57,7 @@ class ProductsController extends AdminController
         $inputs["description"] = MyProvider::_insert_text($inputs, 'description');
         $inputs["body"] = MyProvider::_insert_text($inputs, 'body');
         $inputs["price_old"] = $inputs["price"];
-        $inputs["tags"] = str_replace('،', ',', $inputs["tags"]);
+//        $inputs["tags"] = str_replace('،', ',', $inputs["tags"]);
 
         auth()->user()->product()->create($inputs);
 
@@ -115,7 +115,7 @@ class ProductsController extends AdminController
         $inputs["description"] = MyProvider::_insert_text($inputs, 'description');
         $inputs["body"] = MyProvider::_insert_text($inputs, 'body');
         $inputs["price_old"] = $products->price;
-        $inputs["tags"] = str_replace('،', ',', $inputs["tags"]);
+//        $inputs["tags"] = str_replace('،', ',', $inputs["tags"]);
         $inputs['updated_at'] = Carbon::now()->timestamp;;
 
         $products->update($inputs);

@@ -15,7 +15,8 @@ class Products extends Model
      */
     use SoftDeletes;
     protected $fillable = [
-        'title', 'slug','product_categories_id','discount','type','description','body','price','price_usd','price_euro','price_old','size','standard','unit','images','tags','priority','status','place_of_delivery','updated_at'
+        'title', 'slug','product_categories_id','discount','type','description','body','price','price_usd','price_euro','price_old','size','standard','unit','images','tags','priority','status','place_of_delivery','updated_at',
+        'seo_title','seo_description','seo_follow','seo_index'
     ];
     protected $casts = [
         'images' => 'array'

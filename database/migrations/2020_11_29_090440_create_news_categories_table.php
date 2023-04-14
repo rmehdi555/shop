@@ -24,6 +24,10 @@ class CreateNewsCategoriesTable extends Migration
             $table->integer('parent_id')->default(0);
             $table->text('images')->nullable();
             $table->text('tags')->nullable();
+            $table->text('seo_title')->nullable();
+            $table->text('seo_description')->nullable();
+            $table->integer('seo_follow')->default(1);
+            $table->integer('seo_index')->nullable(1);
             $table->text('icon')->nullable();
             $table->integer('priority')->default(0);
             $table->integer('status')->default(0);

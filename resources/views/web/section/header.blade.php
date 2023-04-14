@@ -13,36 +13,9 @@
         <div class="ht-info">
             <ul>
                 <li>@php $v=Verta::now(); echo($v->formatWord('l').' '.$v->format('d').' '.$v->formatWord('F').' '.$v->format('Y'));@endphp</li>
-                @if(auth()->check())
-
-                    <li><a href="{{ route('home') }}">{{auth()->user()->name}} {{auth()->user()->family}}</a></li>
-                    <li><a href="{{ route('logout') }}">{{__('web/public.btn_logout')}}</a></li>
-
-
-                @else
-
-                    <li><a href="{{ route('login') }}">{{__('web/public.btn_login')}}</a></li>
-                    <li><a href="{{ route('register') }}"> {{__('web/public.btn_register')}}</a></li>
-
-                @endif
             </ul>
         </div>
         <div class="ht-links">
-            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"
-               target="_blank" title="اینستاگرام آسن"><i
-                        class="fa fa-instagram " style="font-size:32px ;color:red;"></i></a>
-            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"
-               target="_blank" title="واتس آپ آسن"><i
-                        class="fa fa-whatsapp" style="font-size:32px ;color:green;"></i></a>
-            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"
-               target="_blank" title="تلگرام آسن"><i
-                        class="fa fa-telegram" style="font-size:32px ;color:blue;"></i></a>
-            <a href="https://www.youtube.com/watch?v=jAAoW8qDdx8"
-               target="_blank" title="یوتیوب آسن"><i
-                        class="fa fa-youtube-play" style="font-size:32px ;color:red;"></i></a>
-            <a href="https://twitter.com/assen_ir"
-               target="_blank" title="تویتر آسن"><i
-                        class="fa fa-twitter-square" style="font-size:32px ;color:blue;"></i></a>
 
         </div>
     </div>
@@ -109,46 +82,12 @@
                                                                    alt="لوگو آسن"></a>
                         </div>
                         <div class="ht-links">
-                            <a href="tel:{{\App\Providers\MyProvider::_text($siteDetailsProvider["phone_call_number"]->value)}}"
-                               target="_blank" title="تماس با آسن"><i
-                                        class="fa fa-phone" style="font-size:32px ;color:green;"></i></a>
-                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["instagram"]->value)}}"
-                               target="_blank" title="اینستاگرام آسن"><i
-                                        class="fa fa-instagram " style="font-size:32px ;color:red;"></i></a>
-                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["whatsapp"]->value)}}"
-                               target="_blank" title="واتس آپ آسن"><i
-                                        class="fa fa-whatsapp" style="font-size:32px ;color:green;"></i></a>
-                            <a href="{{\App\Providers\MyProvider::_text($siteDetailsProvider["telegram"]->value)}}"
-                               target="_blank" title="تلگرام آسن"><i
-                                        class="fa fa-telegram" style="font-size:32px ;color:blue;"></i></a>
-                            <a href="https://www.youtube.com/watch?v=jAAoW8qDdx8"
-                               target="_blank" title="یوتیوب آسن"><i
-                                        class="fa fa-youtube-play" style="font-size:32px ;color:red;"></i></a>
-                            <a href="https://twitter.com/assen_ir"
-                               target="_blank" title="تویتر آسن"><i
-                                        class="fa fa-twitter-square" style="font-size:32px ;color:blue;"></i></a>
 
                         </div>
                         <div class="ht-info">
                             <ul>
                                 <li>@php $v=Verta::now();  echo($v->formatWord('l').' '.$v->format('d').' '.$v->formatWord('F').' '.$v->format('Y'));@endphp</li>
 
-                                @if(auth()->check())
-
-                                    @if(auth()->user()->isAdmin())
-                                        <li><a href="{{ route('admin.panel') }}">{{__('web/public.panel')}}</a></li>
-                                    @else
-                                        <li><a href="{{ route('user.panel') }}">{{__('web/public.panel')}}</a></li>
-                                    @endif
-                                    <li><a href="{{ route('logout') }}">{{__('web/public.btn_logout')}}</a></li>
-
-
-                                @else
-
-                                    <li><a href="{{ route('login') }}">{{__('web/public.btn_login')}}</a></li>
-                                    <li><a href="{{ route('register') }}"> {{__('web/public.btn_register')}}</a></li>
-
-                                @endif
 
                             </ul>
                         </div>

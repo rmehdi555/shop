@@ -40,6 +40,10 @@ class WebPagesRequest extends FormRequest
                 'type'=>'required',
                 'status'=>'required|integer',
                 'priority'=>'required|integer',
+                'seo_title'=>'required|max:250',
+                'seo_description'=>'required|max:250',
+                'seo_follow'=>'required|integer',
+                'seo_index'=>'required|integer',
             ]);
             return $result;
         }
@@ -49,6 +53,10 @@ class WebPagesRequest extends FormRequest
             'type'=>'required',
             'status'=>'required|integer',
             'priority'=>'required|integer',
+            'seo_title'=>'required|max:250',
+            'seo_description'=>'required|max:250',
+            'seo_follow'=>'required|integer',
+            'seo_index'=>'required|integer',
         ]);
         return $result;
     }
