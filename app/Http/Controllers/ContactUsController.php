@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ContactUs;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactUsRequest;
+use App\WebPages;
 use Illuminate\Http\Request;
 
 class ContactUsController extends Controller
@@ -16,8 +17,10 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        return view('web.pages.contact-us');
-
+        $pageDetails = WebPages::find(3);
+        if (!isset($pageDetails) OR empty($pageDetails))
+            return redirect()->route('web.404');
+        return view('web.pages.contact-us',compact('pageDetails'));
     }
     public function insert(ContactUsRequest $request)
     {

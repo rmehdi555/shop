@@ -1,16 +1,12 @@
 @extends('web.master')
 @section('meta')
-    <title>آسن - قیمت خرید آهن آلات و فلزات</title>
+    <title> {{$pageDetails->seo_title}} </title>
     <meta name="description"
-          content="قیمت آهن امروز کیلویی بازار برای خرید آهن از
-اصفهان و مشهد و اهواز و سراسر کشور و از کارخانه دست دوم و نو آنلاین از
-فروشگاه اینترنتی آهن آلات آسن."/>
-    <meta property="og:title" content="آسن - قیمت خرید آهن آلات و فلزات"/>
+          content="{{$pageDetails->seo_description}}"/>
+    <meta property="og:title" content=" {{$pageDetails->seo_title}} "/>
     <meta property="og:description"
-          content="قیمت آهن امروز کیلویی بازار برای خرید آهن از
-اصفهان و مشهد و اهواز و سراسر کشور و از کارخانه دست دوم و نو آنلاین از
-فروشگاه اینترنتی آهن آلات آسن."/>
-
+          content="{{$pageDetails->seo_description}} "/>
+    <meta name="robots" content="{{$pageDetails->seo_index?"index":"noindex"}},{{$pageDetails->seo_follow?"follow":"nofollow"}}">
 @endsection
 @section('content')
 

@@ -43,6 +43,7 @@ Route::middleware('language', 'visit')->group(function () {
     //contact us
     Route::get('/contact-us', 'ContactUsController@index')->name('web.contact.us.index');
     Route::post('/contact-us', 'ContactUsController@insert')->name('web.contact.us.insert');
+    Route::get('/about_us', 'HomeController@aboutUs')->name('web.show.about_us');
 
     //complaint
     Route::get('/complaint', 'ComplaintController@index')->name('web.complaint.index');

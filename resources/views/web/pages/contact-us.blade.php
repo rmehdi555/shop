@@ -1,13 +1,12 @@
 @extends('web.master')
 @section('meta')
-    <title>قیمت میلگرد ؛ اطلاع از قیمت روز آهن آلات + خرید میلگرد| آسن </title>
+    <title> {{$pageDetails->seo_title}} </title>
     <meta name="description"
-          content="قیمت آهن آلات: مشاهده قیمت و خرید میلگرد و آهن آلات "/>
-    <meta property="og:title" content="قیمت میلگرد امروز؛ اطلاع از قیمت روز آهن آلات + خرید میلگرد| آسن"/>
+          content="{{$pageDetails->seo_description}}"/>
+    <meta property="og:title" content=" {{$pageDetails->seo_title}} "/>
     <meta property="og:description"
-          content="قیمت آهن آلات: مشاهده قیمت و خرید میلگرد و آهن آلات "/>
-
-    <meta name="keywords" content="آسن, assen, قیمت آهن,قیمت روز میلگرد,میلگرد,کمترین قیمت آهن,قیمت میلگرد,قیت تیرآهن,قیمت ورق آهنی,قیمت فلزات,بازار آهن,شرکت آسن">
+          content="{{$pageDetails->seo_description}} "/>
+    <meta name="robots" content="{{$pageDetails->seo_index?"index":"noindex"}},{{$pageDetails->seo_follow?"follow":"nofollow"}}">
 @endsection
 @section('content')
     <section class="padding-top-index">

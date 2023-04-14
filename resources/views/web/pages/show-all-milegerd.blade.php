@@ -1,11 +1,12 @@
 @extends('web.master')
 @section('meta')
-    <title> قیمت میلگرد امروز در بازار روز و تمام کارخانه ها - آسن </title>
+    <title> {{$pageDetails->seo_title}} </title>
     <meta name="description"
-          content="خرید میلگرد با قیمت روز بناب، نیشابور، آناهیتا، ذوب آهن اصفهان، قیمت میلگرد 12 و 18 ابهر، میانه، قیمت شاخه میلگرد  قیمت میلگرد در کارخانه بدون واسطه"/>
-    <meta property="og:title" content="قیمت میلگرد امروز در بازار روز و تمام کارخانه ها - آسن"/>
+          content="{{$pageDetails->seo_description}}"/>
+    <meta property="og:title" content=" {{$pageDetails->seo_title}} "/>
     <meta property="og:description"
-          content="خرید میلگرد با قیمت روز بناب، نیشابور، آناهیتا، ذوب آهن اصفهان، قیمت میلگرد 12 و 18 ابهر، میانه، قیمت شاخه میلگرد  قیمت میلگرد در کارخانه بدون واسطه"/>
+          content="{{$pageDetails->seo_description}} "/>
+    <meta name="robots" content="{{$pageDetails->seo_index?"index":"noindex"}},{{$pageDetails->seo_follow?"follow":"nofollow"}}">
 @endsection
 @section('content')
     <section class="padding-top-index">

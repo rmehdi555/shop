@@ -14,12 +14,16 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $pageDetails = WebPages::find(1);
+        if (!isset($pageDetails) OR empty($pageDetails))
+            return redirect()->route('web.404');
+
         $categories = ProductCategories::where('status', '=', '1')->orderBy('priority', 'desc')->limit(7)->get();
         $newsCategory = NewsCategories::where([['parent_id', '=', config('app.newsId.news')], ['status', '=', '1']])->orderBy('priority', 'desc')->orderBy('created_at', 'desc')->pluck('id')->toArray();
         $news = News::whereIn('news_categories_id', $newsCategory)->where('status', '=', '1')->orderBy('priority', 'desc')->limit(3)->get();
         $newsCategory = NewsCategories::where([['parent_id', '=', config('app.newsId.article')], ['status', '=', '1']])->orderBy('priority', 'desc')->orderBy('created_at', 'desc')->pluck('id')->toArray();
         $articles = News::whereIn('news_categories_id', $newsCategory)->where('status', '=', '1')->orderBy('priority', 'desc')->limit(3)->get();
-        return view('web.pages.index', compact('categories', 'news', 'articles'));
+        return view('web.pages.index', compact('categories', 'news', 'articles','pageDetails'));
     }
 
     public function showCategory($slug)
@@ -70,10 +74,24 @@ class HomeController extends Controller
 
     public function showPage($id)
     {
+        switch ($id){
+            case 1: return redirect(route('web.home'));
+            case 2: return redirect(route('web.show.about_us'));
+            case 3: return redirect(route('web.contact.us.index'));
+            case 4: return redirect(route('web.HomeController.show.all.milegerd'));
+        }
         $page = WebPages::find($id);
         if (!isset($page) OR empty($page))
             return redirect()->route('web.404');
         return view('web.pages.page', compact('page'));
+    }
+
+    public function aboutUs()
+    {
+        $page = WebPages::find(2);
+        if (!isset($page) OR empty($page))
+            return redirect()->route('web.404');
+        return view('web.pages.about-us', compact('page'));
     }
 
     public function changeLang($locale)
@@ -98,10 +116,14 @@ class HomeController extends Controller
 
     public function showAllMilegerd()
     {
+        $pageDetails = WebPages::find(4);
+        if (!isset($pageDetails) OR empty($pageDetails))
+            return redirect()->route('web.404');
+
         $categories = ProductCategories::where([['parent_id', '=', 19], ['status', '=', '1']])->orderBy('priority', 'desc')->get();
         if (!isset($categories))
             return redirect()->route('web.404');
-        return view('web.pages.show-all-milegerd', compact('categories'));
+        return view('web.pages.show-all-milegerd', compact('categories','pageDetails'));
     }
 
     public function web404()
