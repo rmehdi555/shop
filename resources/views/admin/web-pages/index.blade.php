@@ -81,7 +81,7 @@
                                     <tr>
                                         <th>{{__('admin/public.id')}}</th>
                                         <th>{{__('admin/public.title')}}</th>
-                                        <th>{{__('admin/public.type')}}</th>
+
                                         <th>{{__('admin/public.status')}}</th>
                                         <th>{{__('admin/public.actions')}}</th>
                                     </tr>
@@ -91,7 +91,6 @@
                                         <tr class="gradeA">
                                             <td>{{$webPages->id}}</td>
                                             <td>{{\App\Providers\MyProvider::_text($webPages->title)}}</td>
-                                            <td>{{$webPages->type}}</td>
                                             <td>{{$webPages->status?__('admin/public.active'):__('admin/public.inactive')}}</td>
                                             <td class="actions">
 
@@ -102,8 +101,8 @@
                                                        data-toggle="tooltip" data-original-title="{{__('admin/public.show')}}"><i class="icon-eye" aria-hidden="true"></i></a>
                                                     <a href="{{ route('webPages.edit',$webPages->id) }}" class="btn btn-sm btn-icon btn-pure btn-default on-default m-r-5 button-edit"
                                                        data-toggle="tooltip" data-original-title="{{__('admin/public.edit')}}"><i class="icon-pencil" aria-hidden="true"></i></a>
-                                                    <button type="submit" class="btn btn-sm btn-icon btn-pure btn-default on-default button-remove"
-                                                            data-toggle="tooltip" data-original-title="{{__('admin/public.remove')}}"><i class="icon-trash" aria-hidden="true"></i></button>
+                                                    {{--<button type="submit" class="btn btn-sm btn-icon btn-pure btn-default on-default button-remove"--}}
+                                                            {{--data-toggle="tooltip" data-original-title="{{__('admin/public.remove')}}"><i class="icon-trash" aria-hidden="true"></i></button>--}}
                                                 </form>
 
                                             </td>
