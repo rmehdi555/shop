@@ -44,7 +44,7 @@
     <!-- Latest Section End -->
 
 
-    <section class="club-section spad" style="box-shadow: 0 0 10px 0 rgba(0,0,0,.09); margin: 30px">
+    <section class="club-section spad" style="box-shadow: 0 0 10px 0 rgba(0,0,0,.09); margin: 30px; text-align: justify;">
         <div class="container">
             <div class="club-content">
                 <div class="row">
@@ -63,7 +63,7 @@
                                     یکی از ماموریتهای مهم آسن اطلاع رسانی قیمت به روز آهن و میلگرد و تامین نیازها در داخل و خارج از کشور می باشد.
 
                                 </p>
-                                <h2>چرا انتخاب آسن؟</h2>
+                                <h2>چرا انتخاب میلگرد آسن؟</h2>
                                 <p>
                                     هر روز قیمت میلگرد و آهن در سایت آسن برروزرسانی میشود تا منبع درست و به رروزی ازاعتماد از مهمترین سرمایه های کشور است. در دنیای تجارت اعتماد مشتریان بزرگترین سرمایه برای بقاء و موفقیت در کسب و کار محسوب می شود. تلاش آسن بر این است که این سرمایه حیاتی را حفظ کرده تا تجربه ای خوشایند  برای مشتریان به همراه داشته باشد.
                                 </p>
@@ -104,7 +104,7 @@
         </div>
     </section>
 
-    <section class="club-section spad" style="box-shadow: 0 0 10px 0 rgba(0,0,0,.15); margin: 30px">
+    <section class="club-section spad" style="box-shadow: 0 0 10px 0 rgba(0,0,0,.15); margin: 30px; text-align: justify;">
         <div class="container">
             <div class="club-content">
                 <div class="row">
@@ -193,7 +193,7 @@
     </section>
 
 
-    <section class="club-section spad" style="box-shadow: 0 0 10px 0 rgba(0,0,0,.15); margin: 30px">
+    <section class="club-section spad" style="box-shadow: 0 0 10px 0 rgba(0,0,0,.15); margin: 30px; text-align: justify;">
         <div class="container">
             <div class="club-content">
                 <div class="row">
