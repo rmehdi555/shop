@@ -11,7 +11,7 @@ class WebPages extends Model
     use SoftDeletes;
     protected $fillable = [
         'title','body','slug','images','link','type','priority','status',
-        'seo_title','seo_description','seo_follow','seo_index'
+        'seo_title','seo_description','seo_follow','seo_index','seo_canonical'
     ];
     protected $casts = [
         'images' => 'array'

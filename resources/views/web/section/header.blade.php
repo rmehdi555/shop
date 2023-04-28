@@ -39,16 +39,16 @@
             @endif
         @endforeach
 
-        <li>{{__('web/public.lang_name_'.App::getLocale())}}
-            <ul class="dropdown">
-                <li>
-                    <a class="btn btn-link btn-block language-select" href="{{ route('web.change.lang','fa') }}"><img
-                                src="{{asset('web/2020/image/flags/fa.png')}}" alt="{{__('web/public.lang_name_fa')}}"
-                                title="{{__('web/public.lang_name_fa')}}"/> {{__('web/public.lang_name_fa')}}</a>
-                </li>
+        {{--<li>{{__('web/public.lang_name_'.App::getLocale())}}--}}
+            {{--<ul class="dropdown">--}}
+                {{--<li>--}}
+                    {{--<a class="btn btn-link btn-block language-select" href="{{ route('web.change.lang','fa') }}"><img--}}
+                                {{--src="{{asset('web/2020/image/flags/fa.png')}}" alt="{{__('web/public.lang_name_fa')}}"--}}
+                                {{--title="{{__('web/public.lang_name_fa')}}"/> {{__('web/public.lang_name_fa')}}</a>--}}
+                {{--</li>--}}
 
-            </ul>
-        </li>
+            {{--</ul>--}}
+        {{--</li>--}}
 
         <li>{{__('web/public.currency_name_'.session('Local_Currency'))}}
             <ul class="dropdown">
@@ -130,19 +130,19 @@
                                 @endif
                             @endforeach
 
-                            <li><a href="#">{{__('web/public.lang_name_'.App::getLocale())}}  </a>
-                                <ul class="dropdown">
-                                    <li>
-                                        <a class="btn btn-link btn-block language-select"
-                                           href="{{ route('web.change.lang','fa') }}"><img
-                                                    src="{{asset('web/2020/image/flags/fa.png')}}"
-                                                    alt="{{__('web/public.lang_name_fa')}}"
-                                                    title="{{__('web/public.lang_name_fa')}}"/> {{__('web/public.lang_name_fa')}}
-                                        </a>
-                                    </li>
+                            {{--<li><a href="#">{{__('web/public.lang_name_'.App::getLocale())}}  </a>--}}
+                                {{--<ul class="dropdown">--}}
+                                    {{--<li>--}}
+                                        {{--<a class="btn btn-link btn-block language-select"--}}
+                                           {{--href="{{ route('web.change.lang','fa') }}"><img--}}
+                                                    {{--src="{{asset('web/2020/image/flags/fa.png')}}"--}}
+                                                    {{--alt="{{__('web/public.lang_name_fa')}}"--}}
+                                                    {{--title="{{__('web/public.lang_name_fa')}}"/> {{__('web/public.lang_name_fa')}}--}}
+                                        {{--</a>--}}
+                                    {{--</li>--}}
 
-                                </ul>
-                            </li>
+                                {{--</ul>--}}
+                            {{--</li>--}}
 
                             <li><a href="#">{{__('web/public.currency_name_'.session('Local_Currency'))}} </a>
                                 <ul class="dropdown">

@@ -149,6 +149,11 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label>{{__('admin/public.seo_canonical')}} :</label>
+                                    <textarea name="seo_canonical" id="seo_canonical" class="form-control" rows="5" cols="30" required>{{$news->seo_canonical}}</textarea>
+
+                                </div>
 
 
 

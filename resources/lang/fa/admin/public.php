@@ -196,4 +196,5 @@ return [
     'seo_follow_follow' =>'follow',
     'seo_description' =>'description',
     'seo_title' =>'title',
+    'seo_canonical'=>'canonical',
 ];

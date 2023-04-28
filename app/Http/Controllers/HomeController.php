@@ -8,6 +8,7 @@ use App\ProductCategories;
 use App\Products;
 use App\Providers\MyProvider;
 use App\WebPages;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
@@ -31,11 +32,17 @@ class HomeController extends Controller
         $category = ProductCategories::where('slug',$slug)->first();
         if (!isset($category))
             return redirect()->route('web.404');
-        // محصولات ویژه
-        $specialProducts = Products::where([['type', '=', 'special'], ['status', '=', '1']])->limit(10)->get();
-        //جدید ترین محصولات
-        $newProducts = Products::where('status', '=', '1')->orderBy('created_at', 'desc')->limit(10)->get();
-        return view('web.pages.category', compact('category', 'specialProducts', 'newProducts'));
+
+        $categories = ProductCategories::where([['parent_id', '=', $category->id], ['status', '=', '1']])->orderBy('priority', 'desc')->get();
+        if (!isset($categories))
+            return redirect()->route('web.404');
+
+
+//        // محصولات ویژه
+//        $specialProducts = Products::where([['type', '=', 'special'], ['status', '=', '1']])->limit(10)->get();
+//        //جدید ترین محصولات
+//        $newProducts = Products::where('status', '=', '1')->orderBy('created_at', 'desc')->limit(10)->get();
+        return view('web.pages.category', compact('category','categories'));
     }
 
     public function showProduct($slug)
@@ -116,6 +123,9 @@ class HomeController extends Controller
 
     public function showAllMilegerd()
     {
+        $category = ProductCategories::find(19);
+        return redirect(route('web.show.category',$category->slug));
+
         $pageDetails = WebPages::find(4);
         if (!isset($pageDetails) OR empty($pageDetails))
             return redirect()->route('web.404');

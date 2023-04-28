@@ -7,6 +7,7 @@
     <meta property="og:description"
           content="{{$page->seo_description}} "/>
     <meta name="robots" content="{{$page->seo_index?"index":"noindex"}},{{$page->seo_follow?"follow":"nofollow"}}">
+    <link rel="canonical" href="{{$page->seo_canonical??url()->current()}}">
 @endsection
 @section('content')
     <section class="padding-top-index">

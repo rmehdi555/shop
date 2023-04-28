@@ -7,6 +7,7 @@
     <meta property="og:description"
           content="{{$categoryN->seo_description}} "/>
     <meta name="robots" content="{{$categoryN->seo_index?"index":"noindex"}},{{$categoryN->seo_follow?"follow":"nofollow"}}">
+    <link rel="canonical" href="{{$categoryN->seo_canonical??url()->current()}}">
 @endsection
 @section('content')
 
