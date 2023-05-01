@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.seo_canonical')}} :</label>
-                                    <textarea name="seo_canonical" id="seo_canonical" class="form-control" rows="5" cols="30" required></textarea>
+                                    <textarea name="seo_canonical" id="seo_canonical" class="form-control" rows="5" cols="30"></textarea>
 
                                 </div>
 
