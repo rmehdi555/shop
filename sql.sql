@@ -1,8 +1,2 @@
-ALTER TABLE `news` ADD `seo_canonical` TEXT NULL DEFAULT NULL AFTER `seo_index`;
-ALTER TABLE `product_categories` ADD `seo_canonical` TEXT NULL DEFAULT NULL AFTER `seo_index`;
-ALTER TABLE `products` ADD `seo_canonical` TEXT NULL DEFAULT NULL AFTER `seo_index`;
-ALTER TABLE `news_categories` ADD `seo_canonical` TEXT NULL DEFAULT NULL AFTER `seo_index`;
-ALTER TABLE `web_pages` ADD `seo_canonical` TEXT NULL DEFAULT NULL AFTER `seo_index`;
-
-
-
+ALTER TABLE `products` ROW_FORMAT=DYNAMIC;
+ALTER TABLE `products` ADD `schema` TEXT NULL AFTER `seo_index`, ADD `factory_id` INT(11) NOT NULL DEFAULT '1' AFTER `schema`, ADD `standard_id` INT(11) NOT NULL DEFAULT '1' AFTER `factory_id`, ADD `size_id` INT(11) NOT NULL DEFAULT '1' AFTER `standard_id`;

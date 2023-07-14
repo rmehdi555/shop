@@ -93,6 +93,23 @@
 
         });
     });
+
+
+
+    $("#select-product-category").change(function () {
+        $(".option-factory").hide();
+        $("#select-factory").val(0);
+        $(".option-size").hide();
+        $("#select-size").val(0);
+        $(".option-standard").hide();
+        $("#select-standard").val(0);
+        var id = $(this).val();
+        $(".option-factory-" + id).show();
+        $(".option-size-" + id).show();
+        $(".option-standard-" + id).show();
+    });
+
+
 </script>
 <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 

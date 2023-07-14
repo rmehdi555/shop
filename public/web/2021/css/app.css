@@ -20422,3 +20422,44 @@ ol {
 img {
     max-width: 100%;
 }
+
+
+
+
+
+/* Style for mega menu */
+.mega-menu {
+    position: static !important;
+}
+
+.mega-menu .dropdown-menu {
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding: 20px;
+}
+
+.mega-menu .nav-link {
+    display: block;
+    font-weight: bold;
+}
+
+.mega-menu .nav-link:hover,
+.mega-menu .nav-link:focus {
+    color: #007bff;
+}
+.bg-light {
+    background-color: #dd1515 !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #ffffff;
+}
+.nav-link {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/*.points-table .p-all {*/
+    /*background: #ff7788;*/
+/*}*/

@@ -20,6 +20,9 @@
                             <h2>{{__('admin/public.products_list')}}</h2>
                         </div>
                         <div class="body">
+                            <a href="{{ route('products.create',['SID' => '200']) }}" class="btn btn-primary m-b-15">
+                                <i class="icon wb-plus" aria-hidden="true"></i> {{__('admin/public.product_add')}}
+                            </a>
 
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover js-basic-example dataTable table-custom">
@@ -47,11 +50,11 @@
                                                       method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <a href="{{ route('products.show',$product->id) }}"
-                                                       class="btn btn-sm btn-icon btn-pure btn-default on-default m-r-5 button-show"
-                                                       data-toggle="tooltip"
-                                                       data-original-title="{{__('admin/public.show')}}"><i
-                                                                class="icon-eye" aria-hidden="true"></i></a>
+                                                    {{--<a href="{{ route('products.show',$product->id) }}"--}}
+                                                       {{--class="btn btn-sm btn-icon btn-pure btn-default on-default m-r-5 button-show"--}}
+                                                       {{--data-toggle="tooltip"--}}
+                                                       {{--data-original-title="{{__('admin/public.show')}}"><i--}}
+                                                                {{--class="icon-eye" aria-hidden="true"></i></a>--}}
                                                     <a href="{{ route('products.edit',$product->id) }}"
                                                        class="btn btn-sm btn-icon btn-pure btn-default on-default m-r-5 button-edit"
                                                        data-toggle="tooltip"

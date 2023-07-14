@@ -29,6 +29,7 @@ class CreateWebPagesTable extends Migration
             $table->text('seo_description')->nullable();
             $table->integer('seo_follow')->default(1);
             $table->integer('seo_index')->nullable(1);
+            $table->text('seo_canonical')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -37,11 +37,14 @@ class ProductRequest extends FormRequest
 
             $result=array_merge($result , [
                 'images' => 'required|mimes:png,bmp,jpg,jpeg,bmp',
-                'product_categories_id' => 'required',
+                'product_categories_id' => 'required|integer|exists:product_categories,id',
                 'price'=>'required|integer',
                 'discount'=>'required|integer|digits_between:0,100',
                 'place_of_delivery'=>'required',
                 'status'=>'required|integer',
+                'standard_id'=>'required|integer',
+                'size_id'=>'required|integer',
+                'factory_id'=>'required|integer',
                 'priority'=>'required|integer',
                 'seo_title'=>'required|max:250',
                 'seo_description'=>'required|max:250',
@@ -52,11 +55,14 @@ class ProductRequest extends FormRequest
         }
 
         $result=array_merge($result , [
-            'product_categories_id' => 'required',
+            'product_categories_id' => 'required|integer|exists:product_categories,id',
             'price'=>'required|integer',
             'discount'=>'required|integer|digits_between:0,100',
             'place_of_delivery'=>'required',
             'status'=>'required|integer',
+            'standard_id'=>'required|integer',
+            'size_id'=>'required|integer',
+            'factory_id'=>'required|integer',
             'priority'=>'required|integer',
             'seo_title'=>'required|max:250',
             'seo_description'=>'required|max:250',

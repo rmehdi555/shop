@@ -15,30 +15,57 @@
     </section>
 
     <!-- Latest Section Begin -->
+    {{--<section class="latest-section">--}}
+        {{--<div class="container">--}}
+            {{--<div class="row">--}}
+                {{--@if(isset($news[0]))--}}
+                    {{--<div class="col-lg-4">--}}
+
+                        {{--<x-web-show-news-in-index :news="$news">--}}
+                        {{--</x-web-show-news-in-index>--}}
+                    {{--</div>--}}
+
+
+
+                {{--@endif--}}
+
+                {{--@if(isset($categories[0]))--}}
+                    {{--<div class="col-lg-8">--}}
+                        {{--<x-web-show-product-in-index :category="$categories[0]">--}}
+                        {{--</x-web-show-product-in-index>--}}
+
+                    {{--</div>--}}
+
+
+
+                {{--@endif--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</section>--}}
+    <!-- Latest Section End -->
+
+
+    <!-- Latest Section Begin -->
     <section class="latest-section">
         <div class="container">
             <div class="row">
-                @if(isset($news[0]))
-                    <div class="col-lg-4">
+                @if(isset($products[1][0]))
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h2>
+                                <a href="{{ route('web.show.factory',$products[1][0]->factoryDetails->slug) }}" target="_blank">{{\App\Providers\MyProvider::_text($products[1][0]->factoryDetails->title)}} :</a>
+                            </h2>
+                            <p>
+                                {{\App\Providers\MyProvider::_text($products[1][0]->factoryDetails->description)}}
+                            </p>
+                        </div>
 
-                        <x-web-show-news-in-index :news="$news">
-                        </x-web-show-news-in-index>
-                    </div>
-
-
-
-                @endif
-
-                @if(isset($categories[0]))
-                    <div class="col-lg-8">
-                        <x-web-show-product-in-index :category="$categories[0]">
-                        </x-web-show-product-in-index>
+                        <x-web-show-product-in-factory :products="$products[1]">
+                        </x-web-show-product-in-factory>
 
                     </div>
-
-
-
                 @endif
+
             </div>
         </div>
     </section>
@@ -77,33 +104,31 @@
     </section>
 
 
+    <!-- Latest Section Begin -->
     <section class="latest-section">
         <div class="container">
             <div class="row">
-                @if(isset($articles[0]))
-                    <div class="col-lg-4">
+                @if(isset($products[2][0]))
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h2>
+                                <a href="{{ route('web.show.factory',$products[2][0]->factoryDetails->slug) }}" target="_blank">{{\App\Providers\MyProvider::_text($products[2][0]->factoryDetails->title)}} :</a>
+                            </h2>
+                            <p>
+                                {{\App\Providers\MyProvider::_text($products[2][0]->factoryDetails->description)}}
+                            </p>
+                        </div>
 
-                        <x-web-show-article-in-index :articles="$articles">
-                        </x-web-show-article-in-index>
-                    </div>
-
-
-
-                @endif
-                @if(isset($categories[1]))
-                    <div class="col-lg-8">
-
-                        <x-web-show-product-in-index :category="$categories[1]">
-                        </x-web-show-product-in-index>
+                        <x-web-show-product-in-factory :products="$products[2]">
+                        </x-web-show-product-in-factory>
 
                     </div>
-
-
-
                 @endif
+
             </div>
         </div>
     </section>
+    <!-- Latest Section End -->
 
     <section class="club-section spad" style="box-shadow: 0 0 10px 0 rgba(0,0,0,.15); margin: 30px; text-align: justify;">
         <div class="container">
@@ -163,36 +188,31 @@
             </div>
         </div>
     </section>
+    <!-- Latest Section Begin -->
     <section class="latest-section">
         <div class="container">
             <div class="row">
-                @if(isset($categories[2]))
-                    <div class="col-lg-6">
+                @if(isset($products[3][0]))
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h2>
+                                <a href="{{ route('web.show.factory',$products[3][0]->factoryDetails->slug) }}" target="_blank">{{\App\Providers\MyProvider::_text($products[3][0]->factoryDetails->title)}} :</a>
+                            </h2>
+                            <p>
+                                {{\App\Providers\MyProvider::_text($products[3][0]->factoryDetails->description)}}
+                            </p>
+                        </div>
 
-                        <x-web-show-product-in-index :category="$categories[2]">
-                        </x-web-show-product-in-index>
-
-                    </div>
-
-
-
-                @endif
-
-                @if(isset($categories[3]))
-                    <div class="col-lg-6">
-
-                        <x-web-show-product-in-index :category="$categories[3]">
-                        </x-web-show-product-in-index>
+                        <x-web-show-product-in-factory :products="$products[3]">
+                        </x-web-show-product-in-factory>
 
                     </div>
-
-
-
                 @endif
+
             </div>
         </div>
     </section>
-
+    <!-- Latest Section End -->
 
     <section class="club-section spad" style="box-shadow: 0 0 10px 0 rgba(0,0,0,.15); margin: 30px; text-align: justify;">
         <div class="container">

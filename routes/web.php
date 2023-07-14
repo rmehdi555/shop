@@ -28,6 +28,11 @@ Route::middleware('language', 'visit')->group(function () {
     Route::get('index', 'HomeController@index')->name('web.index');
     Route::get('/', 'HomeController@index')->name('web.home');
     Route::get('/category/{slug}', 'HomeController@showCategory')->name('web.show.category');
+
+    Route::get('/factory/{slug}', 'HomeController@showFactory')->name('web.show.factory');
+    Route::get('/size/{slug}', 'HomeController@showSize')->name('web.show.size');
+    Route::get('/standard/{slug}', 'HomeController@showStandard')->name('web.show.standard');
+
     Route::get('/product/{slug}', 'HomeController@showProduct')->name('web.show.product');
 
     Route::get('/news/category/{slug}', 'HomeController@showNewsCategory')->name('web.show.news.category');
@@ -97,6 +102,10 @@ Route::middleware('auth', 'checkAdmin')->namespace('Admin')->prefix('admin')->gr
     Route::get('/payments/show', 'PaymentController@show')->name('admin.payments.show');
     Route::post('/payments/store', 'PaymentController@store')->name('admin.payments.store');
     Route::post('/payments/update', 'PaymentController@update')->name('admin.payments.update');
+
+    Route::resource('factory', 'FactoryController');
+    Route::resource('size', 'SizeController');
+    Route::resource('standard', 'StandardController');
 
 
     Route::get('/test/irandargah', 'TestIrandargahCotroller@index')->name('admin.test.irandargah.index');

@@ -100,5 +100,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(OnlinePayment::class, 'user_id');
     }
+    public function factory()
+    {
+        return $this->hasMany(Factories::class);
+    }
+    public function size()
+    {
+        return $this->hasMany(Sizes::class);
+    }
+    public function standard()
+    {
+        return $this->hasMany(Standards::class);
+    }
+
+
 
 }

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Factories;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\ProductCategories;
 use App\ProductPriceLogs;
 use App\Products;
 use App\Providers\MyProvider;
+use App\Sizes;
+use App\Standards;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -35,7 +38,10 @@ class ProductsController extends AdminController
     {
         $SID = $request->SID;
         $categories = ProductCategories::with('children')->get();
-        return view('admin.products.create', compact('SID', 'categories'));
+        $factories = Factories::all();
+        $sizes = Sizes::all();
+        $standards = Standards::all();
+        return view('admin.products.create', compact('SID', 'categories', 'factories', 'sizes', 'standards'));
     }
 
     /**
@@ -57,7 +63,7 @@ class ProductsController extends AdminController
         $inputs["description"] = MyProvider::_insert_text($inputs, 'description');
         $inputs["body"] = MyProvider::_insert_text($inputs, 'body');
         $inputs["price_old"] = $inputs["price"];
-//        $inputs["tags"] = str_replace('،', ',', $inputs["tags"]);
+        $inputs["tags"] = ' ';
 
         auth()->user()->product()->create($inputs);
 
@@ -88,9 +94,12 @@ class ProductsController extends AdminController
     {
         $SID = 200;
         $products = Products::find($products);
+        $factories = Factories::all();
+        $sizes = Sizes::all();
+        $standards = Standards::all();
         $categories = ProductCategories::with('children')->get();
 
-        return view('admin.products.edit', compact('products', 'categories', 'SID'));
+        return view('admin.products.edit', compact('products', 'categories', 'SID', 'factories', 'sizes', 'standards'));
     }
 
     /**
@@ -115,7 +124,7 @@ class ProductsController extends AdminController
         $inputs["description"] = MyProvider::_insert_text($inputs, 'description');
         $inputs["body"] = MyProvider::_insert_text($inputs, 'body');
         $inputs["price_old"] = $products->price;
-//        $inputs["tags"] = str_replace('،', ',', $inputs["tags"]);
+        $inputs["tags"] = ' ';
         $inputs['updated_at'] = Carbon::now()->timestamp;;
 
         $products->update($inputs);

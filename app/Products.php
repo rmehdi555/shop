@@ -16,7 +16,7 @@ class Products extends Model
     use SoftDeletes;
     protected $fillable = [
         'title', 'slug','product_categories_id','discount','type','description','body','price','price_usd','price_euro','price_old','size','standard','unit','images','tags','priority','status','place_of_delivery','updated_at',
-        'seo_title','seo_description','seo_follow','seo_index','seo_canonical'
+        'seo_title','seo_description','seo_follow','seo_index','seo_canonical','schema','factory_id','standard_id','size_id'
     ];
     protected $casts = [
         'images' => 'array'
@@ -49,6 +49,21 @@ class Products extends Model
     public function category()
     {
         return $this->hasOne('App\ProductCategories', 'id', 'product_categories_id');
+    }
+
+    public function factoryDetails()
+    {
+        return $this->hasOne(Factories::class, 'id', 'factory_id');
+    }
+
+    public function sizeDetails()
+    {
+        return $this->hasOne(Sizes::class, 'id', 'size_id');
+    }
+
+    public function standardDetails()
+    {
+        return $this->hasOne(Standards::class, 'id', 'standard_id');
     }
 
 }

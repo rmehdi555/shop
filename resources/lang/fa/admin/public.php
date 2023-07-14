@@ -197,4 +197,12 @@ return [
     'seo_description' =>'description',
     'seo_title' =>'title',
     'seo_canonical'=>'canonical',
+    'factory_list'=>'لیست کارخانه ها',
+    'factory_add' => 'اضافه کردن کارخانه جدید',
+    'schema' => 'schema',
+    'size_list'=>'لیست سایز ها',
+    'size_add' => 'اضافه کردن سایز جدید',
+    'standard_list'=>'لیست استاندارد ها',
+    'standard_add' => 'اضافه کردن استاندارد جدید',
+    'factory' => 'کارخانه'
 ];

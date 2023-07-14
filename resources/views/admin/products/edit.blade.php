@@ -69,10 +69,14 @@
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.product_categories_id')}} :</label>
                                     <div class="multiselect_div">
-                                        <select id="single-selection" name="product_categories_id"
-                                                class="multiselect multiselect-custom">
+                                        <select name="product_categories_id"
+                                                class="multiselect multiselect-custom single-selection form-control"
+                                                id="select-product-category" required>
+                                            <option value="0" selected
+                                                    disabled>{{__('admin/public.select_option')}}</option>
                                             @foreach($categories as $category)
-                                                <option value="{{$category->id}}" {{($products->product_categories_id==$category->id)?"selected":""}}>{{\App\Providers\MyProvider::_text($category->title)}}</option>
+                                                <option value="{{$category->id}}"
+                                                        id="option-product-category-id" {{($products->product_categories_id==$category->id)?"selected":""}}>{{\App\Providers\MyProvider::_text($category->title)}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -94,16 +98,86 @@
                                     <input type="text" name="price_euro" class="form-control"
                                            value="{{$products->price_euro}}" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.size')}} :</label>
-                                    <input type="text" name="size" class="form-control" value="{{$products->size}}"
-                                           required>
+                                <div class="row">
+                                    <div class="form-group col-lg-4 col-md-12">
+                                        <label>{{__('admin/public.size')}} :</label>
+                                        <div class="multiselect_div">
+                                            <select name="size_id"
+                                                    class="multiselect multiselect-custom single-selection form-control"
+                                                    id="select-size" required>
+                                                <option value="0" selected
+                                                        disabled>{{__('admin/public.select_option')}}</option>
+                                                @foreach($sizes as $item)
+                                                    <option value="{{$item->id}}"
+                                                            class="option-size option-size-{{$item->product_categories_id}}"
+                                                            id="option-size-{{$item->id}}" {{($products->size_id==$item->id)?"selected":""}}>{{\App\Providers\MyProvider::_text($item->title)}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-4 col-md-12">
+                                        <br>
+                                        <a href="{{ route('size.create',['SID' => '202']) }}"
+                                           class="btn btn-primary m-b-15">
+                                            <i class="icon wb-plus"
+                                               aria-hidden="true"></i> {{__('admin/public.size_add')}}
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>{{__('admin/public.standard')}} :</label>
-                                    <input type="text" name="standard" class="form-control"
-                                           value="{{$products->standard}}" required>
+                                <div class="row">
+                                    <div class="form-group col-lg-4 col-md-12">
+                                        <label>{{__('admin/public.standard')}} :</label>
+                                        <div class="multiselect_div">
+                                            <select name="standard_id"
+                                                    class="multiselect multiselect-custom single-selection form-control"
+                                                    id="select-standard" required>
+                                                <option value="0" selected
+                                                        disabled>{{__('admin/public.select_option')}}</option>
+                                                @foreach($standards as $item)
+                                                    <option value="{{$item->id}}"
+                                                            class="option-standard option-standard-{{$item->product_categories_id}}"
+                                                            id="option-standard-{{$item->id}}" {{($products->standard_id==$item->id)?"selected":""}}>{{\App\Providers\MyProvider::_text($item->title)}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-4 col-md-12">
+                                        <br>
+                                        <a href="{{ route('standard.create',['SID' => '202']) }}"
+                                           class="btn btn-primary m-b-15">
+                                            <i class="icon wb-plus"
+                                               aria-hidden="true"></i> {{__('admin/public.standard_add')}}
+                                        </a>
+                                    </div>
                                 </div>
+                                <div class="row">
+
+                                    <div class="form-group col-lg-4 col-md-12">
+                                        <label>{{__('admin/public.factory')}} :</label>
+                                        <div class="multiselect_div">
+                                            <select name="factory_id"
+                                                    class="multiselect multiselect-custom single-selection form-control"
+                                                    id="select-factory" required>
+                                                <option value="0" selected
+                                                        disabled>{{__('admin/public.select_option')}}</option>
+                                                @foreach($factories as $item)
+                                                    <option value="{{$item->id}}"
+                                                            class="option-factory option-factory-{{$item->product_categories_id}}"
+                                                            id="option-factory-{{$item->id}}" {{($products->factory_id==$item->id)?"selected":""}}>{{\App\Providers\MyProvider::_text($item->title)}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-4 col-md-12">
+                                        <br>
+                                        <a href="{{ route('factory.create',['SID' => '202']) }}"
+                                           class="btn btn-primary m-b-15">
+                                            <i class="icon wb-plus"
+                                               aria-hidden="true"></i> {{__('admin/public.factory_add')}}
+                                        </a>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label>{{__('admin/public.discount')}} (0-100 %):</label>
                                     <input type="number" min="0" max="100" name="discount" class="form-control"
@@ -173,17 +247,20 @@
 
                                 <div class="form-group">
                                     <label>{{__('admin/public.seo_title')}} :</label>
-                                    <input type="text" name="seo_title" class="form-control" value="{{$products->seo_title}}" required>
+                                    <input type="text" name="seo_title" class="form-control"
+                                           value="{{$products->seo_title}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.seo_description')}} :</label>
-                                    <textarea name="seo_description" id="seo_description" class="form-control" rows="5" cols="30" required>{{$products->seo_description}}</textarea>
+                                    <textarea name="seo_description" id="seo_description" class="form-control" rows="5"
+                                              cols="30" required>{{$products->seo_description}}</textarea>
 
                                 </div>
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.seo_follow')}} :</label>
                                     <div class="multiselect_div">
-                                        <select id="single-selection" name="seo_follow" class="multiselect multiselect-custom" >
+                                        <select id="single-selection" name="seo_follow"
+                                                class="multiselect multiselect-custom">
                                             <option value="0">{{__('admin/public.seo_follow_no_follow')}}</option>
                                             <option value="1" {{$products->seo_follow?"selected":""}}>{{__('admin/public.seo_follow_follow')}}</option>
                                         </select>
@@ -192,7 +269,8 @@
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.seo_index')}} :</label>
                                     <div class="multiselect_div">
-                                        <select id="single-selection" name="seo_index" class="multiselect multiselect-custom" >
+                                        <select id="single-selection" name="seo_index"
+                                                class="multiselect multiselect-custom">
                                             <option value="0">{{__('admin/public.seo_index_no_index')}}</option>
                                             <option value="1" {{$products->seo_index?"selected":""}}>{{__('admin/public.seo_index_index')}}</option>
                                         </select>
@@ -203,6 +281,11 @@
                                     <textarea name="seo_canonical" id="seo_canonical" class="form-control" rows="5"
                                               cols="30">{{$products->seo_canonical}}</textarea>
 
+                                </div>
+                                <div class="form-group">
+                                    <label>{{__('admin/public.schema')}} :</label>
+                                    <textarea name="schema" id="schema" class="form-control" rows="5"
+                                              cols="30">{{$products->schema}}</textarea>
                                 </div>
 
                                 <br>

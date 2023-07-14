@@ -37,7 +37,7 @@
                                     </li>
                                     <li>
                                         <h5>{{__('web/public.size')}}</h5>
-                                        <p>{{empty($product->size)?"_":$product->size}}</p>
+                                        <p>{{empty($product->sizeDetails->title)?"_":$product->sizeDetails->title}}</p>
                                     </li>
                                     <li>
                                         <h5>{{__('web/public.place_of_delivery')}}</h5>
