@@ -1,2 +1,0 @@
-ALTER TABLE `products` ROW_FORMAT=DYNAMIC;
-ALTER TABLE `products` ADD `schema` TEXT NULL AFTER `seo_index`, ADD `factory_id` INT(11) NOT NULL DEFAULT '1' AFTER `schema`, ADD `standard_id` INT(11) NOT NULL DEFAULT '1' AFTER `factory_id`, ADD `size_id` INT(11) NOT NULL DEFAULT '1' AFTER `standard_id`;

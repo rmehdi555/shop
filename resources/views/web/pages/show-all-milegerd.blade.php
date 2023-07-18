@@ -22,8 +22,8 @@
                     @if(isset($category->activeProducts()[0]))
                         <div class="col-lg-12">
 
-                            <x-web-show-product-in-category :category="$category">
-                            </x-web-show-product-in-category>
+                            <x-web-show-product-in-factory :category="$category">
+                            </x-web-show-product-in-factory>
 
                         </div>
                     @endif

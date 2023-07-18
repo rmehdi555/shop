@@ -126,19 +126,22 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="megaMenuDropdown">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                <a class="dropdown-item" href="https://assen.ir/category/%D9%85%DB%8C%D9%84%DA%AF%D8%B1%D8%AF">قیمت امروز میلگرد </a>
+                            </div>
+                            <div class="col-md-3">
                                 <h5>کارخانه</h5>
                                 @foreach($webMenusHeaderMilegerd['factory'] as $item)
                                     <a class="dropdown-item" href="{{ route('web.show.factory',$item->slug) }}">{{$item->title}}</a>
                                 @endforeach
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <h5>سایز</h5>
                                 @foreach($webMenusHeaderMilegerd['size'] as $item)
                                     <a class="dropdown-item" href="{{ route('web.show.size',$item->slug) }}">{{$item->title}}</a>
                                 @endforeach
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <h5>استاندارد</h5>
                                 @foreach($webMenusHeaderMilegerd['standard'] as $item)
                                     <a class="dropdown-item" href="{{ route('web.show.standard',$item->slug) }}">{{$item->title}}</a>
@@ -156,6 +159,9 @@
                     <div class="dropdown-menu" aria-labelledby="megaMenuDropdown">
                         <div class="row">
                             <div class="col-md-4">
+                                <a class="dropdown-item" href="https://assen.ir/category/%D9%86%D8%A8%D8%B4%DB%8C">قیمت امروز نبشی </a>
+                            </div>
+                            <div class="col-md-4">
                                 <h5>کارخانه</h5>
                                 @foreach($webMenusHeaderNabshi['factory'] as $item)
                                     <a class="dropdown-item" href="{{ route('web.show.factory',$item->slug) }}">{{$item->title}}</a>
@@ -167,12 +173,12 @@
                                     <a class="dropdown-item" href="{{ route('web.show.size',$item->slug) }}">{{$item->title}}</a>
                                 @endforeach
                             </div>
-                            <div class="col-md-4">
-                                <h5>استاندارد</h5>
-                                @foreach($webMenusHeaderNabshi['standard'] as $item)
-                                    <a class="dropdown-item" href="{{ route('web.show.standard',$item->slug) }}">{{$item->title}}</a>
-                                @endforeach
-                            </div>
+                            {{--<div class="col-md-3">--}}
+                                {{--<h5>استاندارد</h5>--}}
+                                {{--@foreach($webMenusHeaderNabshi['standard'] as $item)--}}
+                                    {{--<a class="dropdown-item" href="{{ route('web.show.standard',$item->slug) }}">{{$item->title}}</a>--}}
+                                {{--@endforeach--}}
+                            {{--</div>--}}
                         </div>
                     </div>
                 </li>
@@ -185,6 +191,9 @@
                     <div class="dropdown-menu" aria-labelledby="megaMenuDropdown">
                         <div class="row">
                             <div class="col-md-4">
+                                <a class="dropdown-item" href="https://assen.ir/category/%D9%88%D8%B1%D9%82-%D8%B3%DB%8C%D8%A7%D9%87">قیمت امروز ورق سیاه </a>
+                            </div>
+                            <div class="col-md-4">
                                 <h5>کارخانه</h5>
                                 @foreach($webMenusHeaderVaraghSiea['factory'] as $item)
                                     <a class="dropdown-item" href="{{ route('web.show.factory',$item->slug) }}">{{$item->title}}</a>
@@ -196,12 +205,12 @@
                                     <a class="dropdown-item" href="{{ route('web.show.size',$item->slug) }}">{{$item->title}}</a>
                                 @endforeach
                             </div>
-                            <div class="col-md-4">
-                                <h5>استاندارد</h5>
-                                @foreach($webMenusHeaderVaraghSiea['standard'] as $item)
-                                    <a class="dropdown-item" href="{{ route('web.show.standard',$item->slug) }}">{{$item->title}}</a>
-                                @endforeach
-                            </div>
+                            {{--<div class="col-md-4">--}}
+                                {{--<h5>استاندارد</h5>--}}
+                                {{--@foreach($webMenusHeaderVaraghSiea['standard'] as $item)--}}
+                                    {{--<a class="dropdown-item" href="{{ route('web.show.standard',$item->slug) }}">{{$item->title}}</a>--}}
+                                {{--@endforeach--}}
+                            {{--</div>--}}
                         </div>
                     </div>
                 </li>

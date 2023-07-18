@@ -13,14 +13,23 @@
     <section class="padding-top-index">
     </section>
     <!-- Latest Section Begin -->
+
     <section class="latest-section">
         <div class="container">
             <div class="row">
                 @if(isset($category->activeProducts()[0]))
                     <div class="col-lg-12">
+                        <div class="section-title">
+                            <h2>
+                                <a href="{{ route('web.show.category',$category->slug) }}" target="_blank">{{\App\Providers\MyProvider::_text($category->title)}} :</a>
+                            </h2>
+                            <p>
+                                {{\App\Providers\MyProvider::_text($category->description)}}
+                            </p>
+                        </div>
 
-                        <x-web-show-product-in-category :category="$category">
-                        </x-web-show-product-in-category>
+                        <x-web-show-product-in-factory :products="$category->activeProducts(50)">
+                        </x-web-show-product-in-factory>
 
                     </div>
                 @endif

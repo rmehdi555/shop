@@ -1,5 +1,5 @@
 
-<table class="table table-striped table-responsive-stack " id="tableOne">
+<table class="table table-striped table-responsive-stack " id="tableOne-{{isset($products[0]->id)?$products[0]->id:1}}">
     <thead class="thead-dark">
 
     <tr>
@@ -54,7 +54,7 @@
                 </td>
                 <td class="hidden-mobile-view  th-td-8">-</td>
             @elseif($product->price<$product->price_old)
-                <td class="th-td-16">
+                <td class="th-td-8">
                     <span class="color-done-price" style="font-weight: bold;">{{$price}}</span>
                 </td>
                 <td class="hidden-mobile-view  th-td-8">
