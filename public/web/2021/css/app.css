@@ -20463,3 +20463,11 @@ img {
 /*.points-table .p-all {*/
     /*background: #ff7788;*/
 /*}*/
+
+
+@media (max-width: 640px) {
+    .breadcrumb {
+        margin-top: 25px;
+
+    }
+}

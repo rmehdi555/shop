@@ -1,6 +1,27 @@
 @extends('web.master')
 @section('meta')
     <title> {{$factory->seo_title}} </title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "آسن",
+        "item": "{{route('web.home')}}"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{\App\Providers\MyProvider::_text($factory->category->title)}}",
+        "item": "{{route('web.show.category',$factory->category->slug)}}"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{\App\Providers\MyProvider::_text($factory->title)}}"
+      }]
+    }
+    </script>
     <meta name="description"
           content="{{$factory->seo_description}}"/>
     <meta property="og:title" content=" {{$factory->seo_title}} "/>
@@ -14,6 +35,13 @@
     </section>
     <!-- Latest Section Begin -->
     <section class="latest-section">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home"></i><a href="{{route('web.home')}}">آسن</a></li>
+                <li class="breadcrumb-item"><a href="{{route('web.show.category',$factory->category->slug)}}">{{\App\Providers\MyProvider::_text($factory->category->title)}}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{\App\Providers\MyProvider::_text($factory->title)}}</li>
+            </ol>
+        </nav>
         <div class="container">
             <div class="row">
                 @if(isset($products))

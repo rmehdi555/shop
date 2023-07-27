@@ -41,4 +41,9 @@ class Sizes extends Model
             ]
         ];
     }
+
+    public function category()
+    {
+        return $this->hasOne('App\ProductCategories', 'id', 'product_categories_id');
+    }
 }

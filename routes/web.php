@@ -21,9 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('language', 'visit')->group(function () {
     //Auth::routes();
 
-    Route::get('/test', function () {
-        event(new \App\Events\UserActivation(\App\User::find(5)));
-    })->name('web.home');
+//    Route::get('/test', function () {
+//        event(new \App\Events\UserActivation(\App\User::find(5)));
+//    })->name('web.home');
 
     Route::get('index', 'HomeController@index')->name('web.index');
     Route::get('/', 'HomeController@index')->name('web.home');

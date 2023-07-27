@@ -1,6 +1,22 @@
 @extends('web.master')
 @section('meta')
     <title> {{$category->seo_title}} </title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "آسن",
+        "item": "{{route('web.home')}}"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{\App\Providers\MyProvider::_text($category->title)}}"
+      }]
+    }
+    </script>
     <meta name="description"
           content="{{$category->seo_description}}"/>
     <meta property="og:title" content=" {{$category->seo_title}} "/>
@@ -15,6 +31,12 @@
     <!-- Latest Section Begin -->
 
     <section class="latest-section">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home"></i><a href="{{route('web.home')}}">آسن</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{\App\Providers\MyProvider::_text($category->title)}}</li>
+            </ol>
+        </nav>
         <div class="container">
             <div class="row">
                 @if(isset($category->activeProducts()[0]))
