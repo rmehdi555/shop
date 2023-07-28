@@ -79,8 +79,7 @@
     <link rel="canonical" href="{{$product->seo_canonical??url()->current()}}">
 @endsection
 @section('content')
-    <section class="padding-top-index">
-    </section>
+
     <!-- Club Section Begin -->
     <section class="club-section spad" style="padding:10px 10px 10px 10px; ">
         <nav aria-label="breadcrumb">

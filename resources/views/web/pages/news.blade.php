@@ -11,8 +11,6 @@
 @endsection
 @section('content')
 
-    <section class="padding-top-index">
-    </section>
 
     <section class="blog-details-section spad">
         <div class="container">

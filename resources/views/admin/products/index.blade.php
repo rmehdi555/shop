@@ -31,6 +31,9 @@
                                         <th>{{__('admin/public.id')}}</th>
                                         <th>{{__('admin/public.title')}}</th>
                                         <th>{{__('admin/public.category')}}</th>
+                                        <th>{{__('admin/public.factory')}}</th>
+                                        <th>{{__('admin/public.size')}}</th>
+                                        <th>{{__('admin/public.standard')}}</th>
                                         <th>{{__('admin/public.priority')}}</th>
                                         <th>{{__('admin/public.status')}}</th>
                                         <th>{{__('admin/public.actions')}}</th>
@@ -42,6 +45,9 @@
                                             <td>{{$product->id}}</td>
                                             <td>{{\App\Providers\MyProvider::_text($product->title)}}</td>
                                             <td>{{\App\Providers\MyProvider::_text($product->category->title??'')}}</td>
+                                            <td>{{\App\Providers\MyProvider::_text($product->factoryDetails->title??'')}}</td>
+                                            <td>{{\App\Providers\MyProvider::_text($product->sizeDetails->title??'')}}</td>
+                                            <td>{{\App\Providers\MyProvider::_text($product->standardDetails->title??'')}}</td>
                                             <td>{{$product->priority}}</td>
                                             <td>{{$product->status?__('admin/public.active'):__('admin/public.inactive')}}</td>
                                             <td class="actions">
@@ -77,10 +83,13 @@
                                     <tr>
                                         <th>{{__('admin/public.id')}}</th>
                                         <th>{{__('admin/public.title')}}</th>
+                                        <th>{{__('admin/public.category')}}</th>
+                                        <th>{{__('admin/public.factory')}}</th>
+                                        <th>{{__('admin/public.size')}}</th>
+                                        <th>{{__('admin/public.standard')}}</th>
                                         <th>{{__('admin/public.priority')}}</th>
                                         <th>{{__('admin/public.status')}}</th>
                                         <th>{{__('admin/public.actions')}}</th>
-                                    </tr>
                                     </tfoot>
                                 </table>
                             </div>

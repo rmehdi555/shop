@@ -31,8 +31,7 @@
     <link rel="canonical" href="{{$size->seo_canonical??url()->current()}}">
 @endsection
 @section('content')
-    <section class="padding-top-index">
-    </section>
+
     <!-- Latest Section Begin -->
     <section class="latest-section">
         <nav aria-label="breadcrumb">

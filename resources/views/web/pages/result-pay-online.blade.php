@@ -11,8 +11,7 @@
           content="آسن, assen, قیمت آهن,شرکت آسن,قیمت میلگرد,کمترین قیمت میلگرد, بازار آهن , قیمت فلزات,قیمت تیرآهن,قیمت لوله آهنی,قیمت نبشی">
 @endsection
 @section('content')
-    <section class="padding-top-index">
-    </section>
+
     <!-- Latest Section Begin -->
 
     <section class="latest-section">

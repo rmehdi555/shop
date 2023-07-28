@@ -26,8 +26,6 @@
     <link rel="canonical" href="{{$category->seo_canonical??url()->current()}}">
 @endsection
 @section('content')
-    <section class="padding-top-index">
-    </section>
     <!-- Latest Section Begin -->
 
     <section class="latest-section">
@@ -50,7 +48,7 @@
                             </p>
                         </div>
 
-                        <x-web-show-product-in-factory :products="$category->activeProducts(50)">
+                        <x-web-show-product-in-factory :products="$category->activeProducts(500)">
                         </x-web-show-product-in-factory>
 
                     </div>

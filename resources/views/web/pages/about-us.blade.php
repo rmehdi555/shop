@@ -10,8 +10,6 @@
     <link rel="canonical" href="{{$page->seo_canonical??url()->current()}}">
 @endsection
 @section('content')
-    <section class="padding-top-index">
-    </section>
     <section class="latest-section">
         <div class="container">
             <div class="row">

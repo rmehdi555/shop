@@ -10,8 +10,6 @@
     <meta name="keywords" content="آسن, assen, قیمت آهن,قیمت روز میلگرد,میلگرد,کمترین قیمت آهن,قیمت میلگرد,قیت تیرآهن,قیمت ورق آهنی,قیمت فلزات,بازار آهن,شرکت آسن">
 @endsection
 @section('content')
-    <section class="padding-top-index">
-    </section>
     <div id="container">
         <div class="container">
             <!-- Breadcrumb Start-->
