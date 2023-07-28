@@ -94,7 +94,9 @@
         });
     });
 
-
+    $(".option-factory").hide();
+    $(".option-size").hide();
+    $(".option-standard").hide();
 
     $("#select-product-category").change(function () {
         $(".option-factory").hide();
