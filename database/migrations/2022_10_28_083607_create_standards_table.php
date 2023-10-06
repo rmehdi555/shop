@@ -16,6 +16,7 @@ class CreateStandardsTable extends Migration
         Schema::create('standards', function (Blueprint $table) {
             $table->id();
             $table->text('title');
+            $table->string('tag_title');
             $table->text('slug')->nullable();
             $table->text('body')->nullable();
             $table->bigInteger('user_id')->unsigned();

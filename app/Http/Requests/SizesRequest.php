@@ -39,6 +39,8 @@ class SizesRequest extends FormRequest
                 'images' => 'required|mimes:png,bmp,jpg,jpeg,bmp',
                 'status'=>'required|integer',
                 'priority'=>'required|integer',
+                'tag_title' => 'required|max:250',
+                'slug' => 'required|max:250',
             ]);
             return $result;
         }
@@ -47,6 +49,8 @@ class SizesRequest extends FormRequest
             'product_categories_id' => 'required|integer|exists:product_categories,id',
             'status'=>'required|integer',
             'priority'=>'required|integer',
+            'tag_title' => 'required|max:250',
+            'slug' => 'required|max:250|unique:sizes,slug,' . $this->size,
         ]);
         return $result;
     }

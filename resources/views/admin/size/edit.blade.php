@@ -26,13 +26,23 @@
                                     <input type="text" name="title_{{$kay}}" class="form-control"
                                            value="{{\App\Providers\MyProvider::_text($size->title,$kay)}}" required>
                                 </div>
-                            <?php
+                                <?php
                                 }
                                 ?>
+                                <div class="form-group">
+                                    <label>{{__('admin/public.tag_title')}}:</label>
+                                    <input type="text" name="tag_title" class="form-control"
+                                           value="{{$size->tag_title}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{__('admin/public.slug')}}:</label>
+                                    <input type="text" name="slug" class="form-control"
+                                           value="{{$size->slug}}" required>
+                                </div>
 
                                 <?php
 
-                                $allLang=\App\Providers\MyProvider::get_languages();
+                                $allLang = \App\Providers\MyProvider::get_languages();
                                 foreach ($allLang as $kay => $value)
                                 {
                                 ?>
@@ -85,23 +95,25 @@
                                 </div>
 
 
-
                                 <hr>
                                 <h3>سئو</h3>
 
                                 <div class="form-group">
                                     <label>{{__('admin/public.seo_title')}} :</label>
-                                    <input type="text" name="seo_title" class="form-control" value="{{$size->seo_title}}" required>
+                                    <input type="text" name="seo_title" class="form-control"
+                                           value="{{$size->seo_title}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('admin/public.seo_description')}} :</label>
-                                    <textarea name="seo_description" id="seo_description" class="form-control" rows="5" cols="30" required>{{$size->seo_description}}</textarea>
+                                    <textarea name="seo_description" id="seo_description" class="form-control" rows="5"
+                                              cols="30" required>{{$size->seo_description}}</textarea>
 
                                 </div>
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.seo_follow')}} :</label>
                                     <div class="multiselect_div">
-                                        <select id="single-selection" name="seo_follow" class="multiselect multiselect-custom" >
+                                        <select id="single-selection" name="seo_follow"
+                                                class="multiselect multiselect-custom">
                                             <option value="0">{{__('admin/public.seo_follow_no_follow')}}</option>
                                             <option value="1" {{$size->seo_follow?"selected":""}}>{{__('admin/public.seo_follow_follow')}}</option>
                                         </select>
@@ -110,7 +122,8 @@
                                 <div class="form-group col-lg-4 col-md-12">
                                     <label>{{__('admin/public.seo_index')}} :</label>
                                     <div class="multiselect_div">
-                                        <select id="single-selection" name="seo_index" class="multiselect multiselect-custom" >
+                                        <select id="single-selection" name="seo_index"
+                                                class="multiselect multiselect-custom">
                                             <option value="0">{{__('admin/public.seo_index_no_index')}}</option>
                                             <option value="1" {{$size->seo_index?"selected":""}}>{{__('admin/public.seo_index_index')}}</option>
                                         </select>

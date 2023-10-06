@@ -47,6 +47,7 @@ class StandardController extends AdminController
         $inputs['images'] = $this->uploadImages($request->file('images'),'standard',["920-380" , "600" , "920"]);
         $inputs["title"]=MyProvider::_insert_text($inputs,'title');
         $inputs["body"]=MyProvider::_insert_text($inputs,'body');
+        $inputs["slug"] = MyProvider::createSlug($inputs["slug"]);
         auth()->user()->standard()->create($inputs);
 
         return redirect(route('standard.index',['SID' => '206']));
@@ -97,6 +98,7 @@ class StandardController extends AdminController
         }
         $inputs["title"]=MyProvider::_insert_text($inputs,'title');
         $inputs["body"]=MyProvider::_insert_text($inputs,'body');
+        $inputs["slug"] = MyProvider::createSlug($inputs["slug"]);
 
         $standard->update($inputs);
 

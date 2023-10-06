@@ -50,6 +50,8 @@ class ProductRequest extends FormRequest
                 'seo_description'=>'required|max:250',
                 'seo_follow'=>'required|integer',
                 'seo_index'=>'required|integer',
+                'tag_title' => 'required|max:250',
+                'slug' => 'required|max:250',
             ]);
             return $result;
         }
@@ -68,6 +70,8 @@ class ProductRequest extends FormRequest
             'seo_description'=>'required|max:250',
             'seo_follow'=>'required|integer',
             'seo_index'=>'required|integer',
+            'tag_title' => 'required|max:250',
+            'slug' => 'required|max:250|unique:products,slug,' . $this->product,
         ]);
         return $result;
 

@@ -46,6 +46,7 @@ class FactoryController extends AdminController
         $inputs = $request->all();
         $inputs['images'] = $this->uploadImages($request->file('images'), 'factory', ["920-380", "600", "920"]);
         $inputs["title"] = MyProvider::_insert_text($inputs, 'title');
+        $inputs["slug"] = MyProvider::createSlug($inputs["slug"]);
         $inputs["body"] = MyProvider::_insert_text($inputs, 'body');
         auth()->user()->factory()->create($inputs);
 
@@ -74,7 +75,7 @@ class FactoryController extends AdminController
     {
         $factory = Factories::find($factory);
         $productCategories = ProductCategories::all();
-        return view('admin.factory.edit', compact('factory','productCategories'));
+        return view('admin.factory.edit', compact('factory', 'productCategories'));
     }
 
     /**
@@ -97,6 +98,7 @@ class FactoryController extends AdminController
         }
         $inputs["title"] = MyProvider::_insert_text($inputs, 'title');
         $inputs["body"] = MyProvider::_insert_text($inputs, 'body');
+        $inputs["slug"] = MyProvider::createSlug($inputs["slug"]);
 
         $factory->update($inputs);
 

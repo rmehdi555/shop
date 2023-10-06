@@ -47,6 +47,7 @@ class SizeController extends AdminController
         $inputs['images'] = $this->uploadImages($request->file('images'),'size',["920-380" , "600" , "920"]);
         $inputs["title"]=MyProvider::_insert_text($inputs,'title');
         $inputs["body"]=MyProvider::_insert_text($inputs,'body');
+        $inputs["slug"] = MyProvider::createSlug($inputs["slug"]);
         auth()->user()->size()->create($inputs);
 
         return redirect(route('size.index',['SID' => '204']));
@@ -97,6 +98,7 @@ class SizeController extends AdminController
         }
         $inputs["title"]=MyProvider::_insert_text($inputs,'title');
         $inputs["body"]=MyProvider::_insert_text($inputs,'body');
+        $inputs["slug"] = MyProvider::createSlug($inputs["slug"]);
 
         $size->update($inputs);
 

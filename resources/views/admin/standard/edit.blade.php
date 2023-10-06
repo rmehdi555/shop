@@ -29,7 +29,16 @@
                             <?php
                                 }
                                 ?>
-
+                                <div class="form-group">
+                                    <label>{{__('admin/public.tag_title')}}:</label>
+                                    <input type="text" name="tag_title" class="form-control"
+                                           value="{{$standard->tag_title}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{__('admin/public.slug')}}:</label>
+                                    <input type="text" name="slug" class="form-control"
+                                           value="{{$standard->slug}}" required>
+                                </div>
                                 <?php
 
                                 $allLang=\App\Providers\MyProvider::get_languages();

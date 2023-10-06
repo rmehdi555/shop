@@ -15,7 +15,7 @@ class Products extends Model
      */
     use SoftDeletes;
     protected $fillable = [
-        'title', 'slug','product_categories_id','discount','type','description','body','price','price_usd','price_euro','price_old','size','standard','unit','images','tags','priority','status','place_of_delivery','updated_at',
+        'title', 'slug','product_categories_id','discount','type','description','body','price','price_usd','price_euro','price_old','size','standard','unit','images','tags','priority','status','place_of_delivery','updated_at','tag_title',
         'seo_title','seo_description','seo_follow','seo_index','seo_canonical','schema','factory_id','standard_id','size_id'
     ];
     protected $casts = [
@@ -31,20 +31,20 @@ class Products extends Model
 
      */
     protected $dates = ['deleted_at'];
-    use Sluggable;
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
-    }
+//    use Sluggable;
+//    /**
+//     * Return the sluggable configuration array for this model.
+//     *
+//     * @return array
+//     */
+//    public function sluggable()
+//    {
+//        return [
+//            'slug' => [
+//                'source' => 'title'
+//            ]
+//        ];
+//    }
 
     public function category()
     {

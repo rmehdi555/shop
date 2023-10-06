@@ -23,30 +23,32 @@ class FactoriesRequest extends FormRequest
      */
     public function rules()
     {
-        $allLang=\App\Providers\MyProvider::get_languages_array();
+        $allLang = \App\Providers\MyProvider::get_languages_array();
         //$allLang=['fa'=>'fa','en'=>'en'];
-        $result=[];
-        foreach ($allLang as $kay => $value)
-        {
-            $result=array_merge($result , [ 'title_'.$kay => 'required|max:250']);
-            $result=array_merge($result , [ 'body_'.$kay => 'required']);
+        $result = [];
+        foreach ($allLang as $kay => $value) {
+            $result = array_merge($result, ['title_' . $kay => 'required|max:250']);
+            $result = array_merge($result, ['body_' . $kay => 'required']);
         }
+        if ($this->method() == 'POST') {
 
-        if($this->method() == 'POST') {
-
-            $result=array_merge($result , [
+            $result = array_merge($result, [
                 'images' => 'required|mimes:png,bmp,jpg,jpeg,bmp',
-                'status'=>'required|integer',
-                'priority'=>'required|integer',
+                'tag_title' => 'required|max:250',
+                'slug' => 'required|max:250|unique:factories,slug',
+                'status' => 'required|integer',
+                'priority' => 'required|integer',
                 'product_categories_id' => 'required|integer|exists:product_categories,id'
             ]);
             return $result;
         }
 
-        $result=array_merge($result , [
+        $result = array_merge($result, [
             'product_categories_id' => 'required|integer|exists:product_categories,id',
-            'status'=>'required|integer',
-            'priority'=>'required|integer',
+            'tag_title' => 'required|max:250',
+            'slug' => 'required|max:250|unique:factories,slug,' . $this->factory,
+            'status' => 'required|integer',
+            'priority' => 'required|integer',
         ]);
         return $result;
     }

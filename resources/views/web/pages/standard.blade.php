@@ -1,6 +1,6 @@
 @extends('web.master')
 @section('meta')
-    <title> {{$standard->seo_title}} </title>
+    <title> {{$standard->tag_title}} </title>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
