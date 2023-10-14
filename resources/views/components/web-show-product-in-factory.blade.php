@@ -1,10 +1,9 @@
-
 <table class="table table-striped table-responsive-stack " id="tableOne-{{isset($products[0]->id)?$products[0]->id:1}}">
     <thead class="thead-dark">
 
     <tr>
 
-        <th class="hidden-mobile-view th-td-8">{{__('web/public.category')}}</th>
+        <th class="hidden-mobile-view th-td-8">{{__('web/public.image')}}</th>
         <th class="th-td-16">{{__('web/public.title')}}</th>
         <th class="th-td-8">{{__('web/public.size')}}</th>
         <th class="th-td-8">{{__('web/public.factory')}}</th>
@@ -21,7 +20,10 @@
 
 
         <tr>
-            <td class="hidden-mobile-view th-td-8">{{$product->category->title}}</td>
+            <td class="hidden-mobile-view th-td-8">
+                <img src="{{asset($product->images["images"]["50"])}}"
+                     alt="{{\App\Providers\MyProvider::_text($product->title)}}">
+            </td>
             <td class="th-td-16"><a href="{{ route('web.show.product',$product->slug) }}"
                                     class="title-link-in-list">{{\App\Providers\MyProvider::_text($product->title)}} </a>
             </td>

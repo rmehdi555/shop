@@ -257,12 +257,12 @@
 
 
 <section class="padding-top-index">
-    <tgju
-            type="ticker-tap"
-            items="131436,137203,137138,137205,137206,131398"
-            columns="dot"
-            speed="35"
-            token="webservice"
-    ></tgju>
-    <script src="https://api.tgju.org/v1/widget/v2" defer></script>
+    {{--<tgju--}}
+            {{--type="ticker-tap"--}}
+            {{--items="131436,137203,137138,137205,137206,131398"--}}
+            {{--columns="dot"--}}
+            {{--speed="35"--}}
+            {{--token="webservice"--}}
+    {{--></tgju>--}}
+    {{--<script src="https://api.tgju.org/v1/widget/v2" defer></script>--}}
 </section>

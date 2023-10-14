@@ -122,17 +122,17 @@
 </div>
 
 
-<div class="rounded-circle footerIcons" id="footerIcons" style="color: #fff;
-    background-color: #dd1515;
-float: right;
-padding: 10px;
-max-width: 70px">
-    <a href="tel:{{\App\Providers\MyProvider::_text($siteDetailsProvider["phone_call_number"]->value)}}" target="_blank"
-       rel="nofollow" id="tellFooterIcon" class="tellFooterIcon"> <span
-                style="color: white;"><i
-                    class="fa fa-phone" style="font-size:32px ;"></i> </span>
-    </a>
-</div>
+{{--<div class="rounded-circle footerIcons" id="footerIcons" style="color: #fff;--}}
+    {{--background-color: #dd1515;--}}
+{{--float: right;--}}
+{{--padding: 10px;--}}
+{{--max-width: 70px">--}}
+    {{--<a href="tel:{{\App\Providers\MyProvider::_text($siteDetailsProvider["phone_call_number"]->value)}}" target="_blank"--}}
+       {{--rel="nofollow" id="tellFooterIcon" class="tellFooterIcon"> <span--}}
+                {{--style="color: white;"><i--}}
+                    {{--class="fa fa-phone" style="font-size:32px ;"></i> </span>--}}
+    {{--</a>--}}
+{{--</div>--}}
 
 
 <!-- Search model end -->
