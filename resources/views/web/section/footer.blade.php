@@ -11,7 +11,7 @@
                                                                   class="call-phone"> {{\App\Providers\MyProvider::_text($siteDetailsProvider["email"]->value)}}</a>
                             </li>
                             <li><i class="fa fa-copy"></i> <a
-                                        href="tel:{{\App\Providers\MyProvider::_text($siteDetailsProvider["mobile"]->value)}}"
+                                        href="tel:09120400318"
                                         class="call-phone">{{\App\Providers\MyProvider::_text($siteDetailsProvider["mobile"]->value)}}</a>
                             </li>
                             <li>
