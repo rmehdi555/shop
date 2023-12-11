@@ -21,26 +21,26 @@
                         {{--</ul>--}}
                     {{--</li>--}}
                     {{--@endif--}}
-                    {{--@if($user->type=='admin')--}}
-                    {{--<li class="@if($SID>=20 and $SID<30) active @endif">--}}
-                        {{--<a href="#news" class="has-arrow"><i--}}
-                                    {{--class="icon-diamond"></i><span>اخبار و مقالات</span></a>--}}
-                        {{--<ul aria-expanded="false" class="collapse">--}}
+                    @if($user->type=='admin')
+                    <li class="@if($SID>=20 and $SID<30) active @endif">
+                        <a href="#news" class="has-arrow"><i
+                                    class="icon-diamond"></i><span> مقالات</span></a>
+                        <ul aria-expanded="false" class="collapse">
                             {{--<li class="@if($SID==20 ) active @endif"><a--}}
                                         {{--href="{{ route('news.index',['SID' => '20','type' => 'news']) }}">{{__('admin/public.news_list')}}</a>--}}
                             {{--</li>--}}
                             {{--<li class="@if($SID==21 ) active @endif"><a--}}
                                         {{--href="{{ route('news.create',['SID' => '21','type' => 'news']) }}">{{__('admin/public.news_add')}}</a>--}}
                             {{--</li>--}}
-                            {{--<li class="@if($SID==22 ) active @endif"><a--}}
-                                        {{--href="{{ route('news.index',['SID' => '22','type' => 'article']) }}">لیست مقالات</a>--}}
-                            {{--</li>--}}
-                            {{--<li class="@if($SID==23 ) active @endif"><a--}}
-                                        {{--href="{{ route('news.create',['SID' => '23','type' => 'article']) }}">اضافه مقاله جدید</a>--}}
-                            {{--</li>--}}
-                        {{--</ul>--}}
-                    {{--</li>--}}
-                    {{--@endif--}}
+                            <li class="@if($SID==22 ) active @endif"><a
+                                        href="{{ route('news.index',['SID' => '22','type' => 'article']) }}">لیست مقالات</a>
+                            </li>
+                            <li class="@if($SID==23 ) active @endif"><a
+                                        href="{{ route('news.create',['SID' => '23','type' => 'article']) }}">اضافه مقاله جدید</a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endif
                     @if($user->type=='admin' or $user->type=='product')
                     <li class="@if($SID>=900 and $SID<1000) active @endif">
                         <a href="#site-setting" class="has-arrow"><i

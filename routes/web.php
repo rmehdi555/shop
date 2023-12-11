@@ -35,8 +35,9 @@ Route::middleware('language', 'visit')->group(function () {
 
     Route::get('/product/{slug}', 'HomeController@showProduct')->name('web.show.product');
 
-    Route::get('/news/category/{slug}', 'HomeController@showNewsCategory')->name('web.show.news.category');
-    Route::get('/news/{slug}', 'HomeController@showNews')->name('web.show.news');
+    Route::get('/articles', 'HomeController@articles')->name('web.articles');
+    Route::get('/articles/category/{slug}', 'HomeController@showNewsCategory')->name('web.show.news.category');
+    Route::get('/articles/{slug}', 'HomeController@showNews')->name('web.show.news');
 
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/user/active/email/{token}', 'UserController@activationAccountByEmail')->name('activation.account.by.email');

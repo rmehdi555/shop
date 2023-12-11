@@ -119,6 +119,11 @@
                         مجله
                     </a>
                 </li>
+                <li class="nav-item color-white">
+                    <a class="nav-link" href="https://assen.ir/articles">
+                        مقالات
+                    </a>
+                </li>
                 <li class="nav-item dropdown mega-menu">
                     <a class="nav-link dropdown-toggle" href="#" id="megaMenuDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

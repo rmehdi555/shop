@@ -95,6 +95,18 @@ class HomeController extends Controller
         return view('web.pages.product', compact('product', 'specialProducts', 'newProducts'));
     }
 
+    public function articles()
+    {
+        $categoryN = NewsCategories::where('id', config('app.newsId.article'))->first();
+        if (!isset($categoryN))
+            return redirect()->route('web.404');
+
+        $category = NewsCategories::where([['parent_id', '=', 0], ['status', '=', '1']])->orderBy('priority', 'desc')->get();
+        $newsCategory = NewsCategories::where([['parent_id', '=', $categoryN->id], ['status', '=', '1']])->orderBy('priority', 'desc')->pluck('id')->toArray();
+        $news = News::whereIn('news_categories_id', $newsCategory)->where('status', '=', '1')->orderBy('priority', 'desc')->orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.news-category', compact('news', 'category', 'categoryN'));
+    }
+
     public function showNewsCategory($slug)
     {
         $categoryN = NewsCategories::where('slug', $slug)->first();

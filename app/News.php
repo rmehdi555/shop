@@ -27,21 +27,21 @@ class News extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-    use Sluggable;
-
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
-    }
+//    use Sluggable;
+//
+//    /**
+//     * Return the sluggable configuration array for this model.
+//     *
+//     * @return array
+//     */
+//    public function sluggable()
+//    {
+//        return [
+//            'slug' => [
+//                'source' => 'title'
+//            ]
+//        ];
+//    }
 
     public function category()
     {

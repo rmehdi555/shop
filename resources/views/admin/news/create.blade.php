@@ -105,6 +105,11 @@
 
                                 <hr>
                                 <h3>سئو</h3>
+                                <div class="form-group">
+                                    <label>{{__('admin/public.slug')}}:</label>
+                                    <input type="text" name="slug" class="form-control"
+                                           value="" required>
+                                </div>
 
                                 <div class="form-group">
                                     <label>{{__('admin/public.seo_title')}} :</label>

@@ -24,14 +24,14 @@
             </url>
         @endforeach
     @endif
-    {{--@if($news != null)--}}
-    {{--@foreach($news as $item)--}}
-    {{--<url>--}}
-    {{--<loc>{{ route('web.show.news',$item->slug) }}</loc>--}}
-    {{--<lastmod>{{ $item->updated_at->tz('UTC')->toAtomString() }}</lastmod>--}}
-    {{--</url>--}}
-    {{--@endforeach--}}
-    {{--@endif--}}
+    @if($news != null)
+        @foreach($news as $item)
+            <url>
+                <loc>{{ route('web.show.news',$item->slug) }}</loc>
+                <lastmod>{{ $item->updated_at->tz('UTC')->toAtomString() }}</lastmod>
+            </url>
+        @endforeach
+    @endif
     <url>
         <loc>{{ route('web.contact.us.index') }}</loc>
         <lastmod>{{ now()->tz('UTC')->toAtomString() }}</lastmod>

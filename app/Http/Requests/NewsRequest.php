@@ -45,6 +45,7 @@ class NewsRequest extends FormRequest
                 'seo_description'=>'required|max:250',
                 'seo_follow'=>'required|integer',
                 'seo_index'=>'required|integer',
+                'slug' => 'required|max:250',
             ]);
             return $result;
         }
@@ -59,6 +60,7 @@ class NewsRequest extends FormRequest
             'seo_description'=>'required|max:250',
             'seo_follow'=>'required|integer',
             'seo_index'=>'required|integer',
+            'slug' => 'required|max:250|unique:products,slug,' . $this->news,
         ]);
         return $result;
 
