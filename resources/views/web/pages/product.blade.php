@@ -160,4 +160,20 @@
         </div>
     </section>
 
+
+    
+    <section class="blog-details-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 left-blog-pad">
+                    <div class="bd-text">
+                        {!! \App\Providers\MyProvider::_text($product->body) !!}
+
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </section>
+
 @endsection
